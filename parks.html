@@ -5,23 +5,28 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
 <title>園のご紹介｜かみのて保育園</title>
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='30' fill='%232c6f92'/><text x='50' y='71' font-size='58' font-weight='bold' text-anchor='middle' font-family='sans-serif' fill='%23fff'>か</text></svg>">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='24' fill='%232c6f92'/><text x='50' y='71' font-size='58' font-weight='bold' text-anchor='middle' font-family='sans-serif' fill='%23fff'>か</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700;900&family=Baloo+2:wght@500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@400;500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Baloo+2:wght@500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div class="note" data-i18n="k457">これは<b>デザイン案B</b>を、メニューごとに別ページへ分けたものです。写真は<b>イメージ写真</b>、情報は現行サイトからの引用です。文章と写真は差し替えます。</div>
+<div class="note" data-i18n="k114">これは<b>デザイン案A</b>を、メニューごとに別ページへ分けたものです。写真は<b>イメージ写真</b>、情報は現行サイトからの引用です。文章と写真は差し替えます。</div>
 
+<!-- ============ ヘッダー ============ -->
 
 
 <header class="head">
   <div class="head-in">
     <a class="brand" href="index.html">
-      <img class="mark" src="../img/logo-mark.png" alt="" width="313" height="192" decoding="async">
-      <span class="tx"><span class="name" data-i18n="k002">かみのて保育園</span><span class="en">KAMINOTE NURSERY</span></span>
+      <img class="mark" src="img/logo-mark.png" alt="" width="313" height="192" decoding="async">
+      <span class="tx">
+        <span class="corp" data-i18n="k001">株式会社 A and K　企業主導型・認可保育園</span>
+        <span class="name" data-i18n="k002">かみのて保育園</span>
+        <span class="en">KAMINOTE NURSERY</span>
+      </span>
     </a>
     <div class="lang">
     <button class="lang-btn" type="button" aria-expanded="false" aria-haspopup="true">
@@ -35,40 +40,64 @@
     </div>
   </div>
     <nav class="gnav"><a href="index.html#reasons" data-i18n="k003">3つの理由</a><a href="philosophy.html" data-i18n="k116">保育理念</a><a href="policy.html" data-i18n="k004">かみのての保育</a><a href="parks.html" aria-current="page" data-i18n="k005">園のご紹介</a><a href="byoji.html" data-i18n="k006">病児保育</a><a href="life.html" data-i18n="k100">園での生活</a><a href="admission.html" data-i18n="k007">入園案内</a><a href="recruit.html" data-i18n="k008">採用情報</a><a href="news.html" data-i18n="k012">お知らせ</a><a href="faq.html" data-i18n="k117">よくあるご質問</a></nav>
-    <a class="cta" href="contact.html" data-i18n="k010">見学・ご相談</a>
+    <a class="cta-pill" href="contact.html" data-i18n="k010">見学・ご相談</a>
     <button class="burger" type="button" aria-label="メニュー">☰</button>
   </div>
 </header>
 
-<!-- ============ ヒーロー ============ -->
+<!-- 右端に貼りつく縦のボタン（参考イメージの「園見学予約」「病児・病後児保育」）
+     ★文言は既にある鍵を使い回している（k019 / k006）。新しい鍵を足すと
+       i18n_mark.py を掛け直したときに番号がずれるため。 -->
 
 
+<div class="side-cta">
+  <a class="s1" href="contact.html">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5h14v15H5z" fill="none" stroke="#fff" stroke-width="2" stroke-linejoin="round"/><path d="M9 3v4M15 3v4M5 10h14" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg>
+    <span data-i18n="k011">見学のお申し込み</span>
+  </a>
+  <a class="s2" href="byoji.html">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7-4.6-7-9.4A4 4 0 0 1 12 8a4 4 0 0 1 7 2.6c0 4.8-7 9.4-7 9.4Z" fill="none" stroke="#fff" stroke-width="2" stroke-linejoin="round"/></svg>
+    <span data-i18n="k006">病児保育</span>
+  </a>
+</div>
+
+<!-- ============ 左の縦レール ============ -->
 
 
 <nav class="crumb"><a href="index.html" data-i18n="k118">トップ</a><span aria-hidden="true">›</span><span data-i18n="k005">園のご紹介</span></nav>
 <section class="sec" id="parks">
   <div class="wrap">
     <div class="sec-head">
-      <span class="eyebrow"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8" fill="#7bb87a"/></svg><span data-i18n="k005">園のご紹介</span></span>
+      <span class="eyebrow"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8" fill="#3fa39a"/></svg><span data-i18n="k005">園のご紹介</span></span>
       <h2><span data-i18n="k041">2つの園を運営しています</span><span class="en">OUR NURSERY</span></h2>
       <p data-i18n="k042">どちらも見学を受け付けています。</p>
     </div>
     <div class="parks">
       <div class="park">
-        <div class="ph"><img loading="lazy" decoding="async" src="../img/park-1.jpg" alt="イメージ写真（通園するこどもたち）"></div>
+        <div class="ph"><img loading="lazy" decoding="async" src="img/park-1.jpg" alt="イメージ写真（通園するこどもたち）"></div>
         <div class="park-body">
           <h3 data-i18n="k002">かみのて保育園</h3>
-          <span class="kind" data-i18n="k108">企業主導型保育園 ／ 可児市今渡3番5</span>
-          <dl><dt data-i18n="k044">開所時間</dt><dd>7:00 − 20:00</dd><dt data-i18n="k045">定員</dt><dd data-i18n="k046">30名</dd><dt data-i18n="k047">電話</dt><dd>0574-50-1211</dd><dt data-i18n="k048">申込</dt><dd data-i18n="k049">園に直接</dd></dl>
+          <div class="kind" data-i18n="k043">企業主導型保育園 ／ 岐阜県可児市今渡3番5</div>
+          <dl>
+            <dt data-i18n="k044">開所時間</dt><dd>7:00 − 20:00</dd>
+            <dt data-i18n="k045">定員</dt><dd data-i18n="k046">30名</dd>
+            <dt data-i18n="k047">電話</dt><dd>0574-50-1211</dd>
+            <dt data-i18n="k048">申込</dt><dd data-i18n="k049">園に直接</dd>
+          </dl>
           <a class="link-a" href="#" data-i18n="k050">この園について見る →</a>
         </div>
       </div>
       <div class="park">
-        <div class="ph"><img loading="lazy" decoding="async" src="../img/park-2.jpg" alt="イメージ写真（保育室であそぶこども）"></div>
+        <div class="ph"><img loading="lazy" decoding="async" src="img/park-2.jpg" alt="イメージ写真（保育室であそぶこども）"></div>
         <div class="park-body">
           <h3 data-i18n="k051">かみのて今渡保育園</h3>
-          <span class="kind" data-i18n="k109">可児市の認可保育園 ／ 可児市今渡3-11</span>
-          <dl><dt data-i18n="k044">開所時間</dt><dd data-i18n="k053">7:30 − 19:30（月〜金）<br>7:30 − 16:30（土・祝）</dd><dt data-i18n="k054">対象年齢</dt><dd data-i18n="k055">0歳 〜 5歳</dd><dt data-i18n="k047">電話</dt><dd>0574-66-3512</dd><dt data-i18n="k048">申込</dt><dd data-i18n="k056">可児市役所 保育課</dd></dl>
+          <div class="kind" data-i18n="k052">可児市の認可保育園 ／ 岐阜県可児市今渡3-11</div>
+          <dl>
+            <dt data-i18n="k044">開所時間</dt><dd data-i18n="k053">7:30 − 19:30（月〜金）<br>7:30 − 16:30（土・祝）</dd>
+            <dt data-i18n="k054">対象年齢</dt><dd data-i18n="k055">0歳 〜 5歳</dd>
+            <dt data-i18n="k047">電話</dt><dd>0574-66-3512</dd>
+            <dt data-i18n="k048">申込</dt><dd data-i18n="k056">可児市役所 保育課</dd>
+          </dl>
           <a class="link-a" href="#" data-i18n="k050">この園について見る →</a>
         </div>
       </div>
@@ -83,25 +112,42 @@
   <div class="wrap">
     <div class="foot-grid">
       <div>
-        <div class="name" data-i18n="k002">かみのて保育園</div><div class="en">KAMINOTE NURSERY</div>
+        <!-- フッターは地色が濃いので実ロゴを置けない（白抜きのハートと顔に地色が透ける）。
+             仮マークだけ残すとヘッダーと食い違うので、マークは置かず名前だけにする。 -->
+        <div class="brand">
+          <span class="tx"><span class="name" data-i18n="k002">かみのて保育園</span><span class="en">KAMINOTE NURSERY</span></span>
+        </div>
         <div class="foot-addr" data-i18n="k097">運営：株式会社 A and K<br>〒509-0207 岐阜県可児市今渡3-11<br>TEL 0574-66-3511</div>
       </div>
       <div>
         <h4 data-i18n="k098">園について</h4>
-        <ul><li><a href="policy.html" data-i18n="k004">かみのての保育</a></li>
-          <li><a href="philosophy.html" data-i18n="k116">保育理念</a></li><li><a href="parks.html" data-i18n="k005">園のご紹介</a></li><li><a href="byoji.html" data-i18n="k099">病児保育のご案内</a></li><li><a href="life.html" data-i18n="k100">園での生活</a></li><li><a href="admission.html" data-i18n="k061">入園案内・保育料</a></li><li><a href="news.html" data-i18n="k084">お知らせ・園の日記</a></li>
-          <li><a href="faq.html" data-i18n="k117">よくあるご質問</a></li></ul>
+        <ul>
+          <li><a href="policy.html" data-i18n="k004">かみのての保育</a></li>
+          <li><a href="philosophy.html" data-i18n="k116">保育理念</a></li>
+          <li><a href="parks.html" data-i18n="k005">園のご紹介</a></li>
+          <li><a href="byoji.html" data-i18n="k099">病児保育のご案内</a></li>
+          <li><a href="life.html" data-i18n="k100">園での生活</a></li>
+          <li><a href="admission.html" data-i18n="k061">入園案内・保育料</a></li>
+          <li><a href="news.html" data-i18n="k084">お知らせ・園の日記</a></li>
+          <li><a href="faq.html" data-i18n="k117">よくあるご質問</a></li>
+        </ul>
       </div>
       <div>
         <h4 data-i18n="k101">グループの事業</h4>
-        <ul><li><a href="https://easywebcraft.github.io/kaminote-day-design/b/" data-i18n="k102">児童発達支援・放課後等デイサービス</a><br><span style="font-size:12px;color:#93a292" data-i18n="k103">かみのてKIDS・かみのてSMILE</span></li><li><a href="recruit.html" data-i18n="k008">採用情報</a></li>
+        <ul>
+          <li><a href="https://easywebcraft.github.io/kaminote-day-design/a/" data-i18n="k102">児童発達支援・放課後等デイサービス</a><br><span style="font-size:12px;color:#8d857c" data-i18n="k103">かみのてKIDS・かみのてSMILE</span></li>
+          <li><a href="recruit.html" data-i18n="k008">採用情報</a></li>
           <li><a href="recruit-new.html" data-i18n="k119">新卒採用</a></li>
-          <li><a href="recruit-mid.html" data-i18n="k120">中途採用</a></li><li><a href="https://www.aandkcorp.com/" data-i18n="k104">会社案内</a></li></ul>
+          <li><a href="recruit-mid.html" data-i18n="k120">中途採用</a></li>
+          <li><a href="https://www.aandkcorp.com/" data-i18n="k104">会社案内</a></li>
+        </ul>
       </div>
     </div>
     <div class="copy"><span>© 2026 A and K Co., Ltd.</span><a href="#" data-i18n="k105">プライバシーポリシー</a></div>
   </div>
 </footer>
+
+
 
 <!-- ============ 開いたときの動き（後半：順に出す） ============
      隠す指定と対象の並びは <head> 側にある。ここでは出す順番だけを決める。 -->
@@ -208,6 +254,6 @@
 </script>
 
 
-<script src="../i18n.js"></script>
+<script src="i18n.js"></script>
 
 

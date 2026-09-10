@@ -1,646 +1,246 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ja">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>かみのて保育園｜デザイン案（トップページ）</title>
-<meta name="robots" content="noindex, nofollow">
-<meta name="description" content="株式会社 A and K さま 保育園サイト トップページのデザイン案です。">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='24' fill='%23f2a765'/><text x='50' y='71' font-size='58' font-weight='bold' text-anchor='middle' font-family='sans-serif' fill='%23fff'>か</text></svg>">
-
+<meta name="robots" content="noindex,nofollow">
+<title>かみのて保育園｜かみのて保育園</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='24' fill='%232c6f92'/><text x='50' y='71' font-size='58' font-weight='bold' text-anchor='middle' font-family='sans-serif' fill='%23fff'>か</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700;900&family=Baloo+2:wght@500;600;700&display=swap" rel="stylesheet">
-
-<style>
-/* ============================================================
-   かみのて保育園 サイト｜トップページ デザイン案
-   ・提案書 02節の構成（11ブロック）をそのままの順で実装している。
-   ・かみのてKIDSサンプル（kids-support-sample）とテイストを揃えている。
-     配色・書体・ヒーローの作り・波の区切りが共通言語。
-     ※サンプルにある浮遊する絵文字の飾りは、指示により入れていない。
-     3サイトに分けても同じグループだと分かるようにするため。
-   ・写真は Unsplash のイメージ写真。取材・撮影後に園の実写へ差し替える。
-   ============================================================ */
-*,*::before,*::after{box-sizing:border-box; margin:0; padding:0}
-
-:root{
-  /* 主色はアプリコット／オレンジ。放課後等デイサイトがパステルグリーンなので、
-     2サイトを並べたときに一目で見分けられるよう暖色に振っている。
-     薄いアプリコットは文字に使わないこと（読めない）。文字は --ap-dark 以上を使う。 */
-  --ap:#f2a765;
-  --ap-dark:#cf7a35;
-  --ap-deep:#a85c2a;
-  --ap-soft:#fdeade;
-  --hl:#ffe0b5;
-  /* 副アクセントの水色。病児保育と園の日記だけに使い、暖色一色になるのを避ける */
-  --sky:#8fcfe0;
-  --sky-dark:#3f8fa8;
-  --sky-soft:#e2f3f8;
-  --cream:#fdfaf4;
-  --cream-deep:#fdf1e5;
-  --ink:#574d43;
-  --ink-soft:#8a7e72;
-  --white:#fff;
-  --wrap:1080px;
-}
-html{scroll-behavior:smooth}
-body{
-  font-family:'Zen Maru Gothic',"Hiragino Maru Gothic ProN","Hiragino Sans","Yu Gothic UI",sans-serif;
-  background:var(--cream); color:var(--ink); line-height:1.9;
-  -webkit-font-smoothing:antialiased; -webkit-text-size-adjust:100%;
-  overflow-x:hidden;
-}
-.en{font-family:'Baloo 2',sans-serif}
-img{max-width:100%; display:block; height:auto}
-ul,ol{list-style:none}
-a{color:inherit}
-
-@keyframes fadeUp{from{opacity:0; transform:translateY(20px)} to{opacity:1; transform:translateY(0)}}
-.reveal{opacity:0}
-.reveal.show{animation:fadeUp .9s ease forwards}
-/* 動きを減らす設定の人には出さない */
-@media (prefers-reduced-motion:reduce){
-  .reveal{opacity:1; animation:none !important}
-}
-
-.wrap{max-width:var(--wrap); margin-inline:auto; padding-inline:24px}
-section{scroll-margin-top:76px}
-
-/* ---------- 案内バー（納品サイトには入りません） ---------- */
-.demobar{
-  background:var(--ink); color:#fff; font-size:.78rem; line-height:1.7;
-  padding:9px 20px; text-align:center;
-}
-.demobar b{color:var(--ap); font-weight:700}
-
-/* ---------- ヘッダー ---------- */
-.head{position:sticky; top:0; z-index:60; background:rgba(253,250,242,.94); backdrop-filter:blur(8px)}
-.head-in{display:flex; align-items:center; gap:16px; min-height:74px}
-.logo{display:flex; align-items:center; gap:11px; text-decoration:none; margin-right:auto}
-.logo-mark{
-  width:42px; height:42px; border-radius:50%; background:var(--ap); color:#fff;
-  font-weight:900; font-size:1.2rem; display:grid; place-items:center; flex:none;
-  box-shadow:0 5px 14px rgba(242,167,101,.45);
-}
-.logo-txt{font-weight:900; font-size:1.1rem; line-height:1.35; white-space:nowrap}
-.logo-sub{display:block; font-family:'Baloo 2',sans-serif; font-size:.66rem; font-weight:600;
-  color:var(--ap-dark); letter-spacing:.12em}
-/* 6項目あるので折り返すと崩れる。入りきらない幅ではメニューごと隠す（下の1040px） */
-.nav{display:flex; gap:22px; font-size:.9rem; font-weight:700}
-.nav a{text-decoration:none; position:relative; padding:4px 0; white-space:nowrap}
-.nav a::after{content:""; position:absolute; left:0; right:0; bottom:0; height:3px;
-  background:var(--ap); border-radius:3px; transform:scaleX(0); transition:transform .18s}
-.nav a:hover::after{transform:scaleX(1)}
-.head-cta{
-  background:var(--ap); color:#fff; text-decoration:none; font-weight:700; font-size:.9rem;
-  padding:12px 26px; border-radius:44px; white-space:nowrap; flex:none;
-  box-shadow:0 8px 20px rgba(245,162,90,.35); transition:transform .15s, box-shadow .2s;
-}
-.head-cta:hover{transform:translateY(-3px); box-shadow:0 12px 26px rgba(245,162,90,.45)}
-.burger{display:none; width:46px; height:46px; border:0; background:var(--white); border-radius:50%;
-  cursor:pointer; flex:none; align-items:center; justify-content:center;
-  box-shadow:0 5px 14px rgba(87,77,67,.1)}
-.burger span{display:block; width:18px; height:2.5px; background:var(--ink); border-radius:2px; position:relative}
-.burger span::before,.burger span::after{content:""; position:absolute; left:0; width:18px; height:2.5px;
-  background:var(--ink); border-radius:2px}
-.burger span::before{top:-6px} .burger span::after{top:6px}
-
-/* ---------- ヒーロー ---------- */
-.hero{
-  position:relative; overflow:hidden; padding:108px 24px 124px;
-  background:
-    linear-gradient(rgba(253,250,242,.84) 0%, rgba(253,250,242,.66) 55%, rgba(253,250,242,.84) 100%),
-    url('img/hero-toys.jpg') center/cover no-repeat;
-}
-.hero-inner{max-width:880px; margin:0 auto; text-align:center; position:relative; z-index:2;
-  text-shadow:0 1px 10px rgba(253,250,242,.75)}
-.hero-badge{
-  display:inline-block; background:var(--white); color:var(--ap-dark);
-  font-weight:700; font-size:.82rem; padding:7px 20px; border-radius:40px;
-  box-shadow:0 4px 12px rgba(87,77,67,.08); margin-bottom:24px; text-shadow:none;
-}
-.hero h1{font-size:clamp(1.85rem,5.2vw,3.1rem); font-weight:900; line-height:1.55;
-  letter-spacing:.02em; margin-bottom:20px}
-.hero h1 .hl{background:linear-gradient(transparent 62%, var(--hl) 62%); padding:0 4px}
-.hero h1 .warm{color:var(--ap-dark)}
-.hero .lead{font-size:1rem; color:var(--ink-soft); max-width:580px; margin:0 auto 30px}
-.hero-tags{display:flex; flex-wrap:wrap; gap:9px; justify-content:center; margin-bottom:32px}
-.tag{font-size:.78rem; font-weight:700; background:var(--white); color:var(--ap-dark);
-  padding:6px 16px; border-radius:40px; box-shadow:0 3px 10px rgba(87,77,67,.07); text-shadow:none}
-.hero-actions{display:flex; gap:14px; justify-content:center; flex-wrap:wrap}
-.hero .stock{position:absolute; left:16px; bottom:14px; z-index:3;
-  background:rgba(87,77,67,.6); color:#fff; font-size:.66rem; font-weight:700;
-  padding:4px 12px; border-radius:40px; line-height:1.6; text-shadow:none}
-.wave{display:block; width:100%; height:60px; margin-top:-1px}
-
-/* ---------- ボタン ---------- */
-.btn{display:inline-flex; align-items:center; gap:8px; text-decoration:none;
-  font-family:inherit; font-weight:700; font-size:.95rem; padding:15px 34px; border-radius:44px;
-  cursor:pointer; border:none; transition:transform .15s, box-shadow .2s, background .2s}
-.btn-primary{background:var(--ap); color:#fff; box-shadow:0 8px 20px rgba(245,162,90,.35)}
-.btn-primary:hover{background:var(--ap-dark); transform:translateY(-3px); box-shadow:0 12px 26px rgba(245,162,90,.45)}
-.btn-ghost{background:var(--white); color:var(--ap-dark); box-shadow:0 6px 16px rgba(87,77,67,.08)}
-.btn-ghost:hover{transform:translateY(-3px); box-shadow:0 10px 22px rgba(87,77,67,.12)}
-
-/* ---------- 帯（開園時間など） ---------- */
-.strip{background:var(--cream-deep); padding:30px 0}
-.strip-in{display:flex; flex-wrap:wrap; justify-content:center; gap:14px 18px}
-.strip-item{background:var(--white); border-radius:24px; padding:14px 26px; text-align:center;
-  box-shadow:0 5px 16px rgba(87,77,67,.06); min-width:180px}
-.strip-item b{display:block; font-family:'Baloo 2',sans-serif; font-size:1.3rem; font-weight:700;
-  color:var(--ap-dark); line-height:1.4}
-.strip-item span{font-size:.8rem; color:var(--ink-soft); font-weight:700}
-
-/* ---------- セクション共通 ---------- */
-.sec{padding:78px 0}
-.sec.white{background:var(--white)}
-.sec.deep{background:var(--cream-deep)}
-.sec-head{text-align:center; margin-bottom:48px}
-.sec-label{display:inline-block; font-weight:700; font-size:.85rem; letter-spacing:.08em;
-  color:var(--ap-dark); margin-bottom:8px}
-.sec-title{font-size:clamp(1.5rem,3.4vw,2.1rem); font-weight:900; letter-spacing:.02em; line-height:1.55}
-.sec-title .en{display:block; font-size:.72rem; color:var(--ap); letter-spacing:.18em;
-  margin-top:6px; font-weight:600}
-.sec-head .note{margin-top:14px; color:var(--ink-soft); font-size:.95rem}
-
-/* 写真枠。中身は Unsplash のイメージ写真で、取材時に園の実写へ差し替える。
-   借り物と分かるよう左上に「イメージ写真」を出す（納品時は .stock ごと削除）。 */
-.photo{position:relative; overflow:hidden; border-radius:24px; margin:0}
-.photo img{width:100%; height:100%; object-fit:cover}
-.photo .stock{position:absolute; top:12px; left:12px; z-index:2;
-  background:rgba(87,77,67,.72); color:#fff; font-size:.68rem; font-weight:700;
-  padding:4px 12px; border-radius:40px; line-height:1.6}
-
-/* ---------- 選ばれている3つの理由 ---------- */
-.reasons{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:26px}
-.reason{background:var(--cream); border-radius:28px; padding:34px 26px 32px; text-align:center;
-  box-shadow:0 8px 24px rgba(87,77,67,.06)}
-.reason .icon{width:76px; height:76px; margin:0 auto 18px; border-radius:50%;
-  display:grid; place-items:center; font-size:2rem}
-.reason:nth-child(1) .icon{background:var(--ap-soft)}
-.reason:nth-child(2) .icon{background:var(--sky-soft)}
-.reason:nth-child(3) .icon{background:var(--cream-deep)}
-.reason h3{font-size:1.1rem; font-weight:900; line-height:1.65; margin-bottom:10px}
-.reason p{font-size:.92rem; color:var(--ink-soft); text-align:left; line-height:1.9}
-
-/* ---------- かみのての保育 ---------- */
-.policy{display:grid; grid-template-columns:minmax(0,.95fr) minmax(0,1fr); gap:50px; align-items:center}
-.policy .photo{aspect-ratio:4/3}
-.policy h2{font-size:clamp(1.4rem,3vw,2rem); font-weight:900; line-height:1.6; margin-bottom:20px}
-.policy h2 .warm{color:var(--ap-dark)}
-.policy .lead{color:var(--ink-soft); margin-bottom:22px}
-.policy ul{display:grid; gap:16px}
-.policy li{display:grid; grid-template-columns:auto minmax(0,1fr); gap:13px; align-items:start;
-  font-size:.95rem; background:var(--white); border-radius:20px; padding:16px 20px;
-  box-shadow:0 5px 16px rgba(87,77,67,.05)}
-.policy li i{font-style:normal; font-size:1.15rem; line-height:1.6}
-.policy li b{color:var(--ap-dark)}
-
-/* ---------- 園のご紹介 ---------- */
-.parks{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:28px}
-.park{background:var(--cream); border-radius:28px; overflow:hidden; display:flex; flex-direction:column;
-  box-shadow:0 8px 24px rgba(87,77,67,.06)}
-.park .photo{border-radius:0; aspect-ratio:16/10}
-.park-body{padding:26px 26px 30px; display:flex; flex-direction:column; flex:1}
-.park h3{font-size:1.25rem; font-weight:900; margin-bottom:4px}
-.park .where{font-size:.8rem; color:var(--ink-soft); font-weight:700; margin-bottom:16px}
-.park dl{display:grid; grid-template-columns:auto minmax(0,1fr); gap:9px 16px; font-size:.88rem; margin-bottom:22px}
-.park dt{color:var(--ap-dark); font-weight:700; white-space:nowrap}
-.park dd{color:var(--ink-soft)}
-.link-more{margin-top:auto; text-decoration:none; font-weight:700; font-size:.92rem;
-  color:var(--ap-dark); display:inline-flex; align-items:center; gap:8px}
-.link-more::after{content:"→"; transition:transform .15s}
-.link-more:hover::after{transform:translateX(4px)}
-
-/* ---------- 病児保育 ---------- */
-.byoji{background:var(--sky-soft); border-radius:32px; padding:36px;
-  display:grid; grid-template-columns:minmax(0,.72fr) minmax(0,1fr); gap:36px; align-items:center}
-.byoji .photo{aspect-ratio:4/3}
-.byoji .btn{margin-top:22px}
-.byoji .sec-label{margin-bottom:4px}
-.byoji h2{font-size:clamp(1.3rem,3vw,1.8rem); font-weight:900; line-height:1.6; margin-bottom:12px}
-.byoji p{color:var(--ink-soft); font-size:.95rem}
-.byoji .btn{white-space:nowrap}
-
-/* ---------- 入園案内 ---------- */
-.admis{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:28px}
-.admis-card{background:var(--cream); border-radius:28px; padding:34px 30px 36px;
-  box-shadow:0 8px 24px rgba(87,77,67,.06)}
-.admis-card.hi{background:var(--sky-soft)}
-.admis-card h3{font-size:1.18rem; font-weight:900; margin-bottom:10px}
-.admis-card p{font-size:.92rem; color:var(--ink-soft); margin-bottom:22px}
-.flow{display:flex; flex-wrap:wrap; gap:9px; margin-bottom:24px}
-.flow li{font-size:.8rem; background:var(--white); color:var(--ap-dark); font-weight:700;
-  padding:7px 15px; border-radius:40px}
-
-.disc-note{background:var(--sky-soft); border-radius:20px; padding:20px 24px;
-  font-size:.9rem; line-height:1.85}
-.disc-note b{color:var(--sky-dark)}
-
-/* ---------- 採用 ---------- */
-.recruit{background:var(--ap-deep); color:#fff; border-radius:32px; overflow:hidden}
-.recruit-in{display:grid; grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr); gap:40px;
-  align-items:center; padding:48px}
-.recruit .sec-label{color:#fff8ec}
-.recruit h2{font-size:clamp(1.4rem,3.4vw,2rem); font-weight:900; line-height:1.55; margin-bottom:16px}
-.recruit p{color:rgba(255,255,255,.94); font-size:.96rem}
-.recruit .btn{margin-top:26px}
-.nums{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px}
-.num{background:rgba(255,255,255,.2); border-radius:22px; padding:20px 16px; text-align:center}
-.num b{display:block; font-family:'Baloo 2',sans-serif; font-size:1.55rem; font-weight:700;
-  line-height:1.35; color:#fff}
-.num span{font-size:.76rem; color:rgba(255,255,255,.9); font-weight:700}
-
-/* ---------- お知らせ ---------- */
-.news-grid{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:26px}
-.news{background:var(--cream); border-radius:28px; overflow:hidden; text-decoration:none;
-  display:flex; flex-direction:column; box-shadow:0 8px 24px rgba(87,77,67,.06);
-  transition:transform .15s, box-shadow .2s}
-.news:hover{transform:translateY(-4px); box-shadow:0 14px 30px rgba(87,77,67,.1)}
-.news .photo{border-radius:0; aspect-ratio:16/9}
-.news-body{padding:20px 22px 26px}
-.news-meta{display:flex; align-items:center; gap:10px; margin-bottom:8px}
-.news time{font-family:'Baloo 2',sans-serif; font-size:.8rem; color:var(--ink-soft); font-weight:600}
-.cat{font-size:.7rem; font-weight:700; padding:4px 12px; border-radius:40px;
-  background:var(--ap-soft); color:var(--ap-dark)}
-.cat.diary{background:var(--sky-soft); color:var(--sky-dark)}
-.news h3{font-size:.96rem; line-height:1.75; font-weight:700}
-.news-more{text-align:center; margin-top:38px}
-
-/* ---------- お問い合わせ ---------- */
-.contact-box{background:var(--white); border-radius:36px; padding:50px 34px 52px;
-  max-width:780px; margin-inline:auto; text-align:center; box-shadow:0 10px 30px rgba(87,77,67,.07)}
-.contact-box h2{font-size:clamp(1.35rem,3.2vw,1.9rem); font-weight:900; line-height:1.6; margin-bottom:14px}
-.contact-box p{color:var(--ink-soft); font-size:.95rem}
-.contact-btns{display:flex; flex-wrap:wrap; gap:14px; justify-content:center; margin-top:30px}
-.tel{margin-top:30px; padding-top:26px; border-top:2px dotted var(--cream-deep)}
-.tel span{font-size:.8rem; color:var(--ink-soft); font-weight:700}
-.tel b{display:block; font-family:'Baloo 2',sans-serif; font-size:2rem; font-weight:700;
-  line-height:1.4; color:var(--ap-dark)}
-.tel small{font-size:.78rem; color:var(--ink-soft)}
-
-/* ---------- フッター ---------- */
-.foot{background:var(--ink); color:#e4dcd2; padding:56px 0 34px; font-size:.88rem}
-.foot-in{display:grid; grid-template-columns:minmax(0,1.2fr) repeat(2,minmax(0,1fr)); gap:36px}
-.foot .logo-mark{background:var(--ap); box-shadow:none}
-.foot .logo-txt{color:#fff}
-.foot .logo-sub{color:#c9bfb4}
-.foot-org{margin-top:16px; line-height:1.95; font-size:.84rem; color:#c9bfb4}
-.foot h4{font-size:.82rem; color:var(--ap); letter-spacing:.1em; margin-bottom:13px; font-weight:700}
-.foot li{margin-bottom:10px}
-/* 放課後等デイの下に、内包する2事業所を小さく添える */
-.foot li small{display:block; font-size:.76rem; color:#a89c90; line-height:1.7}
-.foot a{text-decoration:none; color:#d9d0c6}
-.foot a:hover{color:#fff}
-.foot-btm{margin-top:40px; padding-top:22px; border-top:1px solid rgba(255,255,255,.14);
-  display:flex; flex-wrap:wrap; gap:10px 24px; justify-content:space-between;
-  font-size:.78rem; color:#a89c90}
-
-/* ナビ6項目＋ロゴ＋CTAは約1040pxを切ると入らない。折り返させずここで畳む */
-@media (max-width:1040px){
-  .nav{display:none}
-  .burger{display:flex}
-}
-/* ---------- タブレット ---------- */
-@media (max-width:900px){
-  .policy{grid-template-columns:minmax(0,1fr); gap:32px}
-  .recruit-in{grid-template-columns:minmax(0,1fr); padding:36px 28px}
-  .foot-in{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
-}
-/* ---------- スマートフォン ---------- */
-@media (max-width:680px){
-  .sec{padding:58px 0}
-  .sec-head{margin-bottom:34px}
-  .head-cta{display:none}
-  .burger{display:flex}
-  .hero{padding:64px 20px 78px}
-  .hero-actions .btn{flex:1 1 100%; justify-content:center}
-  .strip-item{flex:1 1 100%; min-width:0}
-  .reasons{grid-template-columns:minmax(0,1fr); gap:18px}
-  /* アイコンと本文の横並び。見出しと本文は .reason-body でひとまとめにしてある */
-  .reason{display:grid; grid-template-columns:auto minmax(0,1fr); gap:18px; text-align:left;
-    padding:24px 22px; align-items:start}
-  .reason .icon{margin:0; width:58px; height:58px; font-size:1.5rem}
-  .policy .photo{aspect-ratio:3/2}
-  .parks,.admis,.news-grid{grid-template-columns:minmax(0,1fr)}
-  .byoji{grid-template-columns:minmax(0,1fr); padding:32px 24px; gap:24px}
-  .byoji .btn{width:100%; justify-content:center}
-  .contact-box{padding:36px 22px 40px}
-  .contact-btns .btn{flex:1 1 100%; justify-content:center}
-  .tel b{font-size:1.7rem}
-  .foot-in{grid-template-columns:minmax(0,1fr); gap:28px}
-}
-</style>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@400;500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Baloo+2:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div class="demobar">
-  <b>デザイン案</b>　保育園サイトのトップページです。写真は雰囲気をつかむための<b>イメージ写真</b>、園の情報は現行サイトからの引用です。文章と写真は差し替えます。
-</div>
+<div class="note" data-i18n="k114">これは<b>デザイン案A</b>を、メニューごとに別ページへ分けたものです。写真は<b>イメージ写真</b>、情報は現行サイトからの引用です。文章と写真は差し替えます。</div>
+
+<!-- ============ ヘッダー ============ -->
+
 
 <header class="head">
-  <div class="wrap head-in">
-    <a class="logo" href="#">
-      <span class="logo-mark">か</span>
-      <span class="logo-txt">かみのて保育園<span class="logo-sub">KAMINOTE NURSERY</span></span>
+  <div class="head-in">
+    <a class="brand" href="index.html">
+      <img class="mark" src="img/logo-mark.png" alt="" width="313" height="192" decoding="async">
+      <span class="tx">
+        <span class="corp" data-i18n="k001">株式会社 A and K　企業主導型・認可保育園</span>
+        <span class="name" data-i18n="k002">かみのて保育園</span>
+        <span class="en">KAMINOTE NURSERY</span>
+      </span>
     </a>
-    <!-- 並びは提案書の保育園サイト ページ一覧の順。#のものは別ページ（このデザイン案には無い） -->
-    <nav class="nav">
-      <a href="#">私たちについて</a>
-      <a href="#policy">かみのての保育</a>
-      <a href="#parks">園のご紹介</a>
-      <a href="#byoji">病児保育</a>
-      <a href="#admission">入園案内</a>
-      <a href="#recruit">採用情報</a>
-    </nav>
-    <a class="head-cta" href="#contact">見学・ご相談はこちら</a>
-    <button class="burger" type="button" aria-label="メニューを開く"><span></span></button>
+    <div class="lang">
+    <button class="lang-btn" type="button" aria-expanded="false" aria-haspopup="true">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M3 12h18M12 3c2.5 2.6 2.5 15.4 0 18M12 3c-2.5 2.6-2.5 15.4 0 18" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>
+      <span data-i18n="k115">言語</span>
+    </button>
+    <div class="lang-menu" hidden>
+      <button type="button" data-lang="ja">日本語</button>
+      <button type="button" data-lang="en">English</button>
+      <button type="button" data-lang="pt">Português</button>
+    </div>
+  </div>
+    <nav class="gnav"><a href="index.html#reasons" data-i18n="k003">3つの理由</a><a href="philosophy.html" data-i18n="k116">保育理念</a><a href="policy.html" data-i18n="k004">かみのての保育</a><a href="parks.html" data-i18n="k005">園のご紹介</a><a href="byoji.html" data-i18n="k006">病児保育</a><a href="life.html" data-i18n="k100">園での生活</a><a href="admission.html" data-i18n="k007">入園案内</a><a href="recruit.html" data-i18n="k008">採用情報</a><a href="news.html" data-i18n="k012">お知らせ</a><a href="faq.html" data-i18n="k117">よくあるご質問</a></nav>
+    <a class="cta-pill" href="contact.html" data-i18n="k010">見学・ご相談</a>
+    <button class="burger" type="button" aria-label="メニュー">☰</button>
   </div>
 </header>
 
-<!-- ============ ヒーロー ============ -->
+<!-- 右端に貼りつく縦のボタン（参考イメージの「園見学予約」「病児・病後児保育」）
+     ★文言は既にある鍵を使い回している（k019 / k006）。新しい鍵を足すと
+       i18n_mark.py を掛け直したときに番号がずれるため。 -->
+
+
+<div class="side-cta">
+  <a class="s1" href="contact.html">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5h14v15H5z" fill="none" stroke="#fff" stroke-width="2" stroke-linejoin="round"/><path d="M9 3v4M15 3v4M5 10h14" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg>
+    <span data-i18n="k011">見学のお申し込み</span>
+  </a>
+  <a class="s2" href="byoji.html">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7-4.6-7-9.4A4 4 0 0 1 12 8a4 4 0 0 1 7 2.6c0 4.8-7 9.4-7 9.4Z" fill="none" stroke="#fff" stroke-width="2" stroke-linejoin="round"/></svg>
+    <span data-i18n="k006">病児保育</span>
+  </a>
+</div>
+
+<!-- ============ 左の縦レール ============ -->
+
+
 <section class="hero">
-  <span class="stock">イメージ写真</span>
-  <div class="hero-inner">
-    <span class="hero-badge">岐阜県可児市 ・ かみのて保育園／かみのて今渡保育園</span>
-    <h1>こどもの<span class="hl">「やってみたい」</span>を、<br><span class="warm">まんなかに。</span></h1>
-    <p class="lead">
-      朝も夕方も、体調をくずした日も。<br>
-      はたらくご家庭のとなりで、こどもの一日をあずかります。
-    </p>
-    <div class="hero-tags">
-      <span class="tag">2園＋病児保育室</span>
-      <span class="tag">企業主導型＋認可</span>
-      <span class="tag">多言語対応</span>
-    </div>
+  <div class="hero-bg">
+    <img fetchpriority="high" decoding="async" src="img/hero-toys.jpg" alt="イメージ写真">
+    <!-- 写真の上下を雲形で切る。★切り抜きではなく「同じ色の面をかぶせて」いる（軽いので） -->
+    <svg class="hero-edge t" viewBox="0 0 1440 100" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0 0H1440V34q-70 40-150 6-70 34-170 4-80 44-190 2-90 40-200 6-80 36-180 2-90 42-200 4-80 38-180 6-70 34-170 4Z"/>
+    </svg>
+    <svg class="hero-edge b" viewBox="0 0 1440 100" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0 100H1440V66q-70-40-150-6-70-34-170-4-80-44-190-2-90-40-200-6-80-36-180-2-90-42-200-4-80-38-180-6-70-34-170-4Z"/>
+    </svg>
+  </div>
+
+  <!-- 左下のイラスト（参考イメージの木立） -->
+  <svg class="hero-trees" viewBox="0 0 240 200" aria-hidden="true">
+    <g>
+      <path d="M62 34c26 0 44 20 44 42 0 10-4 18-11 25 5 6 8 13 8 21 0 20-18 34-41 34s-41-14-41-34c0-8 3-15 8-21-7-7-11-15-11-25 0-22 18-42 44-42Z" fill="#8cc36b"/>
+      <path d="M58 152h8v34h-8z" fill="#7a5b3e"/>
+      <g fill="#f5df7a"><circle cx="42" cy="70" r="3.4"/><circle cx="76" cy="60" r="3"/><circle cx="60" cy="96" r="3.4"/><circle cx="34" cy="112" r="3"/><circle cx="84" cy="108" r="3.4"/></g>
+      <path d="M164 44 200 96h-22l30 44h-88l30-44h-22Z" fill="#3fa39a"/>
+      <path d="M160 140h8v42h-8z" fill="#7a5b3e"/>
+      <g fill="#f5df7a"><circle cx="152" cy="104" r="3.4"/><circle cx="180" cy="92" r="3"/><circle cx="168" cy="126" r="3.4"/><circle cx="140" cy="128" r="3"/></g>
+    </g>
+  </svg>
+
+  <!-- 右上の飾り群（参考イメージの花・粒のかたまり） -->
+  <svg class="hero-cluster" viewBox="0 0 200 200" aria-hidden="true">
+    <g opacity=".9">
+      <circle cx="60" cy="38" r="15" fill="#f5b301"/><circle cx="104" cy="30" r="9" fill="#f2856a"/>
+      <circle cx="142" cy="52" r="13" fill="#8b7bc8"/><circle cx="46" cy="82" r="10" fill="#3fa39a"/>
+      <circle cx="92" cy="74" r="17" fill="#f7c9bb"/><circle cx="136" cy="98" r="8" fill="#f5b301"/>
+      <circle cx="66" cy="122" r="12" fill="#a8d5cf"/><circle cx="110" cy="128" r="9" fill="#f2856a"/>
+      <circle cx="150" cy="140" r="6" fill="#8b7bc8"/><circle cx="88" cy="164" r="7" fill="#f5b301"/>
+    </g>
+  </svg>
+
+  <div class="hero-copy">
+    <span class="hero-eyebrow" data-i18n="k013">岐阜県可児市 ・ かみのて保育園／かみのて今渡保育園</span>
+    <h1 class="mincho">
+      <span class="ln"><span data-i18n="k014">こどもの</span><br class="br-sp"><span data-i18n="k015">「やってみたい」を、
+        </span><svg class="deco" style="right:3%;top:-14%;width:38px" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 4c5 7 8 10 8 14a8 8 0 1 1-16 0c0-4 3-7 8-14Z" fill="#8b7bc8" opacity=".9"/></svg>
+      </span>
+      <span class="ln"><span data-i18n="k016">まんなかに。
+        </span><svg class="deco" style="left:14%;bottom:-4%;width:46px" viewBox="0 0 60 30" aria-hidden="true"><path d="M4 20q8-12 16 0t16 0 16 0" stroke="#f5b301" stroke-width="5" fill="none" stroke-linecap="round"/></svg>
+        <svg class="deco" style="right:16%;top:-10%;width:28px" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="16" fill="#f2856a" opacity=".85"/></svg>
+      </span>
+    </h1>
+    <p class="hero-lead" data-i18n="k017">朝も夕方も、体調をくずした日も。<br>はたらくご家庭のとなりで、こどもの一日をあずかります。</p>
+    <div class="hero-tags"><span data-i18n="k018">2園＋病児保育室</span><span data-i18n="k019">企業主導型＋認可</span><span data-i18n="k020">多言語対応</span></div>
     <div class="hero-actions">
-      <a class="btn btn-primary" href="#contact">見学のお申し込み</a>
-      <a class="btn btn-ghost" href="#admission">入園案内を見る</a>
+      <a class="btn btn-main" href="contact.html" data-i18n="k011">見学のお申し込み</a>
+      <a class="btn btn-sub" href="admission.html" data-i18n="k021">入園案内を見る</a>
     </div>
   </div>
 </section>
-<svg class="wave" viewBox="0 0 1440 60" preserveAspectRatio="none" aria-hidden="true"><path fill="#fef4e4" d="M0,40 C240,70 480,10 720,30 C960,50 1200,15 1440,35 L1440,60 L0,60 Z"></path></svg>
 
-<div class="strip">
-  <div class="wrap strip-in">
-    <div class="strip-item"><b>7:00 − 20:00</b><span>かみのて保育園の開所時間</span></div>
-    <div class="strip-item"><b>2 + 1</b><span>2つの園と病児保育室</span></div>
-    <div class="strip-item"><b>4</b><span>英語・タガログ語・ビサヤ語・ポルトガル語</span></div>
+<!-- ============ 数字の帯 ============ -->
+
+
+<section class="sec" id="news">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2><span data-i18n="k012">お知らせ</span><span class="en">NEWS</span></h2>
+    </div>
+    <ul class="news-list">
+      <li><a href="news.html"><span class="date">2026.07.24</span><span class="tag" data-i18n="k012">お知らせ</span><span data-i18n="k086">夏まつりを開催しました（見出しは仮です）</span></a></li>
+      <li><a href="news.html"><span class="date">2026.07.18</span><span class="tag d" data-i18n="k087">園の日記</span><span data-i18n="k088">はじめての泥んこあそび（見出しは仮です）</span></a></li>
+      <li><a href="news.html"><span class="date">2026.07.05</span><span class="tag" data-i18n="k012">お知らせ</span><span data-i18n="k089">2027年度の入園受付についてのご案内（見出しは仮です）</span></a></li>
+    </ul>
+    <p style="text-align:center;margin-top:28px"><a class="link-a" href="news.html" data-i18n="k090">お知らせ一覧を見る →</a></p>
+  </div>
+</section>
+
+<div class="stats">
+  <div class="wrap">
+    <div><div class="n c1">7:00 − 20:00</div><div class="l" data-i18n="k022">かみのて保育園の開所時間</div></div>
+    <div><div class="n c2">2 + 1</div><div class="l" data-i18n="k023">2つの園と病児保育室</div></div>
+    <div><div class="n c3">4</div><div class="l" data-i18n="k024">英語・タガログ語・ビサヤ語・ポルトガル語</div></div>
   </div>
 </div>
 
-<!-- ============ 選ばれている3つの理由 ============ -->
-<section class="sec white">
+<!-- ============ 3つの理由 ============ -->
+
+
+<section class="sec" id="reasons">
   <div class="wrap">
-    <div class="sec-head reveal">
-      <span class="sec-label">🌱 かみのての3つの安心</span>
-      <h2 class="sec-title">かみのてが選ばれている、3つの理由<span class="en">THREE REASONS</span></h2>
+    <div class="sec-head">
+      <span class="eyebrow"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8" fill="#f5b301"/></svg><span data-i18n="k025">かみのての3つの安心</span></span>
+      <h2><span data-i18n="k026">かみのてが選ばれている、3つの理由</span><span class="en">THREE REASONS</span></h2>
     </div>
-    <div class="reasons reveal">
+    <div class="reasons">
       <div class="reason">
-        <div class="icon" aria-hidden="true">🕖</div>
-        <div class="reason-body">
-          <h3>朝は7時台から、夜7時半・8時まで</h3>
-          <p>かみのて保育園は7:00〜20:00、かみのて今渡保育園は7:30〜19:30。早番も遅番も、ご家庭のはたらき方に合わせてお預かりします。</p>
-        </div>
+        <svg class="ic" viewBox="0 0 64 64"><circle cx="32" cy="32" r="28" fill="#fdf0d2"/><circle cx="32" cy="32" r="18" fill="none" stroke="#f5b301" stroke-width="3"/><path d="M32 22v11l7 5" stroke="#f5b301" stroke-width="3" fill="none" stroke-linecap="round"/></svg>
+        <h3 data-i18n="k027">朝は7時台から、夜7時半・8時まで</h3>
+        <p data-i18n="k028">かみのて保育園は7:00〜20:00、かみのて今渡保育園は7:30〜19:30。早番も遅番も、ご家庭のはたらき方に合わせてお預かりします。</p>
       </div>
       <div class="reason">
-        <div class="icon" aria-hidden="true">🩺</div>
-        <div class="reason-body">
-          <h3>熱が出た日も、あずかります</h3>
-          <p>かみのて保育園に併設した病児保育室で、生後6ヵ月から小学校6年生までお預かりします。他の園や小学校に通うお子さまも利用できます。</p>
-        </div>
+        <svg class="ic" viewBox="0 0 64 64"><circle cx="32" cy="32" r="28" fill="#e6f4f2"/><path d="M32 44s-12-7-12-15a7 7 0 0 1 12-5 7 7 0 0 1 12 5c0 8-12 15-12 15Z" fill="#3fa39a"/></svg>
+        <h3 data-i18n="k029">熱が出た日も、あずかります</h3>
+        <p data-i18n="k030">かみのて保育園に併設した病児保育室で、生後6ヵ月から小学校6年生までお預かりします。他の園や小学校に通うお子さまも利用できます。</p>
       </div>
       <div class="reason">
-        <div class="icon" aria-hidden="true">🌏</div>
-        <div class="reason-body">
-          <h3>いろんな言葉で、迎えます</h3>
-          <p>英語・タガログ語・ビサヤ語・ポルトガル語に対応。外国にルーツのあるご家庭も安心して通えるよう、文化のちがいを前提にした保育をしています。</p>
-        </div>
+        <svg class="ic" viewBox="0 0 64 64"><circle cx="32" cy="32" r="28" fill="#efeaf9"/><circle cx="32" cy="32" r="17" fill="none" stroke="#8b7bc8" stroke-width="3"/><path d="M15 32h34M32 15c6 7 6 27 0 34M32 15c-6 7-6 27 0 34" stroke="#8b7bc8" stroke-width="2.4" fill="none"/></svg>
+        <h3 data-i18n="k031">いろんな言葉で、迎えます</h3>
+        <p data-i18n="k032">英語・タガログ語・ビサヤ語・ポルトガル語に対応。外国にルーツのあるご家庭も安心して通えるよう、文化のちがいを前提にした保育をしています。</p>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ============ かみのての保育 ============ -->
-<section class="sec" id="policy">
-  <div class="wrap policy reveal">
-    <figure class="photo">
-      <span class="stock">イメージ写真</span>
-      <img src="img/policy.jpg" alt="保育室であそぶこどもたち" loading="lazy">
-    </figure>
-    <div>
-      <span class="sec-label">🌱 かみのての保育</span>
-      <h2>かみのての保育 ―<br><span class="warm">大切にしていること</span></h2>
-      <p class="lead">
-        こどもは、教えられて育つのではなく、自分でためして育っていきます。
-        わたしたちの仕事は、その「やってみたい」が生まれる場所をつくり、
-        できるまで待つことだと考えています。
-      </p>
-      <ul>
-        <li><i aria-hidden="true">🌱</i><span><b>待つ保育。</b>先まわりして手を出さず、自分でできた瞬間をいっしょに喜びます。</span></li>
-        <li><i aria-hidden="true">🤝</i><span><b>ちがいを、あたりまえに。</b>言葉も文化も育ちのペースもちがう。そのままで過ごせる場所にします。</span></li>
-        <li><i aria-hidden="true">🏠</i><span><b>ご家庭と、ひとつのチームで。</b>園での姿を毎日おつたえし、いっしょに考えていきます。</span></li>
-      </ul>
-    </div>
-  </div>
-</section>
 
-<!-- ============ 園のご紹介 ============ -->
-<section class="sec white" id="parks">
+
+<section class="sec white" id="gates">
   <div class="wrap">
-    <div class="sec-head reveal">
-      <span class="sec-label">🌱 園のご紹介</span>
-      <h2 class="sec-title">2つの園を運営しています<span class="en">OUR NURSERY</span></h2>
-      <p class="note">どちらも見学を受け付けています。</p>
+    <div class="sec-head">
+      <span class="eyebrow" data-i18n="k173">サイトのご案内</span>
+      <h2><span data-i18n="k174">知りたいことから、どうぞ</span><span class="en">CONTENTS</span></h2>
     </div>
-    <div class="parks reveal">
-      <article class="park">
-        <figure class="photo">
-          <span class="stock">イメージ写真</span>
-          <img src="img/park-1.jpg" alt="通園するこどもたち" loading="lazy">
-        </figure>
-        <div class="park-body">
-          <h3>かみのて保育園</h3>
-          <p class="where">企業主導型保育園 ／ 岐阜県可児市今渡3番5</p>
-          <dl>
-            <dt>開所時間</dt><dd>7:00 − 20:00</dd>
-            <dt>定員</dt><dd>30名</dd>
-            <dt>電話</dt><dd>0574-50-1211</dd>
-            <dt>申込</dt><dd>園に直接</dd>
-          </dl>
-          <a class="link-more" href="#">この園について見る</a>
-        </div>
-      </article>
-      <article class="park">
-        <figure class="photo">
-          <span class="stock">イメージ写真</span>
-          <img src="img/park-2.jpg" alt="保育室であそぶこども" loading="lazy">
-        </figure>
-        <div class="park-body">
-          <h3>かみのて今渡保育園</h3>
-          <p class="where">可児市の認可保育園 ／ 岐阜県可児市今渡3-11</p>
-          <dl>
-            <dt>開所時間</dt><dd>7:30 − 19:30（月〜金）<br>7:30 − 16:30（土・祝）</dd>
-            <dt>対象年齢</dt><dd>0歳 〜 5歳</dd>
-            <dt>電話</dt><dd>0574-66-3512</dd>
-            <dt>申込</dt><dd>可児市役所 保育課</dd>
-          </dl>
-          <a class="link-more" href="#">この園について見る</a>
-        </div>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- ============ 病児保育 ============ -->
-<section class="sec" id="byoji">
-  <div class="wrap">
-    <div class="byoji reveal">
-      <figure class="photo">
-        <span class="stock">イメージ写真</span>
-        <img src="img/byoji.jpg" alt="こどもの手をとる大人の手" loading="lazy">
-      </figure>
-      <div>
-        <span class="sec-label">🩺 病児保育</span>
-        <h2>熱が出た日の、もうひとつの選択肢</h2>
-        <p>
-          「今日はどうしても休めない」。そんな日に、専属の看護師と保育士がお子さまをお預かりします。
-          <strong>生後6ヵ月から小学校6年生まで</strong>、他の園や小学校に通うお子さまもご利用いただけます。
-          定員1名・9:00〜17:00（月〜金）・1回2,000円。事前登録と、かかりつけ医の診療情報提供書が必要です。
-        </p>
-        <a class="btn btn-primary" href="#">病児保育のご案内</a>
-      </div>
+    <div class="gates">
+      <a class="gate" href="policy.html">
+        <b data-i18n="k004">かみのての保育</b>
+        <span data-i18n="k175">大切にしていること。待つ保育、ちがいを前提にした関わり、ご家庭とのチーム。</span>
+        <em data-i18n="k176">くわしく見る →</em>
+      </a>
+      <a class="gate" href="philosophy.html">
+        <b data-i18n="k116">保育理念</b>
+        <span data-i18n="k177">保育理念・保育方針・保育目標と、園長からのごあいさつ。園と法人の概要も。</span>
+        <em data-i18n="k176">くわしく見る →</em>
+      </a>
+      <a class="gate" href="parks.html">
+        <b data-i18n="k005">園のご紹介</b>
+        <span data-i18n="k178">かみのて保育園／かみのて今渡保育園。開所時間・定員・お申し込み先。</span>
+        <em data-i18n="k176">くわしく見る →</em>
+      </a>
+      <a class="gate" href="byoji.html">
+        <b data-i18n="k006">病児保育</b>
+        <span data-i18n="k179">熱が出た日のもうひとつの選択肢。生後6ヵ月から小学校6年生まで。</span>
+        <em data-i18n="k176">くわしく見る →</em>
+      </a>
+      <a class="gate" href="life.html">
+        <b data-i18n="k100">園での生活</b>
+        <span data-i18n="k180">一日の流れ、大切にしている時間、一年の行事。朝7時から夜8時まで。</span>
+        <em data-i18n="k176">くわしく見る →</em>
+      </a>
+      <a class="gate" href="admission.html">
+        <b data-i18n="k061">入園案内・保育料</b>
+        <span data-i18n="k181">2つの園は制度が異なります。それぞれのお申し込みの流れと保育料。</span>
+        <em data-i18n="k176">くわしく見る →</em>
+      </a>
+      <a class="gate" href="recruit.html">
+        <b data-i18n="k008">採用情報</b>
+        <span data-i18n="k182">かみのてで働く人。新卒の方と、経験のある方。それぞれの入口をご用意しています。</span>
+        <em data-i18n="k176">くわしく見る →</em>
+      </a>
+      <a class="gate" href="news.html">
+        <b data-i18n="k012">お知らせ</b>
+        <span data-i18n="k183">園のいま、おとどけします。行事のご報告や入園受付のご案内。</span>
+        <em data-i18n="k176">くわしく見る →</em>
+      </a>
+      <a class="gate" href="faq.html">
+        <b data-i18n="k117">よくあるご質問</b>
+        <span data-i18n="k184">入園、一日の生活、保育料、健康と安全、ことばのこと。よくいただくご質問にお答えします。</span>
+        <em data-i18n="k176">くわしく見る →</em>
+      </a>
     </div>
   </div>
 </section>
 
-<!-- ============ 入園案内・保育料 ============ -->
-<section class="sec white" id="admission">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <span class="sec-label">🌱 入園案内</span>
-      <h2 class="sec-title">入園案内・保育料<span class="en">ADMISSION</span></h2>
-      <p class="note"><strong>2つの園は制度が異なり、申し込み先も違います。</strong>ご希望の園からお進みください。</p>
-    </div>
-    <div class="admis reveal">
-      <div class="admis-card">
-        <h3>かみのて保育園（企業主導型）</h3>
-        <p>
-          自治体を通さず、<strong>園に直接</strong>お申し込みいただけます。
-          お住まいの地域や勤務先を問わない地域枠のほか、提携企業にお勤めの方の企業枠、自社枠があり、
-          保育料が異なります。入園料はいただきません。
-        </p>
-        <ul class="flow">
-          <li>1. お問い合わせ・お電話</li><li>2. 来園・書類の記入</li><li>3. 入園</li>
-        </ul>
-        <a class="link-more" href="#">保育料と入園の流れを見る</a>
-      </div>
-      <div class="admis-card hi">
-        <h3>かみのて今渡保育園（認可）</h3>
-        <p>
-          可児市の認可保育園です。お申し込みは<strong>可児市役所 保育課</strong>で受け付けています。
-          市役所から園の案内を受け取ったあと、来園のご予約をお願いします。保育料は市役所でご確認ください。
-        </p>
-        <ul class="flow">
-          <li>1. 可児市役所 保育課へ</li><li>2. 来園予約</li><li>3. 見学・面談・申し込み</li>
-        </ul>
-        <a class="link-more" href="#">入園の流れを見る</a>
-      </div>
-    </div>
-    <p class="disc-note reveal" style="margin-top:26px">
-      <b>一時預かりもあります。</b>かみのて今渡保育園では、0歳（6か月〜）〜2歳のお子さまを1日2,500円でお預かりしています（9:00〜16:00、月〜土・祝）。事前登録が必要です。
-    </p>
-  </div>
-</section>
-
-<!-- ============ かみのてで働く人（採用への導線） ============ -->
-<section class="sec" id="recruit">
-  <div class="wrap">
-    <div class="recruit reveal">
-      <div class="recruit-in">
-        <div>
-          <span class="sec-label">🌱 採用情報</span>
-          <h2>かみのてで働く人</h2>
-          <p>
-            こどもの毎日を支えているのは、ここではたらく人たちです。
-            どんな人が、どんな思いで働いているのか。一日の仕事の流れや、職員へのインタビューをまとめました。
-          </p>
-          <a class="btn btn-ghost" href="#">採用情報を見る</a>
-        </div>
-        <div class="nums">
-          <div class="num"><b>120<small>日+</small></b><span>年間休日</span></div>
-          <div class="num"><b>4</b><span>職員の対応言語</span></div>
-          <div class="num"><b>7-20</b><span>シフト制（時）</span></div>
-          <div class="num"><b>2+1</b><span>はたらく場所</span></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ お知らせ・園の日記 ============ -->
 <section class="sec white">
   <div class="wrap">
-    <div class="sec-head reveal">
-      <span class="sec-label">🌱 お知らせ・園の日記</span>
-      <h2 class="sec-title">園のいま、おとどけします<span class="en">NEWS &amp; DIARY</span></h2>
-    </div>
-    <div class="news-grid reveal">
-      <a class="news" href="#">
-        <figure class="photo">
-          <span class="stock">イメージ写真</span>
-          <img src="img/news-1.jpg" alt="夏まつりの風船" loading="lazy">
-        </figure>
-        <div class="news-body">
-          <div class="news-meta"><time>2026.07.24</time><span class="cat">お知らせ</span></div>
-          <h3>夏まつりを開催しました（見出しは仮です）</h3>
-        </div>
-      </a>
-      <a class="news" href="#">
-        <figure class="photo">
-          <span class="stock">イメージ写真</span>
-          <img src="img/news-2.jpg" alt="絵の具で製作あそびをしたこども" loading="lazy">
-        </figure>
-        <div class="news-body">
-          <div class="news-meta"><time>2026.07.18</time><span class="cat diary">園の日記</span></div>
-          <h3>はじめての泥んこあそび（見出しは仮です）</h3>
-        </div>
-      </a>
-      <a class="news" href="#">
-        <figure class="photo">
-          <span class="stock">イメージ写真</span>
-          <img src="img/news-3.jpg" alt="リュックを背負った園児" loading="lazy">
-        </figure>
-        <div class="news-body">
-          <div class="news-meta"><time>2026.07.05</time><span class="cat">お知らせ</span></div>
-          <h3>2027年度の入園受付についてのご案内（見出しは仮です）</h3>
-        </div>
-      </a>
-    </div>
-    <div class="news-more"><a class="btn btn-ghost" href="#">お知らせ一覧を見る</a></div>
-  </div>
-</section>
-
-<!-- ============ 見学・お問い合わせ ============ -->
-<section class="sec deep" id="contact">
-  <div class="wrap">
-    <div class="contact-box reveal">
-      <span class="sec-label">🌱 見学・お問い合わせ</span>
-      <h2>まずは、園を見にきてください</h2>
-      <p>
-        こどもたちの過ごし方や、先生とのやりとり。実際に見ていただくのがいちばんです。<br>
-        入園のご予定がなくても、ご相談だけでもかまいません。
-      </p>
-      <div class="contact-btns">
-        <a class="btn btn-primary" href="#">🌱 見学を申し込む</a>
-        <a class="btn btn-ghost" href="#">メールで問い合わせる</a>
-      </div>
-      <div class="tel">
-        <span>お電話でのお問い合わせ</span>
-        <b>0574-50-1211</b>
-        <small>かみのて保育園・病児保育</small>
+    <div class="contact">
+      <h2 data-i18n="k092">まずは、園を見にきてください</h2>
+      <p data-i18n="k093">こどもたちの過ごし方や、先生とのやりとり。実際に見ていただくのがいちばんです。<br>入園のご予定がなくても、ご相談だけでもかまいません。</p>
+      <div class="hero-actions" style="justify-content:center;margin-top:24px">
+        <a class="btn btn-main" href="contact.html" data-i18n="k094">見学を申し込む</a>
+        <a class="btn btn-sub" href="contact.html" data-i18n="k111">お問い合わせ</a>
+        <a class="btn btn-sub" href="faq.html" data-i18n="k117">よくあるご質問</a>
       </div>
     </div>
   </div>
@@ -648,62 +248,150 @@ section{scroll-margin-top:76px}
 
 <footer class="foot">
   <div class="wrap">
-    <div class="foot-in">
+    <div class="foot-grid">
       <div>
-        <div class="logo">
-          <span class="logo-mark">か</span>
-          <span class="logo-txt">かみのて保育園<span class="logo-sub">KAMINOTE NURSERY</span></span>
+        <!-- フッターは地色が濃いので実ロゴを置けない（白抜きのハートと顔に地色が透ける）。
+             仮マークだけ残すとヘッダーと食い違うので、マークは置かず名前だけにする。 -->
+        <div class="brand">
+          <span class="tx"><span class="name" data-i18n="k002">かみのて保育園</span><span class="en">KAMINOTE NURSERY</span></span>
         </div>
-        <div class="foot-org">
-          運営：株式会社 A and K<br>
-          〒509-0207 岐阜県可児市今渡3-11<br>
-          TEL 0574-66-3511
-        </div>
+        <div class="foot-addr" data-i18n="k097">運営：株式会社 A and K<br>〒509-0207 岐阜県可児市今渡3-11<br>TEL 0574-66-3511</div>
       </div>
       <div>
-        <h4>園について</h4>
+        <h4 data-i18n="k098">園について</h4>
         <ul>
-          <li><a href="#">私たちについて</a></li>
-          <li><a href="#policy">かみのての保育</a></li>
-          <li><a href="#parks">園のご紹介</a></li>
-          <li><a href="#byoji">病児保育のご案内</a></li>
-          <li><a href="#">園での生活</a></li>
-          <li><a href="#admission">入園案内・保育料</a></li>
-          <li><a href="#">お知らせ・園の日記</a></li>
+          <li><a href="policy.html" data-i18n="k004">かみのての保育</a></li>
+          <li><a href="philosophy.html" data-i18n="k116">保育理念</a></li>
+          <li><a href="parks.html" data-i18n="k005">園のご紹介</a></li>
+          <li><a href="byoji.html" data-i18n="k099">病児保育のご案内</a></li>
+          <li><a href="life.html" data-i18n="k100">園での生活</a></li>
+          <li><a href="admission.html" data-i18n="k061">入園案内・保育料</a></li>
+          <li><a href="news.html" data-i18n="k084">お知らせ・園の日記</a></li>
+          <li><a href="faq.html" data-i18n="k117">よくあるご質問</a></li>
         </ul>
       </div>
       <div>
-        <h4>グループの事業</h4>
+        <h4 data-i18n="k101">グループの事業</h4>
         <ul>
-          <!-- 2サイト案のため、KIDSとSMILEは1つのサイトにまとまる -->
-          <li><a href="#">放課後等デイサービス<small>かみのてKIDS・かみのてSMILE</small></a></li>
-          <li><a href="#recruit">採用情報</a></li>
-          <li><a href="#">会社案内</a></li>
+          <li><a href="https://easywebcraft.github.io/kaminote-day-design/a/" data-i18n="k102">児童発達支援・放課後等デイサービス</a><br><span style="font-size:12px;color:#8d857c" data-i18n="k103">かみのてKIDS・かみのてSMILE</span></li>
+          <li><a href="recruit.html" data-i18n="k008">採用情報</a></li>
+          <li><a href="recruit-new.html" data-i18n="k119">新卒採用</a></li>
+          <li><a href="recruit-mid.html" data-i18n="k120">中途採用</a></li>
+          <li><a href="https://www.aandkcorp.com/" data-i18n="k104">会社案内</a></li>
         </ul>
       </div>
     </div>
-    <div class="foot-btm">
-      <span class="en">© 2026 A and K Co., Ltd.</span>
-      <span>プライバシーポリシー</span>
-    </div>
+    <div class="copy"><span>© 2026 A and K Co., Ltd.</span><a href="#" data-i18n="k105">プライバシーポリシー</a></div>
   </div>
 </footer>
 
+
+
+<!-- ============ 開いたときの動き（後半：順に出す） ============
+     隠す指定と対象の並びは <head> 側にある。ここでは出す順番だけを決める。 -->
+
+
 <script>
-// スクロールしてきた要素をふわっと出す（サンプルと同じ演出）
 (function () {
-  var items = document.querySelectorAll('.reveal');
-  if (!('IntersectionObserver' in window)) {
-    items.forEach(function (el) { el.classList.add('show'); });
-    return;
-  }
-  var io = new IntersectionObserver(function (entries) {
-    entries.forEach(function (e) {
-      if (e.isIntersecting) { e.target.classList.add('show'); io.unobserve(e.target); }
+  // ★ここの並びは <head> の隠す指定と必ず同じにすること
+  var ANIM_SEL = '.stats > .wrap > *,'
+               + '.sec > .wrap > *:not(.reasons):not(.parks):not(.adm):not(.news),'
+               + '.reasons > *,'
+               + '.parks > *,'
+               + '.adm > *,'
+               + '.news > *';
+
+  var units = [].slice.call(document.querySelectorAll(ANIM_SEL));
+
+  function sweep() {
+    var vh = window.innerHeight || document.documentElement.clientHeight;
+    var shown = [];
+    for (var i = units.length - 1; i >= 0; i--) {
+      var r = units[i].getBoundingClientRect();
+      if (r.top < vh * 0.92 && r.bottom > 0) {
+        shown.push(units[i]);
+        units.splice(i, 1);                            // 一度出したら見張らない
+      }
+    }
+    if (!shown.length) { return; }
+    shown.sort(function (a, b) {
+      return a.getBoundingClientRect().top - b.getBoundingClientRect().top;
+    }).forEach(function (el, i) {
+      el.style.animationDelay = (i * 0.06) + 's';      // 並んでいるものは少しずつずらす
+      el.classList.add('on');
     });
-  }, { threshold: 0.12 });
-  items.forEach(function (el) { io.observe(el); });
+    if (!units.length) {
+      window.removeEventListener('scroll', onScroll);
+      window.removeEventListener('resize', onScroll);
+    }
+  }
+
+  var waiting = false;
+  function onScroll() {
+    if (waiting) { return; }
+    waiting = true;
+    requestAnimationFrame(function () { waiting = false; sweep(); });
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll);
+  sweep();                                             // 最初から見えている分
+  window.addEventListener('load', sweep);              // 画像が入って位置が確定したあと
+
+  window.__animReady = true;                           // <head> の保険に「動いた」と伝える
+
+  // 保険: スクロールを拾えない環境でも、文字が消えたままにはしない
+  setTimeout(function () {
+    units.forEach(function (el) { el.classList.add('on'); });
+    units.length = 0;
+  }, 5000);
 })();
 </script>
-</body>
-</html>
+
+
+<script>
+// スマホのメニュー開閉。★ボタンは前からあったが処理が無く、押しても反応しなかった。
+(function () {
+  var head = document.querySelector('.head');
+  var btn = head && head.querySelector('.burger');
+  var nav = head && head.querySelector('.gnav');
+  if (!head || !btn || !nav) { return; }
+  btn.setAttribute('aria-expanded', 'false');
+
+  function close() {
+    head.classList.remove('open');
+    btn.setAttribute('aria-expanded', 'false');
+  }
+  btn.addEventListener('click', function (e) {
+    e.stopPropagation();
+    var open = !head.classList.contains('open');
+    head.classList.toggle('open', open);
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    // 見学のボタンはスマホでは隠れているので、開いたメニューの中に入れておく。
+    // 入れないと、メニューからお問い合わせへ行けない。
+    if (open && !nav.querySelector('.cta-in-menu')) {
+      var cta = head.querySelector('.cta, .cta-pill, .pill-recruit');
+      if (cta) {
+        var c = cta.cloneNode(true);
+        c.className = 'cta-in-menu';
+        c.style.cssText = 'font-weight:700';
+        nav.appendChild(c);
+      }
+    }
+  });
+  // メニューの外を押したら閉じる／項目を押したら閉じる
+  document.addEventListener('click', function (e) {
+    if (head.classList.contains('open') && !head.contains(e.target)) { close(); }
+  });
+  nav.addEventListener('click', function (e) { if (e.target.closest('a')) { close(); } });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') { close(); } });
+  // 幅を広げてボタンが消えたら、開いた状態を持ち越さない
+  window.addEventListener('resize', function () {
+    if (getComputedStyle(btn).display === 'none') { close(); }
+  });
+})();
+</script>
+
+
+<script src="i18n.js"></script>
+
+

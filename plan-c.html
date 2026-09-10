@@ -1,0 +1,852 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>デザイン案C｜かみのて保育園</title>
+<meta property="og:title" content="デザイン案C｜かみのて保育園">
+<meta property="og:description" content="白い帯のヘッダーと、下端を弧で切った写真でまとめた案です。">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%232c6f92'/><text x='50' y='70' font-size='54' font-weight='bold' text-anchor='middle' font-family='sans-serif' fill='%23fff'>か</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700&family=Zen+Old+Mincho:wght@400;500&family=Baloo+2:wght@500;600&display=swap" rel="stylesheet">
+<style>
+/* ===========================================================
+   デザイン案C「白い帯のヘッダーと、弧で切った写真」
+   参考イメージ（ひかり幼稚園）の骨格をかみのて用に翻案:
+   ・白い帯のヘッダー。下端をスカラップ（半円の連なり）で切って写真にかぶせる
+   ・ロゴは左、メニューは右。項目のあいだに小さなきらきらを挟む
+   ・右端に丸い「採用情報」バッジ（破線の輪）
+   ・写真は帯の下に全幅で敷き、下端を大きな弧で切って薄い青の面へつなぐ
+   ・見出しは写真の右下に横書きで置き、下に破線を1本ずつ引く
+   ・きらきら（四つ角の星）を少し散らし、スライドの点と矢印を添える
+
+   色は他の2案と同じパステルブルー＋オレンジのまま。
+   参考イメージの黄色は「きらきら・破線・点」だけの差し色にとどめている
+   （黄色を主色にするとご要望のパステルブルーが消えるため）
+   =========================================================== */
+*{box-sizing:border-box}
+:root{
+  /* 主色はパステルブルー。いただいた見本 #dcedf8 をいちばん薄い面に使い、
+     文字と線に使える濃い段を足して階調にしている。
+     （薄い面のままでは文字に使えない＝白地で読めない） */
+  --brand:#5fa8cc;      /* 主色：線とアイコン */
+  --brand-d:#2c6f92;    /* 文字に使える濃さ（白地でコントラスト4.9） */
+  --brand-soft:#dcedf8; /* 薄い面：いただいた見本の色 */
+  /* CTAはグループ共通のオレンジ。放課後等デイサイトと合わせてある。
+     主色を青にしたので、ボタンだけ暖色にすると押す場所がはっきりする。 */
+  --cta:#ef8b4c;
+  --cta-d:#d9742f;
+  --sun:#f5c73e;        /* 差し色の黄。きらきらと破線だけに使う */
+  --leaf:#6fae86;       /* 副：葉の緑 */
+  --ink:#3a352f;
+  --ink-soft:#7d766c;
+  --line:#e8e3da;
+  --ground:#eef7fd;   /* 地色：薄い青 */
+  --paper:#dcedf8;    /* 帯のセクション＝いただいた見本そのまま（名前は履歴のまま） */
+  --blue-panel:#cbe2f3; /* 帯の上に置く面。帯と同色だと消えるので一段濃く */
+  --white:#fff;
+  --wrap:1060px;
+}
+html,body{margin:0;padding:0}
+body{font-family:'Zen Maru Gothic',"Hiragino Maru Gothic ProN","Hiragino Sans",sans-serif;
+  color:var(--ink);background:var(--ground);line-height:1.95;font-size:16px;-webkit-text-size-adjust:100%}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit;text-decoration:none}
+ul{margin:0;padding:0;list-style:none}
+h1,h2,h3,p{margin:0}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 24px}
+.note{background:#3a352f;color:#fff;font-size:12.5px;padding:9px 24px;text-align:center;line-height:1.7}
+.note b{color:#ffd9a8}
+
+/* ============ 白い帯のヘッダー ============ */
+.head{position:relative;z-index:20;background:var(--white);padding:12px 0}
+.head-in{max-width:1440px;margin:0 auto;padding:0 clamp(16px,2.4vw,34px);
+  display:flex;align-items:center;gap:clamp(12px,1.8vw,26px)}
+/* flex:none にすると縮まないので、狭い画面でハンバーガーを押し出して横あふれになる。
+   縮めるようにしておけば、長い社名は corp の省略記号で吸収される。 */
+.brand{display:flex;align-items:center;gap:12px;flex:0 1 auto;min-width:0}
+/* 実ロゴは横長（313×192）なので height で指定する。width を決め打ちすると潰れる */
+.brand .mark{width:auto;height:56px;flex:none}
+.brand .tx{min-width:0;line-height:1.5}
+.brand .corp{display:block;font-size:9.5px;letter-spacing:.16em;color:var(--brand);font-weight:700;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.brand .nm{display:block;font-size:17px;font-weight:700;letter-spacing:.18em;color:var(--brand-d);
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.brand .en{display:block;font-size:9px;letter-spacing:.22em;color:var(--brand);
+  font-family:'Baloo 2',sans-serif;white-space:nowrap}
+
+.gnav{margin-left:auto;display:flex;align-items:center;gap:clamp(8px,1.2vw,18px)}
+.gnav a{font-size:13.5px;font-weight:700;letter-spacing:.04em;color:var(--brand-d);white-space:nowrap}
+.gnav a:hover{color:var(--cta-d)}
+/* 項目のあいだの小さなきらきら。参考イメージの菱形にあたる */
+.spark{width:10px;height:10px;flex:none;background:var(--sun);
+  clip-path:polygon(50% 0,60% 40%,100% 50%,60% 60%,50% 100%,40% 60%,0 50%,40% 40%)}
+
+/* 右端の丸い採用バッジ。破線の輪は参考イメージの要 */
+.pill-recruit{flex:none;width:88px;height:88px;border-radius:50%;background:var(--white);
+  border:2px dashed var(--cta);display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:3px;color:var(--cta-d);font-size:11px;font-weight:700;letter-spacing:.04em;line-height:1.4}
+.pill-recruit svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round}
+.pill-recruit:hover{background:#fff6ef}
+
+.burger{display:none;margin-left:auto;background:var(--white);border:1.6px solid var(--brand);
+  color:var(--brand-d);border-radius:12px;padding:8px 12px;font-family:inherit;font-size:15px;cursor:pointer}
+
+/* ============ ヒーロー：帯の下に写真を敷き、下端を弧で切る ============ */
+/* 弧の外側に見える色。ここを白にすると帯とつながって弧が見えなくなる */
+.hero-zone{background:var(--brand-soft);padding-bottom:clamp(28px,4.6vw,60px)}
+/* 高さは svh で持つ。vh はスマホでアドレスバーが隠れると値が変わり、
+   高さが変わるたびに cover の切り取りが変わって、スクロール中に写真が揺れる。
+   svh は「バーが見えている状態」の高さで固定なので揺れない（1行目は未対応ブラウザ用）。
+
+   ★下端の弧を border-radius で「切り抜く」のはやめた。四角でない切り抜きは
+     合成のたびにマスクがかかり、スクロール中ずっと重い。いまは四角のまま置いて、
+     下に薄い青のSVG（.arc）をかぶせて同じ形に見せている。塗るだけなので軽い。 */
+.hero{position:relative;height:clamp(430px,74vh,700px);height:clamp(430px,74svh,700px);overflow:hidden;background:#cfe0e6;contain:paint}
+/* 弧のかぶせ。viewBox の高さ132＝PCでの弧の深さ。中央で下端に達し、左右で最も厚い。 */
+.arc{position:absolute;left:0;right:0;bottom:-1px;width:100%;height:132px;z-index:4;pointer-events:none;display:block}
+.arc path{fill:var(--brand-soft)}
+.hero-bg{position:absolute;inset:0}
+/* この写真はもともと沈んだ色なので、明るく持ち上げてある。
+   ★ただし CSS の filter:brightness() は使わない。描き直すたびに効くので、
+     スクロール中ずっと計算が走ってカクつく。明るさは画像ファイル自体に
+     焼き込んである（hero-toys.jpg → hero-toys-c.jpg・`bash ~/kmtools/brighten.sh` で ×1.14）。
+     ほかの2案は元の hero-toys.jpg のままなので、あちらの見え方は変わらない。 */
+.hero-bg img{width:100%;height:100%;object-fit:cover;
+  transform:translateZ(0);backface-visibility:hidden}
+/* 見出しは右下に置くので、そちら側だけ濃くする。全体を均一に暗くすると写真が沈む。
+   濃さは「読めるいちばん薄いところ」に置いてある（.60 は暗すぎた）。
+   薄くしたぶんは見出しの text-shadow の2枚重ねで稼ぐ＝帯を置かずに
+   文字のまわりだけコントラストを上げられる。
+   2枚目は上から白をうすくかける、写真ぜんたいを持ち上げるための膜。 */
+.hero-bg::after{content:"";position:absolute;inset:0;
+  background:
+    linear-gradient(315deg,rgba(18,28,36,.40) 0%,rgba(18,28,36,.17) 34%,rgba(18,28,36,.02) 62%,rgba(18,28,36,.05) 100%),
+    linear-gradient(170deg,rgba(255,255,255,.20) 0%,rgba(255,255,255,.07) 38%,rgba(255,255,255,0) 68%)}
+
+/* 白い帯の下端。半円を横に並べて写真にかぶせる。
+   background-size の幅＝半円の直径、高さ＝半径。円の中心をタイルの上辺に置くと、
+   タイルの左右の端でちょうど高さ0になり、半円どうしがきれいに接する。 */
+.scallop{position:absolute;left:0;right:0;top:0;height:26px;z-index:6;pointer-events:none;
+  background:radial-gradient(circle 26px at 50% 0,var(--white) 99%,transparent 100%) repeat-x;
+  background-size:52px 26px}
+
+/* ---- 見出し（写真の右下・横書き・下に破線） ---- */
+.hero-copy{position:absolute;right:clamp(18px,8vw,124px);bottom:clamp(96px,17vh,150px);
+  z-index:5;text-align:right;max-width:min(88%,760px)}
+.hero-place{font-size:clamp(11px,1.2vw,13px);letter-spacing:.14em;color:#fff;
+  text-shadow:0 1px 3px rgba(12,20,28,.8),0 1px 12px rgba(12,20,28,.6);
+  margin-bottom:clamp(10px,1.6vw,18px)}
+/* 破線は見出しの下線として引く。少しだけ傾けて手描きの気配を出す */
+.hero-copy .l1,.hero-copy .l2{display:inline-block;color:#fff;font-weight:700;
+  transform:rotate(-1.6deg);transform-origin:right bottom}
+.hero-copy .l1{font-size:clamp(16px,2.1vw,26px);letter-spacing:.1em;padding-bottom:9px;
+  border-bottom:4px dashed var(--sun);
+  text-shadow:0 1px 3px rgba(12,20,28,.75),0 2px 16px rgba(12,20,28,.6)}
+.hero-copy .l2{margin-top:clamp(16px,2.6vw,30px);font-size:clamp(24px,4.4vw,52px);letter-spacing:.06em;
+  padding-bottom:12px;border-bottom:5px dashed rgba(255,255,255,.92);
+  text-shadow:0 1px 4px rgba(12,20,28,.7),0 3px 22px rgba(12,20,28,.55)}
+
+/* ---- きらきら（写真の上の飾り） ---- */
+.tw{position:absolute;z-index:5;
+  clip-path:polygon(50% 0,60% 40%,100% 50%,60% 60%,50% 100%,40% 60%,0 50%,40% 40%)}
+.tw1{width:30px;height:30px;background:var(--sun);right:46%;bottom:44%}
+.tw2{width:17px;height:17px;background:#7fd3dd;right:52%;bottom:38%}
+.tw3{width:22px;height:22px;background:var(--sun);right:6%;bottom:52%}
+.tw4{width:13px;height:13px;background:var(--cta);right:11%;bottom:58%}
+.tw5{width:15px;height:15px;background:#7fd3dd;right:3%;bottom:46%}
+
+/* ---- ヒーロー下のボタン ---- */
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
+/* ヒーローのボタンだけ写真の下部に重ねる（本文側のボタンは通常配置のまま）。
+   弧で切った下端に食い込まないよう、点より下には置かない。 */
+.hero-actions.on-photo{position:absolute;left:0;right:0;bottom:clamp(26px,5vh,52px);z-index:6}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;border-radius:999px;font-weight:700;font-size:14.5px}
+.btn-main{background:var(--cta);color:#fff;box-shadow:0 8px 20px rgba(239,139,76,.36)}
+.btn-main:hover{background:var(--cta-d)}
+.btn-sub{background:rgba(255,255,255,.94);color:var(--ink)}
+
+/* ============ 以下、本文 ============ */
+/* ロゴの置き場。この案はヘッダーを写真の上に浮かせているので、そこには実ロゴを置けない
+   （白抜きのハートと顔に写真が透けて読めなくなる。試して不採用）。
+   写真のすぐ下に白い面を作り、そこに1枚だけ置いている。次の .stats も白なので段差は出ない。 */
+.logos{background:var(--white);padding:32px 0 4px}
+.logos .wrap{display:flex;justify-content:center}
+.logos img{width:100%;max-width:238px;height:auto}
+@media (max-width:700px){.logos img{max-width:168px}.logos{padding-top:26px}}
+.stats{background:var(--white);padding-top:26px}
+.stats .wrap{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;padding:24px;text-align:center}
+.stats .n{font-family:'Baloo 2',sans-serif;font-size:clamp(22px,3vw,30px);font-weight:600}
+.stats .c1{color:var(--brand-d)}.stats .c2{color:var(--leaf)}.stats .c3{color:var(--cta-d)}
+.stats .l{font-size:12px;color:var(--ink-soft);line-height:1.7}
+
+.sec{padding:76px 0}
+.sec.alt{background:var(--paper)}
+.sec-head{text-align:center;margin-bottom:44px}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;color:var(--brand-d);font-weight:700;margin-bottom:10px}
+.eyebrow svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:1.7}
+/* 節の見出しは、ヒーローと同じ「まるゴシック＋下に破線」でそろえる。
+   参考イメージには明朝が1つも出てこないので、この案では明朝を使わない。 */
+.sec-head h2{font-size:clamp(22px,3.2vw,30px);line-height:1.7;font-weight:700;letter-spacing:.06em;
+  color:var(--brand-d)}
+/* 破線は h2 のあとに置く。h2 自体を inline-block にすると、上のラベルと同じ行に回り込む */
+.sec-head h2::after{content:"";display:block;width:min(300px,54%);margin:16px auto 0;
+  border-bottom:4px dashed var(--sun)}
+.sec-head .en{display:block;font-family:'Baloo 2',sans-serif;font-size:11.5px;letter-spacing:.28em;color:var(--ink-soft);margin-top:8px}
+.sec-head p{margin-top:14px;color:var(--ink-soft);font-size:14.5px}
+
+.reasons{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:26px}
+.reason{text-align:center;padding:0 8px}
+.reason .ic{width:74px;height:74px;margin:0 auto 14px;stroke:var(--brand);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.reason h3{font-size:16.5px;font-weight:700;line-height:1.65;margin-bottom:10px}
+.reason p{font-size:13.5px;color:var(--ink-soft);line-height:2}
+
+.split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:48px;align-items:center}
+.ph-round{overflow:hidden;aspect-ratio:4/3;border-radius:26px}
+.ph-round img{width:100%;height:100%;object-fit:cover}
+.marks{display:grid;gap:0;margin-top:24px}
+.marks li{display:block;padding:16px 0;border-bottom:1px dashed var(--line);background:none!important}
+.marks li:first-child{border-top:1px dashed var(--line)}
+.marks .dot{display:none}
+.marks b{display:block;font-size:15.5px;margin-bottom:2px}
+.marks span{font-size:13.5px;color:var(--ink-soft);line-height:1.95}
+
+.parks{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:30px}
+.park{background:var(--white)!important;border:1px solid var(--line);display:flex;flex-direction:column;
+  border-radius:26px;overflow:hidden}
+.park .ph{aspect-ratio:16/10;overflow:hidden}
+.park .ph img{width:100%;height:100%;object-fit:cover}
+.park-body{padding:26px 26px;flex:1;display:flex;flex-direction:column}
+.park h3{font-size:19px;font-weight:700}
+.park .kind{display:inline-block;background:var(--brand-soft);color:var(--brand-d);border-radius:999px;padding:4px 12px;font-size:12px;margin:8px 0 16px}
+.park dl{display:grid;grid-template-columns:auto 1fr;gap:8px 16px;font-size:13.5px;margin:0 0 20px}
+.park dt{color:var(--ink-soft);white-space:nowrap}
+.park dd{margin:0}
+.link-a{margin-top:auto;font-weight:700;font-size:14px;color:var(--brand-d);align-self:flex-start}
+
+.byoji{background:var(--white);border:1px solid var(--line);overflow:hidden;border-radius:28px}
+.byoji .split{gap:0}
+.byoji .ph-round{aspect-ratio:auto;height:100%;min-height:290px;border-radius:0}
+.byoji-body{padding:44px 40px}
+.byoji-body h2{font-size:clamp(21px,3vw,28px);line-height:1.7;font-weight:700;margin-bottom:14px;color:var(--brand-d);}
+.byoji-body p{font-size:14.5px;color:var(--ink-soft);line-height:2.05}
+.byoji-body .fine{font-size:13px;margin-top:12px}
+
+.adm{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:30px}
+.adm-card{background:var(--white)!important;border:1px solid var(--line);border-top:5px solid var(--brand);
+  border-radius:24px;padding:26px 26px}
+.adm-card h3{font-size:17.5px;font-weight:700;margin-bottom:12px}
+.adm-card p{font-size:14px;color:var(--ink-soft);line-height:2}
+.steps{display:flex;gap:8px;margin:18px 0;flex-wrap:wrap}
+.steps li{background:var(--blue-panel);color:var(--brand-d);border-radius:999px;padding:7px 14px;font-size:12.5px}
+.notice{margin-top:26px;background:var(--blue-panel);border:2px dashed #a9cfe6;border-radius:20px;padding:22px 26px;font-size:13.5px;line-height:2}
+.notice b{display:block}
+
+.recruit{background:var(--ink);color:#fff;padding:52px 44px;text-align:center;border-radius:30px}
+.recruit .eyebrow{color:#f0b493}
+.recruit h2{font-size:clamp(22px,3.2vw,30px);font-weight:700;margin-bottom:14px}
+.recruit p{color:#cfc7bd;font-size:14.5px;line-height:2.05}
+.rnums{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin:30px 0}
+.rnums div{background:rgba(255,255,255,.08);border-radius:16px;padding:18px 10px}
+.rnums .n{font-family:'Baloo 2',sans-serif;font-size:24px;font-weight:600;color:#fff}
+.rnums .l{font-size:11.5px;color:#b9b0a5}
+
+.news{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px}
+.news .ph{aspect-ratio:16/10;overflow:hidden;border-radius:22px}
+.news .ph img{width:100%;height:100%;object-fit:cover}
+.news .meta{display:flex;gap:10px;align-items:center;margin:13px 0 5px;font-size:12px}
+.news .date{font-family:'Baloo 2',sans-serif;color:var(--ink-soft)}
+.news .tag{background:var(--brand-soft);color:var(--brand-d);border-radius:999px;padding:2px 10px;font-size:11px}
+.news .tag.d{background:#e6f2ea;color:#3f7a56}
+.news h3{font-size:15.5px;line-height:1.85;font-weight:500}
+
+.contact{background:var(--blue-panel);padding:54px 40px;text-align:center;border-radius:30px}
+.contact h2{font-size:clamp(23px,3.4vw,32px);font-weight:700;margin-bottom:14px;color:var(--brand-d)}
+.contact p{color:#8a6250;font-size:14.5px;line-height:2.05}
+.tel{margin-top:26px;font-family:'Baloo 2',sans-serif;font-size:clamp(26px,4vw,36px);font-weight:600;color:var(--brand-d)}
+.tel small{display:block;font-family:inherit;font-size:12px;color:#9a7b6c;font-weight:400}
+
+
+.foot{background:var(--ink);color:#c3bab0;padding:54px 0 26px;font-size:13.5px}
+.foot-grid{display:grid;grid-template-columns:minmax(0,1.2fr) repeat(2,minmax(0,1fr));gap:34px}
+.foot h4{color:#fff;font-size:13px;margin-bottom:12px}
+.foot li{margin-bottom:8px}
+.foot a:hover{color:#fff}
+.foot .name{color:#fff;font-size:19px;font-weight:700;letter-spacing:.08em}
+.foot .en{color:#948b81;font-size:10px;letter-spacing:.24em;font-family:'Baloo 2',sans-serif}
+.foot-addr{margin-top:14px;line-height:2;color:#948b81;font-size:12.5px}
+.copy{border-top:1px solid #4d473f;margin-top:38px;padding-top:18px;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;font-size:12px;color:#8b8278}
+
+/* ---- ヘッダーを畳む幅 ----
+   実ロゴのマークと丸い採用バッジで左右が埋まるので、1180px を切るとメニューが
+   ロゴに重なる。畳む幅だけをスマホ用ブロックと分けてある
+   （まとめると 900〜1180px が1カラムになってしまう）。
+   この崩れは折り返しであって食み出しではないので scrollWidth の検査には出ない。 */
+@media (max-width:1180px){
+  .gnav,.pill-recruit{display:none}
+  .burger{display:block}
+}
+
+@media (max-width:900px){
+  /* 弧は幅が狭いほど浅くする。深いままだと写真の左右が大きく削られ、
+     下に置いたボタンの端が弧に切り取られる。 */
+  .hero{height:clamp(400px,66vh,520px);height:clamp(400px,66svh,520px)}
+  /* 弧は幅が狭いほど浅くする。深いままだと写真の左右が大きく削られ、
+     下に置いたボタンの端が弧にかかる。 */
+  .arc{height:40px}
+  .hero-actions.on-photo{bottom:64px}
+  .hero-actions .btn{padding:12px 20px;font-size:13.5px}
+  .brand .mark{height:44px}
+  .brand .nm{font-size:15px;letter-spacing:.12em}
+  .brand .corp{font-size:9px}
+  .head{padding:10px 0}
+  /* きらきらは狭い画面だと見出しに重なるので、数を減らして左側へ寄せる。
+     見出しは右下に固まっているので、左は必ず空いている。 */
+  .tw1,.tw2{display:none}
+  .tw3{right:auto;left:9%;bottom:58%}
+  .tw4{right:auto;left:22%;bottom:50%}
+  .tw5{right:auto;left:13%;bottom:42%}
+  .hero-copy{right:16px;left:16px;bottom:148px;max-width:none}
+  .split,.parks,.adm,.news,.reasons,.foot-grid{grid-template-columns:minmax(0,1fr)}
+  .byoji .split{grid-template-columns:minmax(0,1fr)}
+  .byoji-body{padding:32px 24px}
+  .rnums{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .sec{padding:56px 0}
+  .recruit,.contact{padding:38px 22px}
+}
+
+/* ---- 言語の切り替え（日本語／English／Português） ----
+   ヘッダーの作りは案ごとに違うが、ボタンの見た目は3案・2サイトで同じにする。
+   ★狭い画面でも必ず出す（ナビと違って畳まない）＝外国語の家庭にはここが入口なので、
+     ハンバーガーの中に隠すと見つけてもらえない。そのぶん短い表記に切り替える。 */
+/* 日本語用の広い字間のままだとラテン文字は横に伸びすぎて、
+   園名が省略記号で切れたり見出しが1行に入らなくなる。英語・ポルトガル語では詰める。 */
+html:not([lang="ja"]) .brand .name,
+html:not([lang="ja"]) .brand .nm,
+html:not([lang="ja"]) .brand .corp,
+html:not([lang="ja"]) .logo .nm{letter-spacing:.03em}
+/* ラテン文字の園名は日本語より字数が多い。字間を詰めただけでは
+   「Kaminote N…」と省略記号で切れるので、一段小さくして収める。 */
+html:not([lang="ja"]) .brand .name,
+html:not([lang="ja"]) .brand .nm{font-size:16.5px}
+/* メニューの項目もラテン文字だと長い。項目内で折り返させず、間隔を詰めて
+   ブランド名に幅を回す（詰めないと園名が省略記号で切れたままになる）。 */
+html:not([lang="ja"]) .gnav{gap:clamp(10px,1.4vw,18px)}
+html:not([lang="ja"]) .gnav a{white-space:nowrap}
+/* 園名がナビに重ならないよう、はみ出しは省略記号で止める（案Bは元から止めていない） */
+html:not([lang="ja"]) .brand .name,
+html:not([lang="ja"]) .brand .nm{overflow:hidden;text-overflow:ellipsis}
+/* ★ナビを畳む幅は言語で変える。ラテン文字は日本語より横に長いので、
+   同じ幅では園名・メニュー・ボタンが並びきらない（実際に重なった）。
+   日本語のときの畳む幅は案ごとの指定のまま。 */
+@media (max-width:1300px){
+  html:not([lang="ja"]) .gnav,
+  html:not([lang="ja"]) .rail,
+  html:not([lang="ja"]) .pill-recruit,
+  html:not([lang="ja"]) .head-in .cta-pill,
+  html:not([lang="ja"]) .head-in .cta{display:none}
+  html:not([lang="ja"]) .burger{display:block}
+}
+html:not([lang="ja"]) .hero-copy h1,
+html:not([lang="ja"]) .hero-eyebrow,
+html:not([lang="ja"]) .hero-place,
+html:not([lang="ja"]) .hero-copy .l1,
+html:not([lang="ja"]) .hero-copy .l2,
+html:not([lang="ja"]) .sec-head h2{letter-spacing:.01em}
+.lang{display:flex;gap:4px;flex:none;align-items:center}
+.lang button{font-family:inherit;font-size:11.5px;font-weight:700;line-height:1;cursor:pointer;
+  padding:7px 10px;border-radius:999px;border:1.4px solid var(--line);background:transparent;
+  color:var(--brand-d);white-space:nowrap}
+.lang button:hover{background:var(--brand-soft)}
+.lang button.on{background:var(--brand-d);border-color:var(--brand-d);color:#fff}
+.lang .sm{display:none}
+@media (max-width:900px){
+  .lang .lg{display:none}
+  .lang .sm{display:inline}
+  .lang{gap:3px}
+  .lang button{font-size:11px;padding:6px 8px;border-width:1.2px}
+}
+
+/* ---- スマホのメニュー（ハンバーガーを押したとき） ----
+   ★2026-08-24まで、ボタンは置いてあるだけで押しても何も起きなかった。
+   畳む幅は案ごとに違う（案A 1100 / 案B 1000 / 案C 1180 ほか）ので、
+   media query の中ではなく「開いているときだけ」の指定として書く。
+   ボタンは畳まれた幅でしか出ないので、PCで開いた状態になることはない
+   （幅を広げたときは下のJSが open を外す）。 */
+/* 画面いっぱいに広げず、ボタンの下に小さく出す。
+   幅は中身なり（min〜maxの間）。行の余白も詰めて、画面を覆わない大きさにする。 */
+.head.open .gnav{
+  display:flex;position:absolute;right:12px;left:auto;top:calc(100% - 2px);
+  flex-direction:column;align-items:stretch;gap:0;margin:0;
+  min-width:190px;max-width:min(74vw,290px);
+  background:var(--white,#fff);border:1px solid rgba(0,0,0,.10);border-radius:14px;
+  box-shadow:0 12px 28px rgba(0,0,0,.18);padding:5px 0;z-index:60;overflow:hidden;
+}
+.head.open .gnav a{
+  display:flex;flex-direction:row;align-items:center;justify-content:flex-start;
+  gap:9px;padding:10px 16px;font-size:13.5px;line-height:1.5;white-space:nowrap;text-align:left;
+}
+.head.open .gnav a + a{border-top:1px solid rgba(0,0,0,.06)}
+.head.open .gnav svg{width:17px;height:17px;flex:none}
+/* 複製した「見学・ご相談」も、行に収まる大きさに揃える */
+.head.open .gnav .cta-in-menu{padding:11px 16px;font-size:13.5px;border-radius:0;
+  box-shadow:none;justify-content:flex-start}
+/* 開いているあいだ、項目のあいだの飾り（案Cのきらきら）は邪魔なので出さない */
+.head.open .gnav .spark{display:none}
+.burger[aria-expanded="true"]{background:rgba(0,0,0,.06)}
+</style>
+<!-- ============ 開いたときの動き（前半：先に隠す） ============
+     ここは <head> に置く。ページの一番下に置くと、いったん文字が普通に
+     描かれてから隠れることになり、一瞬ちらついてから動き出してしまう。
+     ・動かすのは透明度と位置だけ（レイアウトは動かさない）
+     ・「動きを減らす」設定と印刷のときは動かさない                       -->
+<style>
+  @keyframes rise    { from { opacity: 0; transform: translateY(14px); }
+                       to   { opacity: 1; transform: none; } }
+  @keyframes riseSp  { from { opacity: 0; transform: translateY(9px); }
+                       to   { opacity: 1; transform: none; } }
+  @keyframes zoomOut { from { transform: scale(1.06) translateZ(0); }
+                       to   { transform: translateZ(0); } }
+  @keyframes popIn   { from { opacity: 0; transform: scale(.94); }
+                       to   { opacity: .95; transform: none; } }
+
+  /* ヒーローはJSを使わずCSSだけで動かす。JSがクラスを付けるのを待つと、
+     待っている間に文字が見えてしまう（環境が遅いほど長く見える）。 */
+  .hero-bg img    { animation: zoomOut 1.8s cubic-bezier(.2,.7,.3,1) both; }
+  .head           { animation: rise .7s cubic-bezier(.2,.7,.3,1) .10s both; }
+  /* ★ .hero-copy の子の数だけ遅れを書くこと。書き忘れた子は遅れ0秒になり、
+        ほかより先に出てしまう（「まんなかに。」が最初から見えていた原因）。 */
+  .hero-copy > *  { animation: rise .9s cubic-bezier(.2,.7,.3,1) both; }
+  .hero-copy > *:nth-child(1) { animation-delay: .30s; }
+  .hero-copy > *:nth-child(2) { animation-delay: .50s; }
+  .hero-copy > *:nth-child(3) { animation-delay: .70s; }
+  .tw             { animation: popIn 1s cubic-bezier(.2,.7,.3,1) .55s both; }
+  .hero-actions   { animation: rise .8s cubic-bezier(.2,.7,.3,1) .70s both; }
+
+  /* スクロールで出てくる分だけ、JSがあるとき（.anim）に隠しておく。
+     ★ここの並びは下のJSの ANIM_SEL と必ず同じにすること
+     （食い違うと、隠れたまま出てこない要素ができてしまう） */
+  .anim .stats > .wrap > *,
+  .anim .sec > .wrap > *:not(.reasons):not(.parks):not(.adm):not(.news),
+  .anim .reasons > *,
+  .anim .parks > *,
+  .anim .adm > *,
+  .anim .news > * { opacity: 0; }
+
+  .anim .on { animation: rise .7s cubic-bezier(.2,.7,.3,1) both; }
+
+  @media (max-width: 700px) { .anim .on { animation-name: riseSp; } }
+
+  @media (prefers-reduced-motion: reduce) {
+    .anim .stats > .wrap > *,
+    .anim .sec > .wrap > *:not(.reasons):not(.parks):not(.adm):not(.news),
+    .anim .reasons > *,
+    .anim .parks > *,
+    .anim .adm > *,
+    .anim .news > * { opacity: 1; }
+    .anim .on, .hero-bg img, .head, .hero-copy > *, .tw, .hero-actions { animation: none; }
+  }
+  @media print {
+    .anim .stats > .wrap > *,
+    .anim .sec > .wrap > *:not(.reasons):not(.parks):not(.adm):not(.news),
+    .anim .reasons > *,
+    .anim .parks > *,
+    .anim .adm > *,
+    .anim .news > * { opacity: 1 !important; }
+    .anim .on, .hero-bg img, .head, .hero-copy > *, .tw, .hero-actions { animation: none !important; }
+  }
+</style>
+<script>
+  // 最初の描画より前に付ける（あとから付けると、見えていたものが消えてから動く）
+  document.documentElement.classList.add('anim');
+  // 保険: 下のJSが動かなかったときは、隠したままにしない
+  setTimeout(function () {
+    if (!window.__animReady) { document.documentElement.classList.remove('anim'); }
+  }, 4000);
+</script>
+<script src="i18n.js" defer></script>
+</head>
+<body>
+
+<div class="note" data-i18n="k110">これは<b>デザイン案C</b>です。写真は雰囲気をつかむための<b>イメージ写真</b>、園の情報は現行サイトからの引用です。文章と写真は差し替えます。</div>
+
+<!-- ============ ヘッダー ============ -->
+<header class="head">
+  <div class="head-in">
+    <a class="brand" href="#">
+      <img class="mark" src="img/logo-mark.png" alt="" width="313" height="192" decoding="async">
+      <span class="tx">
+        <span class="corp" data-i18n="k001">株式会社 A and K　企業主導型・認可保育園</span>
+        <span class="nm" data-i18n="k002">かみのて保育園</span>
+        <span class="en">KAMINOTE HOIKUEN</span>
+      </span>
+    </a>
+
+    <nav class="gnav">
+      <a href="#policy" data-i18n="k004">かみのての保育</a><i class="spark"></i>
+      <a href="#parks" data-i18n="k005">園のご紹介</a><i class="spark"></i>
+      <a href="#byoji" data-i18n="k006">病児保育</a><i class="spark"></i>
+      <a href="#admission" data-i18n="k007">入園案内</a><i class="spark"></i>
+      <a href="#news" data-i18n="k087">園の日記</a><i class="spark"></i>
+      <a href="#contact" data-i18n="k111">お問い合わせ</a>
+    </nav>
+
+    <div class="lang" role="group" aria-label="Language">
+      <button type="button" data-lang="ja"><span class="lg" data-i18n="k009">日本語</span><span class="sm" data-i18n="k009">日本語</span></button>
+      <button type="button" data-lang="en"><span class="lg">English</span><span class="sm">EN</span></button>
+      <button type="button" data-lang="pt"><span class="lg">Português</span><span class="sm">PT</span></button>
+    </div>
+    <a class="pill-recruit" href="#recruit">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="8.5" r="3.6"/><path d="M5 20c0-3.9 3.1-6.4 7-6.4s7 2.5 7 6.4"/></svg><span data-i18n="k008">
+      採用情報
+    </span></a>
+
+    <button class="burger" type="button" aria-label="メニュー">☰</button>
+  </div>
+</header>
+
+<!-- ============ ヒーロー ============ -->
+<div class="hero-zone">
+<section class="hero">
+  <div class="hero-bg"><img fetchpriority="high" decoding="async" src="img/hero-toys-c.jpg" alt="イメージ写真"></div>
+
+  <!-- 下端の弧。border-radius で切り抜くとスクロールが重いので、塗りでかぶせている -->
+  <svg class="arc" viewBox="0 0 1440 132" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0 0 Q720 264 1440 0 V132 H0 Z"/>
+  </svg>
+
+  <!-- 白い帯の下端。半円を並べて写真にかぶせている（CSSの .scallop 参照） -->
+  <div class="scallop"></div>
+
+  <i class="tw tw1"></i><i class="tw tw2"></i>
+  <i class="tw tw3"></i><i class="tw tw4"></i><i class="tw tw5"></i>
+
+  <div class="hero-copy">
+    <div class="hero-place" data-i18n="k112">岐阜県可児市　かみのて保育園／かみのて今渡保育園</div>
+    <div class="l1" data-i18n="k113">こどもの「やってみたい」を、</div>
+    <div><span class="l2" data-i18n="k016">まんなかに。</span></div>
+  </div>
+
+  <div class="hero-actions on-photo">
+    <a class="btn btn-main" href="#contact" data-i18n="k011">見学のお申し込み</a>
+    <a class="btn btn-sub" href="#admission" data-i18n="k021">入園案内を見る</a>
+  </div>
+</section>
+</div>
+
+<!-- ============ ロゴ ============ -->
+<div class="logos">
+  <div class="wrap">
+    <img src="img/logo.png" alt="かみのて保育園 ロゴ" width="313" height="201" decoding="async">
+  </div>
+</div>
+
+<div class="stats">
+  <div class="wrap">
+    <div><div class="n c1">7:00 − 20:00</div><div class="l" data-i18n="k022">かみのて保育園の開所時間</div></div>
+    <div><div class="n c2">2 + 1</div><div class="l" data-i18n="k023">2つの園と病児保育室</div></div>
+    <div><div class="n c3">4</div><div class="l" data-i18n="k024">英語・タガログ語・ビサヤ語・ポルトガル語</div></div>
+  </div>
+</div>
+
+<!-- ============ 3つの理由 ============ -->
+<section class="sec alt" id="reasons">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow"><svg viewBox="0 0 24 24"><path d="M12 4c3 5 5 7 5 10a5 5 0 1 1-10 0c0-3 2-5 5-10Z" fill="#7bb87a"/></svg><span data-i18n="k025">かみのての3つの安心</span></span>
+      <h2><span data-i18n="k026">かみのてが選ばれている、3つの理由</span><span class="en">THREE REASONS</span></h2>
+    </div>
+    <div class="reasons">
+      <div class="reason">
+        <svg class="ic" viewBox="0 0 100 100"><circle cx="50" cy="50" r="42" fill="#fdf3d3"/><circle cx="50" cy="50" r="27" fill="none" stroke="#f7c948" stroke-width="5"/><path d="M50 34v17l11 8" stroke="#f7c948" stroke-width="5" fill="none" stroke-linecap="round"/></svg>
+        <h3 data-i18n="k027">朝は7時台から、夜7時半・8時まで</h3>
+        <p data-i18n="k028">かみのて保育園は7:00〜20:00、かみのて今渡保育園は7:30〜19:30。早番も遅番も、ご家庭のはたらき方に合わせてお預かりします。</p>
+      </div>
+      <div class="reason">
+        <svg class="ic" viewBox="0 0 100 100"><circle cx="50" cy="50" r="42" fill="#fbe7de"/><path d="M50 70S28 58 28 44a11 11 0 0 1 22-8 11 11 0 0 1 22 8c0 14-22 26-22 26Z" fill="#f6a98c"/></svg>
+        <h3 data-i18n="k029">熱が出た日も、あずかります</h3>
+        <p data-i18n="k030">かみのて保育園に併設した病児保育室で、生後6ヵ月から小学校6年生までお預かりします。他の園や小学校に通うお子さまも利用できます。</p>
+      </div>
+      <div class="reason">
+        <svg class="ic" viewBox="0 0 100 100"><circle cx="50" cy="50" r="42" fill="#e3f1f6"/><circle cx="50" cy="50" r="26" fill="none" stroke="#8ec9dd" stroke-width="5"/><path d="M24 50h52M50 24c9 11 9 41 0 52M50 24c-9 11-9 41 0 52" stroke="#8ec9dd" stroke-width="4" fill="none"/></svg>
+        <h3 data-i18n="k031">いろんな言葉で、迎えます</h3>
+        <p data-i18n="k032">英語・タガログ語・ビサヤ語・ポルトガル語に対応。外国にルーツのあるご家庭も安心して通えるよう、文化のちがいを前提にした保育をしています。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ かみのての保育 ============ -->
+<section class="sec" id="policy">
+  <div class="wrap split">
+    <div class="ph-round"><img loading="lazy" decoding="async" src="img/policy.jpg" alt="イメージ写真（保育室であそぶこどもたち）"></div>
+    <div>
+      <span class="eyebrow"><svg viewBox="0 0 24 24"><path d="M12 5v14M12 9c0-3 3-5 6-4-1 4-3 5-6 4Z" stroke="#7bb87a" stroke-width="2" fill="none"/></svg><span data-i18n="k004">かみのての保育</span></span>
+      <h2 style="font-size:clamp(22px,3.2vw,30px);line-height:1.65;font-weight:700" data-i18n="k033">かみのての保育 ―<br>大切にしていること</h2>
+      <p style="margin-top:16px;color:var(--ink-soft);font-size:14.5px;line-height:2.05" data-i18n="k034">こどもは、教えられて育つのではなく、自分でためして育っていきます。わたしたちの仕事は、その「やってみたい」が生まれる場所をつくり、できるまで待つことだと考えています。</p>
+      <ul class="marks">
+        <li><svg class="dot" viewBox="0 0 40 40"><circle cx="20" cy="20" r="19" fill="#e8f3e6"/><path d="M20 11v10l7 4" stroke="#4e8b4d" stroke-width="3" fill="none" stroke-linecap="round"/></svg>
+          <div><b data-i18n="k035">待つ保育。</b><span data-i18n="k036">先まわりして手を出さず、自分でできた瞬間をいっしょに喜びます。</span></div></li>
+        <li><svg class="dot" viewBox="0 0 40 40"><circle cx="20" cy="20" r="19" fill="#fbe7de"/><circle cx="15" cy="19" r="5.5" fill="#f6a98c"/><circle cx="25" cy="19" r="5.5" fill="#f9c6b3"/></svg>
+          <div><b data-i18n="k037">ちがいを、あたりまえに。</b><span data-i18n="k038">言葉も文化も育ちのペースもちがう。そのままで過ごせる場所にします。</span></div></li>
+        <li><svg class="dot" viewBox="0 0 40 40"><circle cx="20" cy="20" r="19" fill="#e3f1f6"/><path d="M12 22l8-7 8 7v7H12Z" fill="#5aa8c2"/></svg>
+          <div><b data-i18n="k039">ご家庭と、ひとつのチームで。</b><span data-i18n="k040">園での姿を毎日おつたえし、いっしょに考えていきます。</span></div></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 2つの園 ============ -->
+<section class="sec alt" id="parks">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8" fill="#7bb87a"/></svg><span data-i18n="k005">園のご紹介</span></span>
+      <h2><span data-i18n="k041">2つの園を運営しています</span><span class="en">OUR NURSERY</span></h2>
+      <p data-i18n="k042">どちらも見学を受け付けています。</p>
+    </div>
+    <div class="parks">
+      <div class="park">
+        <div class="ph"><img loading="lazy" decoding="async" src="img/park-1.jpg" alt="イメージ写真（通園するこどもたち）"></div>
+        <div class="park-body">
+          <h3 data-i18n="k002">かみのて保育園</h3>
+          <span class="kind" data-i18n="k108">企業主導型保育園 ／ 可児市今渡3番5</span>
+          <dl><dt data-i18n="k044">開所時間</dt><dd>7:00 − 20:00</dd><dt data-i18n="k045">定員</dt><dd data-i18n="k046">30名</dd><dt data-i18n="k047">電話</dt><dd>0574-50-1211</dd><dt data-i18n="k048">申込</dt><dd data-i18n="k049">園に直接</dd></dl>
+          <a class="link-a" href="#" data-i18n="k050">この園について見る →</a>
+        </div>
+      </div>
+      <div class="park">
+        <div class="ph"><img loading="lazy" decoding="async" src="img/park-2.jpg" alt="イメージ写真（保育室であそぶこども）"></div>
+        <div class="park-body">
+          <h3 data-i18n="k051">かみのて今渡保育園</h3>
+          <span class="kind" data-i18n="k109">可児市の認可保育園 ／ 可児市今渡3-11</span>
+          <dl><dt data-i18n="k044">開所時間</dt><dd data-i18n="k053">7:30 − 19:30（月〜金）<br>7:30 − 16:30（土・祝）</dd><dt data-i18n="k054">対象年齢</dt><dd data-i18n="k055">0歳 〜 5歳</dd><dt data-i18n="k047">電話</dt><dd>0574-66-3512</dd><dt data-i18n="k048">申込</dt><dd data-i18n="k056">可児市役所 保育課</dd></dl>
+          <a class="link-a" href="#" data-i18n="k050">この園について見る →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 病児保育 ============ -->
+<section class="sec" id="byoji">
+  <div class="wrap">
+    <div class="byoji">
+      <div class="split">
+        <div class="ph-round"><img loading="lazy" decoding="async" src="img/byoji.jpg" alt="イメージ写真（こどもの手をとる大人の手）"></div>
+        <div class="byoji-body">
+          <span class="eyebrow"><svg viewBox="0 0 24 24"><path d="M12 19s-8-5-8-10a5 5 0 0 1 8-3 5 5 0 0 1 8 3c0 5-8 10-8 10Z" fill="#f6a98c"/></svg><span data-i18n="k006">病児保育</span></span>
+          <h2 data-i18n="k057">熱が出た日の、もうひとつの選択肢</h2>
+          <p data-i18n="k058">「今日はどうしても休めない」。そんな日に、専属の看護師と保育士がお子さまをお預かりします。<b>生後6ヵ月から小学校6年生まで</b>、他の園や小学校に通うお子さまもご利用いただけます。</p>
+          <p class="fine" data-i18n="k059">定員1名・9:00〜17:00（月〜金）・1回2,000円。事前登録と、かかりつけ医の診療情報提供書が必要です。</p>
+          <p style="margin-top:18px"><a class="link-a" href="#byoji" data-i18n="k060">病児保育のご案内 →</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 入園案内 ============ -->
+<section class="sec alt" id="admission">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8" fill="#f7c948"/></svg><span data-i18n="k007">入園案内</span></span>
+      <h2><span data-i18n="k061">入園案内・保育料</span><span class="en">ADMISSION</span></h2>
+      <p data-i18n="k062">2つの園は制度が異なり、申し込み先も違います。ご希望の園からお進みください。</p>
+    </div>
+    <div class="adm">
+      <div class="adm-card">
+        <h3 data-i18n="k063">かみのて保育園（企業主導型）</h3>
+        <p data-i18n="k064">自治体を通さず、<b>園に直接</b>お申し込みいただけます。お住まいの地域や勤務先を問わない地域枠のほか、提携企業にお勤めの方の企業枠、自社枠があり、保育料が異なります。入園料はいただきません。</p>
+        <ul class="steps"><li data-i18n="k065">1. お問い合わせ・お電話</li><li data-i18n="k066">2. 来園・書類の記入</li><li data-i18n="k067">3. 入園</li></ul>
+        <a class="link-a" href="#admission" data-i18n="k068">保育料と入園の流れを見る →</a>
+      </div>
+      <div class="adm-card">
+        <h3 data-i18n="k069">かみのて今渡保育園（認可）</h3>
+        <p data-i18n="k070">可児市の認可保育園です。お申し込みは<b>可児市役所 保育課</b>で受け付けています。市役所から園の案内を受け取ったあと、来園のご予約をお願いします。保育料は市役所でご確認ください。</p>
+        <ul class="steps"><li data-i18n="k071">1. 可児市役所 保育課へ</li><li data-i18n="k072">2. 来園予約</li><li data-i18n="k073">3. 見学・面談・申し込み</li></ul>
+        <a class="link-a" href="#admission" data-i18n="k074">入園の流れを見る →</a>
+      </div>
+    </div>
+    <div class="notice" data-i18n="k075"><b>一時預かりもあります。</b>かみのて今渡保育園では、0歳（6か月〜）〜2歳のお子さまを1日2,500円でお預かりしています（9:00〜16:00、月〜土・祝）。事前登録が必要です。</div>
+  </div>
+</section>
+
+<!-- ============ 採用 ============ -->
+<section class="sec" id="recruit">
+  <div class="wrap">
+    <div class="recruit">
+      <span class="eyebrow"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8" fill="#7bb87a"/></svg><span data-i18n="k008">採用情報</span></span>
+      <h2 data-i18n="k076">かみのてで働く人</h2>
+      <p data-i18n="k077">こどもの毎日を支えているのは、ここではたらく人たちです。どんな人が、どんな思いで働いているのか。一日の仕事の流れや、職員へのインタビューをまとめました。</p>
+      <div class="rnums">
+        <div><div class="n" data-i18n="k078">120日+</div><div class="l" data-i18n="k079">年間休日</div></div>
+        <div><div class="n">4</div><div class="l" data-i18n="k080">職員の対応言語</div></div>
+        <div><div class="n">7-20</div><div class="l" data-i18n="k081">シフト制（時）</div></div>
+        <div><div class="n">2+1</div><div class="l" data-i18n="k082">はたらく場所</div></div>
+      </div>
+      <a class="btn btn-main" href="#" data-i18n="k083">採用情報を見る</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ お知らせ ============ -->
+<section class="sec alt" id="news">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8" fill="#f6a98c"/></svg><span data-i18n="k084">お知らせ・園の日記</span></span>
+      <h2><span data-i18n="k085">園のいま、おとどけします</span><span class="en">NEWS &amp; DIARY</span></h2>
+    </div>
+    <div class="news">
+      <a href="#"><div class="ph"><img loading="lazy" decoding="async" src="img/news-1.jpg" alt="イメージ写真（夏まつりの風船）"></div>
+        <div class="meta"><span class="date">2026.07.24</span><span class="tag" data-i18n="k012">お知らせ</span></div>
+        <h3 data-i18n="k086">夏まつりを開催しました（見出しは仮です）</h3></a>
+      <a href="#"><div class="ph"><img loading="lazy" decoding="async" src="img/news-2.jpg" alt="イメージ写真（絵の具で製作あそびをしたこども）"></div>
+        <div class="meta"><span class="date">2026.07.18</span><span class="tag d" data-i18n="k087">園の日記</span></div>
+        <h3 data-i18n="k088">はじめての泥んこあそび（見出しは仮です）</h3></a>
+      <a href="#"><div class="ph"><img loading="lazy" decoding="async" src="img/news-3.jpg" alt="イメージ写真（リュックを背負った園児）"></div>
+        <div class="meta"><span class="date">2026.07.05</span><span class="tag" data-i18n="k012">お知らせ</span></div>
+        <h3 data-i18n="k089">2027年度の入園受付についてのご案内（見出しは仮です）</h3></a>
+    </div>
+    <p style="text-align:center;margin-top:32px"><a class="link-a" href="#news" data-i18n="k090">お知らせ一覧を見る →</a></p>
+  </div>
+</section>
+
+<!-- ============ お問い合わせ ============ -->
+<section class="sec" id="contact">
+  <div class="wrap">
+    <div class="contact">
+      <span class="eyebrow"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8" fill="#7bb87a"/></svg><span data-i18n="k091">見学・お問い合わせ</span></span>
+      <h2 data-i18n="k092">まずは、園を見にきてください</h2>
+      <p data-i18n="k093">こどもたちの過ごし方や、先生とのやりとり。実際に見ていただくのがいちばんです。<br>入園のご予定がなくても、ご相談だけでもかまいません。</p>
+      <div class="hero-actions" style="justify-content:center;margin-top:24px">
+        <a class="btn btn-main" href="#contact" data-i18n="k094">見学を申し込む</a>
+        <a class="btn btn-sub" href="#contact" data-i18n="k095">メールで問い合わせる</a>
+      </div>
+      <div class="tel" data-i18n="k096">0574-50-1211<small>お電話でのお問い合わせ／かみのて保育園・病児保育</small></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ フッター ============ -->
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="name" data-i18n="k002">かみのて保育園</div><div class="en">KAMINOTE NURSERY</div>
+        <div class="foot-addr" data-i18n="k097">運営：株式会社 A and K<br>〒509-0207 岐阜県可児市今渡3-11<br>TEL 0574-66-3511</div>
+      </div>
+      <div>
+        <h4 data-i18n="k098">園について</h4>
+        <ul><li><a href="#policy" data-i18n="k004">かみのての保育</a></li><li><a href="#parks" data-i18n="k005">園のご紹介</a></li><li><a href="#byoji" data-i18n="k099">病児保育のご案内</a></li><li><a href="#" data-i18n="k100">園での生活</a></li><li><a href="#admission" data-i18n="k061">入園案内・保育料</a></li><li><a href="#news" data-i18n="k084">お知らせ・園の日記</a></li></ul>
+      </div>
+      <div>
+        <h4 data-i18n="k101">グループの事業</h4>
+        <ul><li><a href="#" data-i18n="k102">児童発達支援・放課後等デイサービス</a><br><span style="font-size:12px;color:#93a292" data-i18n="k103">かみのてKIDS・かみのてSMILE</span></li><li><a href="#recruit" data-i18n="k008">採用情報</a></li><li><a href="https://www.aandkcorp.com/" data-i18n="k104">会社案内</a></li></ul>
+      </div>
+    </div>
+    <div class="copy"><span>© 2026 A and K Co., Ltd.</span><a href="#" data-i18n="k105">プライバシーポリシー</a></div>
+  </div>
+</footer>
+
+<!-- ============ 開いたときの動き（後半：順に出す） ============
+     隠す指定と対象の並びは <head> 側にある。ここでは出す順番だけを決める。 -->
+<script>
+(function () {
+  // ★ここの並びは <head> の隠す指定と必ず同じにすること
+  var ANIM_SEL = '.stats > .wrap > *,'
+               + '.sec > .wrap > *:not(.reasons):not(.parks):not(.adm):not(.news),'
+               + '.reasons > *,'
+               + '.parks > *,'
+               + '.adm > *,'
+               + '.news > *';
+
+  var units = [].slice.call(document.querySelectorAll(ANIM_SEL));
+
+  function sweep() {
+    var vh = window.innerHeight || document.documentElement.clientHeight;
+    var shown = [];
+    for (var i = units.length - 1; i >= 0; i--) {
+      var r = units[i].getBoundingClientRect();
+      if (r.top < vh * 0.92 && r.bottom > 0) {
+        shown.push(units[i]);
+        units.splice(i, 1);                            // 一度出したら見張らない
+      }
+    }
+    if (!shown.length) { return; }
+    shown.sort(function (a, b) {
+      return a.getBoundingClientRect().top - b.getBoundingClientRect().top;
+    }).forEach(function (el, i) {
+      el.style.animationDelay = (i * 0.06) + 's';      // 並んでいるものは少しずつずらす
+      el.classList.add('on');
+    });
+    if (!units.length) {
+      window.removeEventListener('scroll', onScroll);
+      window.removeEventListener('resize', onScroll);
+    }
+  }
+
+  var waiting = false;
+  function onScroll() {
+    if (waiting) { return; }
+    waiting = true;
+    requestAnimationFrame(function () { waiting = false; sweep(); });
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll);
+  sweep();                                             // 最初から見えている分
+  window.addEventListener('load', sweep);              // 画像が入って位置が確定したあと
+
+  window.__animReady = true;                           // <head> の保険に「動いた」と伝える
+
+  // 保険: スクロールを拾えない環境でも、文字が消えたままにはしない
+  setTimeout(function () {
+    units.forEach(function (el) { el.classList.add('on'); });
+    units.length = 0;
+  }, 5000);
+})();
+</script>
+
+<script>
+// スマホのメニュー開閉。★ボタンは前からあったが処理が無く、押しても反応しなかった。
+(function () {
+  var head = document.querySelector('.head');
+  var btn = head && head.querySelector('.burger');
+  var nav = head && head.querySelector('.gnav');
+  if (!head || !btn || !nav) { return; }
+  btn.setAttribute('aria-expanded', 'false');
+
+  function close() {
+    head.classList.remove('open');
+    btn.setAttribute('aria-expanded', 'false');
+  }
+  btn.addEventListener('click', function (e) {
+    e.stopPropagation();
+    var open = !head.classList.contains('open');
+    head.classList.toggle('open', open);
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    // 見学のボタンはスマホでは隠れているので、開いたメニューの中に入れておく。
+    // 入れないと、メニューからお問い合わせへ行けない。
+    if (open && !nav.querySelector('.cta-in-menu')) {
+      var cta = head.querySelector('.cta, .cta-pill, .pill-recruit');
+      if (cta) {
+        var c = cta.cloneNode(true);
+        c.className = 'cta-in-menu';
+        c.style.cssText = 'font-weight:700';
+        nav.appendChild(c);
+      }
+    }
+  });
+  // メニューの外を押したら閉じる／項目を押したら閉じる
+  document.addEventListener('click', function (e) {
+    if (head.classList.contains('open') && !head.contains(e.target)) { close(); }
+  });
+  nav.addEventListener('click', function (e) { if (e.target.closest('a')) { close(); } });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') { close(); } });
+  // 幅を広げてボタンが消えたら、開いた状態を持ち越さない
+  window.addEventListener('resize', function () {
+    if (getComputedStyle(btn).display === 'none') { close(); }
+  });
+})();
+</script>

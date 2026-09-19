@@ -10,6 +10,15 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@400;500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Baloo+2:wght@500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+<script>
+  // 最初の描画より前に付ける（あとから付けると、見えていたものが消えてから動く）。
+  // ★a/ をルートへ昇格したときに落ちていて、スクロールの動きが効いていなかった（2026-09-19 復旧）
+  document.documentElement.classList.add('anim');
+  // 保険: 下のJSが動かなかったときは、隠したままにしない
+  setTimeout(function () {
+    if (!window.__animReady) { document.documentElement.classList.remove('anim'); }
+  }, 4000);
+</script>
 </head>
 <body>
 

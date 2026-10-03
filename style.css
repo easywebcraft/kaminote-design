@@ -795,3 +795,163 @@ html:not([lang="ja"]) .gnav{gap:12px}
   .hero-actions{gap:10px}
   .hero-actions .btn{min-width:0;width:100%;max-width:320px}
 }
+
+/* =====================================================================
+   2026-10-03 トップの見直し：「どんな園か分かる → 安心できる → 見学したい」の流れに
+   ===================================================================== */
+:root{
+  --k-orange:#FFA45B; --k-orange-d:#f28a3b; --k-sky:#EAF7FB; --k-sky2:#D9F0F2; --k-sky3:#F4FAFC;
+  --k-green:#7FC8A9; --k-yellow:#F4C95D; --k-ink:#2E2E2E; --k-ink2:#555;
+  --k-r-card:24px; --k-r-img:28px; --k-shadow:0 8px 30px rgba(0,0,0,.06);
+  --k-sec:clamp(72px,10vw,140px);
+}
+/* ヘッダーを少しコンパクトに */
+.head-in{padding-top:8px;padding-bottom:8px}
+.brand .mark{height:44px}
+.gnav{gap:22px}
+/* ボタン共通（大きさ・角丸・hover/focus） */
+.btn{transition:transform .3s,box-shadow .3s,background-color .3s}
+.btn:focus-visible,.link-arw:focus-visible,.g4-c:focus-visible,.tfaq summary:focus-visible,.gdrop-t:focus-visible{outline:3px solid var(--k-orange);outline-offset:3px}
+.hero-actions .btn,.end-act .btn{min-height:58px;padding:0 36px;border-radius:30px;font-size:16px}
+.btn-main{background:var(--k-orange);box-shadow:0 10px 24px rgba(255,164,91,.35)}
+.btn-main:hover{background:var(--k-orange-d)}
+.btn-sub{background:#fff;border:2px solid rgba(0,0,0,.08)}
+.hero-note{margin-top:14px;font-size:13px;color:var(--k-ink2);text-shadow:0 1px 3px rgba(255,255,255,.95)}
+.link-arw{display:inline-flex;align-items:center;gap:8px;font-weight:700;color:var(--blue-d);font-size:15px}
+.link-arw::after{content:"→";transition:transform .3s}
+.link-arw:hover::after{transform:translateX(4px)}
+.link-arw span{display:contents}
+/* セクション見出しと余白をそろえる */
+.feat,.news-sec,.why-sec,.day-sec,.gate-sec,.faq-sec{padding:var(--k-sec) 0}
+.why-sec .sec-head h2,.day-sec .sec-head h2,.gate-sec .sec-head h2,.faq-sec .sec-head h2{font-size:clamp(28px,3.6vw,48px);line-height:1.4}
+/* ---- 数字で見る特徴（FV直下） ---- */
+.feat{background:var(--k-sky3);padding:clamp(56px,7vw,96px) 0}
+.feat-h{text-align:center;font-size:clamp(20px,2.2vw,26px);font-weight:700;margin-bottom:clamp(28px,4vw,48px);color:var(--k-ink)}
+.feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(20px,3vw,48px);max-width:1040px;margin:0 auto}
+.feat-i{text-align:center;padding:8px 12px}
+.feat-no{display:block;font-family:"Baloo 2",sans-serif;font-weight:600;font-size:14px;letter-spacing:.12em;color:var(--blue-d)}
+.feat-n{font-family:"Baloo 2",sans-serif;font-weight:700;font-size:clamp(40px,5vw,62px);line-height:1.15;margin-top:4px}
+.feat-n small{font-size:.42em;margin:0 .1em}
+.feat-n.c1{color:var(--k-orange-d)}.feat-n.c2{color:#3fa39a}.feat-n.c3{color:#d9a21d}
+.feat-i b{display:block;margin-top:8px;font-size:17px;color:var(--k-ink)}
+.feat-i p{margin-top:4px;font-size:13.5px;color:var(--k-ink2);line-height:1.7}
+/* ---- お知らせ：左に見出し、右に3件 ---- */
+.news-sec{background:#fff;padding:clamp(64px,8vw,104px) 0}
+.news-row{display:grid;grid-template-columns:240px 1fr;gap:clamp(24px,5vw,72px);align-items:start}
+.news-head{text-align:left;margin:0}
+.news-head h2{display:flex;flex-direction:column;gap:4px;font-size:clamp(22px,2.4vw,30px)}
+.news-head h2 .en{order:-1;font-size:13px;letter-spacing:.2em;color:var(--blue-d)}
+.news-head .link-a{display:inline-block;margin-top:18px;font-size:14px}
+.news-sec .news-list{margin:0}
+/* ---- 3つの理由：写真を大きく、左右交互 ---- */
+.why-sec{background:var(--k-sky)}
+.why{display:grid;gap:clamp(56px,7vw,96px);margin-top:clamp(36px,5vw,64px)}
+.why-i{display:grid;grid-template-columns:1.15fr 1fr;gap:clamp(28px,5vw,72px);align-items:center;min-height:clamp(380px,40vw,560px)}
+.why-i:nth-child(even) .why-ph{order:2}
+.why-ph{border-radius:var(--k-r-img);overflow:hidden;aspect-ratio:4/3;box-shadow:var(--k-shadow);background:var(--k-sky2)}
+.why-ph img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.why-i:hover .why-ph img{transform:scale(1.03)}
+.why-no{font-family:"Baloo 2",sans-serif;font-weight:700;font-size:clamp(44px,5vw,64px);line-height:1;color:var(--k-orange)}
+.why-i:nth-child(2) .why-no{color:var(--k-green)}
+.why-i:nth-child(3) .why-no{color:var(--k-yellow)}
+.why-k{margin-top:8px;font-size:13px;font-weight:700;letter-spacing:.12em;color:var(--blue-d)}
+.why-tx h3{margin-top:10px;font-size:clamp(22px,2.5vw,32px);line-height:1.5;color:var(--k-ink)}
+.why-tx p:not(.why-k){margin-top:16px;font-size:clamp(15px,1.25vw,17px);line-height:2;color:var(--k-ink2)}
+.why-tx .link-arw{margin-top:22px}
+/* ---- 園で過ごす一日：写真＋タイムライン ---- */
+.day-sec{background:#fff}
+.day{display:grid;grid-template-columns:1fr 1.05fr;gap:clamp(32px,5vw,80px);align-items:center}
+.day-ph{border-radius:var(--k-r-img);overflow:hidden;aspect-ratio:4/5;box-shadow:var(--k-shadow);background:var(--k-sky2)}
+.day-ph img{width:100%;height:100%;object-fit:cover}
+.day-tx .sec-head{text-align:left;margin-bottom:24px}
+.day-tl{list-style:none;margin:0;padding:0;position:relative}
+.day-tl::before{content:"";position:absolute;left:58px;top:10px;bottom:10px;width:2px;background:var(--k-sky2)}
+.day-tl li{display:grid;grid-template-columns:52px 1fr;gap:26px;align-items:center;padding:10px 0;position:relative}
+.day-tl li::before{content:"";position:absolute;left:53px;top:50%;width:12px;height:12px;margin-top:-6px;border-radius:50%;background:#fff;border:3px solid var(--k-green)}
+.day-tl li:nth-child(4)::before,.day-tl li:nth-child(6)::before{border-color:var(--k-orange)}
+.day-tl time{font-family:"Baloo 2",sans-serif;font-weight:600;font-size:17px;color:var(--blue-d);text-align:right}
+.day-tl span{font-size:15.5px;color:var(--k-ink)}
+.day-note{margin-top:16px;font-size:12.5px;color:var(--k-ink2)}
+.day-tx .link-arw{margin-top:18px}
+/* ---- 主な4つの入口 ---- */
+.gate-sec{background:var(--k-sky3)}
+.g4{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(18px,2.4vw,28px);margin-top:clamp(32px,4vw,52px)}
+.g4-c{position:relative;display:grid;grid-template-columns:42% 1fr;align-items:center;background:#fff;border-radius:var(--k-r-card);overflow:hidden;box-shadow:var(--k-shadow);transition:box-shadow .3s,transform .3s}
+.g4-c:hover{box-shadow:0 12px 34px rgba(0,0,0,.1)}
+.g4-ph{height:100%;min-height:170px;overflow:hidden;background:var(--k-sky2)}
+.g4-ph img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.g4-c:hover .g4-ph img{transform:scale(1.03)}
+.g4-tx{padding:22px 54px 22px 24px}
+.g4-tx b{display:block;font-size:19px;color:var(--k-ink)}
+.g4-tx span{display:block;margin-top:6px;font-size:13.5px;line-height:1.75;color:var(--k-ink2)}
+.g4-c .arw{position:absolute;right:20px;top:50%;width:22px;height:22px;margin-top:-11px;color:var(--k-orange-d);transition:transform .3s}
+.g4-c:hover .arw{transform:translateX(4px)}
+.g-more{list-style:none;margin:28px 0 0;padding:0;display:flex;flex-wrap:wrap;justify-content:center;gap:10px}
+.g-more a{display:inline-block;padding:9px 18px;border-radius:9999px;background:#fff;border:1px solid rgba(0,0,0,.08);font-size:14px;transition:border-color .3s,color .3s}
+.g-more a:hover{border-color:var(--k-orange);color:var(--k-orange-d)}
+/* ---- トップのよくあるご質問 ---- */
+.faq-sec{background:#fff}
+.faq-w{max-width:860px}
+.tfaq{margin-top:clamp(28px,4vw,44px);display:grid;gap:12px}
+.tfaq details{background:var(--k-sky3);border-radius:18px;border:1px solid var(--k-sky2)}
+.tfaq summary{list-style:none;cursor:pointer;position:relative;padding:20px 56px 20px 58px;font-weight:700;font-size:16px;color:var(--k-ink)}
+.tfaq summary::-webkit-details-marker{display:none}
+.tfaq summary::before{content:"Q";position:absolute;left:20px;top:50%;transform:translateY(-50%);width:28px;height:28px;border-radius:50%;background:var(--k-orange);color:#fff;font-family:"Baloo 2",sans-serif;font-size:15px;display:flex;align-items:center;justify-content:center;line-height:1}
+.tfaq summary::after{content:"+";position:absolute;right:22px;top:50%;transform:translateY(-50%);font-size:22px;color:var(--blue-d);transition:transform .3s}
+.tfaq details[open] summary::after{transform:translateY(-50%) rotate(45deg)}
+.tfaq details p{padding:0 24px 22px 58px;font-size:15px;line-height:1.95;color:var(--k-ink2)}
+.faq-more{text-align:center;margin-top:28px}
+/* ---- 最後の見学CTA：大きな写真＋薄い白 ---- */
+.end-cta{position:relative;overflow:hidden;padding:0;min-height:clamp(400px,38vw,540px);display:flex;align-items:center}
+.end-bg{position:absolute;inset:0}
+.end-bg img{width:100%;height:100%;object-fit:cover}
+.end-bg::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 60% 70% at 50% 50%,rgba(255,255,255,.88) 0%,rgba(255,255,255,.7) 55%,rgba(255,255,255,.45) 100%)}
+.end-in{position:relative;text-align:center;padding:64px 20px}
+.end-eyebrow{font-size:14px;font-weight:700;letter-spacing:.1em;color:var(--blue-d)}
+.end-in h2{margin-top:12px;font-size:clamp(28px,3.8vw,48px);line-height:1.45;color:var(--k-ink)}
+.end-sub{margin-top:16px;font-size:clamp(15px,1.4vw,17px);line-height:1.9;color:var(--k-ink2)}
+.end-act{margin-top:30px;display:flex;align-items:center;justify-content:center;gap:28px;flex-wrap:wrap}
+/* ---- スマホ下部の「見学・ご相談」 ---- */
+.sp-visit{display:none}
+/* ---- タブレット ---- */
+@media (max-width:1024px){
+  .why-i{grid-template-columns:1fr 1fr;min-height:0}
+  .g4-c{grid-template-columns:38% 1fr}
+}
+/* ---- スマホ ---- */
+@media (max-width:700px){
+  .feat-grid{grid-template-columns:1fr;gap:28px}
+  .news-row{grid-template-columns:1fr;gap:18px}
+  .news-head{display:flex;justify-content:space-between;align-items:flex-end}
+  .news-head .link-a{margin-top:0}
+  .why-i,.why-i:nth-child(even){grid-template-columns:1fr;gap:20px}
+  .why-i:nth-child(even) .why-ph{order:0}
+  .why-ph{aspect-ratio:16/10;border-radius:24px}
+  .day{grid-template-columns:1fr}
+  .day-ph{aspect-ratio:16/10}
+  .g4{grid-template-columns:1fr}
+  .g4-c{grid-template-columns:36% 1fr}
+  .g4-ph{min-height:130px}
+  .g4-tx{padding:18px 44px 18px 18px}
+  .g4-tx b{font-size:17px}
+  .tfaq summary{font-size:15px;padding:18px 48px 18px 54px}
+  .tfaq details p{padding:0 18px 18px 54px;font-size:14.5px}
+  .end-sub br,.end-in h2 br{display:none}
+  .hero-actions .btn,.end-act .btn{width:100%;max-width:340px;justify-content:center}
+  .sp-visit{display:flex;position:fixed;left:12px;right:12px;bottom:calc(10px + env(safe-area-inset-bottom,0px));z-index:55;height:58px;border-radius:9999px;
+    align-items:center;justify-content:center;background:var(--k-orange);color:#fff;font-weight:700;font-size:16px;box-shadow:0 10px 26px rgba(0,0,0,.18);
+    transform:translateY(150%);transition:transform .35s}
+  .sp-visit.show{transform:none}
+  .sp-visit[hidden]{display:none}
+  .foot{padding-bottom:90px}
+}
+@media (prefers-reduced-motion:reduce){ .why-ph img,.g4-ph img,.btn,.link-arw::after,.g4-c .arw,.sp-visit{transition:none} }
+/* メニューを7つに絞ったので、日本語では 1101px 以上ならヘッダーの1列に収まる（以前は 1321px 以下で畳んでいた） */
+@media (min-width:1101px) and (max-width:1321px){
+  html[lang="ja"] .gnav{display:flex}
+  html[lang="ja"] .burger{display:none}
+  html[lang="ja"] .head-in .cta-pill{display:inline-flex}
+  html[lang="ja"] .gnav{gap:16px}
+  html[lang="ja"] .brand .corp{display:none}
+}
+.feat-n{white-space:nowrap;font-size:clamp(34px,4.2vw,56px)}

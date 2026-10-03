@@ -742,3 +742,56 @@ html:not([lang="ja"]) .gnav{gap:12px}
 /* 10項目＋言語ボタン。間隔と文字を詰めて幅を作る */
 .gnav{gap:12px}
 .gnav a{font-size:12.5px}
+
+/* ===== 2026-10-03 FV・ヘッダーの見直し：キャッチコピーと見学のボタンが最初に目に入るように ===== */
+/* ヘッダー：主な項目だけ並べ、「3つの理由・保育理念・園のご紹介・よくあるご質問」は「園について」にまとめる */
+.gdrop{position:relative;display:flex}
+.gdrop-t{display:flex;align-items:center;gap:4px;background:none;border:0;padding:0;font:inherit;font-size:13.5px;font-weight:500;color:inherit;cursor:pointer;white-space:nowrap}
+.gdrop-t svg{width:11px;height:11px;transition:transform .2s}
+.gdrop.is-cur .gdrop-t{color:var(--blue-d)}
+.gdrop-m{position:absolute;left:50%;top:100%;transform:translateX(-50%);padding-top:12px;display:none;z-index:70}
+.gdrop-m::before{content:"";position:absolute;inset:12px 0 0;background:#fff;border:1px solid rgba(0,0,0,.08);border-radius:14px;box-shadow:0 12px 28px rgba(0,0,0,.12)}
+.gdrop-m a{position:relative;display:block;padding:10px 20px;font-size:13.5px;white-space:nowrap}
+.gdrop-m a:first-child{margin-top:6px}
+.gdrop-m a:last-child{margin-bottom:6px}
+.gdrop-m a:hover,.gdrop-m a[aria-current="page"]{color:var(--blue-d)}
+.gdrop:hover .gdrop-m,.gdrop:focus-within .gdrop-m{display:block}
+.gdrop:hover .gdrop-t svg,.gdrop:focus-within .gdrop-t svg{transform:rotate(180deg)}
+.gnav{align-items:center}
+/* スマホのメニュー（開いたとき）では、まとめた項目もそのまま並べる */
+.head.open .gnav .gdrop{display:contents}
+.head.open .gnav .gdrop-t{display:none}
+.head.open .gnav .gdrop-m{display:contents}
+.head.open .gnav .gdrop-m::before{content:none}
+.head.open .gnav .gdrop-m a{margin:0;border-top:1px solid rgba(0,0,0,.06)}
+.head.open .gnav .gdrop-m a:first-child{border-top:0}
+
+/* キャッチコピーを主役に（約12%大きく・行間を詰める）。文字のまわりにだけ白をぼかして写真に埋もれさせない */
+.hero-copy{padding:118px 24px 112px;
+  background:radial-gradient(ellipse 56% 52% at 50% 46%,rgba(255,255,255,.72) 0%,rgba(255,255,255,.5) 46%,rgba(255,255,255,0) 74%)}
+.hero-copy h1{font-size:clamp(34px,5.85vw,70px);line-height:1.36}
+.hero-eyebrow{font-size:11px;padding:6px 16px;margin-bottom:22px}
+.hero-lead{margin-top:32px}
+/* 写真：白いかぶせを弱めてコントラストと彩度を少し戻す（文字の読みやすさは上の白ぼかしで確保） */
+.hero-bg img{filter:contrast(1.08) saturate(1.1)}
+.hero-bg::after{background:linear-gradient(180deg,rgba(255,255,255,.4) 0%,rgba(255,255,255,.16) 42%,rgba(255,255,255,.32) 100%)}
+/* ボタン：見学を主、入園案内を副に。高さと横幅をそろえる */
+.hero-actions{gap:18px;margin-top:34px}
+.hero-actions .btn{min-width:236px;justify-content:center;padding:16px 30px}
+.hero-actions .btn-main{font-size:16px;padding:17px 34px}
+/* 3つのタグは小さく、ボタンの下にひとまとまりで */
+.hero-tags{gap:6px;margin-top:22px}
+.hero-tags span{font-size:11px;padding:5px 12px;background:rgba(255,255,255,.82)}
+/* 飾りは「波＋丸」に絞る（左下の木はやめ、右上の丸も数を減らす） */
+.hero-trees{display:none}
+.hero-cluster circle:nth-child(n+6){display:none}
+/* 右端の縦ボタン：横幅を約18%細く・文字とアイコンも小さくして、FVの視線を奪わない */
+.side-cta{gap:6px}
+.side-cta a{width:60px;padding:12px 6px;font-size:11px;line-height:1.4;gap:3px;border-radius:12px 0 0 12px}
+.side-cta svg{width:15px;height:15px}
+@media (max-width:700px){
+  .hero-copy{padding:28px 20px 48px;background:none}
+  .hero-copy h1{font-size:clamp(28px,8.2vw,38px);line-height:1.4}
+  .hero-actions{gap:10px}
+  .hero-actions .btn{min-width:0;width:100%;max-width:320px}
+}

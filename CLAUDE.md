@@ -12,7 +12,7 @@
 | `b/` `c/` | 採用されなかった案。提案書からリンクされているので残してあるだけ。**直さない・消さない** |
 | `a/index.html` | ルートへ飛ばす転送ページ。**中身を複製して置かない**（直す先が2つになる） |
 | `plan-a.html` など `plan-*.html` | 1枚ものの古いたたき台。**編集しない** |
-| `i18n.js` | 多言語の辞書は自動で作るもの。**直接編集しない**（訳は `~/kmtools/i18n-manual-nursery.json` に足して作り直す） |
+| `i18n.js` | 多言語の辞書は自動で作るもの。**直接編集しない**（訳は `~/kmtools/i18n-manual-nursery.json` に足して `python3 ~/kmtools/i18n_apply.py nursery` で作り直す） |
 
 - `~/kmtools/split_plan.py` は**もう使わない**（走らせると `a/` を作り直してルートと二重になる）。
 - 画像は `img/`、多言語は `i18n.js` を参照（`../` は付けない）。
@@ -26,8 +26,9 @@
 - サイトは2本：**保育園サイト＝`~/kaminote-design`（案Aで決定）**／
   **放課後等デイサイト＝`~/kaminote-day-design`（案Bで決定）**。**決定した案が違うので取り違えない。**
 - 提案書は `~/kaminote-proposal`。その `design.html` から各サイトの `/a/` `/b/` `/c/` へリンクが張られている。
-- 作業用の道具は `~/kmtools`（README あり）。**古いPC（Windows＋WSL）前提のままで、Mac ではまだ動かない**
-  （撮影・画像変換・分割ビルド）。使う前に Mac 対応が必要。
+- 作業用の道具は `~/kmtools`（README あり。2026-10 に Mac 対応済み）。
+  文言を足したら `python3 ~/kmtools/i18n_apply.py <nursery|day>` で印を足し、未訳は
+  `~/kmtools/i18n-todo-*.json` を見て `i18n-manual-*.json` に訳を書いてからもう一度走らせる。
 
 ## 共通の進め方（EasyWebCraft の全リポジトリで同じ）
 

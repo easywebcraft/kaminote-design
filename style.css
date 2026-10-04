@@ -1128,3 +1128,56 @@ html:not([lang="ja"]) .gnav{gap:12px}
 @media (prefers-reduced-motion:reduce){.v2-btn,.v2-link .arw,.v2-g-c,.v2-g-ph img,.v2-spbar{transition:none}}
 .v2-fv-h{font-size:clamp(30px,3.7vw,54px)}
 .v2-fv-h span{white-space:nowrap}
+
+/* =====================================================================
+   2026-10-04 FV の仕上げ：文字を読みやすく・装飾を控えめに・ボタンの主従をはっきり
+   （トップの .hero だけ。ヘッダーは全ページ共通）
+   ===================================================================== */
+/* 写真：彩度を少し下げ、コントラストを少し上げる。中央だけ白く抜き、四隅はわずかに沈める */
+.hero-bg img{filter:saturate(.9) contrast(1.07)}
+.hero-bg::after{background:
+  radial-gradient(ellipse 46% 52% at 50% 52%,rgba(255,255,255,.62) 0%,rgba(255,255,255,.4) 55%,rgba(255,255,255,0) 100%),
+  radial-gradient(ellipse 90% 85% at 50% 50%,rgba(0,0,0,0) 60%,rgba(40,32,24,.12) 100%),
+  linear-gradient(180deg,rgba(255,255,255,.22),rgba(255,255,255,.1) 45%,rgba(255,255,255,.2))}
+.hero-copy{background:none;padding:112px 24px 104px;max-width:980px}
+.hero-copy h1{font-size:clamp(30px,4.6vw,60px);line-height:1.42;color:#26231F;
+  text-shadow:0 0 18px rgba(255,255,255,.7)}
+.hero-eyebrow{font-size:13px;letter-spacing:.12em;padding:7px 18px;margin-bottom:24px;color:#26231F;background:rgba(255,255,255,.88)}
+.hero-lead{margin-top:28px;font-size:clamp(14px,1.35vw,17px);font-weight:500;line-height:1.95;color:#26231F;
+  text-shadow:0 0 10px rgba(255,255,255,.9)}
+/* ボタン：メインを大きく、サブは白地＋細い枠で一段下げる */
+.hero-actions{gap:16px;margin-top:36px;align-items:center}
+.hero-actions .btn-main{min-height:64px;padding:0 44px;font-size:17px;min-width:270px}
+.hero-actions .btn-sub{min-height:54px;padding:0 30px;font-size:15px;min-width:0;
+  background:rgba(255,255,255,.96);border:1.5px solid rgba(38,35,31,.22);box-shadow:none}
+.hero-actions .btn-sub::after{content:"→";margin-left:2px}
+/* 安心材料：CTAの下に✓つきで */
+.hero-note{display:inline-flex;align-items:center;gap:8px;margin-top:18px;padding:7px 16px;border-radius:999px;
+  background:rgba(255,255,255,.88);font-size:14px;font-weight:500;color:#26231F;text-shadow:none}
+.hero-note::before{content:"";width:18px;height:18px;flex:none;border-radius:50%;background:var(--k-orange,#f3a35e) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4 8.3l2.6 2.5L12 5.5' fill='none' stroke='%23fff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/100% no-repeat}
+/* 装飾は「あるかないかギリギリ」に：右上の丸は3つ・小さく薄く、見出しの飾りも薄く */
+.hero-cluster{width:min(130px,15vw);opacity:.55}
+.hero-cluster circle:nth-child(n+4){display:none}
+.hero-copy .deco{opacity:.45}
+.hero-copy h1 .ln:last-child .deco:last-child{display:none}
+/* 上下の雲形を浅く（高さを約4割減らす） */
+.hero-edge.t{height:clamp(30px,4.4vw,62px)}
+.hero-edge.b{height:clamp(30px,4.6vw,64px)}
+.hero{min-height:min(82vh,720px)}
+
+/* ヘッダーを軽く：CTAを小さく、文字を細く。PCでは「お問い合わせ」をCTAと重ねない */
+.head .cta-pill{padding:10px 24px;font-size:14px;line-height:1.5;box-shadow:0 4px 12px rgba(241,154,77,.25)}
+.gnav a,.gnav .gdrop-t{font-weight:400}
+@media (min-width:1101px){ .head:not(.open) .gnav > a[href="contact.html"]{display:none} }
+
+@media (max-width:900px){
+  .hero-copy{padding:28px 20px 44px}
+  .hero-copy h1{font-size:clamp(26px,7.6vw,34px);text-shadow:none}
+  .hero-eyebrow{font-size:12px;letter-spacing:.06em;padding:6px 14px;margin-bottom:18px}
+  .hero-lead{margin-top:18px;font-size:14px;text-shadow:none;word-break:keep-all}
+  .hero-actions{margin-top:26px;gap:10px}
+  .hero-actions .btn-main{min-height:58px;min-width:0;width:100%;max-width:340px;font-size:16px}
+  .hero-actions .btn-sub{min-height:50px;width:100%;max-width:340px}
+  .hero-note{font-size:13px;padding:8px 16px;border-radius:18px;text-align:left;line-height:1.6}
+  .hero-cluster{width:72px}
+}

@@ -10,6 +10,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@400;500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Baloo+2:wght@500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css?v=02afff2f">
+<link rel="stylesheet" href="hero-fv.css?v=20261008">
 <script>
   // 最初の描画より前に付ける（あとから付けると、見えていたものが消えてから動く）。
   // ★a/ をルートへ昇格したときに落ちていて、スクロールの動きが効いていなかった（2026-09-19 復旧）
@@ -73,9 +74,18 @@
 <!-- ============ 左の縦レール ============ -->
 
 
-<section class="hero">
+<section class="hero hero-motion">
   <div class="hero-bg">
-    <img fetchpriority="high" decoding="async" src="img/hero-toys.jpg" alt="イメージ写真">
+    <div class="hero-slide is-current" aria-hidden="true"><img fetchpriority="high" decoding="async" src="img/hero-toys.jpg" alt="イメージ写真（木のおもちゃ）"></div>
+    <div class="hero-slide" aria-hidden="true"><img decoding="async" src="img/hero.jpg" alt="イメージ写真（工作の机）"></div>
+    <div class="hero-slide" aria-hidden="true"><img decoding="async" src="img/park-2.jpg" alt="イメージ写真（絵本のコーナー）"></div>
+    <div class="hero-slide" aria-hidden="true"><img decoding="async" src="img/news-3.jpg" alt="イメージ写真（園庭）"></div>
+    <svg class="hero-light" viewBox="0 0 1000 1000" preserveAspectRatio="none" aria-hidden="true">
+      <defs><filter id="nursery-glow" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="12"/></filter></defs>
+      <line x1="0" y1="0" x2="-240" y2="1000" stroke="#ffba70" stroke-width="56" filter="url(#nursery-glow)"/>
+      <line x1="0" y1="0" x2="-240" y2="1000" stroke="#ffe4ba" stroke-width="20" filter="url(#nursery-glow)"/>
+      <line x1="0" y1="0" x2="-240" y2="1000" stroke="#fff8e9" stroke-width="3"/>
+    </svg>
     <!-- 写真の上下を雲形で切る。★切り抜きではなく「同じ色の面をかぶせて」いる（軽いので） -->
     <svg class="hero-edge t" viewBox="0 0 1440 100" preserveAspectRatio="none" aria-hidden="true">
       <path d="M0 0H1440V34q-70 40-150 6-70 34-170 4-80 44-190 2-90 40-200 6-80 36-180 2-90 42-200 4-80 38-180 6-70 34-170 4Z"/>
@@ -419,3 +429,5 @@
   }
 })();
 </script>
+
+<script src="hero-fv.js?v=20261008"></script>

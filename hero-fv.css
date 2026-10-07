@@ -1,0 +1,33 @@
+/* かみのて：写真のカメラワークと木漏れ日の切り替え（トップ専用） */
+.hero-motion .hero-bg { z-index: 0; isolation: isolate; overflow: hidden; }
+.hero-motion .hero-slide { position: absolute; inset: 0; opacity: 0; overflow: hidden; z-index: 0; }
+.hero-motion .hero-slide.is-current, .hero-motion .hero-slide.is-leaving { opacity: 1; }
+.hero-motion .hero-slide.is-current { z-index: 1; }
+.hero-motion .hero-slide img { display: block; animation: none; transform: translate(var(--x0, 0%), var(--y0, 0%)) scale(var(--s0, 1.12)); object-position: var(--focus, 50% 50%); }
+.hero-motion .hero-slide:nth-child(1) { --s0: 1.24; --s1: 1.10; --x0: -2%; --x1: 2%; --y0: 2%; --y1: -2%; }
+.hero-motion .hero-slide:nth-child(2) { --s0: 1.10; --s1: 1.22; --x0: 1%; --x1: -1%; --y0: 1%; --y1: -1%; }
+.hero-motion .hero-slide:nth-child(3) { --s0: 1.15; --s1: 1.15; --x0: 3%; --x1: -3%; --y0: 0%; --y1: 0%; }
+.hero-motion .hero-slide:nth-child(4) { --s0: 1.24; --s1: 1.10; --x0: 1%; --x1: -1%; --y0: -2%; --y1: 2%; }
+.hero-motion.is-playing .hero-slide:is(.is-current, .is-leaving) img {
+  animation: nursery-camera 7s linear infinite alternate both;
+  will-change: transform;
+}
+@keyframes nursery-camera {
+  from { transform: translate(var(--x0), var(--y0)) scale(var(--s0)); }
+  to { transform: translate(var(--x1), var(--y1)) scale(var(--s1)); }
+}
+.hero-motion.is-paused .hero-slide img { animation-play-state: paused; }
+.hero-motion .hero-bg::after { z-index: 2; pointer-events: none;
+  background: radial-gradient(ellipse 52% 62% at 50% 52%,rgba(255,253,247,.78) 0%,rgba(255,253,247,.52) 52%,rgba(255,253,247,0) 100%),
+    linear-gradient(180deg,rgba(255,255,255,.2),rgba(255,255,255,.06) 45%,rgba(255,255,255,.2));
+}
+.hero-motion .hero-light { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 3; opacity: 0; pointer-events: none; }
+.hero-motion .hero-edge { z-index: 4; }
+@media (max-width: 700px) {
+  .hero-motion .hero-bg { height: clamp(250px, 38vh, 320px); }
+  .hero-motion .hero-bg::after { background: linear-gradient(180deg,rgba(255,255,255,.18),rgba(255,255,255,0) 55%); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-motion .hero-slide img { animation: none !important; transform: none; }
+  .hero-motion .hero-light { display: none; }
+}

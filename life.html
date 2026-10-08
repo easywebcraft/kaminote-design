@@ -10,17 +10,10 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@400;500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Baloo+2:wght@500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css?v=02afff2f">
-<script>
-  // 最初の描画より前に付ける（あとから付けると、見えていたものが消えてから動く）。
-  // ★a/ をルートへ昇格したときに落ちていて、スクロールの動きが効いていなかった（2026-09-19 復旧）
-  document.documentElement.classList.add('anim');
-  // 保険: 下のJSが動かなかったときは、隠したままにしない
-  setTimeout(function () {
-    if (!window.__animReady) { document.documentElement.classList.remove('anim'); }
-  }, 4000);
-</script>
+<link rel="stylesheet" href="life-page.css?v=20261008">
+
 </head>
-<body class="v2">
+<body class="v2 life-page">
 
 
 <!-- ============ ヘッダー ============ -->
@@ -47,8 +40,8 @@
       <button type="button" data-lang="pt">Português</button>
     </div>
   </div>
-    <nav class="gnav"><div class="gdrop"><button class="gdrop-t" type="button" aria-expanded="false">園について<svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="gdrop-m"><a href="policy.html" data-i18n="k004">かみのての保育</a><a href="philosophy.html" data-i18n="k116">保育理念</a><a href="parks.html" data-i18n="k005">園のご紹介</a><a href="news.html" data-i18n="k012">お知らせ</a><a href="faq.html" data-i18n="k117">よくあるご質問</a><a href="recruit.html" data-i18n="k008">採用情報</a></div></div><a href="life.html" aria-current="page" data-i18n="k100">園での生活</a><a href="admission.html" data-i18n="k007">入園案内</a><a href="byoji.html" data-i18n="k006">病児保育</a><a href="contact.html" data-i18n="k111">お問い合わせ</a></nav>
-    <a class="cta-pill" href="contact.html">見学・お問い合わせ</a>
+    <nav class="gnav"><div class="gdrop"><button class="gdrop-t" type="button" aria-expanded="false"><span data-i18n="k098">園について</span><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="gdrop-m"><a href="policy.html" data-i18n="k004">かみのての保育</a><a href="philosophy.html" data-i18n="k116">保育理念</a><a href="parks.html" data-i18n="k005">園のご紹介</a><a href="news.html" data-i18n="k012">お知らせ</a><a href="faq.html" data-i18n="k117">よくあるご質問</a><a href="recruit.html" data-i18n="k008">採用情報</a></div></div><a href="life.html" aria-current="page" data-i18n="k100">園での生活</a><a href="admission.html" data-i18n="k007">入園案内</a><a href="byoji.html" data-i18n="k006">病児保育</a><a href="contact.html" data-i18n="k111">お問い合わせ</a></nav>
+    <a class="cta-pill" href="contact.html" data-i18n="k091">見学・お問い合わせ</a>
     <button class="burger" type="button" aria-label="メニュー">☰</button>
   </div>
 </header>
@@ -72,73 +65,20 @@
 <!-- ============ 左の縦レール ============ -->
 
 
-<nav class="crumb"><a href="index.html" data-i18n="k118">トップ</a><span aria-hidden="true">›</span><span data-i18n="k100">園での生活</span></nav>
-<!-- ============================================================
-     園での生活（かみのて保育園）＝ 提案書02節のページ一覧にある「園での生活」
-       1日の流れ／年間行事／園児の過ごし方
-     ★ここが原本。3案（a/b/c）で同じ本文を使う。
-       文言は3案とも同一という約束なので、案ごとに書き分けないこと。
-       見た目の差は各案の style.css が受け持つ。
-     ★色は --x-accent と薄い黒だけで作ること。
-       案ごとにトークン名が違う（--blue-d / --brand-d / --pg-deep）ので、
-       主色を直接書くと3案のどれかで必ず外れる。
-     ★写真の class は .x-ph を使う。案Aは .ph、案B・案Cは .ph-round で名前が違う。
-     ============================================================ -->
-
-<section class="sec" id="life">
-  <div class="wrap">
-    <div class="sec-head">
-      <span class="eyebrow" data-i18n="k100">園での生活</span>
-      <h2><span data-i18n="k472">園での一日と一年</span><span class="en">A DAY &amp; A YEAR</span></h2>
-      <p data-i18n="k186">朝7時から夜8時まで。こどもたちがどんなふうに過ごしているかを、<br class="x-br">一日・一年の順にご紹介します。</p>
-    </div>
-    <div class="split">
-      <div class="x-ph"><img loading="lazy" decoding="async" src="img/park-1.jpg?v=20261004" alt="イメージ写真（玄関の靴箱と帽子）"></div>
-      <div>
-        <ul class="x-points">
-          <li>
-            <span class="ic" aria-hidden="true">🕖</span>
-            <div>
-              <b data-i18n="k187">朝7時から、夜8時まで。</b>
-              <span class="d" data-i18n="k188">早番・遅番のお仕事にも合わせられる開所時間です。18時からの延長保育では、補食もご用意しています。</span>
-            </div>
-          </li>
-          <li>
-            <span class="ic" aria-hidden="true">🌙</span>
-            <div>
-              <b data-i18n="k189">一人ひとりのリズムで。</b>
-              <span class="d" data-i18n="k190">0・1・2歳は、眠くなった子から眠り、おなかのすいた子から食べます。みんなで同じ時間に、は大きくなってからで十分です。</span>
-            </div>
-          </li>
-          <li>
-            <span class="ic" aria-hidden="true">🩺</span>
-            <div>
-              <b data-i18n="k191">看護師が、毎日みています。</b>
-              <span class="d" data-i18n="k192">朝の受け入れのときに体温とおうちでのごようすをうかがい、日中も体調の変化に気をつけています。</span>
-              <a class="link-a" href="byoji.html" data-i18n="k060">病児保育のご案内 →</a>
-            </div>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ 一日の流れ ============ -->
-
-<section class="sec tint" id="day">
-  <div class="wrap">
-    <div class="sec-head">
-      <span class="eyebrow" data-i18n="k193">一日の流れ</span>
-      <h2><span data-i18n="k194">こどもたちの一日</span><span class="en">DAILY PROGRAM</span></h2>
-      <p data-i18n="k195">0・1・2歳と、3・4・5歳では過ごし方が少しちがいます。<br class="x-br">どちらも、その日の天気とこどもたちのようすに合わせて動きます。</p>
-    </div>
-
-    <div class="day-cols">
-      <div class="day-col">
-        <h3 class="day-h"><span class="age" data-i18n="k196">0・1・2歳</span><span data-i18n="k197">その子のリズムで</span></h3>
-        <p class="day-note" data-i18n="k198">食べる・眠るの時間は、一人ひとりちがってかまいません。おうちでのようすをうかがって合わせていきます。</p>
-        <ol class="tl">
+<svg class="life-symbols" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs>
+<symbol id="life-sprig" viewBox="0 0 64 64"><g fill="none" stroke="#83ab70" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M30 58Q36 34 27 9M33 42Q19 44 16 28Q29 28 33 42M33 32Q48 32 49 17Q35 20 33 32M29 20Q16 20 18 7Q29 8 29 20"/><path d="M22 32l10 10M45 22L34 32"/></g></symbol>
+<symbol id="life-flower" viewBox="0 0 64 64"><g fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M32 59V30M32 48Q17 49 17 36Q30 37 32 48M32 43Q48 42 46 30Q33 32 32 43" stroke="#83ab70"/><path d="M32 10C29 1 19 7 24 15C13 14 13 26 24 25C20 34 32 38 34 28C44 35 50 24 41 20C51 11 39 4 34 13Z" stroke="#ed9a71"/><circle cx="32" cy="21" r="4" stroke="#e7b64d"/></g></symbol>
+<symbol id="life-sun" viewBox="0 0 64 64"><g stroke="#efbd54" stroke-width="2" stroke-linecap="round"><circle cx="32" cy="32" r="13" fill="#ffe6a5"/><path d="M32 3v7M32 54v7M3 32h7M54 32h7M11 11l5 5M48 48l5 5M11 53l5-5M48 16l5-5"/></g></symbol>
+<symbol id="life-heart" viewBox="0 0 64 64"><path d="M32 52L11 31C-2 14 22 4 32 20C42 4 66 14 53 31Z" fill="#f89b80" stroke="#ef8971" stroke-width="2"/></symbol>
+<symbol id="life-meal" viewBox="0 0 64 64"><g fill="none" stroke="#efa174" stroke-width="3" stroke-linecap="round"><path d="M16 8v17M10 8v14q0 9 12 0V8M16 28v29M43 30v27"/><ellipse cx="43" cy="18" rx="7" ry="12"/></g></symbol>
+<symbol id="life-talk" viewBox="0 0 64 64"><g fill="none" stroke="#57746c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M53 28c0 12-10 21-24 21l-14 8 3-12C-1 31 6 9 29 9c14 0 24 8 24 19Z"/><path d="M23 26h1M32 26h1M41 26h1"/></g></symbol>
+<symbol id="life-letter" viewBox="0 0 64 64"><g fill="none" stroke="#57746c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 6h27l10 11v41H14ZM41 6v12h10M22 27h21M22 36h21M22 45h13"/></g></symbol>
+<symbol id="life-family" viewBox="0 0 64 64"><g fill="none" stroke="#57746c" stroke-width="2" stroke-linecap="round"><circle cx="32" cy="13" r="8"/><circle cx="13" cy="29" r="6"/><circle cx="51" cy="29" r="6"/><path d="M20 36c0-20 24-20 24 0M3 53V45c0-13 20-13 20 0v8ZM41 53V45c0-13 20-13 20 0v8Z"/></g></symbol>
+</defs></svg><main id="life" class="life-main">
+<section class="life-hero">
+<div class="life-hero-photo"><img src="img/policy.jpg" alt="イメージ写真（明るい保育室）" fetchpriority="high" decoding="async"></div>
+<div class="life-wrap life-hero-inner"><p class="life-eyebrow" data-i18n="k100">園での生活</p><h1 data-i18n="k482">あそんで 食べて 休んで<br>その子のペースで育つ毎日</h1><p data-i18n="k483">かみのて保育園で過ごす、一日と一年をご紹介します。</p><nav class="life-jumps" aria-label="ページ内の案内"><a href="#day" data-i18n="k193">一日の流れ</a><a href="#curriculum" data-i18n="k484">毎日のあそび</a><a href="#events" data-i18n="k244">年間行事</a></nav></div><svg class="life-icon life-hero-leaf" viewBox="0 0 64 64" aria-hidden="true"><use href="#life-sprig"/></svg><svg class="life-icon life-hero-sun" viewBox="0 0 64 64" aria-hidden="true"><use href="#life-sun"/></svg><span class="life-cloud" aria-hidden="true"></span></section>
+<section class="life-section life-promises"><div class="life-wrap"><div class="life-heading" data-life-reveal><svg class="life-icon " viewBox="0 0 64 64" aria-hidden="true"><use href="#life-sprig"/></svg><h2 data-i18n="k485">毎日を支える3つのこと</h2><svg class="life-icon life-mirror" viewBox="0 0 64 64" aria-hidden="true"><use href="#life-sprig"/></svg></div><div class="life-promise-grid"><article class="life-promise" data-life-reveal><div class="life-promise-copy"><svg class="life-icon " viewBox="0 0 64 64" aria-hidden="true"><use href="#life-sprig"/></svg><div><h3 data-i18n="k486">一人ひとりのリズム</h3><p data-i18n="k487">年齢や気持ちに合わせて、その子らしい生活のリズムを大切にしています。</p></div></div><img src="img/park-2.jpg" alt="イメージ写真（静かな絵本のコーナー）" loading="lazy" decoding="async"></article><article class="life-promise" data-life-reveal><div class="life-promise-copy"><svg class="life-icon " viewBox="0 0 64 64" aria-hidden="true"><use href="#life-meal"/></svg><div><h3 data-i18n="k488">たべる時間を大切に</h3><p data-i18n="k489">給食もおやつも自園調理です。食べる楽しさを、毎日の暮らしの中で育みます。</p></div></div><img src="img/news-2.jpg" alt="イメージ写真（給食）" loading="lazy" decoding="async"></article><article class="life-promise" data-life-reveal><div class="life-promise-copy"><svg class="life-icon " viewBox="0 0 64 64" aria-hidden="true"><use href="#life-heart"/></svg><div><h3 data-i18n="k490">毎日の健康を見守る</h3><p data-i18n="k491">朝の受け入れから日中まで、体調の変化に気を配りながら見守ります。</p></div></div><img src="img/byoji.jpg" alt="イメージ写真（健康を支えるケア）" loading="lazy" decoding="async"></article></div></div></section><section class="life-section life-blue" id="day"><div class="life-wrap"><div class="life-heading" data-life-reveal><svg class="life-icon " viewBox="0 0 64 64" aria-hidden="true"><use href="#life-sprig"/></svg><h2 data-i18n="k194">こどもたちの一日</h2><svg class="life-icon life-mirror" viewBox="0 0 64 64" aria-hidden="true"><use href="#life-sprig"/></svg></div><p class="life-section-intro" data-i18n="k492">年齢や、その日の様子に合わせて過ごします。</p><div class="life-day-grid"><div class="life-day-copy"><div class="life-age-tabs" role="tablist" aria-label="年齢別の一日"><button type="button" role="tab" id="life-tab-young" aria-controls="life-young" aria-selected="true" data-i18n="k196">0・1・2歳</button><button type="button" role="tab" id="life-tab-older" aria-controls="life-older" aria-selected="false" tabindex="-1" data-i18n="k214">3・4・5歳</button></div><div class="life-day-panel" id="life-young" role="tabpanel" aria-labelledby="life-tab-young"><p data-i18n="k198" class="life-age-note">食べる・眠るの時間は、一人ひとりちがってかまいません。おうちでのようすをうかがって合わせていきます。</p><ol class="life-timeline"><li><span class="t">7:00</span><div><b data-i18n="k199">順次登園・健康チェック</b><span class="d" data-i18n="k200">体温と、おうちでのごようすをうかがいます。</span></div></li><li><span class="t">9:30</span><div><b data-i18n="k202">あそびの時間</b><span class="d" data-i18n="k203">園庭あそび、お散歩、室内あそび。天気のよい日は、毎日そとへ出ます。</span></div></li><li><span class="t">11:00</span><div><b data-i18n="k204">給食</b><span class="d" data-i18n="k205">自園調理。離乳食は月齢に合わせて、かたさと大きさを変えています。</span></div></li><li><span class="t">11:45</span><div><b data-i18n="k206">お昼寝</b><span class="d" data-i18n="k207">眠くなった子から順に。眠っているあいだも、こまめにようすを見ています。</span></div></li><li><span class="t">15:00</span><div data-i18n="k208"><b>おやつ</b></div></li><li><span class="t">16:30</span><div><b data-i18n="k210">順次降園</b><span class="d" data-i18n="k211">その日のごようすを、おむかえのときにおつたえします。</span></div></li></ol><details class="life-full-day"><summary data-i18n="k493">時間別の流れを詳しく見る</summary><ol class="life-timeline life-timeline-full">
           <li><span class="t">7:00</span><div><b data-i18n="k199">順次登園・健康チェック</b><span class="d" data-i18n="k200">体温と、おうちでのごようすをうかがいます。</span></div></li>
           <li><span class="t">9:00</span><div data-i18n="k201"><b>おやつ・水分補給</b></div></li>
           <li><span class="t">9:30</span><div><b data-i18n="k202">あそびの時間</b><span class="d" data-i18n="k203">園庭あそび、お散歩、室内あそび。天気のよい日は、毎日そとへ出ます。</span></div></li>
@@ -149,13 +89,7 @@
           <li><span class="t">16:30</span><div><b data-i18n="k210">順次降園</b><span class="d" data-i18n="k211">その日のごようすを、おむかえのときにおつたえします。</span></div></li>
           <li><span class="t">18:00</span><div data-i18n="k212"><b>延長保育・補食</b></div></li>
           <li><span class="t">20:00</span><div data-i18n="k213"><b>閉園</b></div></li>
-        </ol>
-      </div>
-
-      <div class="day-col">
-        <h3 class="day-h"><span class="age" data-i18n="k214">3・4・5歳</span><span data-i18n="k473">みんなとじぶんで</span></h3>
-        <p class="day-note" data-i18n="k216">友だちといっしょに過ごす時間が増えます。年長は就学に向けて、少しずつ生活のリズムを整えていきます。</p>
-        <ol class="tl">
+        </ol></details></div><div class="life-day-panel" id="life-older" role="tabpanel" aria-labelledby="life-tab-older"><p data-i18n="k216" class="life-age-note">友だちといっしょに過ごす時間が増えます。年長は就学に向けて、少しずつ生活のリズムを整えていきます。</p><ol class="life-timeline"><li><span class="t">7:00</span><div><b data-i18n="k199">順次登園・健康チェック</b><span class="d" data-i18n="k217">自分でしたくをして、好きなあそびを始めます。</span></div></li><li><span class="t">10:00</span><div><b data-i18n="k220">きょうの活動</b><span class="d" data-i18n="k221">外あそび、制作、リズム、絵本。日によって変わります。</span></div></li><li><span class="t">11:30</span><div><b data-i18n="k204">給食</b><span class="d" data-i18n="k222">配膳のお手伝いも、こどもたちの仕事です。</span></div></li><li><span class="t">12:45</span><div><b data-i18n="k223">午睡・休息</b><span class="d" data-i18n="k224">年長は少しずつ短くし、静かな活動の時間に変えていきます。</span></div></li><li><span class="t">15:00</span><div data-i18n="k208"><b>おやつ</b></div></li><li><span class="t">16:30</span><div><b data-i18n="k210">順次降園</b><span class="d" data-i18n="k211">その日のごようすを、おむかえのときにおつたえします。</span></div></li></ol><details class="life-full-day"><summary data-i18n="k493">時間別の流れを詳しく見る</summary><ol class="life-timeline life-timeline-full">
           <li><span class="t">7:00</span><div><b data-i18n="k199">順次登園・健康チェック</b><span class="d" data-i18n="k217">自分でしたくをして、好きなあそびを始めます。</span></div></li>
           <li><span class="t">9:30</span><div><b data-i18n="k218">朝の会</b><span class="d" data-i18n="k219">あいさつ、うた、今日することの確認。</span></div></li>
           <li><span class="t">10:00</span><div><b data-i18n="k220">きょうの活動</b><span class="d" data-i18n="k221">外あそび、制作、リズム、絵本。日によって変わります。</span></div></li>
@@ -166,78 +100,13 @@
           <li><span class="t">16:30</span><div><b data-i18n="k210">順次降園</b><span class="d" data-i18n="k211">その日のごようすを、おむかえのときにおつたえします。</span></div></li>
           <li><span class="t">18:00</span><div data-i18n="k212"><b>延長保育・補食</b></div></li>
           <li><span class="t">20:00</span><div data-i18n="k213"><b>閉園</b></div></li>
-        </ol>
-      </div>
-    </div>
-
-    <p class="x-fine" data-i18n="k226">※ 時間はおおよその目安です。その日の天気やこどもたちのようすで前後します。</p>
-  </div>
-</section>
-
-<!-- ============ 大切にしている時間 ============ -->
-
-<section class="sec" id="curriculum">
-  <div class="wrap">
-    <div class="sec-head">
-      <span class="eyebrow" data-i18n="k227">大切にしている時間</span>
-      <h2><span data-i18n="k474">一日のなかに</span><br class="x-br"><span data-i18n="k229">こんな時間があります</span><span class="en">CURRICULUM</span></h2>
-      <p data-i18n="k230">特別なプログラムではなく、毎日の生活とあそびのなかに置いている時間です。</p>
-    </div>
-    <div class="cur">
-      <div class="cur-c">
-        <span class="ic" aria-hidden="true">💬</span>
-        <b data-i18n="k231">ことばのじかん</b>
-        <span data-i18n="k232">日本語と、おうちのことば。どちらも大切にします。ポルトガル語・英語・タガログ語を話す職員が、その子の分かることばで声をかけます。</span>
-      </div>
-      <div class="cur-c">
-        <span class="ic" aria-hidden="true">🌿</span>
-        <b data-i18n="k233">そとのじかん</b>
-        <span data-i18n="k234">天気のよい日は毎日そとへ。園庭であそぶ日と、近くの公園までお散歩に出る日があります。</span>
-      </div>
-      <div class="cur-c">
-        <span class="ic" aria-hidden="true">🍚</span>
-        <b data-i18n="k235">たべるじかん</b>
-        <span data-i18n="k236">給食もおやつも自園調理です。アレルギーはもちろん、ご家庭の食文化にも合わせられます。</span>
-      </div>
-      <div class="cur-c">
-        <span class="ic" aria-hidden="true">🎨</span>
-        <b data-i18n="k237">つくるじかん</b>
-        <span data-i18n="k238">絵の具、のり、はさみ、粘土。上手に作ることより、やってみたい気持ちが続くことを大事にしています。</span>
-      </div>
-      <div class="cur-c">
-        <span class="ic" aria-hidden="true">📖</span>
-        <b data-i18n="k239">よむじかん</b>
-        <span data-i18n="k240">毎日の読み聞かせ。日本語の絵本のほかに、おうちのことばの絵本も置いています。</span>
-      </div>
-      <div class="cur-c">
-        <span class="ic" aria-hidden="true">👕</span>
-        <b data-i18n="k241">じぶんでのじかん</b>
-        <span data-i18n="k242">着替え、手あらい、はみがき、片づけ。先まわりして手を出さず、できるまで待ちます。</span>
-      </div>
-    </div>
-    <p style="text-align:center;margin-top:28px"><a class="link-a" href="policy.html" data-i18n="k243">かみのての保育（大切にしていること）を見る →</a></p>
-  </div>
-</section>
-
-<!-- ============ 年間行事 ============ -->
-
-<section class="sec tint" id="events">
-  <div class="wrap">
-    <div class="sec-head">
-      <span class="eyebrow" data-i18n="k244">年間行事</span>
-      <h2><span data-i18n="k245">一年のたのしみ</span><span class="en">EVENTS</span></h2>
-      <p data-i18n="k246">季節を感じる行事と、毎月かならずあること。<br class="x-br">保護者の方にお越しいただく行事は、土曜日を中心にしています。</p>
-    </div>
-
-    <ul class="monthly">
+        </ol></details></div></div><div class="life-day-photos" aria-label="園の生活をイメージした写真"><figure data-life-reveal><img src="img/news-3.jpg" alt="イメージ写真（園庭）" loading="lazy" decoding="async"></figure><figure data-life-reveal><img src="img/news-2.jpg" alt="イメージ写真（給食）" loading="lazy" decoding="async"></figure><figure data-life-reveal><img src="img/park-2.jpg" alt="イメージ写真（落ち着いた絵本のコーナー）" loading="lazy" decoding="async"></figure></div></div><p data-i18n="k226" class="life-fine">※ 時間はおおよその目安です。その日の天気やこどもたちのようすで前後します。</p></div></section><section class="life-section life-cream" id="curriculum"><div class="life-wrap"><div class="life-heading" data-life-reveal><svg class="life-icon " viewBox="0 0 64 64" aria-hidden="true"><use href="#life-sprig"/></svg><h2 data-i18n="k494">毎日のあそびと育ち</h2><svg class="life-icon life-mirror" viewBox="0 0 64 64" aria-hidden="true"><use href="#life-sprig"/></svg></div><div class="life-activity-grid"><article class="life-activity" data-life-reveal><img src="img/hero-toys.jpg" alt="イメージ写真（木のおもちゃ）" loading="lazy" decoding="async"><div><h3 data-i18n="k231">ことばのじかん</h3><p data-i18n="k232">日本語と、おうちのことば。どちらも大切にします。ポルトガル語・英語・タガログ語を話す職員が、その子の分かることばで声をかけます。</p></div></article><article class="life-activity" data-life-reveal><img src="img/news-3.jpg" alt="イメージ写真（園庭）" loading="lazy" decoding="async"><div><h3 data-i18n="k233">そとのじかん</h3><p data-i18n="k234">天気のよい日は毎日そとへ。園庭であそぶ日と、近くの公園までお散歩に出る日があります。</p></div></article><article class="life-activity" data-life-reveal><img src="img/news-2.jpg" alt="イメージ写真（給食）" loading="lazy" decoding="async"><div><h3 data-i18n="k235">たべるじかん</h3><p data-i18n="k236">給食もおやつも自園調理です。アレルギーはもちろん、ご家庭の食文化にも合わせられます。</p></div></article><article class="life-activity" data-life-reveal><img src="img/hero.jpg" alt="イメージ写真（工作の机）" loading="lazy" decoding="async"><div><h3 data-i18n="k237">つくるじかん</h3><p data-i18n="k238">絵の具、のり、はさみ、粘土。上手に作ることより、やってみたい気持ちが続くことを大事にしています。</p></div></article><article class="life-activity" data-life-reveal><img src="img/park-2.jpg" alt="イメージ写真（絵本のコーナー）" loading="lazy" decoding="async"><div><h3 data-i18n="k239">よむじかん</h3><p data-i18n="k240">毎日の読み聞かせ。日本語の絵本のほかに、おうちのことばの絵本も置いています。</p></div></article><article class="life-activity" data-life-reveal><img src="img/park-1.jpg" alt="イメージ写真（玄関の靴箱と帽子）" loading="lazy" decoding="async"><div><h3 data-i18n="k241">じぶんでのじかん</h3><p data-i18n="k242">着替え、手あらい、はみがき、片づけ。先まわりして手を出さず、できるまで待ちます。</p></div></article></div><p class="life-more"><a href="policy.html" data-i18n="k495">かみのての保育を詳しく見る</a></p></div><svg class="life-icon life-section-flower" viewBox="0 0 64 64" aria-hidden="true"><use href="#life-flower"/></svg></section><section class="life-section life-seasons" id="events"><div class="life-wrap"><div class="life-heading" data-life-reveal><svg class="life-icon " viewBox="0 0 64 64" aria-hidden="true"><use href="#life-sprig"/></svg><h2 data-i18n="k496">季節のたのしみ</h2><svg class="life-icon life-mirror" viewBox="0 0 64 64" aria-hidden="true"><use href="#life-sprig"/></svg></div><div class="life-season-grid"><article class="life-season spring" data-life-reveal><img src="img/hero-field.jpg" alt="イメージ写真（草花のある風景）" loading="lazy" decoding="async"><h3 data-i18n="k497">春</h3><p data-i18n="k498">草花にふれながら、春の訪れを感じます。</p></article><article class="life-season summer" data-life-reveal><img src="img/news-3.jpg" alt="イメージ写真（明るい園庭）" loading="lazy" decoding="async"><h3 data-i18n="k499">夏</h3><p data-i18n="k500">水あそびや夏の行事で、季節を楽しみます。</p></article><article class="life-season autumn" data-life-reveal><img src="img/hero-toys.jpg" alt="イメージ写真（木のおもちゃ）" loading="lazy" decoding="async"><h3 data-i18n="k501">秋</h3><p data-i18n="k502">外あそびや制作を通して、季節の変化にふれます。</p></article><article class="life-season winter" data-life-reveal><img src="img/hero.jpg" alt="イメージ写真（室内での工作）" loading="lazy" decoding="async"><h3 data-i18n="k503">冬</h3><p data-i18n="k504">室内のあそびや行事で、ゆったりと過ごします。</p></article></div><details class="life-events-details"><summary data-i18n="k505">年間行事を見る</summary><div class="life-calendar"><ul class="monthly">
       <li data-i18n="k247">毎月：誕生会</li>
       <li data-i18n="k248">毎月：避難訓練</li>
       <li data-i18n="k249">毎月：身体測定</li>
       <li data-i18n="k250">毎月：園だより・クラスだより</li>
       <li data-i18n="k251">年2回：内科健診・歯科健診</li>
-    </ul>
-
-    <ul class="ev">
+    </ul><ul class="ev">
       <li class="ev-m"><span class="m" data-i18n="k252">4<small>月</small></span><ul><li data-i18n="k253">入園式・進級式</li><li data-i18n="k254">こいのぼり作り</li></ul></li>
       <li class="ev-m"><span class="m" data-i18n="k255">5<small>月</small></span><ul><li data-i18n="k256">こどもの日のつどい</li><li data-i18n="k257">親子遠足</li></ul></li>
       <li class="ev-m"><span class="m" data-i18n="k258">6<small>月</small></span><ul><li data-i18n="k259">歯科健診</li><li data-i18n="k260">時の記念日</li><li data-i18n="k261">保育参観</li></ul></li>
@@ -250,25 +119,7 @@
       <li class="ev-m"><span class="m" data-i18n="k280">1<small>月</small></span><ul><li data-i18n="k281">お正月あそび</li><li data-i18n="k282">書きぞめ</li></ul></li>
       <li class="ev-m"><span class="m" data-i18n="k283">2<small>月</small></span><ul><li data-i18n="k284">節分・豆まき</li><li data-i18n="k285">生活発表会</li></ul></li>
       <li class="ev-m"><span class="m" data-i18n="k286">3<small>月</small></span><ul><li data-i18n="k287">ひなまつり</li><li data-i18n="k288">お別れ遠足</li><li data-i18n="k289">卒園式</li></ul></li>
-    </ul>
-
-    <div class="ev-ph">
-      <div class="x-ph"><img loading="lazy" decoding="async" src="img/news-1.jpg" alt="イメージ写真（行事の飾りつけ）"></div>
-      <div class="x-ph"><img loading="lazy" decoding="async" src="img/policy.jpg?v=20261004" alt="イメージ写真（明るい保育室）"></div>
-      <div class="x-ph"><img loading="lazy" decoding="async" src="img/news-2.jpg?v=20261004" alt="イメージ写真（給食）"></div>
-    </div>
-
-    <div class="notice" data-i18n="k290">
-      <b>行事のお知らせは、やさしい日本語とポルトガル語・英語でおとどけします。</b>
-      持ちものや当日の流れは、ことばのちがいでいちばん行きちがいの起きやすいところです。おたよりは翻訳をつけ、必要なときは職員が直接おつたえします。
-    </div>
-
-    <p class="x-fine" data-i18n="k291">※ このページの一日の流れと行事は、一般的な保育園の例をもとにした仮のものです。取材のときにうかがって、かみのて保育園の実際の内容に差し替えます。</p>
-  </div>
-</section>
-
-
-<footer class="foot">
+    </ul></div></details><p class="life-fine life-center" data-i18n="k506">※ 行事の内容や日程は年度により異なります。</p></div></section><section class="life-section life-blue life-family"><div class="life-wrap life-family-grid"><div class="life-family-photo" data-life-reveal><img src="img/policy.jpg" alt="イメージ写真（ご家庭と園で見守る保育室）" loading="lazy" decoding="async"></div><div class="life-family-copy" data-life-reveal><h2 data-i18n="k507">園での様子をご家庭へ</h2><p data-i18n="k508">日々の出来事や成長の様子をお伝えし、ご家庭と園で、お子さまの育ちを見守ります。</p><div class="life-family-points"><div><svg class="life-icon " viewBox="0 0 64 64" aria-hidden="true"><use href="#life-talk"/></svg><h3 data-i18n="k509">お迎えのときの共有</h3><p data-i18n="k211">その日のごようすを、おむかえのときにおつたえします。</p></div><div><svg class="life-icon " viewBox="0 0 64 64" aria-hidden="true"><use href="#life-letter"/></svg><h3 data-i18n="k510">園だより</h3><p data-i18n="k511">園での出来事やお知らせをお届けします。</p></div><div><svg class="life-icon " viewBox="0 0 64 64" aria-hidden="true"><use href="#life-family"/></svg><h3 data-i18n="k512">ことばに合わせたご案内</h3><p data-i18n="k513">やさしい日本語とポルトガル語・英語でお伝えします。</p></div></div></div></div></section><section class="life-section life-cream life-visit"><div class="life-wrap"><div class="life-heading" data-life-reveal><svg class="life-icon " viewBox="0 0 64 64" aria-hidden="true"><use href="#life-sprig"/></svg><h2 data-i18n="k514">実際の園の様子を見に来ませんか</h2><svg class="life-icon life-mirror" viewBox="0 0 64 64" aria-hidden="true"><use href="#life-sprig"/></svg></div><p data-i18n="k515">気になることも、見学の際にお聞かせください。</p><a class="life-visit-button" href="contact.html"><span data-i18n="k010">見学・ご相談はこちら</span><span aria-hidden="true">→</span></a><div class="life-visit-links"><a href="admission.html" data-i18n="k061">入園案内・保育料</a><a href="faq.html" data-i18n="k117">よくあるご質問</a></div><p data-i18n="k291" class="life-fine">※ このページの一日の流れと行事は、一般的な保育園の例をもとにした仮のものです。取材のときにうかがって、かみのて保育園の実際の内容に差し替えます。</p></div><svg class="life-icon life-visit-flower" viewBox="0 0 64 64" aria-hidden="true"><use href="#life-flower"/></svg><svg class="life-icon life-visit-sun" viewBox="0 0 64 64" aria-hidden="true"><use href="#life-sun"/></svg></section></main><footer class="foot">
   <div class="wrap">
     <div class="foot-grid">
       <div>
@@ -313,61 +164,7 @@
      隠す指定と対象の並びは <head> 側にある。ここでは出す順番だけを決める。 -->
 
 
-<script>
-(function () {
-  // ★ここの並びは <head> の隠す指定と必ず同じにすること
-  var ANIM_SEL = '.stats > .wrap > *,'
-               + '.sec > .wrap > *:not(.reasons):not(.parks):not(.adm):not(.news),'
-               + '.reasons > *,'
-               + '.parks > *,'
-               + '.adm > *,'
-               + '.news > *';
 
-  var units = [].slice.call(document.querySelectorAll(ANIM_SEL));
-
-  function sweep() {
-    var vh = window.innerHeight || document.documentElement.clientHeight;
-    var shown = [];
-    for (var i = units.length - 1; i >= 0; i--) {
-      var r = units[i].getBoundingClientRect();
-      if (r.top < vh * 0.92 && r.bottom > 0) {
-        shown.push(units[i]);
-        units.splice(i, 1);                            // 一度出したら見張らない
-      }
-    }
-    if (!shown.length) { return; }
-    shown.sort(function (a, b) {
-      return a.getBoundingClientRect().top - b.getBoundingClientRect().top;
-    }).forEach(function (el, i) {
-      el.style.animationDelay = (i * 0.06) + 's';      // 並んでいるものは少しずつずらす
-      el.classList.add('on');
-    });
-    if (!units.length) {
-      window.removeEventListener('scroll', onScroll);
-      window.removeEventListener('resize', onScroll);
-    }
-  }
-
-  var waiting = false;
-  function onScroll() {
-    if (waiting) { return; }
-    waiting = true;
-    requestAnimationFrame(function () { waiting = false; sweep(); });
-  }
-  window.addEventListener('scroll', onScroll, { passive: true });
-  window.addEventListener('resize', onScroll);
-  sweep();                                             // 最初から見えている分
-  window.addEventListener('load', sweep);              // 画像が入って位置が確定したあと
-
-  window.__animReady = true;                           // <head> の保険に「動いた」と伝える
-
-  // 保険: スクロールを拾えない環境でも、文字が消えたままにはしない
-  setTimeout(function () {
-    units.forEach(function (el) { el.classList.add('on'); });
-    units.length = 0;
-  }, 5000);
-})();
-</script>
 
 
 <script>
@@ -414,6 +211,10 @@
 </script>
 
 
-<script src="i18n.js?v=headings-20261008"></script>
+<script src="i18n.js?v=life-layout-20261008"></script>
+
+
+
+<script src="life-page.js?v=20261008"></script>
 
 

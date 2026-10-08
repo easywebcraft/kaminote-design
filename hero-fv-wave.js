@@ -68,10 +68,12 @@
       frame = requestAnimationFrame(draw);
     });
   }
-  ready[0].then(function () { hero.classList.add('is-playing'); schedule(); });
+  function play() { ready[0].then(function () { hero.classList.add('is-playing'); schedule(); }); }
+  if (document.documentElement.classList.contains('nursery-intro-active')) window.addEventListener('nursery-intro-end', play, {once:true});
+  else play();
   document.addEventListener('visibilitychange', function () {
     hero.classList.toggle('is-paused', document.hidden);
     clearTimeout(timer);
-    if (!document.hidden && !changing) schedule();
+    if (!document.hidden && !changing && hero.classList.contains('is-playing')) schedule();
   });
 })();

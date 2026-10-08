@@ -11,6 +11,18 @@
 <link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@400;500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Baloo+2:wght@500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css?v=02afff2f">
 <link rel="stylesheet" href="hero-fv.css?v=20261008">
+<link rel="stylesheet" href="nursery-intro.css?v=20261008">
+<script>
+if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  document.documentElement.classList.add('nursery-intro-active');
+  window.nurseryIntroSafety = setTimeout(function () {
+    document.documentElement.classList.remove('nursery-intro-active');
+    var intro = document.getElementById('nurseryIntro');
+    if (intro) intro.remove();
+    window.dispatchEvent(new Event('nursery-intro-end'));
+  }, 8000);
+}
+</script>
 <script>
   // 最初の描画より前に付ける（あとから付けると、見えていたものが消えてから動く）。
   // ★a/ をルートへ昇格したときに落ちていて、スクロールの動きが効いていなかった（2026-09-19 復旧）
@@ -22,6 +34,10 @@
 </script>
 </head>
 <body class="v2 v2-top">
+<div class="nursery-intro" id="nurseryIntro" aria-hidden="true">
+  <div class="nursery-intro-curtain"></div>
+  <div class="nursery-intro-inner"><img class="nursery-intro-logo" src="img/logo.png" alt="" width="313" height="201" decoding="async"></div>
+</div>
 
 <div class="note" data-i18n="k114">これは<b>デザイン案A</b>を、メニューごとに別ページへ分けたものです。写真は<b>イメージ写真</b>、情報は現行サイトからの引用です。文章と写真は差し替えます。</div>
 
@@ -429,4 +445,5 @@
 })();
 </script>
 
-<script src="hero-fv-wave.js?v=20261008"></script>
+<script src="nursery-intro.js?v=20261008"></script>
+<script src="hero-fv-wave.js?v=20261008-intro"></script>

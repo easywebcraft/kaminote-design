@@ -15,15 +15,23 @@
 <link rel="stylesheet" href="nursery-intro.css?v=20261008">
 <link rel="stylesheet" href="home-page.css?v=20261008">
 <script>
-if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
-  document.documentElement.classList.add('nursery-intro-active');
-  window.nurseryIntroSafety = setTimeout(function () {
-    document.documentElement.classList.remove('nursery-intro-active');
-    var intro = document.getElementById('nurseryIntro');
-    if (intro) intro.remove();
-    window.dispatchEvent(new Event('nursery-intro-end'));
-  }, 8000);
-}
+(function () {
+  var introSeen = false;
+  try {
+    introSeen = sessionStorage.getItem('kaminote-intro-seen') === '1';
+    if (!introSeen) sessionStorage.setItem('kaminote-intro-seen', '1');
+  } catch (e) {}
+
+  if (!introSeen && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    document.documentElement.classList.add('nursery-intro-active');
+    window.nurseryIntroSafety = setTimeout(function () {
+      document.documentElement.classList.remove('nursery-intro-active');
+      var intro = document.getElementById('nurseryIntro');
+      if (intro) intro.remove();
+      window.dispatchEvent(new Event('nursery-intro-end'));
+    }, 8000);
+  }
+})();
 </script>
 
 </head>

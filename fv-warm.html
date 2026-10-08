@@ -11,7 +11,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@400;500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Baloo+2:wght@500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css?v=02afff2f">
 <link rel="stylesheet" href="hero-fv.css?v=20261008">
-<link rel="stylesheet" href="hero-fv-warm.css?v=20261008">
+<link rel="stylesheet" href="hero-fv-warm.css?v=20261008-2">
 <link rel="stylesheet" href="nursery-intro.css?v=20261008">
 <script>
 if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
@@ -134,6 +134,8 @@ if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
     </g>
   </svg>
 
+  <span class="warm-petal warm-petal-left" aria-hidden="true"></span>
+  <span class="warm-petal warm-petal-right" aria-hidden="true"></span>
   <div class="hero-copy">
     <span class="hero-eyebrow">岐阜県可児市｜企業主導型・認可保育園</span>
     <h1 class="mincho">
@@ -448,3 +450,16 @@ if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
 
 <script src="nursery-intro.js?v=20261008"></script>
 <script src="hero-fv-wave.js?v=20261008-intro"></script>
+
+<button class="warm-preview-toggle" type="button" aria-pressed="true">木漏れ日・飾り：ON</button>
+<script>
+(function () {
+ var button = document.querySelector('.warm-preview-toggle');
+ var hero = document.querySelector('.hero-warm');
+ button.addEventListener('click', function () {
+  var off = hero.classList.toggle('warm-effects-off');
+  button.setAttribute('aria-pressed', String(!off));
+  button.textContent = '木漏れ日・飾り：' + (off ? 'OFF' : 'ON');
+ });
+})();
+</script>

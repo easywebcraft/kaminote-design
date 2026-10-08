@@ -487,7 +487,8 @@
   "k477": "こんな子に",
   "k478": "これまでの経験を",
   "k479": "働き方は2つから",
-  "k480": "はじめの一歩を"
+  "k480": "はじめの一歩を",
+  "k481": "目的に合わせてご覧ください"
  },
  "en": {
   "k000": "This is <b>Design A</b>. The photos are stand-ins to convey the mood, and the nursery details are quoted from the current website. Text and photos will be replaced.",
@@ -970,7 +971,8 @@
   "k477": "These are the children",
   "k478": "Put the experience you already have",
   "k479": "Two ways of working",
-  "k480": "Take the first step"
+  "k480": "Take the first step",
+  "k481": "Find the information you need"
  },
  "pt": {
   "k000": "Este é o <b>Plano A</b>. As fotos são apenas de referência, para dar a ideia, e as informações da creche foram citadas do site atual. Textos e fotos serão substituídos.",
@@ -1453,7 +1455,8 @@
   "k477": "Estas são as crianças",
   "k478": "Use a experiência que você já tem",
   "k479": "Duas formas de trabalhar",
-  "k480": "Dê o primeiro passo"
+  "k480": "Dê o primeiro passo",
+  "k481": "Encontre as informações de que você precisa"
  }
 };
 

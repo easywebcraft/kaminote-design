@@ -13,6 +13,7 @@
 <link rel="stylesheet" href="hero-fv.css?v=20261008">
 <link rel="stylesheet" href="hero-fv-warm.css?v=20261008-release">
 <link rel="stylesheet" href="nursery-intro.css?v=20261008">
+<link rel="stylesheet" href="home-page.css?v=20261008">
 <script>
 if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
   document.documentElement.classList.add('nursery-intro-active');
@@ -24,24 +25,12 @@ if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
   }, 8000);
 }
 </script>
-<script>
-  // 最初の描画より前に付ける（あとから付けると、見えていたものが消えてから動く）。
-  // ★a/ をルートへ昇格したときに落ちていて、スクロールの動きが効いていなかった（2026-09-19 復旧）
-  document.documentElement.classList.add('anim');
-  // 保険: 下のJSが動かなかったときは、隠したままにしない
-  setTimeout(function () {
-    if (!window.__animReady) { document.documentElement.classList.remove('anim'); }
-  }, 4000);
-</script>
+
 </head>
-<body class="v2 v2-top">
-<div class="nursery-intro" id="nurseryIntro" aria-hidden="true">
+<body class="v2 home-page" id="top"><div class="nursery-intro" id="nurseryIntro" aria-hidden="true">
   <div class="nursery-intro-curtain"></div>
   <div class="nursery-intro-inner"><img class="nursery-intro-logo" src="img/logo.png" alt="" width="313" height="201" decoding="async"></div>
 </div>
-
-
-<!-- ============ ヘッダー ============ -->
 
 
 <header class="head">
@@ -49,48 +38,29 @@ if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
     <a class="brand" href="index.html">
       <img class="mark" src="img/logo-mark.png" alt="" width="313" height="192" decoding="async">
       <span class="tx">
-        <span class="corp" data-i18n="k001">株式会社 A and K　企業主導型・認可保育園</span>
-        <span class="name" data-i18n="k002">かみのて保育園</span>
+        <span class="corp">株式会社 A and K　企業主導型・認可保育園</span>
+        <span class="name">かみのて保育園</span>
         <span class="en">KAMINOTE NURSERY</span>
       </span>
     </a>
-    <div class="lang">
-    <button class="lang-btn" type="button" aria-expanded="false" aria-haspopup="true">
-      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M3 12h18M12 3c2.5 2.6 2.5 15.4 0 18M12 3c-2.5 2.6-2.5 15.4 0 18" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>
-      <span data-i18n="k115">言語</span>
-    </button>
-    <div class="lang-menu" hidden>
-      <button type="button" data-lang="ja">日本語</button>
-      <button type="button" data-lang="en">English</button>
-      <button type="button" data-lang="pt">Português</button>
-    </div>
-  </div>
-    <nav class="gnav"><div class="gdrop"><button class="gdrop-t" type="button" aria-expanded="false">園について<svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="gdrop-m"><a href="policy.html" data-i18n="k004">かみのての保育</a><a href="philosophy.html" data-i18n="k116">保育理念</a><a href="parks.html" data-i18n="k005">園のご紹介</a><a href="news.html" data-i18n="k012">お知らせ</a><a href="faq.html" data-i18n="k117">よくあるご質問</a><a href="recruit.html" data-i18n="k008">採用情報</a></div></div><a href="life.html" data-i18n="k100">園での生活</a><a href="admission.html" data-i18n="k007">入園案内</a><a href="byoji.html" data-i18n="k006">病児保育</a><a href="contact.html" data-i18n="k111">お問い合わせ</a></nav>
+    <span class="home-language" aria-label="表示言語は日本語"><svg class="home-icon " viewBox="0 0 64 64" aria-hidden="true"><use href="#home-globe"/></svg>日本語</span>
+    <nav class="gnav"><div class="gdrop"><button class="gdrop-t" type="button" aria-expanded="false">園について<svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="gdrop-m"><a href="policy.html">かみのての保育</a><a href="philosophy.html">保育理念</a><a href="parks.html">園のご紹介</a><a href="news.html">お知らせ</a><a href="faq.html">よくあるご質問</a><a href="recruit.html">採用情報</a></div></div><a href="life.html">園での生活</a><a href="admission.html">入園案内</a><a href="byoji.html">病児保育</a><a href="contact.html">お問い合わせ</a></nav>
     <a class="cta-pill" href="contact.html">見学・お問い合わせ</a>
     <button class="burger" type="button" aria-label="メニュー">☰</button>
   </div>
-</header>
-
-<!-- 右端に貼りつく縦のボタン（参考イメージの「園見学予約」「病児・病後児保育」）
-     ★文言は既にある鍵を使い回している（k019 / k006）。新しい鍵を足すと
-       i18n_mark.py を掛け直したときに番号がずれるため。 -->
-
-
-<div class="side-cta">
-  <a class="s1" href="contact.html">
-    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5h14v15H5z" fill="none" stroke="#fff" stroke-width="2" stroke-linejoin="round"/><path d="M9 3v4M15 3v4M5 10h14" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg>
-    <span data-i18n="k011">見学のお申し込み</span>
-  </a>
-  <a class="s2" href="byoji.html">
-    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7-4.6-7-9.4A4 4 0 0 1 12 8a4 4 0 0 1 7 2.6c0 4.8-7 9.4-7 9.4Z" fill="none" stroke="#fff" stroke-width="2" stroke-linejoin="round"/></svg>
-    <span data-i18n="k006">病児保育</span>
-  </a>
-</div>
-
-<!-- ============ 左の縦レール ============ -->
-
-
-<section class="hero hero-motion hero-warm">
+</header><svg class="home-symbols" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs>
+<symbol id="home-sprig" viewBox="0 0 64 64"><g fill="none" stroke="#83ab70" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M30 58Q36 34 27 9M33 42Q19 44 16 28Q29 28 33 42M33 32Q48 32 49 17Q35 20 33 32M29 20Q16 20 18 7Q29 8 29 20"/><path d="M22 32l10 10M45 22L34 32"/></g></symbol>
+<symbol id="home-flower" viewBox="0 0 64 64"><g fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M32 59V30M32 48Q17 49 17 36Q30 37 32 48M32 43Q48 42 46 30Q33 32 32 43" stroke="#83ab70"/><path d="M32 10C29 1 19 7 24 15C13 14 13 26 24 25C20 34 32 38 34 28C44 35 50 24 41 20C51 11 39 4 34 13Z" stroke="#ed9a71"/><circle cx="32" cy="21" r="4" stroke="#e7b64d"/></g></symbol>
+<symbol id="home-sun" viewBox="0 0 64 64"><g stroke="#efbd54" stroke-width="2" stroke-linecap="round"><circle cx="32" cy="32" r="13" fill="#ffe6a5"/><path d="M32 3v7M32 54v7M3 32h7M54 32h7M11 11l5 5M48 48l5 5M11 53l5-5M48 16l5-5"/></g></symbol>
+<symbol id="home-heart" viewBox="0 0 64 64"><path d="M32 52L11 31C-2 14 22 4 32 20C42 4 66 14 53 31Z" fill="#f89b80" stroke="#ef8971" stroke-width="2"/></symbol>
+<symbol id="home-meal" viewBox="0 0 64 64"><g fill="none" stroke="#efa174" stroke-width="3" stroke-linecap="round"><path d="M16 8v17M10 8v14q0 9 12 0V8M16 28v29M43 30v27"/><ellipse cx="43" cy="18" rx="7" ry="12"/></g></symbol>
+<symbol id="home-talk" viewBox="0 0 64 64"><g fill="none" stroke="#57746c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M53 28c0 12-10 21-24 21l-14 8 3-12C-1 31 6 9 29 9c14 0 24 8 24 19Z"/><path d="M23 26h1M32 26h1M41 26h1"/></g></symbol>
+<symbol id="home-letter" viewBox="0 0 64 64"><g fill="none" stroke="#57746c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 6h27l10 11v41H14ZM41 6v12h10M22 27h21M22 36h21M22 45h13"/></g></symbol>
+<symbol id="home-family" viewBox="0 0 64 64"><g fill="none" stroke="#57746c" stroke-width="2" stroke-linecap="round"><circle cx="32" cy="13" r="8"/><circle cx="13" cy="29" r="6"/><circle cx="51" cy="29" r="6"/><path d="M20 36c0-20 24-20 24 0M3 53V45c0-13 20-13 20 0v8ZM41 53V45c0-13 20-13 20 0v8Z"/></g></symbol>
+<symbol id="home-globe" viewBox="0 0 64 64"><g fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="32" cy="32" r="24"/><ellipse cx="32" cy="32" rx="11" ry="24"/><path d="M8 32h48M14 17q18 9 36 0M14 47q18-9 36 0"/></g></symbol>
+<symbol id="home-house" viewBox="0 0 64 64"><g fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 29 32 7l27 22M12 25v31h40V25M26 56V39h12v17M32 7V2h13l-6 5Z"/></g></symbol>
+<symbol id="home-care" viewBox="0 0 64 64"><g fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M14 6v16c0 19 25 19 25 0V6M9 6h9M35 6h9M26 37v7c0 18 25 18 25 0V30"/><circle cx="51" cy="24" r="6"/></g></symbol>
+<symbol id="home-megaphone" viewBox="0 0 64 64"><g fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"><path d="M10 26v16h12l29 10V13L22 26ZM19 42l6 16h8l-6-15M57 20l5-4M57 32h6M57 45l5 4"/></g></symbol></defs></svg><main class="home-main"><section class="hero hero-motion hero-warm">
   <div class="hero-bg">
     <div class="hero-slide is-current" aria-hidden="true"><img fetchpriority="high" decoding="async" src="img/hero-toys.jpg" alt="イメージ写真（木のおもちゃ）"></div>
     <div class="hero-slide" aria-hidden="true"><img decoding="async" src="img/hero.jpg" alt="イメージ写真（工作の机）"></div>
@@ -139,251 +109,22 @@ if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
   <div class="hero-copy">
     <span class="hero-eyebrow">岐阜県可児市｜企業主導型・認可保育園</span>
     <h1 class="mincho">
-      <span class="ln"><span data-i18n="k014">こどもの</span><br class="br-sp"><span data-i18n="k461">「やってみたい」を
+      <span class="ln"><span>こどもの</span><br class="br-sp"><span>「やってみたい」を
         </span><svg class="deco" style="right:3%;top:-14%;width:38px" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 4c5 7 8 10 8 14a8 8 0 1 1-16 0c0-4 3-7 8-14Z" fill="#8b7bc8" opacity=".9"/></svg>
       </span>
-      <span class="ln"><span data-i18n="k462">まんなかに
+      <span class="ln"><span>まんなかに
         </span><svg class="deco" style="left:14%;bottom:-4%;width:46px" viewBox="0 0 60 30" aria-hidden="true"><path d="M4 20q8-12 16 0t16 0 16 0" stroke="#f5b301" stroke-width="5" fill="none" stroke-linecap="round"/></svg>
         <svg class="deco" style="right:16%;top:-10%;width:28px" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="16" fill="#f2856a" opacity=".85"/></svg>
       </span>
     </h1>
-    <p class="hero-lead" data-i18n="k017">朝も夕方も、体調をくずした日も。<br>はたらくご家庭のとなりで、こどもの一日をあずかります。</p>
+    <p class="hero-lead">朝も夕方も、体調をくずした日も。<br>はたらくご家庭のとなりで、こどもの一日をあずかります。</p>
     <div class="hero-actions">
-      <a class="btn btn-main" href="contact.html" data-i18n="k010">見学・ご相談はこちら</a>
-      <a class="btn btn-sub" href="admission.html" data-i18n="k021">入園案内を見る</a>
+      <a class="btn btn-main" href="contact.html">見学・ご相談はこちら</a>
+      <a class="btn btn-sub" href="admission.html">入園案内を見る</a>
     </div>
     <p class="hero-note"><span>入園時期がまだ決まっていない方も<br class="br-sp">ご相談いただけます</span></p>
   </div>
-</section>
-
-<!-- ============ 数字で分かる3つの安心 ============ -->
-<section class="v2-nums" aria-label="数字で分かる3つの安心">
-  <div class="v2-wrap v2-nums-grid">
-    <div class="v2-num"><svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="12" fill="none" stroke="currentColor" stroke-width="2"/><path d="M16 9v8l5 3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><b>7:00–20:00</b><span>長時間保育</span></div>
-    <div class="v2-num"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 26s-9-5.6-9-11.6A5 5 0 0 1 16 11a5 5 0 0 1 9 3.4C25 20.4 16 26 16 26Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg><b>2園＋病児保育</b><span>もしもの日も安心</span></div>
-    <div class="v2-num"><svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="11" fill="none" stroke="currentColor" stroke-width="2"/><path d="M5 16h22M16 5c4 4.5 4 17.5 0 22M16 5c-4 4.5-4 17.5 0 22" fill="none" stroke="currentColor" stroke-width="1.6"/></svg><b>4 LANGUAGES</b><span>多言語対応</span></div>
-  </div>
-</section>
-
-<!-- ============ かみのて保育園について（保育理念・園長メッセージの文から） ============ -->
-<section class="v2-sec v2-about">
-  <div class="v2-wrap v2-about-grid">
-    <div class="v2-about-ph"><img src="img/policy.jpg?v=20261004" alt="イメージ写真（明るい保育室）" loading="lazy" decoding="async"></div>
-    <div class="v2-about-tx">
-      <p class="v2-label">ABOUT KAMINOTE</p>
-      <h2 class="v2-h2" data-i18n="k463">子どもの気持ちを<br>一番近くで見守る</h2>
-      <p>おとなの都合で一日を組み立てるのではなく、こどもがいま何をしたいのかを真ん中に置きます。できるまで待ち、できた瞬間をいっしょに喜ぶ。その積み重ねが、これから先の「自分でやってみよう」につながると考えています。</p>
-      <p>朝早くから夜おそくまで、送り迎えの時間はご家庭によってさまざまです。日本語でのやりとりに不安のある方もいらっしゃいます。そのどれも、こどもをあずけにくい理由にはならない園でありたいと思っています。</p>
-      <a class="v2-link" href="philosophy.html">かみのて保育園について<svg class="arw" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 5l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-    </div>
-  </div>
-</section>
-
-<!-- ============ 3つの安心 ============ -->
-<section class="v2-sec v2-anshin" id="reasons">
-  <div class="v2-wrap">
-    <div class="v2-head"><p class="v2-label">THREE PROMISES</p><h2 class="v2-h2" data-i18n="k464">安心して通っていただくために</h2></div>
-    <article class="v2-ed">
-      <div class="v2-ed-ph"><img src="img/hero.jpg?v=20261004" alt="イメージ写真（工作の机）" loading="lazy" decoding="async"></div>
-      <div class="v2-ed-tx"><span class="v2-ed-no">01</span><h3 data-i18n="k465">朝早くから<br>夜まで安心</h3><p class="v2-ed-k">7:00〜20:00</p><p data-i18n="k028">かみのて保育園は7:00〜20:00、かみのて今渡保育園は7:30〜19:30。早番も遅番も、ご家庭のはたらき方に合わせてお預かりします。</p></div>
-    </article>
-    <article class="v2-ed">
-      <div class="v2-ed-ph"><img src="img/byoji.jpg" alt="病児保育室のイメージ写真" loading="lazy" decoding="async"></div>
-      <div class="v2-ed-tx"><span class="v2-ed-no">02</span><h3 data-i18n="k466">もしもの日にも<br>頼れる場所を</h3><p class="v2-ed-k">病児保育</p><p data-i18n="k030">かみのて保育園に併設した病児保育室で、生後6ヵ月から小学校6年生までお預かりします。他の園や小学校に通うお子さまも利用できます。</p></div>
-    </article>
-    <article class="v2-ed">
-      <div class="v2-ed-ph"><img src="img/park-2.jpg?v=20261004" alt="イメージ写真（絵本のコーナー）" loading="lazy" decoding="async"></div>
-      <div class="v2-ed-tx"><span class="v2-ed-no">03</span><h3 data-i18n="k467">ことばが違っても<br>安心できる場所</h3><p class="v2-ed-k">多言語対応</p><p data-i18n="k032">英語・タガログ語・ビサヤ語・ポルトガル語に対応。外国にルーツのあるご家庭も安心して通えるよう、文化のちがいを前提にした保育をしています。</p></div>
-    </article>
-  </div>
-</section>
-
-<!-- ============ 園で過ごす一日（時刻は「園での生活」ページ 3・4・5歳） ============ -->
-<section class="v2-sec v2-day">
-  <div class="v2-wrap">
-    <div class="v2-day-top">
-      <div class="v2-head v2-left"><p class="v2-label">DAILY LIFE</p><h2 class="v2-h2" data-i18n="k468">園で過ごす<br>いつもの一日</h2>
-        <p class="v2-sub">遊んで、食べて、眠って。<br>毎日の小さな経験が、<br>子どもたちの成長につながっています。</p></div>
-      <div class="v2-day-ph">
-        <figure class="p1"><img src="img/news-1.jpg" alt="あそびの時間のイメージ写真" loading="lazy" decoding="async"></figure>
-        <figure class="p2"><img src="img/news-2.jpg?v=20261004" alt="イメージ写真（給食）" loading="lazy" decoding="async"></figure>
-        <figure class="p3"><img src="img/news-3.jpg?v=20261004" alt="イメージ写真（園庭）" loading="lazy" decoding="async"></figure>
-        <figure class="p4"><img src="img/park-1.jpg?v=20261004" alt="イメージ写真（玄関の靴箱と帽子）" loading="lazy" decoding="async"></figure>
-      </div>
-    </div>
-    <ol class="v2-tl">
-      <li><time>7:00</time><span>登園</span></li>
-      <li><time>9:30</time><span>朝の会</span></li>
-      <li><time>10:00</time><span>活動</span></li>
-      <li><time>11:30</time><span>給食</span></li>
-      <li><time>12:45</time><span>お昼寝</span></li>
-      <li><time>15:00</time><span>おやつ</span></li>
-      <li><time>16:30〜</time><span>順次降園</span></li>
-      <li><time>18:00</time><span>延長保育</span></li>
-    </ol>
-    <p class="v2-note">※3・4・5歳の例です。時間はおおよその目安です。　<a class="v2-link" href="life.html">園での生活をくわしく見る<svg class="arw" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 5l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a></p>
-  </div>
-</section>
-
-<!-- ============ 病児保育（独立したセクション） ============ -->
-<section class="v2-sec v2-byoji">
-  <div class="v2-wrap v2-byoji-grid">
-    <div class="v2-byoji-ph"><img src="img/byoji.jpg" alt="病児保育室のイメージ写真" loading="lazy" decoding="async"></div>
-    <div class="v2-byoji-tx">
-      <p class="v2-label">SICK CHILD CARE</p>
-      <h2 class="v2-h2" data-i18n="k469">熱が出た日も<br>仕事を休めない日に</h2>
-      <p class="v2-byoji-k">病児保育という、もうひとつの選択肢。</p>
-      <p data-i18n="k030">かみのて保育園に併設した病児保育室で、生後6ヵ月から小学校6年生までお預かりします。他の園や小学校に通うお子さまも利用できます。</p>
-      <ul class="v2-facts"><li><b>対象</b>生後6か月〜小学校6年生</li><li><b>時間</b>9:00〜17:00（月〜金）</li><li><b>料金</b>1回 2,000円</li></ul>
-      <a class="v2-btn v2-btn-main" href="byoji.html">病児保育について詳しく見る</a>
-    </div>
-  </div>
-</section>
-
-<!-- ============ 目的から選ぶ ============ -->
-<section class="v2-sec v2-gates">
-  <div class="v2-wrap">
-    <div class="v2-head"><p class="v2-label">FIND YOUR WAY</p><h2 class="v2-h2" data-i18n="k481">目的に合わせてご覧ください</h2></div>
-    <div class="v2-g">
-      <a class="v2-g-c" href="admission.html"><div class="v2-g-ph"><img src="img/hero-toys.jpg" alt="" loading="lazy" decoding="async"></div><div class="v2-g-tx"><b>入園を検討している方</b><span>入園案内・保育料</span></div><svg class="arw" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 5l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-      <a class="v2-g-c" href="parks.html"><div class="v2-g-ph"><img src="img/park-2.jpg?v=20261004" alt="" loading="lazy" decoding="async"></div><div class="v2-g-tx"><b>園について知りたい方</b><span>園のご紹介</span></div><svg class="arw" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 5l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-      <a class="v2-g-c" href="byoji.html"><div class="v2-g-ph"><img src="img/byoji.jpg" alt="" loading="lazy" decoding="async"></div><div class="v2-g-tx"><b>病児保育を利用したい方</b><span>病児保育のご案内</span></div><svg class="arw" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 5l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-      <a class="v2-g-c" href="recruit.html"><div class="v2-g-ph"><img src="img/hero-toys-c.jpg?v=20261004b" alt="イメージ写真（先生の準備スペース）" loading="lazy" decoding="async"></div><div class="v2-g-tx"><b>一緒に働きたい方</b><span>採用情報</span></div><svg class="arw" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 5l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-    </div>
-  </div>
-</section>
-
-<!-- ============ お知らせ ============ -->
-<section class="v2-sec v2-news">
-  <div class="v2-wrap v2-news-grid">
-    <div class="v2-head v2-left"><p class="v2-label">NEWS</p><h2 class="v2-h2 v2-h2s" data-i18n="k012">お知らせ</h2><a class="v2-link" href="news.html">お知らせ一覧を見る<svg class="arw" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 5l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
-    <ul class="news-list">
-      <li><a href="news.html"><span class="date">2026.07.24</span><span class="tag" data-i18n="k012">お知らせ</span><span data-i18n="k086">夏まつりを開催しました（見出しは仮です）</span></a></li>
-      <li><a href="news.html"><span class="date">2026.07.18</span><span class="tag d" data-i18n="k087">園の日記</span><span data-i18n="k088">はじめての泥んこあそび（見出しは仮です）</span></a></li>
-      <li><a href="news.html"><span class="date">2026.07.05</span><span class="tag" data-i18n="k012">お知らせ</span><span data-i18n="k089">2027年度の入園受付についてのご案内（見出しは仮です）</span></a></li>
-    </ul>
-  </div>
-</section>
-
-<!-- ============ 最後の見学CTA ============ -->
-<section class="v2-end" id="visit">
-  <div class="v2-end-bg"><img src="img/hero-toys.jpg" alt="" loading="lazy" decoding="async"></div>
-  <div class="v2-wrap v2-end-in">
-    <svg class="v2-leaf" viewBox="0 0 40 40" aria-hidden="true"><path d="M6 34C6 16 18 6 34 6c0 16-10 28-28 28Z" fill="#cfe6d4"/><path d="M8 32 28 12" stroke="#9cc9a6" stroke-width="1.6" stroke-linecap="round"/></svg>
-    <h2 class="v2-h2" data-i18n="k471">まずは<br>園の雰囲気を見に来ませんか</h2>
-    <p>写真や文章だけでは分からない<br>子どもたちの表情や園の空気を、<br>ぜひ実際にご覧ください。</p>
-    <div class="v2-act">
-      <a class="v2-btn v2-btn-main" href="contact.html">園を見学する</a>
-      <a class="v2-btn v2-btn-sub" href="contact.html" data-i18n="k111">お問い合わせ</a>
-    </div>
-  </div>
-</section>
-
-<div class="v2-spbar" hidden><a class="a1" href="contact.html">見学予約</a><a class="a2" href="contact.html" data-i18n="k111">お問い合わせ</a></div>
-
-<footer class="foot">
-  <div class="wrap">
-    <div class="foot-grid">
-      <div>
-        <!-- フッターは地色が濃いので実ロゴを置けない（白抜きのハートと顔に地色が透ける）。
-             仮マークだけ残すとヘッダーと食い違うので、マークは置かず名前だけにする。 -->
-        <div class="brand">
-          <span class="tx"><span class="name" data-i18n="k002">かみのて保育園</span><span class="en">KAMINOTE NURSERY</span></span>
-        </div>
-        <div class="foot-addr" data-i18n="k097">運営：株式会社 A and K<br>〒509-0207 岐阜県可児市今渡3-11<br>TEL 0574-66-3511</div>
-      </div>
-      <div>
-        <h4 data-i18n="k098">園について</h4>
-        <ul>
-          <li><a href="policy.html" data-i18n="k004">かみのての保育</a></li>
-          <li><a href="philosophy.html" data-i18n="k116">保育理念</a></li>
-          <li><a href="parks.html" data-i18n="k005">園のご紹介</a></li>
-          <li><a href="byoji.html" data-i18n="k099">病児保育のご案内</a></li>
-          <li><a href="life.html" data-i18n="k100">園での生活</a></li>
-          <li><a href="admission.html" data-i18n="k061">入園案内・保育料</a></li>
-          <li><a href="news.html" data-i18n="k084">お知らせ・園の日記</a></li>
-          <li><a href="faq.html" data-i18n="k117">よくあるご質問</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4 data-i18n="k101">グループの事業</h4>
-        <ul>
-          <li><a href="https://easywebcraft.github.io/kaminote-day-design/a/" data-i18n="k102">児童発達支援・放課後等デイサービス</a><br><span style="font-size:12px;color:#8d857c" data-i18n="k103">かみのてKIDS・かみのてSMILE</span></li>
-          <li><a href="recruit.html" data-i18n="k008">採用情報</a></li>
-          <li><a href="recruit-new.html" data-i18n="k119">新卒採用</a></li>
-          <li><a href="recruit-mid.html" data-i18n="k120">中途採用</a></li>
-          <li><a href="https://www.aandkcorp.com/" data-i18n="k104">会社案内</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="copy"><span>© 2026 A and K Co., Ltd.</span><a href="#" data-i18n="k105">プライバシーポリシー</a></div>
-  </div>
-</footer>
-
-
-
-<!-- ============ 開いたときの動き（後半：順に出す） ============
-     隠す指定と対象の並びは <head> 側にある。ここでは出す順番だけを決める。 -->
-
-
-<script>
-(function () {
-  // ★ここの並びは <head> の隠す指定と必ず同じにすること
-  var ANIM_SEL = '.stats > .wrap > *,'
-               + '.sec > .wrap > *:not(.reasons):not(.parks):not(.adm):not(.news),'
-               + '.reasons > *,'
-               + '.parks > *,'
-               + '.adm > *,'
-               + '.news > *';
-
-  var units = [].slice.call(document.querySelectorAll(ANIM_SEL));
-
-  function sweep() {
-    var vh = window.innerHeight || document.documentElement.clientHeight;
-    var shown = [];
-    for (var i = units.length - 1; i >= 0; i--) {
-      var r = units[i].getBoundingClientRect();
-      if (r.top < vh * 0.92 && r.bottom > 0) {
-        shown.push(units[i]);
-        units.splice(i, 1);                            // 一度出したら見張らない
-      }
-    }
-    if (!shown.length) { return; }
-    shown.sort(function (a, b) {
-      return a.getBoundingClientRect().top - b.getBoundingClientRect().top;
-    }).forEach(function (el, i) {
-      el.style.animationDelay = (i * 0.06) + 's';      // 並んでいるものは少しずつずらす
-      el.classList.add('on');
-    });
-    if (!units.length) {
-      window.removeEventListener('scroll', onScroll);
-      window.removeEventListener('resize', onScroll);
-    }
-  }
-
-  var waiting = false;
-  function onScroll() {
-    if (waiting) { return; }
-    waiting = true;
-    requestAnimationFrame(function () { waiting = false; sweep(); });
-  }
-  window.addEventListener('scroll', onScroll, { passive: true });
-  window.addEventListener('resize', onScroll);
-  sweep();                                             // 最初から見えている分
-  window.addEventListener('load', sweep);              // 画像が入って位置が確定したあと
-
-  window.__animReady = true;                           // <head> の保険に「動いた」と伝える
-
-  // 保険: スクロールを拾えない環境でも、文字が消えたままにはしない
-  setTimeout(function () {
-    units.forEach(function (el) { el.classList.add('on'); });
-    units.length = 0;
-  }, 5000);
-})();
-</script>
-
-
-<script>
+</section><section class="home-quick home-wrap" aria-label="目的別のご案内"><a class="home-quick-card orange" href="admission.html" data-home-reveal><svg class="home-icon " viewBox="0 0 64 64" aria-hidden="true"><use href="#home-family"/></svg><div><h2>入園を検討している方</h2><p>入園案内・保育料 <span aria-hidden="true">→</span></p></div></a><a class="home-quick-card blue" href="byoji.html" data-home-reveal><svg class="home-icon " viewBox="0 0 64 64" aria-hidden="true"><use href="#home-care"/></svg><div><h2>病児保育を利用したい方</h2><p>病児保育のご案内 <span aria-hidden="true">→</span></p></div></a><a class="home-quick-card pink" href="parks.html" data-home-reveal><svg class="home-icon " viewBox="0 0 64 64" aria-hidden="true"><use href="#home-house"/></svg><div><h2>園について知りたい方</h2><p>2つの園をご紹介 <span aria-hidden="true">→</span></p></div></a></section><section class="home-section home-about"><div class="home-wrap home-about-grid"><div data-home-reveal><div class="home-photo"><img src="img/hero.jpg" alt="イメージ写真（工作の机）" loading="lazy" decoding="async"></div></div><div class="home-about-copy"><h2 data-home-reveal>小さな「できた」をいっしょに</h2><p data-home-reveal>こどもたちが、自分でやってみたいと思える気持ちを大切に。<br>一人ひとりのペースで育つ姿を見守ります。<br>あそびや生活のなかで見つかる小さな「できた」を、<br>ご家庭といっしょに喜び合える保育をめざしています。</p><a class="home-text-link" href="policy.html">大切にしている保育を見る<span aria-hidden="true">→</span></a></div></div><svg class="home-icon home-edge-flower" viewBox="0 0 64 64" aria-hidden="true"><use href="#home-flower"/></svg></section><section class="home-section home-cream" id="reasons"><div class="home-wrap"><div class="home-section-heading"><svg class="home-icon " viewBox="0 0 64 64" aria-hidden="true"><use href="#home-sun"/></svg><h2 data-home-reveal>ご家庭の毎日を支える3つの安心</h2></div><div class="home-three-grid"><article class="home-reason orange" data-home-reveal><div class="home-card-title"><svg class="home-icon " viewBox="0 0 64 64" aria-hidden="true"><use href="#home-sun"/></svg><h3>朝も夕方も頼れる保育</h3></div><div class="home-photo"><img src="img/news-3.jpg" alt="イメージ写真（園庭）" loading="lazy" decoding="async"></div><p>園ごとの開所時間をご案内します。ご家庭のはたらき方に合わせてお預かりします。</p><a class="home-text-link" href="parks.html">開所時間を見る<span aria-hidden="true">→</span></a></article><article class="home-reason pink" data-home-reveal><div class="home-card-title"><svg class="home-icon " viewBox="0 0 64 64" aria-hidden="true"><use href="#home-heart"/></svg><h3>体調をくずした日の相談先</h3></div><div class="home-photo"><img src="img/byoji.jpg" alt="イメージ写真（病児保育のケア）" loading="lazy" decoding="async"></div><p>併設の病児保育室で、体調不良時もご相談いただけます。</p><a class="home-text-link" href="byoji.html">病児保育のご案内<span aria-hidden="true">→</span></a></article><article class="home-reason blue" data-home-reveal><div class="home-card-title"><svg class="home-icon " viewBox="0 0 64 64" aria-hidden="true"><use href="#home-globe"/></svg><h3>ことばや文化に寄り添う</h3></div><div class="home-photo"><img src="img/park-2.jpg" alt="イメージ写真（絵本のコーナー）" loading="lazy" decoding="async"></div><p>ご家庭のことばや文化に配慮したコミュニケーションを大切にしています。</p><a class="home-text-link" href="policy.html">多言語での取り組みを見る<span aria-hidden="true">→</span></a></article></div></div></section><section class="home-section home-parks"><div class="home-wrap"><div class="home-section-heading"><svg class="home-icon " viewBox="0 0 64 64" aria-hidden="true"><use href="#home-sprig"/></svg><h2 data-home-reveal>ご家庭に合う園を見つける</h2><p>それぞれの園の特徴や、開所時間をご紹介します。</p></div><div class="home-park-grid"><article class="home-park" data-home-reveal><div class="home-photo"><img src="img/park-1.jpg" alt="イメージ写真（玄関の靴箱と帽子）" loading="lazy" decoding="async"><span class="home-image-note">イメージ写真</span></div><div><h3>かみのて保育園</h3><p class="home-hours">開所時間　<strong>7:00〜20:00</strong></p><p class="home-park-note">病児保育室併設</p><a class="home-button home-button-small" href="parks.html#kaminote">園の紹介を見る<span aria-hidden="true">→</span></a></div></article><article class="home-park" data-home-reveal><div class="home-photo"><img src="img/park-2.jpg" alt="イメージ写真（絵本のコーナー）" loading="lazy" decoding="async"><span class="home-image-note">イメージ写真</span></div><div><h3>かみのて今渡保育園</h3><p class="home-hours">開所時間　<strong>7:30〜19:30</strong></p><p class="home-park-note">土・祝は7:30〜16:30</p><a class="home-button home-button-small" href="parks.html#imawatari">園の紹介を見る<span aria-hidden="true">→</span></a></div></article></div><p class="home-more"><a class="home-text-link" href="parks.html">アクセス・園の詳細はこちら<span aria-hidden="true">→</span></a></p></div><svg class="home-icon home-edge-leaves" viewBox="0 0 64 64" aria-hidden="true"><use href="#home-sprig"/></svg></section><section class="home-section home-blue home-daily"><div class="home-wrap"><div class="home-section-heading"><svg class="home-icon " viewBox="0 0 64 64" aria-hidden="true"><use href="#home-sprig"/></svg><h2 data-home-reveal>あそんで 食べて 育つ毎日</h2><p>あそび・食事・休息のバランスを大切に、<br>こどもたちの健やかな毎日をつくります。</p></div><div class="home-three-grid"><article class="home-daily-card" data-home-reveal><div class="home-photo"><img src="img/news-3.jpg" alt="イメージ写真（園庭）" loading="lazy" decoding="async"></div><div><h3>あそぶ</h3><p>自然や人との関わりのなかで、こころとからだを育てます。</p></div></article><article class="home-daily-card" data-home-reveal><div class="home-photo"><img src="img/news-2.jpg" alt="イメージ写真（給食）" loading="lazy" decoding="async"></div><div><h3>たべる</h3><p>給食もおやつも自園調理。食べる楽しさを大切にしています。</p></div></article><article class="home-daily-card" data-home-reveal><div class="home-photo"><img src="img/park-2.jpg" alt="イメージ写真（落ち着いた絵本のコーナー）" loading="lazy" decoding="async"></div><div><h3>休む</h3><p>一人ひとりのリズムに合わせて、ゆっくり休息をとります。</p></div></article></div><p class="home-more"><a class="home-button home-button-small" href="life.html">園での生活を見る<span aria-hidden="true">→</span></a></p></div><svg class="home-icon home-edge-leaves" viewBox="0 0 64 64" aria-hidden="true"><use href="#home-sprig"/></svg></section><section class="home-section home-sick"><div class="home-wrap home-sick-panel"><div data-home-reveal><div class="home-photo"><img src="img/byoji.jpg" alt="イメージ写真（病児保育のケア）" loading="lazy" decoding="async"></div></div><div class="home-sick-copy"><h2 data-home-reveal>もしもの日に 病児保育という選択肢</h2><p data-home-reveal>利用の流れや、事前に必要な準備をご案内します。</p><a class="home-button home-button-solid" href="byoji.html">病児保育の利用方法を見る<span aria-hidden="true">→</span></a></div><svg class="home-icon home-sick-house" viewBox="0 0 64 64" aria-hidden="true"><use href="#home-house"/></svg></div></section><section class="home-section home-news"><div class="home-wrap"><div class="home-section-heading"><svg class="home-icon " viewBox="0 0 64 64" aria-hidden="true"><use href="#home-sprig"/></svg><h2 data-home-reveal>お知らせ・園の日記</h2></div><div class="home-news-more"><a class="home-text-link" href="news.html">一覧を見る<span aria-hidden="true">→</span></a></div><div class="home-three-grid"><a class="home-news-card pink" href="news.html" data-home-reveal><div class="home-card-title"><svg class="home-icon " viewBox="0 0 64 64" aria-hidden="true"><use href="#home-megaphone"/></svg><h3>園からのお知らせ</h3></div><div class="home-photo"><img src="img/policy.jpg" alt="イメージ写真（明るい保育室）" loading="lazy" decoding="async"></div><p>園からの大切なお知らせを掲載しています。</p></a><a class="home-news-card green" href="news.html" data-home-reveal><div class="home-card-title"><svg class="home-icon " viewBox="0 0 64 64" aria-hidden="true"><use href="#home-sprig"/></svg><h3>日々のあそび</h3></div><div class="home-photo"><img src="img/hero.jpg" alt="イメージ写真（工作の机）" loading="lazy" decoding="async"></div><p>こどもたちのあそびや、園での何気ない日常をお届けします。</p></a><a class="home-news-card pink" href="admission.html" data-home-reveal><div class="home-card-title"><svg class="home-icon " viewBox="0 0 64 64" aria-hidden="true"><use href="#home-letter"/></svg><h3>入園についてのご案内</h3></div><div class="home-photo"><img src="img/park-1.jpg" alt="イメージ写真（玄関の靴箱と帽子）" loading="lazy" decoding="async"></div><p>入園に関するご案内や、手続きの流れをご紹介します。</p></a></div></div></section><section class="home-section home-visit" id="visit"><div class="home-wrap home-visit-panel"><div class="home-visit-copy"><h2 data-home-reveal>まずは園の雰囲気を見に来ませんか</h2><p data-home-reveal>お子さまとの毎日や、気になることをお聞かせください。</p><div class="home-visit-actions"><a class="home-button home-button-solid" href="contact.html">見学・お問い合わせ<span aria-hidden="true">→</span></a><a class="home-button home-button-outline" href="faq.html">よくあるご質問<span aria-hidden="true">→</span></a></div></div><div data-home-reveal><div class="home-photo"><img src="img/policy.jpg" alt="イメージ写真（明るい保育室）" loading="lazy" decoding="async"></div></div></div></section></main><footer class="home-footer"><div class="home-wrap home-footer-grid"><div class="home-footer-brand"><a class="brand" href="index.html"><img class="mark" src="img/logo-mark.png" alt="" width="313" height="192"><span class="tx"><span class="name">かみのて保育園</span></span></a><p>岐阜県可児市<br>運営：株式会社 A and K</p><a class="home-business-link" href="https://easywebcraft.github.io/kaminote-day-design/">児童発達支援・放課後等デイサービス →</a></div><div><h3>園について</h3><ul><li><a href="parks.html">園のご紹介</a></li><li><a href="policy.html">かみのての保育</a></li><li><a href="philosophy.html">保育理念</a></li></ul></div><div><h3>園での生活</h3><ul><li><a href="life.html">あそび・食事・休息</a></li><li><a href="life.html#day">一日の流れ</a></li><li><a href="life.html#events">年間行事</a></li></ul></div><div><h3>入園案内</h3><ul><li><a href="admission.html">入園の流れ</a></li><li><a href="admission.html">保育料について</a></li><li><a href="faq.html">よくあるご質問</a></li></ul></div><div><h3>病児保育</h3><ul><li><a href="byoji.html">病児保育のご案内</a></li><li><a href="byoji.html">利用について</a></li><li><a href="contact.html">お問い合わせ</a></li></ul></div><div class="home-footer-recruit"><p>一緒に働きたい方へ</p><a class="home-text-link" href="recruit.html">採用情報<span aria-hidden="true">→</span></a></div></div><div class="home-wrap home-footer-bottom"><small>© 2026 A and K Co., Ltd.</small><a href="#top">サイトトップへ ↑</a></div></footer><script>
 // スマホのメニュー開閉。★ボタンは前からあったが処理が無く、押しても反応しなかった。
 (function () {
   var head = document.querySelector('.head');
@@ -425,23 +166,8 @@ if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
   });
 })();
 </script>
-
-
-<script src="i18n.js?v=gate-copy-20261008"></script>
-<script>
-// スマホ下部の固定ボタン（表示の演出は scroll-warm.js で行う）
-(function () {
-  var bar = document.querySelector('.v2-spbar'), fv = document.querySelector('.hero'), end = document.getElementById('visit');
-  if (bar && fv && 'IntersectionObserver' in window) {
-    bar.hidden = false; var a = false, b = false;
-    var up = function () { bar.classList.toggle('show', a && !b); };
-    new IntersectionObserver(function (e) { a = !e[0].isIntersecting; up(); }).observe(fv);
-    new IntersectionObserver(function (e) { b = e[0].isIntersecting; up(); }).observe(end);
-  }
-})();
-</script>
-
-<script src="scroll-warm.js?v=20261008"></script>
+<script src="scroll-warm.js?v=home-layout-20261008"></script>
 <script src="hero-menu-warm.js?v=20261008"></script>
 <script src="nursery-intro.js?v=20261008"></script>
 <script src="hero-fv-wave.js?v=20261008-intro"></script>
+</body></html>

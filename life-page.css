@@ -202,3 +202,35 @@ html:not([lang="ja"]) .life-hero h1 { font-size:clamp(25px,2.6vw,34px); }
 
 .life-promises,.life-seasons { background:#fff; }
 .life-main section[id] { scroll-margin-top:90px; }
+
+/* 2026-10-09 写真は内容が伝わる場所だけに絞り、説明部分は線画に統一 */
+.life-promise { padding:28px 22px 30px; display:flex; align-items:center; justify-content:center; min-height:285px; }
+.life-promise-copy { display:block; text-align:center; margin:0; min-height:0; }
+.life-promise-copy .life-icon { width:104px; height:104px; padding:24px; margin:0 auto 18px; border-radius:50%; background:#fff4df; }
+.life-promise:nth-child(2) .life-promise-copy .life-icon { background:#e8f7fc; }
+.life-promise:nth-child(3) .life-promise-copy .life-icon { background:#fff0ed; }
+.life-promise img { display:none; }
+.life-promise h3 { font-size:19px; }
+.life-promise p { max-width:260px; margin-inline:auto; }
+.life-day-photos figure:last-child { min-height:205px; display:grid; place-items:center; background:linear-gradient(145deg,#fff,#f0f7fa); }
+.life-day-photos figure:last-child img { display:none; }
+.life-day-photos figure:last-child::before { content:"☾"; width:120px; height:120px; border-radius:50%; display:grid; place-items:center; color:#e4b65c; background:#fff7d9; border:2px solid #66809a; font:72px/1 Georgia,serif; transform:rotate(-14deg); }
+.life-day-photos figure:last-child::after { content:"Z  Z  Z"; color:#4f93bd; font:700 18px/1.5 'Zen Kaku Gothic New',sans-serif; letter-spacing:7px; position:absolute; margin:72px 0 0 145px; }
+.life-day-photos figure:last-child { position:relative; }
+.life-activity { text-align:left; border:1px solid #f0eadf; box-shadow:0 5px 18px #795e2b0a; }
+.life-activity img { display:none; }
+.life-activity::before { content:""; display:block; height:135px; background:#fff var(--life-art) center/126px 96px no-repeat; }
+.life-activity:nth-child(1){--life-art:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 160 100'%3E%3Cg fill='none' stroke='%23576f80' stroke-width='3'%3E%3Cpath d='M12 18h62v40H40L20 75l7-19c-9-8-15-20-15-38Z'/%3E%3Cpath d='M82 35h65v38h-35L92 88l6-18c-10-7-16-18-16-35Z'/%3E%3C/g%3E%3C/svg%3E")}
+.life-activity:nth-child(2){--life-art:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 160 100'%3E%3Cg fill='none' stroke='%235d8666' stroke-width='3'%3E%3Cpath d='M80 91V31M42 91V49M118 91V48'/%3E%3Cellipse cx='80' cy='27' rx='28' ry='23' fill='%23dceecb'/%3E%3Cellipse cx='42' cy='46' rx='20' ry='17' fill='%23e8f4d9'/%3E%3Cellipse cx='118' cy='44' rx='22' ry='19' fill='%23dceecb'/%3E%3C/g%3E%3Ccircle cx='124' cy='15' r='10' fill='%23ffe2a0' stroke='%23efa642' stroke-width='2'/%3E%3C/svg%3E")}
+.life-activity:nth-child(3){--life-art:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 160 100'%3E%3Cg fill='none' stroke='%23637a84' stroke-width='3'%3E%3Cpath d='M25 42q8 42 55 42t55-42Z' fill='%23fff7d9'/%3E%3Cpath d='M29 43q50-18 102 0M117 16q17 14 4 62'/%3E%3C/g%3E%3C/svg%3E")}
+.life-activity:nth-child(4){--life-art:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 160 100'%3E%3Cg fill='none' stroke='%235a7180' stroke-width='3'%3E%3Cpath d='M58 31 91 74M91 31 58 74' stroke='%23ef856d'/%3E%3Ccircle cx='50' cy='22' r='12'/%3E%3Ccircle cx='100' cy='22' r='12'/%3E%3Cpath d='M107 68h35M124 50v35'/%3E%3Cpath d='M13 29h29v49H13z' fill='%23fff8de'/%3E%3C/g%3E%3C/svg%3E")}
+.life-activity:nth-child(5){--life-art:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 160 100'%3E%3Cg fill='%23fff' stroke='%23556f80' stroke-width='3'%3E%3Cpath d='M14 20q38-8 66 13v54Q48 66 14 75Z'/%3E%3Cpath d='M146 20q-38-8-66 13v54q32-21 66-12Z'/%3E%3C/g%3E%3Cpath d='M80 34v52' stroke='%23556f80' stroke-width='3'/%3E%3C/svg%3E")}
+.life-activity:nth-child(6){--life-art:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 160 100'%3E%3Cg fill='none' stroke='%235a7180' stroke-width='3'%3E%3Cpath d='M52 12 79 27l27-15 18 23-20 14v39H55V49L34 35Z' fill='%23ffe1d7'/%3E%3Cpath d='M31 64 13 80M37 70 19 89M123 63h21v17h-21zM130 80v10M139 80v10'/%3E%3C/g%3E%3C/svg%3E")}
+.life-season { border-radius:16px; overflow:hidden; padding-bottom:8px; }
+.life-season img { display:none; }
+.life-season::before { content:""; display:block; height:145px; background:var(--season-bg,#fff4f4) var(--season-art) center/145px 105px no-repeat; border-radius:15px; }
+.life-season:nth-child(1){--season-bg:#fff2f3;--season-art:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 160 110'%3E%3Cg fill='%23ffd8df' stroke='%23e98e9d' stroke-width='2'%3E%3Ccircle cx='52' cy='54' r='26'/%3E%3Ccircle cx='92' cy='42' r='22'/%3E%3Ccircle cx='108' cy='75' r='25'/%3E%3C/g%3E%3Cg fill='%23fff'%3E%3Ccircle cx='52' cy='54' r='8'/%3E%3Ccircle cx='92' cy='42' r='7'/%3E%3Ccircle cx='108' cy='75' r='8'/%3E%3C/g%3E%3C/svg%3E")}
+.life-season:nth-child(2){--season-bg:#eafbff;--season-art:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 160 110'%3E%3Ccircle cx='80' cy='40' r='20' fill='%23ffe29a' stroke='%23eeae39' stroke-width='2'/%3E%3Cg stroke='%234c9cc4' stroke-width='3' fill='none'%3E%3Cpath d='M15 83q18-16 36 0t36 0 36 0 25 0'/%3E%3Cpath d='M19 96q18-16 36 0t36 0 36 0 25 0'/%3E%3C/g%3E%3C/svg%3E")}
+.life-season:nth-child(3){--season-bg:#fff6e3;--season-art:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 160 110'%3E%3Cpath d='M80 8 92 39l31-8-20 25 24 20-32-2-15 28-14-28-33 2 25-20-20-25 31 8Z' fill='%23ed8b55' stroke='%23c76f3f' stroke-width='2'/%3E%3Cpath d='M80 45v57' stroke='%23a5663d' stroke-width='3'/%3E%3C/svg%3E")}
+.life-season:nth-child(4){--season-bg:#edf9ff;--season-art:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 160 110'%3E%3Cg fill='%23fff' stroke='%236e9fb9' stroke-width='2'%3E%3Ccircle cx='80' cy='68' r='27'/%3E%3Ccircle cx='80' cy='33' r='20'/%3E%3C/g%3E%3Cpath d='M63 15h34v12H63zM70 5h20v12H70z' fill='%237aa5bd'/%3E%3Ccircle cx='74' cy='31' r='2'/%3E%3Ccircle cx='86' cy='31' r='2'/%3E%3Cpath d='m80 35 10 4-10 3' fill='%23f1a447'/%3E%3C/svg%3E")}
+@media (max-width:700px){.life-promise{min-height:0}.life-promise-copy .life-icon{width:88px;height:88px;padding:21px}.life-activity::before{height:105px;background-size:105px 76px}.life-season::before{height:115px;background-size:115px 84px}.life-day-photos figure:last-child{min-height:110px}.life-day-photos figure:last-child::before{width:74px;height:74px;font-size:46px}.life-day-photos figure:last-child::after{font-size:11px;margin:42px 0 0 86px}}

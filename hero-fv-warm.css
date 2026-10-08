@@ -48,3 +48,16 @@
  .warm-preview-toggle { right:10px; bottom:10px; padding:10px 13px; font-size:12px; }
 }
 @media (prefers-reduced-motion:reduce) { .hero-warm .warm-petal { display:none; } }
+
+/* ヘッダーの冒頭表示。メニュー開閉・スクロール時には繰り返さない。 */
+.head.warm-menu-pending .brand,
+.head.warm-menu-pending .lang-btn,
+.head.warm-menu-pending .gnav > a,
+.head.warm-menu-pending .gnav > .gdrop > .gdrop-t,
+.head.warm-menu-pending .cta-pill,
+.head.warm-menu-pending .burger { opacity:0; }
+@media (prefers-reduced-motion:reduce) {
+ .head.warm-menu-pending .brand,.head.warm-menu-pending .lang-btn,
+ .head.warm-menu-pending .gnav > a,.head.warm-menu-pending .gnav > .gdrop > .gdrop-t,
+ .head.warm-menu-pending .cta-pill,.head.warm-menu-pending .burger { opacity:1; }
+}

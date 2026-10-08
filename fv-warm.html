@@ -429,15 +429,8 @@ if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
 
 <script src="i18n.js?v=gate-copy-20261008"></script>
 <script>
-// v2：スクロールでゆっくり表示／スマホ下部の固定ボタン
+// スマホ下部の固定ボタン（表示の演出は scroll-warm.js で行う）
 (function () {
-  var els = document.querySelectorAll('.v2-sec .v2-wrap > *, .v2-ed, .v2-nums .v2-num, .v2-end-in > *');
-  if ('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    document.documentElement.classList.add('v2-anim');
-    var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }); }, { rootMargin: '0px 0px -8% 0px' });
-    els.forEach(function (el) { io.observe(el); });
-    setTimeout(function () { els.forEach(function (el) { el.classList.add('in'); }); }, 6000);
-  }
   var bar = document.querySelector('.v2-spbar'), fv = document.querySelector('.hero'), end = document.getElementById('visit');
   if (bar && fv && 'IntersectionObserver' in window) {
     bar.hidden = false; var a = false, b = false;

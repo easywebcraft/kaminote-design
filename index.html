@@ -11,6 +11,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@400;500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Baloo+2:wght@500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css?v=02afff2f">
 <link rel="stylesheet" href="hero-fv.css?v=20261008">
+<link rel="stylesheet" href="hero-fv-warm.css?v=20261008-release">
 <link rel="stylesheet" href="nursery-intro.css?v=20261008">
 <script>
 if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
@@ -89,12 +90,13 @@ if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
 <!-- ============ 左の縦レール ============ -->
 
 
-<section class="hero hero-motion">
+<section class="hero hero-motion hero-warm">
   <div class="hero-bg">
     <div class="hero-slide is-current" aria-hidden="true"><img fetchpriority="high" decoding="async" src="img/hero-toys.jpg" alt="イメージ写真（木のおもちゃ）"></div>
     <div class="hero-slide" aria-hidden="true"><img decoding="async" src="img/hero.jpg" alt="イメージ写真（工作の机）"></div>
     <div class="hero-slide" aria-hidden="true"><img decoding="async" src="img/park-2.jpg" alt="イメージ写真（絵本のコーナー）"></div>
     <div class="hero-slide" aria-hidden="true"><img decoding="async" src="img/news-3.jpg" alt="イメージ写真（園庭）"></div>
+    <div class="hero-sunlight" aria-hidden="true"></div>
     <svg class="hero-light" viewBox="0 0 1000 1000" preserveAspectRatio="none" aria-hidden="true">
       <defs><clipPath id="nursery-wave-mask" clipPathUnits="objectBoundingBox"><path d="M0 0H0V1H0Z"/></clipPath></defs>
       <path class="wave-ribbon" fill="none" stroke="#fff3dc" stroke-width="36" opacity=".6"/>
@@ -132,6 +134,8 @@ if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
     </g>
   </svg>
 
+  <span class="warm-petal warm-petal-left" aria-hidden="true"></span>
+  <span class="warm-petal warm-petal-right" aria-hidden="true"></span>
   <div class="hero-copy">
     <span class="hero-eyebrow">岐阜県可児市｜企業主導型・認可保育園</span>
     <h1 class="mincho">
@@ -425,15 +429,8 @@ if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
 
 <script src="i18n.js?v=gate-copy-20261008"></script>
 <script>
-// v2：スクロールでゆっくり表示／スマホ下部の固定ボタン
+// スマホ下部の固定ボタン（表示の演出は scroll-warm.js で行う）
 (function () {
-  var els = document.querySelectorAll('.v2-sec .v2-wrap > *, .v2-ed, .v2-nums .v2-num, .v2-end-in > *');
-  if ('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    document.documentElement.classList.add('v2-anim');
-    var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }); }, { rootMargin: '0px 0px -8% 0px' });
-    els.forEach(function (el) { io.observe(el); });
-    setTimeout(function () { els.forEach(function (el) { el.classList.add('in'); }); }, 6000);
-  }
   var bar = document.querySelector('.v2-spbar'), fv = document.querySelector('.hero'), end = document.getElementById('visit');
   if (bar && fv && 'IntersectionObserver' in window) {
     bar.hidden = false; var a = false, b = false;
@@ -444,5 +441,7 @@ if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
 })();
 </script>
 
+<script src="scroll-warm.js?v=20261008"></script>
+<script src="hero-menu-warm.js?v=20261008"></script>
 <script src="nursery-intro.js?v=20261008"></script>
 <script src="hero-fv-wave.js?v=20261008-intro"></script>

@@ -10,192 +10,21 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@400;500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Baloo+2:wght@500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css?v=02afff2f">
-<script>
-  // 最初の描画より前に付ける（あとから付けると、見えていたものが消えてから動く）。
-  // ★a/ をルートへ昇格したときに落ちていて、スクロールの動きが効いていなかった（2026-09-19 復旧）
-  document.documentElement.classList.add('anim');
-  // 保険: 下のJSが動かなかったときは、隠したままにしない
-  setTimeout(function () {
-    if (!window.__animReady) { document.documentElement.classList.remove('anim'); }
-  }, 4000);
-</script>
-</head>
-<body class="v2">
 
-
-<!-- ============ ヘッダー ============ -->
-
-
-<header class="head">
-  <div class="head-in">
-    <a class="brand" href="index.html">
-      <img class="mark" src="img/logo-mark.png" alt="" width="313" height="192" decoding="async">
-      <span class="tx">
-        <span class="corp" data-i18n="k001">株式会社 A and K　企業主導型・認可保育園</span>
-        <span class="name" data-i18n="k002">かみのて保育園</span>
-        <span class="en">KAMINOTE NURSERY</span>
-      </span>
-    </a>
-    <div class="lang">
-    <button class="lang-btn" type="button" aria-expanded="false" aria-haspopup="true">
-      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M3 12h18M12 3c2.5 2.6 2.5 15.4 0 18M12 3c-2.5 2.6-2.5 15.4 0 18" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>
-      <span data-i18n="k115">言語</span>
-    </button>
-    <div class="lang-menu" hidden>
-      <button type="button" data-lang="ja">日本語</button>
-      <button type="button" data-lang="en">English</button>
-      <button type="button" data-lang="pt">Português</button>
-    </div>
-  </div>
-    <nav class="gnav"><div class="gdrop is-cur"><button class="gdrop-t" type="button" aria-expanded="false">園について<svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="gdrop-m"><a href="policy.html" data-i18n="k004">かみのての保育</a><a href="philosophy.html" data-i18n="k116">保育理念</a><a href="parks.html" data-i18n="k005">園のご紹介</a><a href="news.html" data-i18n="k012">お知らせ</a><a href="faq.html" data-i18n="k117">よくあるご質問</a><a href="recruit.html" aria-current="page" data-i18n="k008">採用情報</a></div></div><a href="life.html" data-i18n="k100">園での生活</a><a href="admission.html" data-i18n="k007">入園案内</a><a href="byoji.html" data-i18n="k006">病児保育</a><a href="contact.html" data-i18n="k111">お問い合わせ</a></nav>
-    <a class="cta-pill" href="contact.html">見学・お問い合わせ</a>
-    <button class="burger" type="button" aria-label="メニュー">☰</button>
-  </div>
-</header>
-
-<!-- 右端に貼りつく縦のボタン（参考イメージの「園見学予約」「病児・病後児保育」）
-     ★文言は既にある鍵を使い回している（k019 / k006）。新しい鍵を足すと
-       i18n_mark.py を掛け直したときに番号がずれるため。 -->
-
-
-<div class="side-cta">
-  <a class="s1" href="contact.html">
-    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5h14v15H5z" fill="none" stroke="#fff" stroke-width="2" stroke-linejoin="round"/><path d="M9 3v4M15 3v4M5 10h14" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg>
-    <span data-i18n="k011">見学のお申し込み</span>
-  </a>
-  <a class="s2" href="byoji.html">
-    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7-4.6-7-9.4A4 4 0 0 1 12 8a4 4 0 0 1 7 2.6c0 4.8-7 9.4-7 9.4Z" fill="none" stroke="#fff" stroke-width="2" stroke-linejoin="round"/></svg>
-    <span data-i18n="k006">病児保育</span>
-  </a>
-</div>
-
-<!-- ============ 左の縦レール ============ -->
-
-
-<nav class="crumb"><a href="index.html" data-i18n="k118">トップ</a><span aria-hidden="true">›</span><span data-i18n="k008">採用情報</span></nav>
-<section class="sec tint" id="recruit">
-  <div class="wrap">
-    <div class="recruit">
-      <span class="eyebrow" style="color:#c9c0b7"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8" fill="#f5b301"/></svg><span data-i18n="k008">採用情報</span></span>
-      <h2 class="mincho" data-i18n="k076">かみのてで働く人</h2>
-      <p data-i18n="k077">こどもの毎日を支えているのは、ここではたらく人たちです。どんな人が、どんな思いで働いているのか。一日の仕事の流れや、職員へのインタビューをまとめました。</p>
-      <div class="rnums">
-        <div><div class="n" data-i18n="k078">120日+</div><div class="l" data-i18n="k079">年間休日</div></div>
-        <div><div class="n">4</div><div class="l" data-i18n="k080">職員の対応言語</div></div>
-        <div><div class="n">7-20</div><div class="l" data-i18n="k081">シフト制（時）</div></div>
-        <div><div class="n">2+1</div><div class="l" data-i18n="k082">はたらく場所</div></div>
-      </div>
-      <p style="margin-top:26px"><a class="btn btn-main x-door" href="recruit-new.html"><span class="t"><span data-i18n="k453">新卒採用の方へ</span><span aria-hidden="true"> →</span></span><span class="s" data-i18n="k454">2027年3月に卒業される方</span></a><a class="btn btn-sub x-door" href="recruit-mid.html"><span class="t"><span data-i18n="k455">中途採用の方へ</span><span aria-hidden="true"> →</span></span><span class="s" data-i18n="k456">経験のある方・ブランクのある方</span></a></p>
-    </div>
-  </div>
-</section>
-
-<!-- ============ お知らせ ============ -->
-
-
-<footer class="foot">
-  <div class="wrap">
-    <div class="foot-grid">
-      <div>
-        <!-- フッターは地色が濃いので実ロゴを置けない（白抜きのハートと顔に地色が透ける）。
-             仮マークだけ残すとヘッダーと食い違うので、マークは置かず名前だけにする。 -->
-        <div class="brand">
-          <span class="tx"><span class="name" data-i18n="k002">かみのて保育園</span><span class="en">KAMINOTE NURSERY</span></span>
-        </div>
-        <div class="foot-addr" data-i18n="k097">運営：株式会社 A and K<br>〒509-0207 岐阜県可児市今渡3-11<br>TEL 0574-66-3511</div>
-      </div>
-      <div>
-        <h4 data-i18n="k098">園について</h4>
-        <ul>
-          <li><a href="policy.html" data-i18n="k004">かみのての保育</a></li>
-          <li><a href="philosophy.html" data-i18n="k116">保育理念</a></li>
-          <li><a href="parks.html" data-i18n="k005">園のご紹介</a></li>
-          <li><a href="byoji.html" data-i18n="k099">病児保育のご案内</a></li>
-          <li><a href="life.html" data-i18n="k100">園での生活</a></li>
-          <li><a href="admission.html" data-i18n="k061">入園案内・保育料</a></li>
-          <li><a href="news.html" data-i18n="k084">お知らせ・園の日記</a></li>
-          <li><a href="faq.html" data-i18n="k117">よくあるご質問</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4 data-i18n="k101">グループの事業</h4>
-        <ul>
-          <li><a href="https://easywebcraft.github.io/kaminote-day-design/a/" data-i18n="k102">児童発達支援・放課後等デイサービス</a><br><span style="font-size:12px;color:#8d857c" data-i18n="k103">かみのてKIDS・かみのてSMILE</span></li>
-          <li><a href="recruit.html" data-i18n="k008">採用情報</a></li>
-          <li><a href="recruit-new.html" data-i18n="k119">新卒採用</a></li>
-          <li><a href="recruit-mid.html" data-i18n="k120">中途採用</a></li>
-          <li><a href="https://www.aandkcorp.com/" data-i18n="k104">会社案内</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="copy"><span>© 2026 A and K Co., Ltd.</span><a href="#" data-i18n="k105">プライバシーポリシー</a></div>
-  </div>
-</footer>
-
-
-
-<!-- ============ 開いたときの動き（後半：順に出す） ============
-     隠す指定と対象の並びは <head> 側にある。ここでは出す順番だけを決める。 -->
-
-
-<script>
-(function () {
-  // ★ここの並びは <head> の隠す指定と必ず同じにすること
-  var ANIM_SEL = '.stats > .wrap > *,'
-               + '.sec > .wrap > *:not(.reasons):not(.parks):not(.adm):not(.news),'
-               + '.reasons > *,'
-               + '.parks > *,'
-               + '.adm > *,'
-               + '.news > *';
-
-  var units = [].slice.call(document.querySelectorAll(ANIM_SEL));
-
-  function sweep() {
-    var vh = window.innerHeight || document.documentElement.clientHeight;
-    var shown = [];
-    for (var i = units.length - 1; i >= 0; i--) {
-      var r = units[i].getBoundingClientRect();
-      if (r.top < vh * 0.92 && r.bottom > 0) {
-        shown.push(units[i]);
-        units.splice(i, 1);                            // 一度出したら見張らない
-      }
-    }
-    if (!shown.length) { return; }
-    shown.sort(function (a, b) {
-      return a.getBoundingClientRect().top - b.getBoundingClientRect().top;
-    }).forEach(function (el, i) {
-      el.style.animationDelay = (i * 0.06) + 's';      // 並んでいるものは少しずつずらす
-      el.classList.add('on');
-    });
-    if (!units.length) {
-      window.removeEventListener('scroll', onScroll);
-      window.removeEventListener('resize', onScroll);
-    }
-  }
-
-  var waiting = false;
-  function onScroll() {
-    if (waiting) { return; }
-    waiting = true;
-    requestAnimationFrame(function () { waiting = false; sweep(); });
-  }
-  window.addEventListener('scroll', onScroll, { passive: true });
-  window.addEventListener('resize', onScroll);
-  sweep();                                             // 最初から見えている分
-  window.addEventListener('load', sweep);              // 画像が入って位置が確定したあと
-
-  window.__animReady = true;                           // <head> の保険に「動いた」と伝える
-
-  // 保険: スクロールを拾えない環境でも、文字が消えたままにはしない
-  setTimeout(function () {
-    units.forEach(function (el) { el.classList.add('on'); });
-    units.length = 0;
-  }, 5000);
-})();
-</script>
-
-
-<script>
+<link rel="stylesheet" href="home-page.css?v=20261008"><link rel="stylesheet" href="recruit-page.css?v=20261008"><link rel="stylesheet" href="hero-fv-warm.css?v=20261008-release"></head>
+<body class="v2 home-page recruit-page"><header class="head"><div class="head-in"><a class="brand" href="index.html"><img class="mark" src="img/logo-mark.png" width="313" height="192" alt=""><span class="tx"><span class="name">かみのて保育園</span></span></a><span class="recruit-label">採用情報</span><nav class="gnav"><a href="#care">大切にする保育</a><a href="#work">仕事を知る</a><a href="#requirements">募集要項</a></nav><a class="cta-pill" href="contact.html">採用のお問い合わせ →</a><button class="burger" type="button" aria-label="メニュー">☰</button></div></header><svg class="home-symbols" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs>
+<symbol id="home-sprig" viewBox="0 0 64 64"><g fill="none" stroke="#83ab70" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M30 58Q36 34 27 9M33 42Q19 44 16 28Q29 28 33 42M33 32Q48 32 49 17Q35 20 33 32M29 20Q16 20 18 7Q29 8 29 20"/><path d="M22 32l10 10M45 22L34 32"/></g></symbol>
+<symbol id="home-flower" viewBox="0 0 64 64"><g fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M32 59V30M32 48Q17 49 17 36Q30 37 32 48M32 43Q48 42 46 30Q33 32 32 43" stroke="#83ab70"/><path d="M32 10C29 1 19 7 24 15C13 14 13 26 24 25C20 34 32 38 34 28C44 35 50 24 41 20C51 11 39 4 34 13Z" stroke="#ed9a71"/><circle cx="32" cy="21" r="4" stroke="#e7b64d"/></g></symbol>
+<symbol id="home-sun" viewBox="0 0 64 64"><g stroke="#efbd54" stroke-width="2" stroke-linecap="round"><circle cx="32" cy="32" r="13" fill="#ffe6a5"/><path d="M32 3v7M32 54v7M3 32h7M54 32h7M11 11l5 5M48 48l5 5M11 53l5-5M48 16l5-5"/></g></symbol>
+<symbol id="home-heart" viewBox="0 0 64 64"><path d="M32 52L11 31C-2 14 22 4 32 20C42 4 66 14 53 31Z" fill="#f89b80" stroke="#ef8971" stroke-width="2"/></symbol>
+<symbol id="home-meal" viewBox="0 0 64 64"><g fill="none" stroke="#efa174" stroke-width="3" stroke-linecap="round"><path d="M16 8v17M10 8v14q0 9 12 0V8M16 28v29M43 30v27"/><ellipse cx="43" cy="18" rx="7" ry="12"/></g></symbol>
+<symbol id="home-talk" viewBox="0 0 64 64"><g fill="none" stroke="#57746c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M53 28c0 12-10 21-24 21l-14 8 3-12C-1 31 6 9 29 9c14 0 24 8 24 19Z"/><path d="M23 26h1M32 26h1M41 26h1"/></g></symbol>
+<symbol id="home-letter" viewBox="0 0 64 64"><g fill="none" stroke="#57746c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 6h27l10 11v41H14ZM41 6v12h10M22 27h21M22 36h21M22 45h13"/></g></symbol>
+<symbol id="home-family" viewBox="0 0 64 64"><g fill="none" stroke="#57746c" stroke-width="2" stroke-linecap="round"><circle cx="32" cy="13" r="8"/><circle cx="13" cy="29" r="6"/><circle cx="51" cy="29" r="6"/><path d="M20 36c0-20 24-20 24 0M3 53V45c0-13 20-13 20 0v8ZM41 53V45c0-13 20-13 20 0v8Z"/></g></symbol>
+<symbol id="home-globe" viewBox="0 0 64 64"><g fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="32" cy="32" r="24"/><ellipse cx="32" cy="32" rx="11" ry="24"/><path d="M8 32h48M14 17q18 9 36 0M14 47q18-9 36 0"/></g></symbol>
+<symbol id="home-house" viewBox="0 0 64 64"><g fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 29 32 7l27 22M12 25v31h40V25M26 56V39h12v17M32 7V2h13l-6 5Z"/></g></symbol>
+<symbol id="home-care" viewBox="0 0 64 64"><g fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M14 6v16c0 19 25 19 25 0V6M9 6h9M35 6h9M26 37v7c0 18 25 18 25 0V30"/><circle cx="51" cy="24" r="6"/></g></symbol>
+<symbol id="home-megaphone" viewBox="0 0 64 64"><g fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"><path d="M10 26v16h12l29 10V13L22 26ZM19 42l6 16h8l-6-15M57 20l5-4M57 32h6M57 45l5 4"/></g></symbol><symbol id="home-book" viewBox="0 0 64 64"><g fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"><path d="M32 14C22 6 10 8 6 11v42c9-5 18-4 26 1 8-5 17-6 26-1V11c-4-3-16-5-26 3ZM32 14v40"/></g></symbol></defs></svg><main><section class="recruit-hero home-blue"><div class="home-wrap"><nav class="recruit-crumb" aria-label="パンくず"><a href="index.html">トップ</a><span>›</span>採用情報</nav><div class="recruit-hero-copy"><p class="recruit-eyebrow">かみのて保育園｜採用情報</p><h1>こどもの「やってみたい」を<br>いっしょに支える</h1><p class="recruit-lead">あなたが大切にしたい保育を、<br>かみのてで聞かせてください。</p><div class="recruit-actions"><a class="home-button home-button-solid" href="recruit-new.html">新卒採用の方へ<span aria-hidden="true">→</span></a><a class="home-button home-button-outline" href="recruit-mid.html">中途採用の方へ<span aria-hidden="true">→</span></a></div><a class="home-text-link" href="contact.html">園の見学について相談する<span aria-hidden="true">→</span></a></div></div><div class="recruit-hero-photo"><div class="home-photo"><img src="img/policy.jpg" alt="イメージ写真（明るい保育室）" loading="lazy" decoding="async"></div></div><div class="recruit-sun"><svg class="home-icon" viewBox="0 0 64 64" aria-hidden="true"><use href="#home-sun"/></svg></div><div class="recruit-leaf"><svg class="home-icon" viewBox="0 0 64 64" aria-hidden="true"><use href="#home-sprig"/></svg></div></section><nav class="home-quick home-wrap" aria-label="採用情報のご案内"><a class="home-quick-card green" href="#care" data-home-reveal><svg class="home-icon" viewBox="0 0 64 64" aria-hidden="true"><use href="#home-sprig"/></svg><div><h2>保育の考え方を知る</h2><p>かみのての大切にする保育 →</p></div></a><a class="home-quick-card orange" href="#work" data-home-reveal><svg class="home-icon" viewBox="0 0 64 64" aria-hidden="true"><use href="#home-book"/></svg><div><h2>仕事内容を知る</h2><p>どんな仕事があるのか →</p></div></a><a class="home-quick-card blue" href="#requirements" data-home-reveal><svg class="home-icon" viewBox="0 0 64 64" aria-hidden="true"><use href="#home-letter"/></svg><div><h2>募集要項を確認する</h2><p>詳しい条件はこちら →</p></div></a></nav><section class="home-section recruit-care" id="care"><div class="home-wrap"><div class="home-about-grid"><div data-home-reveal><div class="home-photo"><img src="img/hero.jpg" alt="イメージ写真（こどもの工作の準備）" loading="lazy" decoding="async"></div></div><div data-home-reveal><h2>小さな「できた」を<br>いっしょに喜ぶ保育</h2><p>こども一人ひとりの興味や気持ちに寄り添い、<br>自分でやってみたいという気持ちを大切にしながら、<br>見守り、ともに育つ保育を目指しています。</p><a class="home-text-link" href="policy.html">大切にしている保育を見る<span aria-hidden="true">→</span></a></div></div></div></section><section class="home-section home-cream" id="work"><div class="home-wrap"><div class="recruit-heading"><h2>働く姿を知る</h2><p>こどもたちのそばで、仲間とともに、日々の保育に向き合っています。</p></div><p class="recruit-photo-note">写真はイメージです</p><div class="home-three-grid"><a class="recruit-work-card" href="life.html" data-home-reveal><div class="home-photo"><img src="img/news-3.jpg" alt="イメージ写真（園庭）" loading="lazy" decoding="async"></div><div><h3>こどもと向き合う時間</h3><p>こどもたちとあそび、話し、一人ひとりの気持ちに寄り添います。</p><span class="recruit-arrow" aria-hidden="true">›</span></div></a><a class="recruit-work-card" href="#tasks" data-home-reveal><div class="home-photo"><img src="img/park-2.jpg" alt="イメージ写真（明るい絵本のコーナー）" loading="lazy" decoding="async"></div><div><h3>仲間と話す時間</h3><p>こどもの姿を共有し、よりよい保育のために職員同士で話し合います。</p><span class="recruit-arrow" aria-hidden="true">›</span></div></a><a class="recruit-work-card" href="#tasks" data-home-reveal><div class="home-photo"><img src="img/hero.jpg" alt="イメージ写真（工作の準備）" loading="lazy" decoding="async"></div><div><h3>保育を準備する時間</h3><p>こどもたちが楽しめる環境やあそびを考え、準備をします。</p><span class="recruit-arrow" aria-hidden="true">›</span></div></a></div></div></section><section class="home-section home-blue" id="tasks"><div class="home-wrap"><div class="recruit-heading"><h2>保育の仕事を具体的に</h2><p>こどもたちの毎日の生活を支える、主な仕事の流れをご紹介します。</p></div><div class="recruit-task-layout"><ol class="recruit-task-grid"><li data-home-reveal><span class="recruit-number">1</span><svg class="home-icon" viewBox="0 0 64 64" aria-hidden="true"><use href="#home-house"/></svg><h3>受け入れ</h3><p>こどもたちを迎え、一人ひとりの様子を把握します。</p></li><li data-home-reveal><span class="recruit-number">2</span><svg class="home-icon" viewBox="0 0 64 64" aria-hidden="true"><use href="#home-sprig"/></svg><h3>あそび・生活のサポート</h3><p>あそびや生活の場面で、こどもたちの育ちを支えます。</p></li><li data-home-reveal><span class="recruit-number">3</span><svg class="home-icon" viewBox="0 0 64 64" aria-hidden="true"><use href="#home-letter"/></svg><h3>記録・準備</h3><p>こどもの姿を記録し、次の保育に向けて準備します。</p></li><li data-home-reveal><span class="recruit-number">4</span><svg class="home-icon" viewBox="0 0 64 64" aria-hidden="true"><use href="#home-family"/></svg><h3>引き継ぎ</h3><p>職員同士で情報を共有し、継続した保育につなげます。</p></li></ol><div class="home-photo"><img src="img/hero-toys-c.jpg" alt="イメージ写真（保育の準備の机）" loading="lazy" decoding="async"></div></div><div class="recruit-task-bottom"><p>仕事内容や勤務時間は、職種・勤務先により異なります。</p><a class="home-button home-button-solid" href="#requirements">詳しい仕事内容・募集要項を見る<span aria-hidden="true">→</span></a></div></div></section><section class="home-section " id="entry"><div class="home-wrap"><div class="recruit-heading"><h2>あなたに合う入口から</h2><p>それぞれの状況に合わせた採用のご案内をご用意しています。</p></div><div class="recruit-entry-grid"><article class="recruit-entry home-blue" data-home-reveal><div class="home-photo"><img src="img/hero.jpg" alt="イメージ写真（工作の準備）" loading="lazy" decoding="async"></div><div><h3>新卒採用</h3><p>はじめて保育の仕事を目指す方へ</p><div class="recruit-tags"><a class="home-text-link" href="recruit-new.html">仕事内容<span aria-hidden="true">→</span></a><a class="home-text-link" href="recruit-new.html#requirements-new">募集要項<span aria-hidden="true">→</span></a><a class="home-text-link" href="recruit-new.html#requirements-new">応募について<span aria-hidden="true">→</span></a></div><a class="home-button home-button-solid" href="recruit-new.html">新卒採用ページへ<span aria-hidden="true">→</span></a></div></article><article class="recruit-entry home-cream" data-home-reveal><div class="home-photo"><img src="img/park-2.jpg" alt="イメージ写真（絵本のコーナー）" loading="lazy" decoding="async"></div><div><h3>中途採用</h3><p>経験のある方・ブランクのある方へ</p><div class="recruit-tags"><a class="home-text-link" href="recruit-mid.html">仕事内容<span aria-hidden="true">→</span></a><a class="home-text-link" href="recruit-mid.html#requirements-mid">募集要項<span aria-hidden="true">→</span></a><a class="home-text-link" href="recruit-mid.html#requirements-mid">応募について<span aria-hidden="true">→</span></a></div><a class="home-button home-button-small" href="recruit-mid.html">中途採用ページへ<span aria-hidden="true">→</span></a></div></article></div></div></section><section class="home-section home-cream" id="requirements"><div class="home-wrap"><div class="recruit-heading"><h2>募集要項で確認できること</h2><p>詳しい条件は、新卒・中途それぞれの募集要項をご確認ください。</p></div><div class="recruit-requirements"><div><svg class="home-icon" viewBox="0 0 64 64" aria-hidden="true"><use href="#home-family"/></svg><h3>募集職種</h3></div><div><svg class="home-icon" viewBox="0 0 64 64" aria-hidden="true"><use href="#home-house"/></svg><h3>勤務先</h3></div><div><svg class="home-icon" viewBox="0 0 64 64" aria-hidden="true"><use href="#home-sun"/></svg><h3>勤務時間</h3></div><div><svg class="home-icon" viewBox="0 0 64 64" aria-hidden="true"><use href="#home-heart"/></svg><h3>給与・手当</h3></div><div><svg class="home-icon" viewBox="0 0 64 64" aria-hidden="true"><use href="#home-flower"/></svg><h3>休日・休暇</h3></div><div><svg class="home-icon" viewBox="0 0 64 64" aria-hidden="true"><use href="#home-letter"/></svg><h3>応募資格</h3></div></div><div class="recruit-requirement-links"><a class="home-text-link" href="recruit-new.html#requirements-new">新卒の募集要項<span aria-hidden="true">→</span></a><a class="home-text-link" href="recruit-mid.html#requirements-mid">中途の募集要項<span aria-hidden="true">→</span></a></div></div></section><section class="home-section " id="questions"><div class="home-wrap"><div class="recruit-heading"><h2>応募前の疑問もお聞かせください</h2><p>見学のこと、働き方のこと。気になることがあればお気軽にご相談ください。</p></div><div class="recruit-faq-grid"><details><summary>園の見学について</summary><p>応募するかどうかは、園を見てから決めていただいてかまいません。見学の日時はお問い合わせください。</p></details><details><summary>勤務先や働き方について</summary><p>勤務時間、日数、入職の時期など、ご事情をうかがったうえでご相談します。詳しい条件は新卒・中途の募集要項をご確認ください。</p></details><details><summary>応募に必要なものについて</summary><p>新卒採用は履歴書の送り先を見学の際にお伝えします。中途採用は面接・ご相談からご案内します。まずはお問い合わせください。</p></details></div><p class="home-more"><a class="home-text-link" href="contact.html">採用について問い合わせる<span aria-hidden="true">→</span></a></p></div></section><section class="recruit-visit home-blue"><div class="home-wrap"><div class="recruit-visit-copy" data-home-reveal><h2>まずはかみのての保育を<br>知るところから</h2><p>見学や応募について、気になることをご相談ください。</p><a class="home-button home-button-solid" href="contact.html">見学・採用のお問い合わせ<span aria-hidden="true">→</span></a><div class="recruit-bottom-links"><a class="home-text-link" href="recruit-new.html">新卒採用の方へ<span aria-hidden="true">→</span></a><a class="home-text-link" href="recruit-mid.html">中途採用の方へ<span aria-hidden="true">→</span></a></div></div></div><div class="recruit-visit-photo"><div class="home-photo"><img src="img/policy.jpg" alt="イメージ写真（明るい保育室）" loading="lazy" decoding="async"></div></div></section></main><footer class="recruit-footer home-wrap"><a class="brand" href="index.html"><img class="mark" src="img/logo-mark.png" width="313" height="192" alt=""><span class="tx"><span class="name">かみのて保育園</span></span></a><nav aria-label="フッター"><a class="home-text-link" href="index.html">園のホームページ<span aria-hidden="true">→</span></a><a class="home-text-link" href="recruit-new.html">新卒採用<span aria-hidden="true">→</span></a><a class="home-text-link" href="recruit-mid.html">中途採用<span aria-hidden="true">→</span></a><a class="home-text-link" href="contact.html">採用のお問い合わせ<span aria-hidden="true">→</span></a></nav><span>岐阜県可児市</span><small>© 2026 A and K Co., Ltd.</small></footer><script>
 // スマホのメニュー開閉。★ボタンは前からあったが処理が無く、押しても反応しなかった。
 (function () {
   var head = document.querySelector('.head');
@@ -236,9 +65,4 @@
     if (getComputedStyle(btn).display === 'none') { close(); }
   });
 })();
-</script>
-
-
-<script src="i18n.js"></script>
-
-
+</script><script src="scroll-warm.js?v=recruit-layout-20261008"></script></body></html>

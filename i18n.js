@@ -1,7 +1,7 @@
 /* 言語の切り替え（日本語／English／Português）
    ------------------------------------------------------------------
    ・このファイルは ~/kmtools/i18n_apply.py が作る。直接編集しないこと
-   ・訳は「日本語の中身」で引き当てて持ち越しているので、鍵の番号がずれても消えない
+   ・訳は ~/kmtools/i18n-manual-nursery.json に日本語で書く（番号ではなく中身で引き当てる）
    ・辞書に鍵が無いところは書き換えない＝日本語のまま出る
    ・未訳の一覧は ~/kmtools/i18n-todo-nursery.json */
 (function () {
@@ -465,7 +465,29 @@
   "k455": "中途採用の方へ",
   "k456": "経験のある方・ブランクのある方",
   "k457": "これは<b>デザイン案B</b>を、メニューごとに別ページへ分けたものです。写真は<b>イメージ写真</b>、情報は現行サイトからの引用です。文章と写真は差し替えます。",
-  "k458": "これは<b>デザイン案C</b>を、メニューごとに別ページへ分けたものです。写真は<b>イメージ写真</b>、情報は現行サイトからの引用です。文章と写真は差し替えます。"
+  "k458": "これは<b>デザイン案C</b>を、メニューごとに別ページへ分けたものです。写真は<b>イメージ写真</b>、情報は現行サイトからの引用です。文章と写真は差し替えます。",
+  "k459": "熱が出た日のもうひとつの選択肢",
+  "k460": "まずは園を見にきてください",
+  "k461": "「やってみたい」を",
+  "k462": "まんなかに",
+  "k463": "子どもの気持ちを<br>一番近くで見守る",
+  "k464": "安心して通っていただくために",
+  "k465": "朝早くから<br>夜まで安心",
+  "k466": "もしもの日にも<br>頼れる場所を",
+  "k467": "ことばが違っても<br>安心できる場所",
+  "k468": "園で過ごす<br>いつもの一日",
+  "k469": "熱が出た日も<br>仕事を休めない日に",
+  "k470": "知りたいことからどうぞ",
+  "k471": "まずは<br>園の雰囲気を見に来ませんか",
+  "k472": "園での一日と一年",
+  "k473": "みんなとじぶんで",
+  "k474": "一日のなかに",
+  "k475": "園のいまおとどけします",
+  "k476": "理念を毎日のかたちに",
+  "k477": "こんな子に",
+  "k478": "これまでの経験を",
+  "k479": "働き方は2つから",
+  "k480": "はじめの一歩を"
  },
  "en": {
   "k000": "This is <b>Design A</b>. The photos are stand-ins to convey the mood, and the nursery details are quoted from the current website. Text and photos will be replaced.",
@@ -926,7 +948,29 @@
   "k455": "Experienced staff, this way",
   "k456": "With experience, or returning after a break",
   "k457": "This is <b>Design B</b>, split into one page per menu item. The photos are <b>stock images</b> and the information is quoted from the current website. Text and photos will be replaced.",
-  "k458": "This is <b>Design C</b>, split into one page per menu item. The photos are <b>stock images</b> and the information is quoted from the current website. Text and photos will be replaced."
+  "k458": "This is <b>Design C</b>, split into one page per menu item. The photos are <b>stock images</b> and the information is quoted from the current website. Text and photos will be replaced.",
+  "k459": "Another option for the day a fever starts",
+  "k460": "Please come and see the nursery",
+  "k461": "“I want to try”",
+  "k462": "at the heart of every day.",
+  "k463": "Staying close to each child’s feelings",
+  "k464": "Our promises for your peace of mind",
+  "k465": "Peace of mind from early morning to evening",
+  "k466": "A place to rely on when the unexpected happens",
+  "k467": "A welcoming place, whatever your language",
+  "k468": "Everyday life at our nursery",
+  "k469": "When your child has a fever and you cannot miss work",
+  "k470": "Start with what you'd like to know",
+  "k471": "Come and get to know our nursery",
+  "k472": "A day, and a year, at the nursery",
+  "k473": "Together, and on their own",
+  "k474": "Within a single day,",
+  "k475": "What is happening right now",
+  "k476": "Turning the philosophy into daily practice",
+  "k477": "These are the children",
+  "k478": "Put the experience you already have",
+  "k479": "Two ways of working",
+  "k480": "Take the first step"
  },
  "pt": {
   "k000": "Este é o <b>Plano A</b>. As fotos são apenas de referência, para dar a ideia, e as informações da creche foram citadas do site atual. Textos e fotos serão substituídos.",
@@ -1387,7 +1431,29 @@
   "k455": "Profissionais experientes, por aqui",
   "k456": "Com experiência ou voltando após um período fora",
   "k457": "Este é o <b>Plano B</b>, dividido em uma página para cada item do menu. As fotos são <b>imagens ilustrativas</b> e as informações foram citadas do site atual. Textos e fotos serão substituídos.",
-  "k458": "Este é o <b>Plano C</b>, dividido em uma página para cada item do menu. As fotos são <b>imagens ilustrativas</b> e as informações foram citadas do site atual. Textos e fotos serão substituídos."
+  "k458": "Este é o <b>Plano C</b>, dividido em uma página para cada item do menu. As fotos são <b>imagens ilustrativas</b> e as informações foram citadas do site atual. Textos e fotos serão substituídos.",
+  "k459": "Outra opção para o dia em que a febre chega",
+  "k460": "Venha conhecer a creche",
+  "k461": "de cada criança,",
+  "k462": "no centro de tudo.",
+  "k463": "Acolhendo de perto os sentimentos de cada criança",
+  "k464": "Nossos compromissos para sua tranquilidade",
+  "k465": "Tranquilidade desde cedo até o fim do dia",
+  "k466": "Um lugar de confiança para os imprevistos",
+  "k467": "Um lugar acolhedor, seja qual for o seu idioma",
+  "k468": "O dia a dia em nossa creche",
+  "k469": "Quando seu filho tem febre e você não pode faltar ao trabalho",
+  "k470": "Comece pelo que deseja saber",
+  "k471": "Venha conhecer o ambiente da nossa creche",
+  "k472": "Um dia e um ano na creche",
+  "k473": "Junto com os outros, e sozinho",
+  "k474": "Ao longo de um único dia,",
+  "k475": "O que acontece agora na creche",
+  "k476": "Transformar a filosofia em prática diária",
+  "k477": "Estas são as crianças",
+  "k478": "Use a experiência que você já tem",
+  "k479": "Duas formas de trabalhar",
+  "k480": "Dê o primeiro passo"
  }
 };
 

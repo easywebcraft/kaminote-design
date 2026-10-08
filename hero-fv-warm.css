@@ -61,3 +61,8 @@
  .head.warm-menu-pending .gnav > a,.head.warm-menu-pending .gnav > .gdrop > .gdrop-t,
  .head.warm-menu-pending .cta-pill,.head.warm-menu-pending .burger { opacity:1; }
 }
+
+/* スクロール対象だけ、JSが準備できたときに隠す。 */
+.warm-scroll-pending { opacity:0; }
+@media (prefers-reduced-motion:reduce) { .warm-scroll-pending { opacity:1 !important; } }
+@media print { .warm-scroll-pending { opacity:1 !important; } }

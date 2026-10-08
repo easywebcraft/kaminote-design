@@ -1,0 +1,29 @@
+/* 比較用：木漏れ日と小さな飾りで、日だまりのような動きを重ねる */
+.hero-warm .hero-slide:nth-child(1) { --s0:1.28; --s1:1.12; --x0:-3%; --x1:3%; --y0:2%; --y1:-2%; }
+.hero-warm .hero-slide:nth-child(2) { --s0:1.12; --s1:1.27; --x0:2%; --x1:-2%; --y0:2%; --y1:-2%; }
+.hero-warm .hero-slide:nth-child(3) { --s0:1.21; --s1:1.17; --x0:4%; --x1:-4%; --y0:-1%; --y1:1%; }
+.hero-warm .hero-slide:nth-child(4) { --s0:1.27; --s1:1.12; --x0:-2%; --x1:2%; --y0:-3%; --y1:3%; }
+.hero-sunlight { position:absolute; inset:-12%; z-index:2; pointer-events:none; overflow:hidden; opacity:0; }
+.hero-sunlight::before, .hero-sunlight::after { content:""; position:absolute; border-radius:50%; }
+.hero-sunlight::before { inset:0; background:radial-gradient(ellipse 30% 40% at 17% 33%,rgba(255,227,163,.38),rgba(255,244,210,.12) 55%,transparent 80%),radial-gradient(ellipse 25% 35% at 82% 64%,rgba(255,242,194,.44),transparent 75%); }
+.hero-sunlight::after { width:45%; height:85%; right:2%; top:-25%; background:radial-gradient(ellipse,rgba(255,251,226,.45),rgba(255,236,179,.16) 48%,transparent 72%); transform:rotate(-20deg); }
+.hero-warm.is-playing .hero-sunlight { opacity:1; transition:opacity 1.8s ease; }
+.hero-warm.is-playing .hero-sunlight::before { animation:warm-light-drift 13s ease-in-out infinite alternate; }
+.hero-warm.is-playing .hero-sunlight::after { animation:warm-light-breathe 10s ease-in-out infinite alternate; }
+.hero-warm.is-playing .hero-cluster { animation:warm-cluster-float 8s ease-in-out infinite alternate; }
+.hero-warm.is-playing .hero-copy .deco { transform-box:fill-box; transform-origin:center; animation:warm-small-float 5.5s ease-in-out infinite alternate; }
+.hero-warm.is-playing .hero-copy .ln:nth-child(2) .deco { animation-name:warm-wave-sway; animation-duration:6.8s; }
+@keyframes warm-light-drift { from { transform:translate(-2%,-1%) scale(1); opacity:.7; } to { transform:translate(5%,4%) scale(1.06); opacity:1; } }
+@keyframes warm-light-breathe { from { transform:translate(0,0) rotate(-20deg); opacity:.5; } to { transform:translate(-12%,12%) rotate(-12deg); opacity:1; } }
+@keyframes warm-cluster-float { from { transform:translate(0,-7px) rotate(-3deg); } to { transform:translate(-12px,12px) rotate(4deg); } }
+@keyframes warm-small-float { from { transform:translateY(-5px) rotate(-8deg); } to { transform:translateY(7px) rotate(9deg); } }
+@keyframes warm-wave-sway { from { transform:translate(-4px,0) rotate(-4deg); } to { transform:translate(5px,5px) rotate(5deg); } }
+.hero-warm.is-paused .hero-sunlight::before,.hero-warm.is-paused .hero-sunlight::after,.hero-warm.is-paused .hero-cluster,.hero-warm.is-paused .hero-copy .deco { animation-play-state:paused; }
+@media (max-width:700px) {
+ .hero-sunlight::before { background:radial-gradient(ellipse 45% 55% at 18% 35%,rgba(255,233,177,.35),transparent 80%),radial-gradient(ellipse 35% 50% at 85% 65%,rgba(255,245,215,.35),transparent 75%); }
+ .hero-warm.is-playing .hero-cluster { animation-name:warm-small-float; }
+}
+@media (prefers-reduced-motion:reduce) {
+ .hero-warm .hero-sunlight { display:none; }
+ .hero-warm .hero-cluster,.hero-warm .hero-copy .deco { animation:none !important; }
+}

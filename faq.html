@@ -1,362 +1,74 @@
 <!doctype html>
 <html lang="ja">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="robots" content="noindex,nofollow">
-<title>よくあるご質問｜かみのて保育園</title>
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='24' fill='%232c6f92'/><text x='50' y='71' font-size='58' font-weight='bold' text-anchor='middle' font-family='sans-serif' fill='%23fff'>か</text></svg>">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@400;500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Baloo+2:wght@500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=02afff2f">
-<script>
-  // 最初の描画より前に付ける（あとから付けると、見えていたものが消えてから動く）。
-  // ★a/ をルートへ昇格したときに落ちていて、スクロールの動きが効いていなかった（2026-09-19 復旧）
-  document.documentElement.classList.add('anim');
-  // 保険: 下のJSが動かなかったときは、隠したままにしない
-  setTimeout(function () {
-    if (!window.__animReady) { document.documentElement.classList.remove('anim'); }
-  }, 4000);
-</script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>よくあるご質問｜かみのて保育園</title>
+  <meta name="description" content="入園、園での生活、保育料、健康、ことばについて、かみのて保育園によく寄せられるご質問をまとめました。">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='24' fill='%232c6f92'/><text x='50' y='71' font-size='58' font-weight='bold' text-anchor='middle' font-family='sans-serif' fill='%23fff'>か</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=02afff2f"><link rel="stylesheet" href="home-page.css?v=20261009-art"><link rel="stylesheet" href="policy-page.css?v=20261009"><link rel="stylesheet" href="faq-page.css?v=20261009">
 </head>
-<body class="v2">
+<body class="v2 home-page policy-page faq-page" id="top">
+<header class="head policy-header"><div class="head-in"><a class="brand" href="index.html" aria-label="かみのて保育園 トップページ"><img class="mark" src="img/logo-mark.png" alt="" width="313" height="192"><span class="tx"><span class="name">かみのて保育園</span><span class="en">KAMINOTE NURSERY</span></span></a><span class="home-language">◎ 日本語</span><nav class="gnav"><a href="policy.html">園について</a><a href="life.html">園での生活</a><a href="admission.html">入園案内</a><a href="byoji.html">病児保育</a></nav><a class="cta-pill" href="contact.html">見学・お問い合わせ</a><button class="burger" type="button" aria-label="メニュー" aria-expanded="false">☰</button></div></header>
 
+<main>
+<section class="faq-hero"><div class="faq-wrap faq-hero-grid"><div data-home-reveal><p class="faq-kicker">FAQ</p><h1>よくあるご質問</h1><p>入園のこと、園での生活、費用のこと<br>気になることからご覧ください。</p></div><div class="faq-hero-art" aria-hidden="true" data-home-reveal><span class="faq-book"></span><span class="faq-talk faq-talk-one">?</span><span class="faq-talk faq-talk-two">＝</span><span class="faq-talk faq-talk-three">＝</span><i></i><i></i><i></i></div></div></section>
 
-<!-- ============ ヘッダー ============ -->
+<section class="faq-navigation"><div class="faq-wrap">
+  <form class="faq-search" role="search"><label class="sr-only" for="faq-keyword">よくある質問を検索</label><span aria-hidden="true">⌕</span><input id="faq-keyword" type="search" placeholder="キーワードから探す（例：見学・給食・保育料）"><button type="submit">検索</button></form>
+  <p class="faq-results" aria-live="polite">全19件</p>
+  <nav class="faq-categories" aria-label="質問カテゴリ">
+    <a href="#faq-admission"><span class="faq-cat-icon">▤</span><b>入園・お申し込み</b><small>5件</small></a>
+    <a href="#faq-life"><span class="faq-cat-icon">☀</span><b>園での生活</b><small>5件</small></a>
+    <a href="#faq-fees"><span class="faq-cat-icon">¥</span><b>保育料・費用</b><small>3件</small></a>
+    <a href="#faq-health"><span class="faq-cat-icon">♡</span><b>健康・安全</b><small>3件</small></a>
+    <a href="#faq-language"><span class="faq-cat-icon">◎</span><b>ことば・文化</b><small>3件</small></a>
+  </nav>
+</div></section>
 
+<div class="faq-wrap faq-groups">
+<section class="faq-group faq-warm" id="faq-admission" data-home-reveal><h2><span>▤</span>入園・お申し込みについて</h2>
+  <details class="faq-item"><summary><i>Q</i>入園はいつでも申し込めますか。<b></b></summary><div class="faq-answer"><i>A</i><p>かみのて保育園は、空きがあれば年度の途中でもご入園いただけます。園へ直接お申し込みください。かみのて今渡保育園は可児市役所 保育課へのお申し込みとなり、受付時期が決まっています。</p></div></details>
+  <details class="faq-item"><summary><i>Q</i>2つの園は、何がちがうのですか。<b></b></summary><div class="faq-answer"><i>A</i><p>かみのて保育園は企業主導型保育園で、企業枠・地域枠があり、園へ直接お申し込みいただきます。かみのて今渡保育園は可児市の認可保育園で、市役所へのお申し込みが必要です。</p></div></details>
+  <details class="faq-item"><summary><i>Q</i>見学はできますか。予約は必要ですか。<b></b></summary><div class="faq-answer"><i>A</i><p>見学を受け付けています。こどもたちの生活時間に合わせてご案内するため、事前に電話またはお問い合わせフォームからご予約ください。入園時期が未定の方もご相談いただけます。</p></div></details>
+  <details class="faq-item"><summary><i>Q</i>途中入園や、きょうだいでの入園はできますか。<b></b></summary><div class="faq-answer"><i>A</i><p>空き状況によってご案内できます。きょうだいでの入園も含め、月ごとに受け入れ状況が変わるため、希望時期を添えてお問い合わせください。</p></div></details>
+  <details class="faq-item"><summary><i>Q</i>慣らし保育はありますか。<b></b></summary><div class="faq-answer"><i>A</i><p>短い時間から始め、こどもの様子を見ながら少しずつ園で過ごす時間を延ばします。目安は1〜2週間ですが、ご家庭の予定やこどもの様子に合わせて調整します。</p></div></details>
+</section>
 
-<header class="head">
-  <div class="head-in">
-    <a class="brand" href="index.html">
-      <img class="mark" src="img/logo-mark.png" alt="" width="313" height="192" decoding="async">
-      <span class="tx">
-        <span class="corp" data-i18n="k001">株式会社 A and K　企業主導型・認可保育園</span>
-        <span class="name" data-i18n="k002">かみのて保育園</span>
-        <span class="en">KAMINOTE NURSERY</span>
-      </span>
-    </a>
-    <div class="lang">
-    <button class="lang-btn" type="button" aria-expanded="false" aria-haspopup="true">
-      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M3 12h18M12 3c2.5 2.6 2.5 15.4 0 18M12 3c-2.5 2.6-2.5 15.4 0 18" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>
-      <span data-i18n="k115">言語</span>
-    </button>
-    <div class="lang-menu" hidden>
-      <button type="button" data-lang="ja">日本語</button>
-      <button type="button" data-lang="en">English</button>
-      <button type="button" data-lang="pt">Português</button>
-    </div>
-  </div>
-    <nav class="gnav"><div class="gdrop is-cur"><button class="gdrop-t" type="button" aria-expanded="false">園について<svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="gdrop-m"><a href="policy.html" data-i18n="k004">かみのての保育</a><a href="philosophy.html" data-i18n="k116">保育理念</a><a href="parks.html" data-i18n="k005">園のご紹介</a><a href="news.html" data-i18n="k012">お知らせ</a><a href="faq.html" aria-current="page" data-i18n="k117">よくあるご質問</a><a href="recruit.html" data-i18n="k008">採用情報</a></div></div><a href="life.html" data-i18n="k100">園での生活</a><a href="admission.html" data-i18n="k007">入園案内</a><a href="byoji.html" data-i18n="k006">病児保育</a><a href="contact.html" data-i18n="k111">お問い合わせ</a></nav>
-    <a class="cta-pill" href="contact.html">見学・お問い合わせ</a>
-    <button class="burger" type="button" aria-label="メニュー">☰</button>
-  </div>
-</header>
+<section class="faq-group faq-blue" id="faq-life" data-home-reveal><h2><span>☀</span>園での生活について</h2>
+  <details class="faq-item" open><summary><i>Q</i>何時から何時まで預かってもらえますか。<b></b></summary><div class="faq-answer"><i>A</i><p><strong>かみのて保育園：7:00〜20:00<br>かみのて今渡保育園：7:30〜19:30（土・祝は7:30〜16:30）</strong><br>18時からは延長保育となり、補食もご用意しています。<br><a href="life.html">園での一日を見る →</a></p></div></details>
+  <details class="faq-item"><summary><i>Q</i>給食はありますか。アレルギーには対応してもらえますか。<b></b></summary><div class="faq-answer"><i>A</i><p>園内で調理した給食とおやつをご用意しています。食物アレルギーは医師の指示書に基づいて対応します。宗教や文化による食事の配慮もご相談ください。</p></div></details>
+  <details class="faq-item"><summary><i>Q</i>一時的に預けることはできますか。<b></b></summary><div class="faq-answer"><i>A</i><p>かみのて今渡保育園で一時保育を行っています。対象は生後6か月〜2歳、利用時間は9:00〜16:00、利用料は1日2,500円です。事前登録が必要なため、0574-66-3511へお問い合わせください。</p></div></details>
+  <details class="faq-item"><summary><i>Q</i>送迎はありますか。<b></b></summary><div class="faq-answer"><i>A</i><p>かみのて保育園ではご希望に応じて送迎をご案内しています。料金の目安は可児市内5,000円／月、市外6,000円／月です。地域や時間によって対応が異なるためご相談ください。</p></div></details>
+  <details class="faq-item"><summary><i>Q</i>持ちものは何が必要ですか。<b></b></summary><div class="faq-answer"><i>A</i><p>着替え、おむつ、おしりふき、お昼寝用のバスタオルなどをご用意いただきます。年齢や利用内容に合わせて、入園時に詳しくご案内します。</p></div></details>
+</section>
 
-<!-- 右端に貼りつく縦のボタン（参考イメージの「園見学予約」「病児・病後児保育」）
-     ★文言は既にある鍵を使い回している（k019 / k006）。新しい鍵を足すと
-       i18n_mark.py を掛け直したときに番号がずれるため。 -->
+<section class="faq-group faq-warm" id="faq-fees" data-home-reveal><h2><span>¥</span>保育料・費用について</h2>
+  <details class="faq-item"><summary><i>Q</i>保育料はいくらですか。<b></b></summary><div class="faq-answer"><i>A</i><p>かみのて保育園は、自社枠10,000円、提携企業枠25,000円、地域枠30,000円が月額の目安で、入園料はありません。かみのて今渡保育園は可児市が世帯状況などに応じて決定します。</p></div></details>
+  <details class="faq-item"><summary><i>Q</i>保育料のほかに、かかるものはありますか。<b></b></summary><div class="faq-answer"><i>A</i><p>行事費、教材費、送迎を利用する場合の費用などがかかることがあります。利用内容に合わせて事前にご説明します。</p></div></details>
+  <details class="faq-item"><summary><i>Q</i>提携企業の枠とは何ですか。<b></b></summary><div class="faq-answer"><i>A</i><p>企業主導型保育園と利用契約を結んだ企業で働くご家庭向けの枠です。現在のお勤め先が提携していない場合も、手続きについてご案内できます。</p></div></details>
+</section>
 
+<section class="faq-group faq-blue" id="faq-health" data-home-reveal><h2><span>♡</span>健康・安全について</h2>
+  <details class="faq-item"><summary><i>Q</i>園で熱が出たときは、どうなりますか。<b></b></summary><div class="faq-answer"><i>A</i><p>看護師が健康状態を確認し、保護者の方へご連絡します。病児保育室は生後6か月〜小学6年生が対象で、平日9:00〜17:00、1回2,000円で利用できます。事前登録と医療機関の情報が必要です。<br><a href="byoji.html">病児保育について見る →</a></p></div></details>
+  <details class="faq-item"><summary><i>Q</i>薬をあずかってもらえますか。<b></b></summary><div class="faq-answer"><i>A</i><p>医師から処方された薬に限り、依頼書とともにお預かりします。市販薬はお預かりできません。</p></div></details>
+  <details class="faq-item"><summary><i>Q</i>防犯や災害への備えはどうなっていますか。<b></b></summary><div class="faq-answer"><i>A</i><p>毎月の避難訓練、玄関の施錠、送迎者変更時の確認を行っています。災害時の連絡方法や引き渡しについても入園時にご案内します。</p></div></details>
+</section>
 
-<div class="side-cta">
-  <a class="s1" href="contact.html">
-    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5h14v15H5z" fill="none" stroke="#fff" stroke-width="2" stroke-linejoin="round"/><path d="M9 3v4M15 3v4M5 10h14" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg>
-    <span data-i18n="k011">見学のお申し込み</span>
-  </a>
-  <a class="s2" href="byoji.html">
-    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7-4.6-7-9.4A4 4 0 0 1 12 8a4 4 0 0 1 7 2.6c0 4.8-7 9.4-7 9.4Z" fill="none" stroke="#fff" stroke-width="2" stroke-linejoin="round"/></svg>
-    <span data-i18n="k006">病児保育</span>
-  </a>
+<section class="faq-group faq-warm" id="faq-language" data-home-reveal><h2><span>◎</span>ことば・文化について</h2>
+  <details class="faq-item"><summary><i>Q</i>日本語があまり話せません。それでも入園できますか。<b></b></summary><div class="faq-answer"><i>A</i><p>ご入園いただけます。英語、タガログ語、ビサヤ語、ポルトガル語でのご案内や翻訳も行い、ご家庭とのやりとりを支えます。</p></div></details>
+  <details class="faq-item"><summary><i>Q</i>こどもが日本語をわからなくても大丈夫ですか。<b></b></summary><div class="faq-answer"><i>A</i><p>大丈夫です。ご家庭で大切にしていることばを尊重しながら、遊びや生活を通して少しずつ日本語にふれられるよう支えます。<br><a href="policy.html">かみのての保育を見る →</a></p></div></details>
+  <details class="faq-item"><summary><i>Q</i>宗教や文化のうえで、できないことがあります。<b></b></summary><div class="faq-answer"><i>A</i><p>入園前の面談でお聞かせください。食事、行事、生活習慣など、ご家庭の考えを確認しながらできる範囲で対応します。</p></div></details>
+</section>
 </div>
 
-<!-- ============ 左の縦レール ============ -->
+<section class="faq-notice"><div class="faq-wrap"><p><b>!</b><strong>回答の一部は確認前の仮案です。</strong>開所時間・保育料・送迎・一時預かり・病児保育・対応言語は現サイトの掲載情報をもとにしています。最新情報はお問い合わせください。</p></div></section>
+<section class="faq-contact"><div class="faq-wrap faq-contact-panel" data-home-reveal><div class="faq-contact-art" aria-hidden="true">⌂</div><div><h2>ここに答えがないときは</h2><p>どんな小さなことでも、お気軽にご相談ください。</p><div class="faq-contact-buttons"><a class="home-button home-button-solid" href="contact.html">お問い合わせ <span>→</span></a><a class="home-button" href="contact.html">見学を申し込む <span>→</span></a></div></div><div class="faq-phone"><small>かみのて保育園・病児保育のお問い合わせ</small><a href="tel:0574501211">☎ 0574-50-1211</a></div></div></section>
+</main>
 
+<footer class="home-footer policy-footer"><div class="home-wrap policy-footer-row"><a class="brand" href="index.html"><img class="mark" src="img/logo-mark.png" alt="" width="313" height="192"><span class="tx"><span class="name">かみのて保育園</span><span class="en">岐阜県可児市</span></span></a><nav><a href="policy.html">園について</a><a href="life.html">園での生活</a><a href="admission.html">入園案内</a><a href="byoji.html">病児保育</a></nav><div class="faq-footer-company"><b>運営法人・株式会社 A and K</b><span>〒509-0207 岐阜県可児市今渡3-11</span><span>TEL 0574-66-3511</span></div></div><div class="home-wrap policy-footer-copy"><small>© 2026 A and K Co., Ltd.</small><a href="#">プライバシーポリシー</a></div></footer>
 
-<nav class="crumb"><a href="index.html" data-i18n="k118">トップ</a><span aria-hidden="true">›</span><span data-i18n="k117">よくあるご質問</span></nav>
-<!-- ============================================================
-     よくあるご質問（かみのて保育園）
-     参考: https://popolarhoiku.com/faq/ （開閉式の一覧・カテゴリ分けなし）
-     → こちらは5つに分けた。数が多いので、分けないと探せない。
-     ★ここが原本。3案で同じ本文を使う（いまは案Aだけに入れている）。
-     ★色は --x-accent と薄い黒だけ。写真は .x-ph、改行は .x-br、帯は class="sec tint"。
-     ★開閉は <details>/<summary>。JSを足さずに動き、キーボードでも開ける。
-     ★答えのうち確かなのは DATA.md にある数字だけ（開所時間・保育料・病児保育・一時預かり・
-       送迎・多言語）。それ以外は一般的な保育園の例で、末尾に仮である旨を書いてある。
-     ============================================================ -->
-
-<section class="sec" id="faq">
-  <div class="wrap">
-    <div class="sec-head">
-      <span class="eyebrow" data-i18n="k117">よくあるご質問</span>
-      <h2><span data-i18n="k121">よくいただくご質問</span><span class="en">FAQ</span></h2>
-      <p data-i18n="k122">入園のこと、一日の過ごし方、費用のこと。<br class="x-br">お問い合わせの前に、こちらもご覧ください。</p>
-    </div>
-
-    <h3 class="faq-h" data-i18n="k123">入園・お申し込みについて</h3>
-    <div class="faq">
-      <details class="qa">
-        <summary data-i18n="k124">入園はいつでも申し込めますか。</summary>
-        <div class="a"><div data-i18n="k125"><b>かみのて保育園</b>（企業主導型）は、空きがあれば年度の途中でもご入園いただけます。園へ直接お申し込みください。<br><b>かみのて今渡保育園</b>（可児市の認可保育園）は、<b>可児市役所 保育課</b>へのお申し込みになり、受付の時期が決まっています。</div></div>
-      </details>
-      <details class="qa">
-        <summary data-i18n="k126">2つの園は、何がちがうのですか。</summary>
-        <div class="a"><div><p data-i18n="k127">制度がちがいます。かみのて保育園は<b>企業主導型保育園</b>で、園に直接お申し込みいただけます（自社枠・連携企業枠・地域枠）。かみのて今渡保育園は<b>可児市の認可保育園</b>で、お申し込みも保育料の決まり方も市役所を通します。</p><a class="link-a" href="admission.html" data-i18n="k128">入園案内・保育料を見る →</a></div></div>
-      </details>
-      <details class="qa">
-        <summary data-i18n="k129">見学はできますか。予約は必要ですか。</summary>
-        <div class="a"><div><p data-i18n="k130">できます。お電話またはお問い合わせフォームからお申し込みください。こどもたちの過ごしている時間に合わせてご案内しています。<b>入園のご予定がなくても、ご相談だけでもかまいません。</b></p><a class="link-a" href="contact.html" data-i18n="k131">見学を申し込む →</a></div></div>
-      </details>
-      <details class="qa">
-        <summary data-i18n="k132">途中入園や、きょうだいでの入園はできますか。</summary>
-        <div class="a"><div data-i18n="k133">どちらもご相談ください。きょうだいで通われているご家庭もあります。空き状況は月によって変わりますので、まずはお問い合わせください。</div></div>
-      </details>
-      <details class="qa">
-        <summary data-i18n="k134">慣らし保育はありますか。</summary>
-        <div class="a"><div data-i18n="k135">あります。はじめは短い時間から始め、お子さんのようすを見ながら少しずつ伸ばしていきます。期間はお子さんによってちがい、目安は1〜2週間です。ご家庭のご事情に合わせて調整します。</div></div>
-      </details>
-    </div>
-
-    <h3 class="faq-h" data-i18n="k136">園での生活について</h3>
-    <div class="faq">
-      <details class="qa">
-        <summary data-i18n="k137">何時から何時まで預かってもらえますか。</summary>
-        <div class="a"><div><p data-i18n="k138"><b>かみのて保育園</b>は 7:00〜20:00。<b>かみのて今渡保育園</b>は 7:30〜19:30（土・祝は 7:30〜16:30）です。18時からは延長保育で、補食もご用意しています。</p><a class="link-a" href="life.html" data-i18n="k139">園での一日を見る →</a></div></div>
-      </details>
-      <details class="qa">
-        <summary data-i18n="k140">給食はありますか。アレルギーには対応してもらえますか。</summary>
-        <div class="a"><div data-i18n="k141">給食もおやつも<b>自園調理</b>です。アレルギーは医師の指示書をもとに、除去や代わりの献立で個別に対応します。ご家庭の食文化で食べられないものがある場合も、ご相談ください。</div></div>
-      </details>
-      <details class="qa">
-        <summary data-i18n="k142">一時的に預けることはできますか。</summary>
-        <div class="a"><div data-i18n="k143">かみのて今渡保育園で<b>一時預かり</b>を行っています。対象は生後6か月〜2歳、9:00〜16:00（月〜土・祝）、1日 2,500円。事前登録制です（TEL 0574-66-3511）。</div></div>
-      </details>
-      <details class="qa">
-        <summary data-i18n="k144">送迎はありますか。</summary>
-        <div class="a"><div data-i18n="k145">ご希望の方に行っています。かみのて保育園の場合、可児市内 5,000円／月、市外 6,000円／月です。区域によってはお受けできないことがありますので、ご相談ください。</div></div>
-      </details>
-      <details class="qa">
-        <summary data-i18n="k146">持ちものは何が必要ですか。</summary>
-        <div class="a"><div data-i18n="k147">着替え、おむつ、口ふきタオル、お昼寝用のバスタオルなど。年齢によって変わりますので、ご入園のときに一覧をお渡しします。名前の書き方もあわせてご案内します。</div></div>
-      </details>
-    </div>
-  </div>
-</section>
-
-<section class="sec tint">
-  <div class="wrap">
-    <h3 class="faq-h" data-i18n="k148">保育料・費用について</h3>
-    <div class="faq">
-      <details class="qa">
-        <summary data-i18n="k149">保育料はいくらですか。</summary>
-        <div class="a"><div data-i18n="k150"><b>かみのて保育園</b>（企業主導型）は、自社枠 10,000円／月、連携企業枠 25,000円／月、地域枠 30,000円／月。<b>入園料はいただいていません。</b><br><b>かみのて今渡保育園</b>（認可）の保育料は、世帯の状況に応じて可児市が決めます。市役所へのお申し込みのときにご確認ください。</div></div>
-      </details>
-      <details class="qa">
-        <summary data-i18n="k151">保育料のほかに、かかるものはありますか。</summary>
-        <div class="a"><div data-i18n="k152">行事費、教材費、送迎をご希望の場合の送迎費などです。金額と時期は入園のご案内でお伝えします。</div></div>
-      </details>
-      <details class="qa">
-        <summary data-i18n="k153">連携企業の枠とは何ですか。</summary>
-        <div class="a"><div data-i18n="k154">企業主導型保育園は、園と提携した企業にお勤めの方のための枠を持っています。お勤め先が提携していれば、地域枠より低い保育料でご利用いただけます。提携のご相談も受け付けています。</div></div>
-      </details>
-    </div>
-
-    <h3 class="faq-h" data-i18n="k155">健康・安全について</h3>
-    <div class="faq">
-      <details class="qa">
-        <summary data-i18n="k156">園で熱が出たときは、どうなりますか。</summary>
-        <div class="a"><div><p data-i18n="k157"><b>看護師が常駐</b>しています。園でようすを見て、必要なときはお迎えのご連絡をします。<b>熱が出た日は、園内の病児保育室でお預かりすることもできます</b>（生後6か月〜小学校6年生・定員1名・9:00〜17:00／月〜金・1回 2,000円）。事前登録と、かかりつけ医の診療情報提供書が必要です。</p><a class="link-a" href="byoji.html" data-i18n="k060">病児保育のご案内 →</a></div></div>
-      </details>
-      <details class="qa">
-        <summary data-i18n="k158">薬をあずかってもらえますか。</summary>
-        <div class="a"><div data-i18n="k159">医師が処方したお薬にかぎり、投薬依頼書をご記入いただいたうえでお預かりします。市販のお薬はお預かりできません。</div></div>
-      </details>
-      <details class="qa">
-        <summary data-i18n="k160">防犯や災害への備えはどうなっていますか。</summary>
-        <div class="a"><div data-i18n="k161">毎月の避難訓練を行っています。日中は玄関を施錠し、お迎えの方が変わるときは事前のご連絡をお願いしています。災害時のお引き渡しの方法は、入園のときにご案内します。</div></div>
-      </details>
-    </div>
-
-    <h3 class="faq-h" data-i18n="k162">ことば・文化について</h3>
-    <div class="faq">
-      <details class="qa">
-        <summary data-i18n="k163">日本語があまり話せません。それでも入園できますか。</summary>
-        <div class="a"><div data-i18n="k164">もちろんです。かみのてでは<b>英語・タガログ語・ビサヤ語・ポルトガル語</b>でのご案内ができます。おたよりや持ちもののご連絡は、翻訳をつけてお渡しします。行きちがいが起きやすいところなので、遠慮なくお声がけください。</div></div>
-      </details>
-      <details class="qa">
-        <summary data-i18n="k165">こどもが日本語をわからなくても大丈夫ですか。</summary>
-        <div class="a"><div><p data-i18n="k166">大丈夫です。おうちのことばと日本語の両方で声をかけながら過ごします。ことばがちがう子がいることを前提にした保育をしています。</p><a class="link-a" href="policy.html" data-i18n="k167">かみのての保育を見る →</a></div></div>
-      </details>
-      <details class="qa">
-        <summary data-i18n="k168">宗教や文化のうえで、できないことがあります。</summary>
-        <div class="a"><div data-i18n="k169">食べられないもの、参加のむずかしい行事など、ご入園のときにうかがいます。できるかぎり合わせますので、まずはお話をお聞かせください。</div></div>
-      </details>
-    </div>
-
-    <p class="x-fine" data-i18n="k170">※ このページの答えのうち、開所時間・保育料・送迎・一時預かり・病児保育・対応言語は現行サイトからの引用です。それ以外は一般的な保育園の例で書いた仮のもので、取材のときにうかがって差し替えます。</p>
-  </div>
-</section>
-
-<section class="sec">
-  <div class="wrap">
-    <div class="contact">
-      <h2 data-i18n="k171">ここに答えが無いときは</h2>
-      <p data-i18n="k172">どんな小さなことでもかまいません。お電話でも、フォームからでも。<br class="x-br">ことばのご心配があれば、その旨もお書き添えください。</p>
-      <div class="tel" data-i18n="k096">0574-50-1211<small>お電話でのお問い合わせ／かみのて保育園・病児保育</small></div>
-      <div class="hero-actions" style="justify-content:center;margin-top:24px">
-        <a class="btn btn-main" href="contact.html" data-i18n="k111">お問い合わせ</a>
-        <a class="btn btn-sub" href="contact.html" data-i18n="k094">見学を申し込む</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<footer class="foot">
-  <div class="wrap">
-    <div class="foot-grid">
-      <div>
-        <!-- フッターは地色が濃いので実ロゴを置けない（白抜きのハートと顔に地色が透ける）。
-             仮マークだけ残すとヘッダーと食い違うので、マークは置かず名前だけにする。 -->
-        <div class="brand">
-          <span class="tx"><span class="name" data-i18n="k002">かみのて保育園</span><span class="en">KAMINOTE NURSERY</span></span>
-        </div>
-        <div class="foot-addr" data-i18n="k097">運営：株式会社 A and K<br>〒509-0207 岐阜県可児市今渡3-11<br>TEL 0574-66-3511</div>
-      </div>
-      <div>
-        <h4 data-i18n="k098">園について</h4>
-        <ul>
-          <li><a href="policy.html" data-i18n="k004">かみのての保育</a></li>
-          <li><a href="philosophy.html" data-i18n="k116">保育理念</a></li>
-          <li><a href="parks.html" data-i18n="k005">園のご紹介</a></li>
-          <li><a href="byoji.html" data-i18n="k099">病児保育のご案内</a></li>
-          <li><a href="life.html" data-i18n="k100">園での生活</a></li>
-          <li><a href="admission.html" data-i18n="k061">入園案内・保育料</a></li>
-          <li><a href="news.html" data-i18n="k084">お知らせ・園の日記</a></li>
-          <li><a href="faq.html" data-i18n="k117">よくあるご質問</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4 data-i18n="k101">グループの事業</h4>
-        <ul>
-          <li><a href="https://easywebcraft.github.io/kaminote-day-design/a/" data-i18n="k102">児童発達支援・放課後等デイサービス</a><br><span style="font-size:12px;color:#8d857c" data-i18n="k103">かみのてKIDS・かみのてSMILE</span></li>
-          <li><a href="recruit.html" data-i18n="k008">採用情報</a></li>
-          <li><a href="recruit-new.html" data-i18n="k119">新卒採用</a></li>
-          <li><a href="recruit-mid.html" data-i18n="k120">中途採用</a></li>
-          <li><a href="https://www.aandkcorp.com/" data-i18n="k104">会社案内</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="copy"><span>© 2026 A and K Co., Ltd.</span><a href="#" data-i18n="k105">プライバシーポリシー</a></div>
-  </div>
-</footer>
-
-
-
-<!-- ============ 開いたときの動き（後半：順に出す） ============
-     隠す指定と対象の並びは <head> 側にある。ここでは出す順番だけを決める。 -->
-
-
-<script>
-(function () {
-  // ★ここの並びは <head> の隠す指定と必ず同じにすること
-  var ANIM_SEL = '.stats > .wrap > *,'
-               + '.sec > .wrap > *:not(.reasons):not(.parks):not(.adm):not(.news),'
-               + '.reasons > *,'
-               + '.parks > *,'
-               + '.adm > *,'
-               + '.news > *';
-
-  var units = [].slice.call(document.querySelectorAll(ANIM_SEL));
-
-  function sweep() {
-    var vh = window.innerHeight || document.documentElement.clientHeight;
-    var shown = [];
-    for (var i = units.length - 1; i >= 0; i--) {
-      var r = units[i].getBoundingClientRect();
-      if (r.top < vh * 0.92 && r.bottom > 0) {
-        shown.push(units[i]);
-        units.splice(i, 1);                            // 一度出したら見張らない
-      }
-    }
-    if (!shown.length) { return; }
-    shown.sort(function (a, b) {
-      return a.getBoundingClientRect().top - b.getBoundingClientRect().top;
-    }).forEach(function (el, i) {
-      el.style.animationDelay = (i * 0.06) + 's';      // 並んでいるものは少しずつずらす
-      el.classList.add('on');
-    });
-    if (!units.length) {
-      window.removeEventListener('scroll', onScroll);
-      window.removeEventListener('resize', onScroll);
-    }
-  }
-
-  var waiting = false;
-  function onScroll() {
-    if (waiting) { return; }
-    waiting = true;
-    requestAnimationFrame(function () { waiting = false; sweep(); });
-  }
-  window.addEventListener('scroll', onScroll, { passive: true });
-  window.addEventListener('resize', onScroll);
-  sweep();                                             // 最初から見えている分
-  window.addEventListener('load', sweep);              // 画像が入って位置が確定したあと
-
-  window.__animReady = true;                           // <head> の保険に「動いた」と伝える
-
-  // 保険: スクロールを拾えない環境でも、文字が消えたままにはしない
-  setTimeout(function () {
-    units.forEach(function (el) { el.classList.add('on'); });
-    units.length = 0;
-  }, 5000);
-})();
-</script>
-
-
-<script>
-// スマホのメニュー開閉。★ボタンは前からあったが処理が無く、押しても反応しなかった。
-(function () {
-  var head = document.querySelector('.head');
-  var btn = head && head.querySelector('.burger');
-  var nav = head && head.querySelector('.gnav');
-  if (!head || !btn || !nav) { return; }
-  btn.setAttribute('aria-expanded', 'false');
-
-  function close() {
-    head.classList.remove('open');
-    btn.setAttribute('aria-expanded', 'false');
-  }
-  btn.addEventListener('click', function (e) {
-    e.stopPropagation();
-    var open = !head.classList.contains('open');
-    head.classList.toggle('open', open);
-    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
-    // 見学のボタンはスマホでは隠れているので、開いたメニューの中に入れておく。
-    // 入れないと、メニューからお問い合わせへ行けない。
-    if (open && !nav.querySelector('.cta-in-menu')) {
-      var cta = head.querySelector('.cta, .cta-pill, .pill-recruit');
-      if (cta) {
-        var c = cta.cloneNode(true);
-        c.className = 'cta-in-menu';
-        c.style.cssText = 'font-weight:700';
-        nav.appendChild(c);
-      }
-    }
-  });
-  // メニューの外を押したら閉じる／項目を押したら閉じる
-  document.addEventListener('click', function (e) {
-    if (head.classList.contains('open') && !head.contains(e.target)) { close(); }
-  });
-  nav.addEventListener('click', function (e) { if (e.target.closest('a')) { close(); } });
-  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') { close(); } });
-  // 幅を広げてボタンが消えたら、開いた状態を持ち越さない
-  window.addEventListener('resize', function () {
-    if (getComputedStyle(btn).display === 'none') { close(); }
-  });
-})();
-</script>
-
-
-<script src="i18n.js"></script>
-
-
+<script>(function(){var h=document.querySelector('.head'),b=h&&h.querySelector('.burger'),n=h&&h.querySelector('.gnav');if(h&&b&&n){function c(){h.classList.remove('open');b.setAttribute('aria-expanded','false')}b.addEventListener('click',function(e){e.stopPropagation();var o=!h.classList.contains('open');h.classList.toggle('open',o);b.setAttribute('aria-expanded',o?'true':'false');if(o&&!n.querySelector('.cta-in-menu')){var a=h.querySelector('.cta-pill').cloneNode(true);a.className='cta-in-menu';n.appendChild(a)}});document.addEventListener('click',function(e){if(h.classList.contains('open')&&!h.contains(e.target))c()});n.addEventListener('click',function(e){if(e.target.closest('a'))c()})}var form=document.querySelector('.faq-search'),input=document.getElementById('faq-keyword'),items=[].slice.call(document.querySelectorAll('.faq-item')),groups=[].slice.call(document.querySelectorAll('.faq-group')),result=document.querySelector('.faq-results');function search(){var q=input.value.trim().toLowerCase(),shown=0;items.forEach(function(item){var match=!q||item.textContent.toLowerCase().indexOf(q)>-1;item.hidden=!match;if(match)shown++});groups.forEach(function(group){group.hidden=!group.querySelector('.faq-item:not([hidden])')});result.textContent=q?shown+'件見つかりました':'全'+shown+'件'}form.addEventListener('submit',function(e){e.preventDefault();search()});input.addEventListener('search',search);input.addEventListener('input',function(){if(!input.value)search()})})();</script><script src="scroll-warm.js?v=faq-20261009"></script>
+</body></html>

@@ -5,7 +5,7 @@
   var selectors = '.v2-num,.v2-about-ph,.v2-about-tx > *,.v2-anshin > .v2-wrap > .v2-head,' +
     '.v2-ed-ph,.v2-ed-tx > *,.v2-day .v2-head,.v2-day-ph > figure,.v2-tl > li,.v2-day .v2-note,' +
     '.v2-byoji-ph,.v2-byoji-tx > *,.v2-gates .v2-head,.v2-g-c,.v2-news .v2-head,.news-list > li,' +
-    '.v2-end-in > h2,.v2-end-in > p,.v2-end-in > .v2-act';
+    '.v2-end-in > h2,.v2-end-in > p,.v2-end-in > .v2-act,[data-home-reveal]';
   var units = Array.from(document.querySelectorAll(selectors));
   var observer, exitObserver, active = new Map(), shown = new WeakSet();
   function show(el, delay) {

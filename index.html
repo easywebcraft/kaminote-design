@@ -11,6 +11,18 @@
 <link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@400;500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Baloo+2:wght@500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css?v=02afff2f">
 <link rel="stylesheet" href="hero-fv.css?v=20261008">
+<link rel="stylesheet" href="nursery-intro.css?v=20261008">
+<script>
+if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  document.documentElement.classList.add('nursery-intro-active');
+  window.nurseryIntroSafety = setTimeout(function () {
+    document.documentElement.classList.remove('nursery-intro-active');
+    var intro = document.getElementById('nurseryIntro');
+    if (intro) intro.remove();
+    window.dispatchEvent(new Event('nursery-intro-end'));
+  }, 8000);
+}
+</script>
 <script>
   // 最初の描画より前に付ける（あとから付けると、見えていたものが消えてから動く）。
   // ★a/ をルートへ昇格したときに落ちていて、スクロールの動きが効いていなかった（2026-09-19 復旧）
@@ -22,8 +34,11 @@
 </script>
 </head>
 <body class="v2 v2-top">
+<div class="nursery-intro" id="nurseryIntro" aria-hidden="true">
+  <div class="nursery-intro-curtain"></div>
+  <div class="nursery-intro-inner"><img class="nursery-intro-logo" src="img/logo.png" alt="" width="313" height="201" decoding="async"></div>
+</div>
 
-<div class="note" data-i18n="k114">これは<b>デザイン案A</b>を、メニューごとに別ページへ分けたものです。写真は<b>イメージ写真</b>、情報は現行サイトからの引用です。文章と写真は差し替えます。</div>
 
 <!-- ============ ヘッダー ============ -->
 
@@ -81,10 +96,9 @@
     <div class="hero-slide" aria-hidden="true"><img decoding="async" src="img/park-2.jpg" alt="イメージ写真（絵本のコーナー）"></div>
     <div class="hero-slide" aria-hidden="true"><img decoding="async" src="img/news-3.jpg" alt="イメージ写真（園庭）"></div>
     <svg class="hero-light" viewBox="0 0 1000 1000" preserveAspectRatio="none" aria-hidden="true">
-      <defs><filter id="nursery-glow" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="12"/></filter></defs>
-      <line x1="0" y1="0" x2="-240" y2="1000" stroke="#ffba70" stroke-width="56" filter="url(#nursery-glow)"/>
-      <line x1="0" y1="0" x2="-240" y2="1000" stroke="#ffe4ba" stroke-width="20" filter="url(#nursery-glow)"/>
-      <line x1="0" y1="0" x2="-240" y2="1000" stroke="#fff8e9" stroke-width="3"/>
+      <defs><clipPath id="nursery-wave-mask" clipPathUnits="objectBoundingBox"><path d="M0 0H0V1H0Z"/></clipPath></defs>
+      <path class="wave-ribbon" fill="none" stroke="#fff3dc" stroke-width="36" opacity=".6"/>
+      <path class="wave-ribbon" fill="none" stroke="#fffdfa" stroke-width="3" opacity=".85"/>
     </svg>
     <!-- 写真の上下を雲形で切る。★切り抜きではなく「同じ色の面をかぶせて」いる（軽いので） -->
     <svg class="hero-edge t" viewBox="0 0 1440 100" preserveAspectRatio="none" aria-hidden="true">
@@ -430,4 +444,5 @@
 })();
 </script>
 
-<script src="hero-fv.js?v=20261008"></script>
+<script src="nursery-intro.js?v=20261008"></script>
+<script src="hero-fv-wave.js?v=20261008-intro"></script>

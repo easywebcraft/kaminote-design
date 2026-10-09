@@ -11,36 +11,10 @@
 <link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@400;500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Baloo+2:wght@500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css?v=02afff2f">
 <link rel="stylesheet" href="hero-fv.css?v=20261008">
-<link rel="stylesheet" href="hero-fv-warm.css?v=20261008-release">
-<link rel="stylesheet" href="nursery-intro.css?v=20261008">
-<link rel="stylesheet" href="home-reference.css?v=20261009-3">
-<script>
-(function () {
-  var introSeen = false;
-  try {
-    introSeen = sessionStorage.getItem('kaminote-intro-seen') === '1';
-    if (!introSeen) sessionStorage.setItem('kaminote-intro-seen', '1');
-  } catch (e) {}
-
-  if (!introSeen && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    document.documentElement.classList.add('nursery-intro-active');
-    window.nurseryIntroSafety = setTimeout(function () {
-      document.documentElement.classList.remove('nursery-intro-active');
-      var intro = document.getElementById('nurseryIntro');
-      if (intro) intro.remove();
-      window.dispatchEvent(new Event('nursery-intro-end'));
-    }, 8000);
-  }
-})();
-</script>
+<link rel="stylesheet" href="home-reference.css?v=20261009-5">
 
 </head>
-<body class="v2 home-page" id="top"><div class="nursery-intro" id="nurseryIntro" aria-hidden="true">
-  <div class="nursery-intro-curtain"></div>
-  <div class="nursery-intro-inner"><img class="nursery-intro-logo" src="img/logo.png" alt="" width="313" height="201" decoding="async"></div>
-</div>
-
-
+<body class="v2 home-page" id="top">
 <header class="head">
   <div class="head-in">
     <a class="brand" href="index.html">
@@ -52,25 +26,35 @@
     <a class="cta-pill" href="contact.html">見学・お問い合わせ</a>
     <button class="burger" type="button" aria-label="メニュー">☰</button>
   </div>
-</header><main class="ref-main">
-<section class="hero hero-motion hero-warm ref-hero">  <div class="hero-bg">
+</header>
+<div class="side-cta">
+  <a class="s1" href="contact.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5h14v15H5z" fill="none" stroke="#fff" stroke-width="2" stroke-linejoin="round"/><path d="M9 3v4M15 3v4M5 10h14" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg><span>見学のお申し込み</span></a>
+  <a class="s2" href="byoji.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7-4.6-7-9.4A4 4 0 0 1 12 8a4 4 0 0 1 7 2.6c0 4.8-7 9.4-7 9.4Z" fill="none" stroke="#fff" stroke-width="2" stroke-linejoin="round"/></svg><span>病児保育</span></a>
+</div>
+<main class="ref-main">
+<section class="hero hero-motion classic-hero"><div class="hero-bg">
     <div class="hero-slide is-current" aria-hidden="true"><img fetchpriority="high" decoding="async" src="img/hero-toys.jpg" alt="イメージ写真（木のおもちゃ）"></div>
     <div class="hero-slide" aria-hidden="true"><img decoding="async" src="img/hero.jpg" alt="イメージ写真（工作の机）"></div>
     <div class="hero-slide" aria-hidden="true"><img decoding="async" src="img/park-2.jpg" alt="イメージ写真（絵本のコーナー）"></div>
     <div class="hero-slide" aria-hidden="true"><img decoding="async" src="img/news-3.jpg" alt="イメージ写真（園庭）"></div>
-    <div class="hero-sunlight" aria-hidden="true"></div>
     <svg class="hero-light" viewBox="0 0 1000 1000" preserveAspectRatio="none" aria-hidden="true">
       <defs><clipPath id="nursery-wave-mask" clipPathUnits="objectBoundingBox"><path d="M0 0H0V1H0Z"/></clipPath></defs>
       <path class="wave-ribbon" fill="none" stroke="#fff3dc" stroke-width="36" opacity=".6"/>
       <path class="wave-ribbon" fill="none" stroke="#fffdfa" stroke-width="3" opacity=".85"/>
     </svg>
-  </div><div class="hero-copy">
-<span class="hero-eyebrow">岐阜県可児市の保育園</span>
-<h1 class="mincho"><span class="ln">こどもの「やってみたい」を</span><span class="ln">まんなかに</span></h1>
-<p class="hero-lead">はたらくご家庭のとなりで<br>こどもの一日をあずかります。</p>
-<div class="hero-actions"><a class="ref-button" href="contact.html">見学・ご相談<span aria-hidden="true">→</span></a><a class="ref-link" href="admission.html">入園案内を見る<span aria-hidden="true">→</span></a></div>
-<p class="hero-note">入園時期がまだ決まっていない方も、ご相談いただけます。</p>
-</div></section>
+    <svg class="hero-edge t" viewBox="0 0 1440 100" preserveAspectRatio="none" aria-hidden="true"><path d="M0 0H1440V34q-70 40-150 6-70 34-170 4-80 44-190 2-90 40-200 6-80 36-180 2-90 42-200 4-80 38-180 6-70 34-170 4Z"/></svg>
+    <svg class="hero-edge b" viewBox="0 0 1440 100" preserveAspectRatio="none" aria-hidden="true"><path d="M0 100H1440V66q-70-40-150-6-70-34-170-4-80-44-190-2-90-40-200-6-80-36-180-2-90-42-200-4-80-38-180-6-70-34-170-4Z"/></svg>
+  </div>
+  <svg class="hero-trees" viewBox="0 0 240 200" aria-hidden="true"><g><path d="M62 34c26 0 44 20 44 42 0 10-4 18-11 25 5 6 8 13 8 21 0 20-18 34-41 34s-41-14-41-34c0-8 3-15 8-21-7-7-11-15-11-25 0-22 18-42 44-42Z" fill="#8cc36b"/><path d="M58 152h8v34h-8z" fill="#7a5b3e"/><g fill="#f5df7a"><circle cx="42" cy="70" r="3.4"/><circle cx="76" cy="60" r="3"/><circle cx="60" cy="96" r="3.4"/><circle cx="34" cy="112" r="3"/><circle cx="84" cy="108" r="3.4"/></g><path d="M164 44 200 96h-22l30 44h-88l30-44h-22Z" fill="#3fa39a"/><path d="M160 140h8v42h-8z" fill="#7a5b3e"/></g></svg>
+  <svg class="hero-cluster" viewBox="0 0 200 200" aria-hidden="true"><g opacity=".9"><circle cx="60" cy="38" r="15" fill="#f5b301"/><circle cx="104" cy="30" r="9" fill="#f2856a"/><circle cx="142" cy="52" r="13" fill="#8b7bc8"/><circle cx="46" cy="82" r="10" fill="#3fa39a"/><circle cx="92" cy="74" r="17" fill="#f7c9bb"/><circle cx="136" cy="98" r="8" fill="#f5b301"/><circle cx="66" cy="122" r="12" fill="#a8d5cf"/><circle cx="110" cy="128" r="9" fill="#f2856a"/><circle cx="150" cy="140" r="6" fill="#8b7bc8"/></g></svg>
+  <div class="hero-copy">
+    <span class="hero-eyebrow">岐阜県可児市の保育園</span>
+    <h1 class="mincho"><span class="ln">こどもの「やってみたい」を</span><span class="ln">まんなかに</span></h1>
+    <p class="hero-lead">はたらくご家庭のとなりで<br>こどもの一日をあずかります。</p>
+    <div class="hero-actions"><a class="btn btn-main" href="contact.html">見学・ご相談はこちら</a><a class="btn btn-sub" href="admission.html">入園案内を見る</a></div>
+    <p class="hero-note"><span>入園時期がまだ決まっていない方も<br class="br-sp">ご相談いただけます</span></p>
+  </div>
+</section>
 <nav class="ref-quick ref-wrap" aria-label="目的別のご案内"><a href="admission.html" data-home-reveal><span class="ref-art art-bag" aria-hidden="true"></span><div><h2>入園を検討している方</h2><span class="ref-link-label">入園案内・保育料 →</span></div></a><a href="byoji.html" data-home-reveal><span class="ref-art art-care" aria-hidden="true"></span><div><h2>病児保育を利用したい方</h2><span class="ref-link-label">病児保育のご案内 →</span></div></a><a href="parks.html" data-home-reveal><span class="ref-art art-book" aria-hidden="true"></span><div><h2>園について知りたい方</h2><span class="ref-link-label">2つの園をご紹介 →</span></div></a></nav>
 <section class="ref-about ref-wrap ref-section"><div class="ref-section-title" data-home-reveal><span>01</span><i></i><b>大切にしている保育</b></div><div class="ref-about-grid"><div data-home-reveal><h2>小さな「できた」を<br>いっしょに</h2><span class="ref-art art-blocks" aria-hidden="true"></span></div><div data-home-reveal><p>自分でやってみたい気持ちを大切に。<br>一人ひとりのペースで育つ姿を見守り、<br>ご家庭と、小さな喜びを分かち合います。</p><a class="ref-link" href="policy.html">大切にしている保育を見る<span aria-hidden="true">→</span></a></div></div></section>
 <section class="ref-support ref-section"><div class="ref-wrap"><div class="ref-section-title ref-title-center" data-home-reveal><span>02</span><i></i><h2>ご家庭の毎日を支える 3つのこと</h2></div><div class="ref-support-grid"><article data-home-reveal><em>01</em><span class="ref-art art-bag-clock" aria-hidden="true"></span><h3>朝も夕方も頼れる保育</h3><p>はたらくご家庭の毎日に寄り添い、<br>朝から夕方まで、安心してお子さまを<br>おあずかりします。</p><a class="ref-link" href="parks.html#compare">開所時間を見る<span aria-hidden="true">→</span></a></article><article data-home-reveal><em>02</em><span class="ref-art art-care-large" aria-hidden="true"></span><h3>体調をくずした日の相談先</h3><p>お子さまの体調の変化に、<br>保護者の方と一緒に考え、<br>安心して過ごせるようサポートします。</p><a class="ref-link" href="byoji.html">病児保育の利用方法を見る<span aria-hidden="true">→</span></a></article><article data-home-reveal><em>03</em><span class="ref-art art-book-talk" aria-hidden="true"></span><h3>ことばや文化に寄り添う</h3><p>それぞれのことばや文化を大切に、<br>一人ひとりが安心して過ごせる<br>環境をつくります。</p><a class="ref-link" href="policy.html">保育の考え方を見る<span aria-hidden="true">→</span></a></article></div></div></section>
@@ -123,6 +107,5 @@
 </script>
 <script src="scroll-warm.js?v=home-layout-20261008"></script>
 <script src="hero-menu-warm.js?v=20261008"></script>
-<script src="nursery-intro.js?v=20261008"></script>
 <script src="hero-fv-wave.js?v=20261008-intro"></script>
 </body></html>

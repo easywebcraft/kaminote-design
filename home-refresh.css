@@ -117,3 +117,20 @@
 
 @media(max-width:900px){.hero-doodles{display:none}.home-page .ref-visit-grid{grid-template-columns:1fr}.visit-illustration{max-width:500px;width:100%;margin:auto}}
 @media(max-width:600px){.home-page .home-facts:before,.home-page .home-facts:after,.home-page .ref-support:before,.home-page .ref-support:after{display:none}.visit-illustration{height:220px;transform:scale(.84);transform-origin:center bottom}}
+
+/* 専用SVG線画へ統一 */
+.home-page .classic-hero{height:710px;clip-path:polygon(0 0,100% 0,100% 93%,94% 96%,87% 92%,79% 97%,70% 93%,61% 96%,52% 92%,43% 97%,34% 93%,25% 96%,16% 92%,8% 97%,0 93%);border-bottom:0;padding-bottom:28px}
+.hero-doodles .doodle-svg{position:absolute;display:block;overflow:visible}.hero-doodles .leaf-a{left:8px;top:95px;width:60px;height:104px;transform:rotate(-24deg)}.hero-doodles .leaf-b{left:44%;bottom:72px;width:56px;height:92px;transform:rotate(19deg)}.hero-doodles .doodle-bird{left:42%;top:44%;width:92px;height:62px;transform:rotate(-8deg)}.hero-doodles .flower-a{left:25px;bottom:155px;width:45px;height:62px}.hero-doodles .flower-b{left:42%;bottom:68px;width:42px;height:58px}.doodle-sun{right:25px;top:60px;width:58px;height:58px;border:4px solid #f5a900;border-radius:50%}.doodle-sun:before,.doodle-sun:after{content:"";position:absolute;inset:-17px;background:repeating-conic-gradient(from 0deg,#f5a900 0 2deg,transparent 2deg 28deg);-webkit-mask:radial-gradient(circle,transparent 0 56%,#000 57% 100%);mask:radial-gradient(circle,transparent 0 56%,#000 57% 100%)}
+.home-page .home-facts:before,.home-page .home-facts:after,.home-page .ref-support:before,.home-page .ref-support:after,.home-page .home-day:before,.home-page .home-day:after,.home-page .home-gates:before,.home-page .home-gates:after{display:none}
+.home-facts .fact-icon{display:block;width:108px;height:90px;border:0;border-radius:0;background:none;color:inherit}
+.home-page .home-facts>a{grid-template-columns:112px 1fr;padding-inline:24px}
+.home-page .home-facts h2{font-size:22px}.home-page .home-facts .ref-link-label{border-bottom:0}
+.home-section-heading>svg{display:block;width:34px;height:48px}.home-section-heading>svg:last-of-type{transform:scaleX(-1)}
+.gate-icon{display:block;width:104px;height:86px;border-radius:0;background:transparent;color:inherit}
+.faq-intro>svg{position:absolute;left:-3px;top:-18px;width:58px;height:80px}.faq-intro>span{display:none}
+.home-page .ref-support .ref-section-title:before,.home-page .ref-support .ref-section-title:after{content:"";width:36px;height:48px;background:url('img/home-doodle-icons.svg#leaf') center/contain no-repeat}.home-page .ref-support .ref-section-title:after{transform:scaleX(-1)}
+.home-page .ref-support .ref-section-title>i{display:none}
+.newsbar-title .bird-mark{font-size:0;background:#fff url('img/home-doodle-icons.svg#bird') center/44px 32px no-repeat}
+
+@media(max-width:900px){.home-page .classic-hero{height:auto;clip-path:none;padding-bottom:36px}.home-facts .fact-icon{width:82px;height:70px}.home-page .home-facts>a{grid-template-columns:88px 1fr}}
+@media(max-width:600px){.home-facts .fact-icon{width:64px;height:58px}.home-page .home-facts>a{grid-template-columns:68px 1fr}.home-section-heading>svg{width:25px;height:36px}.gate-icon{width:74px;height:66px}.faq-intro>svg{width:50px;height:68px}}

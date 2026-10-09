@@ -1,0 +1,106 @@
+/* 2026-10-10 TOP再構成：やさしい手描き風の情報設計 */
+.home-page{--home-ink:#102b4b;--home-coral:#ff6d61;--home-blue:#eaf8ff;--home-cream:#fff7e6;--home-green:#70b85e;background:#fffdf8;color:var(--home-ink)}
+.home-page .side-cta{display:none!important}
+.home-page .ref-main{overflow:hidden;background:linear-gradient(180deg,#fff 0,#fffdf8 55%,#fff 100%)}
+.home-page .head{background:#fffdfbf2;backdrop-filter:blur(12px)}
+.home-page .home-language{display:none}
+.home-page .cta-pill{background:linear-gradient(135deg,#ff745f,#ff9582);color:#fff;border-radius:999px;box-shadow:0 8px 20px #ff79662d}
+
+/* FV */
+.home-page .classic-hero{height:680px;min-height:0;padding:0;display:grid;grid-template-columns:48% 52%;align-items:center;background:linear-gradient(135deg,#f3fbff 0%,#fffdf5 55%,#fff2df 100%);isolation:isolate}
+.home-page .classic-hero:before,.home-page .classic-hero:after{content:"";position:absolute;z-index:0;border-radius:50%;filter:blur(1px);pointer-events:none}
+.home-page .classic-hero:before{width:260px;height:180px;left:-90px;bottom:-45px;background:#dff1c9;transform:rotate(8deg)}
+.home-page .classic-hero:after{width:120px;height:70px;left:31%;top:78px;background:#dff4ff;box-shadow:36px 6px 0 4px #dff4ff,-32px 13px 0 -4px #dff4ff}
+.home-page .classic-hero .hero-bg{position:relative;grid-column:2;grid-row:1;width:calc(100% - 34px);height:590px;margin:0 34px 0 0;inset:auto;border-radius:42% 8% 40% 13%/18% 14% 20% 26%;overflow:hidden;order:2;z-index:1;box-shadow:0 18px 44px #9c78472c}
+.home-page .classic-hero .hero-bg::after{background:linear-gradient(180deg,transparent 65%,#07294612)}
+.home-page .classic-hero .hero-edge,.home-page .classic-hero .hero-light,.home-page .classic-hero .hero-trees{display:none}
+.home-page .classic-hero .hero-cluster{display:block;position:absolute;z-index:3;left:42%;bottom:82px;width:105px;height:105px;opacity:.72}
+.home-page .classic-hero .hero-copy{position:relative;grid-column:1;grid-row:1;width:100%;max-width:none;margin:0;padding:52px 30px 46px max(52px,calc((100vw - 1160px)/2));text-align:left;background:transparent;z-index:4;overflow:visible}
+.home-page .classic-hero .hero-eyebrow{display:inline-block;margin:0 0 20px;padding:0;background:none;color:#3c7590;font-size:14px;font-weight:700;letter-spacing:.13em;text-shadow:none}
+.home-page .classic-hero .hero-copy h1{margin:0;font-family:'Zen Kaku Gothic New',sans-serif;font-size:clamp(42px,4.4vw,64px);line-height:1.35;font-weight:700;letter-spacing:.03em;color:var(--home-ink);text-shadow:none}
+.home-page .classic-hero .hero-copy h1 .ln{display:block;white-space:nowrap}
+.home-page .classic-hero .hero-copy h1 em{color:var(--home-coral);font-style:normal}
+.home-page .classic-hero .hero-lead{margin:22px 0 0;color:#29445f;font-size:16px;line-height:1.95;font-weight:700;text-shadow:none}
+.home-page .classic-hero .hero-actions{justify-content:flex-start;align-items:center;margin-top:25px;gap:18px}
+.home-page .classic-hero .hero-actions .btn-main{min-width:218px;min-height:54px;padding:0 28px;border:0;border-radius:999px;background:linear-gradient(135deg,#ff735e,#ff8c7e);color:#fff;box-shadow:0 10px 20px #ff715c2d}
+.home-page .classic-hero .hero-actions .btn-sub{min-width:auto;min-height:auto;padding:8px 2px;border:0;border-bottom:1px solid #6a7d8d;border-radius:0;background:transparent;color:var(--home-ink);box-shadow:none}
+
+/* 共通見出し・装飾 */
+.home-section-heading{display:flex;align-items:center;justify-content:center;gap:18px;flex-wrap:wrap;text-align:center;margin-bottom:30px}
+.home-section-heading h2{margin:0;font-size:32px;letter-spacing:.04em}
+.home-section-heading>span{font-size:22px}
+.home-section-heading p{flex-basis:100%;margin:-7px 0 0;font-size:13px;color:#677887}
+
+/* 3つの特徴 */
+.home-page .home-facts{width:min(1120px,calc(100% - 48px));margin:0 auto;padding:32px 0 38px;display:grid;grid-template-columns:repeat(3,1fr);background:#fff;border:0;box-shadow:none}
+.home-page .home-facts>a{display:grid;grid-template-columns:92px 1fr;align-items:center;gap:18px;padding:14px 34px;color:inherit}
+.home-page .home-facts>a+a{border-left:1px solid #e8e4dc}
+.home-page .home-facts>a+a:before{display:none}
+.home-facts .fact-icon{display:grid;place-items:center;width:78px;height:78px;border-radius:50%;background:#fff5d9;color:#f49243;font:700 46px/1 'Zen Kaku Gothic New',sans-serif;border:2px solid #f3bd70}
+.home-page .home-facts h2{margin:0 0 3px;font-size:23px;white-space:nowrap}
+.home-page .home-facts .ref-link-label{display:block;color:#566c80;font-weight:700;font-size:14px}
+.home-page .home-facts small{display:block;margin-top:7px;color:#6e7d8b;font-size:11px;line-height:1.65}
+
+/* お知らせ */
+.home-page .home-newsbar{width:min(1100px,calc(100% - 48px));margin:8px auto 55px;padding:18px 28px;display:grid;grid-template-columns:150px 1fr 130px;align-items:center;gap:22px;border-radius:26px;background:linear-gradient(90deg,#fff8e8,#fffdf8,#f4fced);box-shadow:0 8px 25px #7c6e4920}
+.newsbar-title{display:grid;grid-template-columns:55px 1fr;align-items:center}.newsbar-title .bird-mark{grid-row:1/3;display:grid;place-items:center;width:50px;height:50px;border-radius:50%;background:#fff;color:#67ad5c;font-size:25px}.newsbar-title b{font-size:16px}.newsbar-title small{font-size:10px;letter-spacing:.18em;color:#6c7d8c}
+.newsbar-list a{display:grid;grid-template-columns:95px 1fr 20px;gap:12px;align-items:center;min-height:34px;border-bottom:1px solid #e5e6e3;color:inherit;font-size:13px}.newsbar-list a:last-child{border-bottom:0}.newsbar-list time{font-size:11px;color:#71808c}.newsbar-list b{color:var(--home-coral)}
+.newsbar-more{justify-self:end;color:var(--home-coral);font-size:12px;font-weight:700;border-bottom:1px solid currentColor}
+
+/* 選ばれる理由 */
+.home-page .ref-support{background:#fff;padding:18px 0 64px}
+.home-page .ref-support .ref-section-title{justify-content:center;margin-bottom:32px}.home-page .ref-support .ref-section-title>span{display:none}.home-page .ref-support .ref-section-title>i{width:26px;background:#75ba62}.home-page .ref-support .ref-section-title h2{font-size:31px}.home-page .ref-support .ref-section-title h2:before{content:"かみのてが選ばれている、"}
+.home-page .ref-support-grid{gap:18px}
+.home-page .ref-support-grid article{min-height:285px;padding:32px 30px 27px;border-radius:34px;text-align:left;border:1px solid #fff;box-shadow:0 10px 22px #735b3520}.home-page .ref-support-grid article:nth-child(1){background:#fff1ed}.home-page .ref-support-grid article:nth-child(2){background:#eef8ff}.home-page .ref-support-grid article:nth-child(3){background:#f1f9e9}
+.home-page .ref-support-grid article+article:before{display:none}.home-page .ref-support-grid article em{display:grid;place-items:center;left:22px;top:20px;width:38px;height:38px;border-radius:50%;background:#ff7b68;color:#fff}.home-page .ref-support-grid article:nth-child(2) em{background:#54a9dd}.home-page .ref-support-grid article:nth-child(3) em{background:#78b95d}
+.home-page .ref-support-grid .ref-art{width:105px;height:82px;margin:0 0 8px 48px}.home-page .ref-support-grid h3{font-size:22px}.home-page .ref-support-grid p{min-height:0;font-size:13px;line-height:1.8}.home-page .ref-support-grid .ref-link{display:none}
+
+/* 一日の流れ */
+.home-page .home-day{width:100%;padding:60px max(40px,calc((100% - 1160px)/2));background:linear-gradient(180deg,#f4fbff,#fffdf7)}
+.day-grid{display:grid;grid-template-columns:1fr 480px;gap:70px;align-items:center}
+.day-timeline{position:relative;margin:0;padding:0;list-style:none}.day-timeline:before{content:"";position:absolute;left:52px;top:15px;bottom:15px;width:3px;background:#ff9c8b;border-radius:4px}.day-timeline li{position:relative;display:grid;grid-template-columns:75px 125px 1fr;align-items:center;gap:18px;min-height:56px;padding-left:0}.day-timeline li:before{content:"";position:absolute;left:47px;width:13px;height:13px;border-radius:50%;background:#ff7567;border:4px solid #fff}.day-timeline time{display:inline-grid;place-items:center;width:66px;min-height:31px;border-radius:999px;background:#fff0ea;color:var(--home-coral);font-weight:700}.day-timeline b{font-size:16px}.day-timeline span{font-size:12px;color:#667886}
+.day-photo{position:relative;height:420px;border-radius:48% 28% 46% 20%/30% 21% 35% 28%;overflow:hidden;box-shadow:0 18px 35px #7593a326}.day-photo img{width:100%;height:100%;object-fit:cover}.day-photo p{position:absolute;right:25px;top:30px;width:145px;margin:0;padding:14px;border-radius:20px;background:#ffffffdb;font-weight:700;line-height:1.7;transform:rotate(-6deg)}
+
+/* 目的別 */
+.home-page .home-gates{padding:64px 0;background:#fff}.gate-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}.gate-grid>a{position:relative;min-height:230px;padding:30px 24px;border-radius:30px;color:inherit;box-shadow:0 9px 20px #7f735421;transition:.3s transform,.3s box-shadow}.gate-grid>a:nth-child(1){background:#fff4e9}.gate-grid>a:nth-child(2){background:#edf9ff}.gate-grid>a:nth-child(3){background:#fff9e8}.gate-grid>a:nth-child(4){background:#f1faec}.gate-grid>a:hover{transform:translateY(-5px);box-shadow:0 15px 30px #7f73542e}.gate-icon{display:grid;place-items:center;width:76px;height:76px;border-radius:50%;background:#fff;color:#f36d59;font-size:42px}.gate-grid h3{margin:15px 0 7px;font-size:19px}.gate-grid p{margin:0;color:#6a7883;font-size:12px;line-height:1.7}.gate-grid b{position:absolute;right:20px;bottom:18px;display:grid;place-items:center;width:32px;height:32px;border-radius:50%;background:#fff;color:var(--home-coral)}
+
+/* FAQ */
+.home-page .home-faq{display:grid;grid-template-columns:280px 1fr;gap:50px;align-items:center;width:min(1100px,calc(100% - 48px));padding:56px 0 68px;background:#fff}.faq-intro{position:relative;padding-left:60px}.faq-intro>span{position:absolute;left:0;top:-8px;font-size:38px}.faq-intro h2{margin:0;font-size:30px}.faq-intro small{color:var(--home-coral);letter-spacing:.16em}.faq-links{display:grid;gap:10px}.faq-links a{display:flex;justify-content:space-between;align-items:center;min-height:49px;padding:10px 18px;border:1px solid #dde4e8;border-radius:12px;color:inherit;font-size:14px;background:#fff}.faq-links b{color:var(--home-coral);font-size:22px}.faq-links .faq-more{justify-self:end;min-height:auto;padding:6px 0;border:0;border-bottom:1px solid var(--home-coral);border-radius:0;color:var(--home-coral);font-weight:700}
+
+/* 見学案内 */
+.home-page .ref-visit{position:relative;padding:66px 0 30px;background:linear-gradient(180deg,#fff8e8,#f2f8d9);overflow:hidden}.home-page .ref-visit:before,.home-page .ref-visit:after{content:"";position:absolute;bottom:-65px;width:430px;height:170px;border-radius:50%;background:#d7efbd}.home-page .ref-visit:before{left:-80px}.home-page .ref-visit:after{right:-100px;background:#ffe9a9}.home-page .ref-visit .ref-section-title{display:none}.home-page .ref-visit-grid{position:relative;z-index:2;grid-template-columns:1fr 420px;align-items:center;gap:55px}.home-page .ref-visit h2{font-size:34px}.home-page .ref-visit p{font-size:14px}.home-page .ref-visit .ref-button{padding:15px 30px;border-radius:999px;background:linear-gradient(135deg,#ff725e,#ff8e7d);color:#fff!important}.home-page .ref-visit-grid .ref-photo{height:260px;border-radius:48% 30% 46% 25%/32% 25% 38% 28%}
+.home-page .ref-footer{background:#fff;padding:28px 0}
+
+@media(max-width:900px){
+  .home-page .classic-hero{height:auto;min-height:0;display:flex;flex-direction:column;padding:24px 18px 36px}
+  .home-page .classic-hero .hero-bg{order:1;width:100%;height:370px;margin:0;border-radius:36% 9% 32% 14%/15% 12% 18% 22%}
+  .home-page .classic-hero .hero-copy{order:2;width:100%;padding:30px 12px 0;text-align:left}
+  .home-page .classic-hero .hero-copy h1{font-size:42px}
+  .home-page .classic-hero .hero-cluster{display:none}
+  .home-page .home-facts{grid-template-columns:1fr}.home-page .home-facts>a{grid-template-columns:80px 1fr}.home-page .home-facts>a+a{border-left:0;border-top:1px solid #e8e4dc}
+  .home-page .home-newsbar{grid-template-columns:130px 1fr}.newsbar-more{grid-column:2}
+  .day-grid{grid-template-columns:1fr}.day-photo{height:350px;max-width:620px;margin:auto;width:100%}
+  .gate-grid{grid-template-columns:repeat(2,1fr)}
+  .home-page .home-faq{grid-template-columns:1fr}.faq-intro{padding-left:55px}
+  .home-page .ref-visit-grid{grid-template-columns:1fr}.home-page .ref-visit-grid .ref-photo{max-width:580px;width:100%;margin:auto}
+}
+
+@media(max-width:600px){
+  .home-page .classic-hero{padding:10px 14px 28px}
+  .home-page .classic-hero .hero-bg{height:300px}
+  .home-page .classic-hero .hero-copy{padding:24px 8px 0}
+  .home-page .classic-hero .hero-eyebrow{margin-bottom:12px;font-size:11px}
+  .home-page .classic-hero .hero-copy h1{font-size:34px;line-height:1.35}.home-page .classic-hero .hero-copy h1 .ln{white-space:normal}
+  .home-page .classic-hero .hero-lead{font-size:13px}.home-page .classic-hero .hero-lead br{display:none}
+  .home-page .classic-hero .hero-actions{align-items:stretch;flex-direction:column;gap:9px}.home-page .classic-hero .hero-actions .btn-main{width:100%}.home-page .classic-hero .hero-actions .btn-sub{align-self:flex-start}
+  .home-page .home-facts{width:calc(100% - 28px);padding:20px 0}.home-page .home-facts>a{grid-template-columns:66px 1fr;padding:16px 12px;gap:12px}.home-facts .fact-icon{width:58px;height:58px;font-size:34px}.home-page .home-facts h2{font-size:19px}.home-page .home-facts small{font-size:10px}
+  .home-page .home-newsbar{width:calc(100% - 28px);margin-bottom:38px;padding:18px;grid-template-columns:1fr;gap:14px}.newsbar-more{grid-column:auto;justify-self:start}.newsbar-list a{grid-template-columns:78px 1fr 14px;font-size:11px}
+  .home-page .ref-support{padding-bottom:42px}.home-page .ref-support .ref-section-title h2{font-size:23px}.home-page .ref-support-grid{grid-template-columns:1fr}.home-page .ref-support-grid article{min-height:0}
+  .home-section-heading{gap:8px}.home-section-heading h2{font-size:24px}.home-section-heading p{font-size:11px;padding:0 16px}
+  .home-page .home-day{padding:44px 18px}.day-grid{gap:32px}.day-timeline li{grid-template-columns:61px 90px 1fr;gap:9px;min-height:61px}.day-timeline:before{left:32px}.day-timeline li:before{left:27px}.day-timeline time{width:56px;font-size:12px}.day-timeline b{font-size:13px}.day-timeline span{font-size:10px}.day-photo{height:270px}
+  .home-page .home-gates{padding:45px 0}.gate-grid{grid-template-columns:1fr 1fr;gap:10px}.gate-grid>a{min-height:205px;padding:22px 16px}.gate-icon{width:60px;height:60px;font-size:32px}.gate-grid h3{font-size:16px}.gate-grid p{font-size:10px}
+  .home-page .home-faq{width:calc(100% - 32px);padding:42px 0 52px;gap:25px}.faq-intro h2{font-size:25px}.faq-links a{font-size:12px}
+  .home-page .ref-visit{padding-top:48px}.home-page .ref-visit h2{font-size:27px}.home-page .ref-visit-grid .ref-photo{height:210px}
+}
+
+@media(prefers-reduced-motion:reduce){.gate-grid>a{transition:none}}

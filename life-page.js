@@ -23,14 +23,19 @@
  if (tabs.length) select(0,false);
  var motion=matchMedia('(prefers-reduced-motion: reduce)');
  if (motion.matches || !window.IntersectionObserver || !Element.prototype.animate) return;
- var units=Array.from(document.querySelectorAll('[data-life-reveal]'));
+ var units=Array.from(document.querySelectorAll('[data-life-reveal],.life-day-panel > .life-timeline > li,.life-family-points > div,.life-more,.life-events-details,.life-visit-button,.life-visit-links'));
  var shown=new WeakSet(), running=new Map(), observer, outside;
  function reveal(el,delay) {
   if (shown.has(el)) return;
   shown.add(el); el.classList.remove('life-reveal-pending');
+  if(motion.matches)return;
   if (running.has(el)) running.get(el).cancel();
-  var animation=el.animate([{opacity:0,transform:'translateY(24px)'},{opacity:1,transform:'translateY(0)'}],
-   {duration:900,delay:delay,easing:'cubic-bezier(.22,.61,.36,1)',fill:'both'});
+  var photo=el.matches('.life-day-photos figure,.life-family-photo');
+  var timeline=el.matches('.life-timeline > li');
+  var card=el.matches('.life-promise,.life-activity,.life-season,.life-family-points > div');
+  var from=photo?'translateX(26px) scale(.965)':timeline?'translateX(-24px)':card?'translateY(28px) scale(.98)':'translateY(22px)';
+  var animation=el.animate([{opacity:0,transform:from},{opacity:1,transform:'translateY(0) scale(1)'}],
+   {duration:photo?1200:card?920:850,delay:delay||0,easing:'cubic-bezier(.22,.61,.36,1)',fill:'both'});
   running.set(el,animation);
   animation.onfinish=function () { if(running.get(el)===animation)running.delete(el);animation.cancel(); };
  }
@@ -42,7 +47,7 @@
  try {
   observer=new IntersectionObserver(function(entries){
    entries.filter(function(e){return e.isIntersecting;}).sort(function(a,b){return a.boundingClientRect.top-b.boundingClientRect.top||a.boundingClientRect.left-b.boundingClientRect.left;})
-    .forEach(function(e,i){reveal(e.target,Math.min(i,3)*90);});
+    .forEach(function(e,i){reveal(e.target,Math.min(i,3)*110);});
   },{rootMargin:'0px 0px -6% 0px',threshold:.03});
   outside=new IntersectionObserver(function(entries){entries.forEach(function(e){var r=e.boundingClientRect;if(!e.isIntersecting&&(r.bottom<=0||r.top>=innerHeight))shown.delete(e.target);});},{threshold:0});
   units.forEach(function(el){el.classList.add('life-reveal-pending');observer.observe(el);outside.observe(el);});

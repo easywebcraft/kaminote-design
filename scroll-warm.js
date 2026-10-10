@@ -5,7 +5,10 @@
   var selectors = '.v2-num,.v2-about-ph,.v2-about-tx > *,.v2-anshin > .v2-wrap > .v2-head,' +
     '.v2-ed-ph,.v2-ed-tx > *,.v2-day .v2-head,.v2-day-ph > figure,.v2-tl > li,.v2-day .v2-note,' +
     '.v2-byoji-ph,.v2-byoji-tx > *,.v2-gates .v2-head,.v2-g-c,.v2-news .v2-head,.news-list > li,' +
-    '.v2-end-in > h2,.v2-end-in > p,.v2-end-in > .v2-act,[data-home-reveal]';
+    '.v2-end-in > h2,.v2-end-in > p,.v2-end-in > .v2-act,[data-home-reveal],' +
+    '.home-page .hp-heading,.home-page .hp-news-rows > a,.home-page .hp-timeline > li,' +
+    '.home-page .hp-day-visual,.home-page .hp-faq-title,.home-page .hp-faq-list > *,' +
+    '.home-page .hp-visit-copy';
   var units = Array.from(document.querySelectorAll(selectors));
   var observer, exitObserver, active = new Map(), shown = new WeakSet();
   function show(el, delay) {
@@ -13,12 +16,15 @@
     shown.add(el);
     el.classList.remove('warm-scroll-pending');
     if (motion.matches) return;
-    var photo = el.matches('.v2-about-ph,.v2-ed-ph,.v2-day-ph > figure,.v2-byoji-ph');
+    var photo = el.matches('.v2-about-ph,.v2-ed-ph,.v2-day-ph > figure,.v2-byoji-ph,.hp-day-visual');
+    var timeline = el.matches('.hp-timeline > li');
+    var card = el.matches('.hp-facts > a,.hp-reason,.hp-gate-grid > a,.hp-news-rows > a,.hp-faq-list > details');
+    var from = photo ? 'translateX(26px) scale(.965)' : timeline ? 'translateX(-24px)' : card ? 'translateY(28px) scale(.98)' : 'translateY(22px)';
     if (active.has(el)) active.get(el).cancel();
     var animation = el.animate([
-      {opacity:0, transform:photo ? 'translateY(28px) scale(.97)' : 'translateY(22px)'},
+      {opacity:0, transform:from},
       {opacity:1, transform:'translateY(0) scale(1)'}
-    ], {duration:photo ? 1100 : 850, delay:delay || 0, easing:'cubic-bezier(.22,.61,.36,1)', fill:'both'});
+    ], {duration:photo ? 1200 : card ? 920 : 850, delay:delay || 0, easing:'cubic-bezier(.22,.61,.36,1)', fill:'both'});
     active.set(el, animation);
     animation.onfinish = function () {
       if (active.get(el) === animation) active.delete(el);

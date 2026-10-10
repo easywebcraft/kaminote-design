@@ -78,3 +78,61 @@
   .home-page .hp-hero .hp-text-link{padding:8px 14px}
 }
 @media(prefers-reduced-motion:reduce){.home-page .hp-button,.home-page .hp-text-link,.hp-facts>a,.hp-facts>a:after,.hp-facts>a>.hp-art,.hp-gate-grid>a,.hp-gate-grid>a>.hp-art,.hp-gate-grid b,.hp-reason,.hp-reason:after,.hp-reason>.hp-art,.hp-news-rows a,.hp-news-rows b,.hp-faq-list details,.hp-faq-list summary b{transition:none;transform:none}}
+
+/* 読みやすさ：各まとまりの間とカード内に、呼吸できる余白をつくる */
+.hp-facts{padding:28px 0 40px;gap:22px}
+.hp-facts>a{min-height:244px;padding:22px 32px 28px}
+.hp-facts p{line-height:1.7}
+.hp-news{margin-top:8px;min-height:162px;padding:20px 38px 20px 52px}
+.hp-news-note{margin-top:8px;margin-bottom:30px}
+.hp-heading{margin-bottom:24px}
+.hp-reasons{padding-top:26px;padding-bottom:52px}
+.hp-reason-grid{gap:24px}
+.hp-reason{min-height:270px;padding:104px 45px 36px}
+.hp-reason p{line-height:1.75}
+.hp-day{padding-top:28px;padding-bottom:58px}
+.hp-day .hp-heading{margin-bottom:8px}
+.hp-section-lead{margin-bottom:25px;line-height:1.8}
+.hp-day-grid{gap:30px}
+.hp-timeline li{min-height:48px}
+.hp-timeline p{line-height:1.75}
+.hp-gates{padding:36px 0 56px}
+.hp-gates .hp-heading{margin-bottom:25px}
+.hp-gate-grid{gap:20px}
+.hp-gate-grid>a{min-height:238px;padding:120px 24px 32px}
+.hp-gate-grid p{line-height:1.7}
+.hp-faq{column-gap:42px;padding:34px 0 72px}
+.hp-faq-list{gap:12px}
+.hp-faq-list summary{padding:13px 18px;line-height:1.6}
+.hp-faq-list details>div{padding:10px 20px 20px;line-height:1.8}
+.hp-visit{min-height:315px;padding:82px 0 42px}
+.hp-visit h2{margin-bottom:13px}
+.hp-visit p{line-height:1.7;margin-bottom:21px}
+
+@media(max-width:900px){
+  .hp-reason{padding-inline:30px}
+  .hp-faq{row-gap:12px}
+}
+
+@media(max-width:600px){
+  .hp-facts{padding:28px 0 40px;gap:12px}
+  .hp-facts>a{padding:18px 48px 18px 12px}
+  .hp-news{padding:22px 16px 20px;gap:14px}
+  .hp-news-note{margin-top:8px;margin-bottom:24px}
+  .hp-reasons{padding-top:34px;padding-bottom:50px}
+  .hp-heading{margin-bottom:23px}
+  .hp-reason-grid{gap:20px}
+  .hp-reason{min-height:242px;padding:102px 30px 34px}
+  .hp-day{padding:24px 0 46px}
+  .hp-section-lead{margin-bottom:26px}
+  .hp-day-grid{gap:18px}
+  .hp-timeline li{min-height:64px}
+  .hp-gates{padding:32px 0 48px}
+  .hp-gates .hp-heading{margin-bottom:24px}
+  .hp-gate-grid{gap:14px}
+  .hp-gate-grid>a{min-height:206px;padding:98px 12px 32px}
+  .hp-faq{padding:34px 0 48px}
+  .hp-faq-list{gap:10px}
+  .hp-faq-list summary{padding:12px 13px;line-height:1.65}
+  .hp-visit{padding-top:54px}
+}

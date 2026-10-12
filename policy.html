@@ -15,6 +15,17 @@
 <link rel="stylesheet" href="site-chrome.css?v=20261012">
 <link rel="stylesheet" href="page-fv.css?v=20261012">
 <link rel="stylesheet" href="design-system.css?v=20261012-hover">
+<link rel="stylesheet" href="site-motion.css?v=20261012">
+<script>
+// スクロールの動き：ページを描く前に html.tm-on を付ける（後からだと、見出しが一瞬見えてから消える）。
+// 「視差効果を減らす」がオンなら付けない。site-motion.js が4秒たっても読めなければ外して、普通に表示する
+(function () {
+  try { if (matchMedia('(prefers-reduced-motion: reduce)').matches) return; } catch (e) { return; }
+  var r = document.documentElement; r.classList.add('tm-on');
+  setTimeout(function () { if (!window.__tmReady) r.classList.remove('tm-on'); }, 4000);
+})();
+</script>
+
 </head>
 <body class="v2 home-page policy-page" id="top">
 <svg class="policy-symbols" aria-hidden="true">
@@ -170,6 +181,7 @@
   </section>
 </main>
 
+<a class="tm-spbar" href="contact.html"><i18n-t data-i18n="k091">見学・お問い合わせ</i18n-t><span aria-hidden="true">→</span></a>
 <p class="site-note" data-i18n="k614">写真はイメージです</p>
 <footer class="foot">
   <div class="wrap">
@@ -234,6 +246,8 @@
   document.addEventListener('keydown', function(e){ if(e.key === 'Escape') close(); });
 })();
 </script>
+<script src="lenis.min.js?v=1.1.20"></script>
+<script src="site-motion.js?v=20261012"></script>
 <script src="i18n.js?v=20261012-byoji"></script>
 <script src="scroll-warm.js?v=policy-20261009"></script>
 

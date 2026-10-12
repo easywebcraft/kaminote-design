@@ -1,0 +1,66 @@
+/* =====================================================================
+   下層ページのスクロールの動き（2026-10-12）。TOPの動き（top-motion）を、全ページ共通の部品に合わせて広げたもの
+   ・site-motion.js とセット。動きは html.tm-on のときだけ（「視差効果を減らす」がオンなら付かない）
+   ・html.tm-on は <head> の小さな処理で先に付ける（後から付けると、見出しが一瞬見えてから消えるため）。
+     site-motion.js が読めなかったときは、4秒で外して普通に表示する
+   ===================================================================== */
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+.lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+.lenis.lenis-stopped { overflow: hidden; }
+
+/* ① FVの見出し：1文字ずつ浮かび上がる。続けて説明文・ボタンなどが順に現れる */
+.tm-w { display: inline-block; white-space: nowrap; }
+html.tm-on .page-fv h1:not(.tm-split) { opacity: 0; }
+html.tm-on .page-fv h1 .tm-ch { display: inline-block; opacity: 0; transform: translateY(.45em); filter: blur(4px);
+  animation: tm-ch .8s cubic-bezier(.22, .61, .36, 1) forwards; animation-delay: calc(var(--i) * 50ms + 200ms); }
+@keyframes tm-ch { to { opacity: 1; transform: none; filter: none; } }
+html.tm-on .page-fv :is(.page-fv-crumb, .page-fv-eyebrow, .page-fv-sub, .page-fv-lead, .page-fv-actions, .page-fv-jumps, .page-fv-text-link) { opacity: 0; animation: tm-fade 1s ease forwards; }
+html.tm-on .page-fv :is(.page-fv-crumb, .page-fv-eyebrow) { animation-delay: .05s; }
+html.tm-on .page-fv .page-fv-sub { animation-delay: .9s; }
+html.tm-on .page-fv .page-fv-lead { animation-delay: 1.05s; }
+html.tm-on .page-fv :is(.page-fv-actions, .page-fv-jumps, .page-fv-text-link) { animation-delay: 1.3s; }
+html.tm-on .page-fv .page-fv-bg img { animation: tm-zoom 2.4s cubic-bezier(.22, .61, .36, 1) both; }
+@keyframes tm-fade { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+@keyframes tm-zoom { from { transform: scale(1.08); } to { transform: none; } }
+
+/* ② 見出し：下からせり上がる */
+html.tm-on [data-tm="rise"] { clip-path: inset(0 0 100% 0); transform: translateY(26px);
+  transition: clip-path 1s cubic-bezier(.22, .61, .36, 1), transform 1s cubic-bezier(.22, .61, .36, 1); }
+html.tm-on [data-tm="rise"].is-in { clip-path: inset(-10% -5% -40% -5%); transform: none; }
+html.tm-on [data-tm="rise"]::after { transition: transform .8s ease .55s; }
+html.tm-on [data-tm="rise"]:not(.is-in)::after { transform: scaleX(0); }
+
+/* ③ カード：順にふわっと現れる */
+html.tm-on [data-tm="card"] { opacity: 0; transform: scale(.94) translateY(26px);
+  transition: opacity 1s ease, transform 1.1s cubic-bezier(.22, .61, .36, 1); transition-delay: calc(var(--d, 0) * 130ms); }
+html.tm-on [data-tm="card"].is-in { opacity: 1; transform: none; }
+
+/* ④ 写真：下から開くように現れる */
+html.tm-on [data-tm="photo"] { clip-path: inset(100% 0 0 0); transition: clip-path 1.4s cubic-bezier(.22, .61, .36, 1); }
+html.tm-on [data-tm="photo"].is-in { clip-path: inset(0 0 0 0); }
+html.tm-on [data-tm="photo"] img { transform: scale(1.12); transition: transform 2s cubic-bezier(.22, .61, .36, 1); }
+html.tm-on [data-tm="photo"].is-in img { transform: none; }
+
+/* ⑤ アイコンの線が描かれていく */
+html.tm-on [data-tm="draw"] svg * { stroke-dasharray: 1; stroke-dashoffset: 1; transition: stroke-dashoffset 1.6s cubic-bezier(.45, .05, .35, 1) .2s; }
+html.tm-on [data-tm="draw"].is-in svg * { stroke-dashoffset: 0; }
+
+/* ⑥ 最後の「見学のおさそい」：角丸のカードから画面いっぱいへ広がる */
+html.tm-on [data-tm="visit"] { clip-path: inset(0 calc((1 - var(--vp, 0)) * 6vw) round calc((1 - var(--vp, 0)) * 44px)); }
+
+/* 現れ終わったら、順に遅らせる設定を外す（マウスを乗せた動きが遅れないように） */
+html.tm-on [data-tm].tm-done, html.tm-on [data-tm].is-in:hover { transition-delay: 0s !important; }
+html.tm-on [data-tm="photo"].tm-done { clip-path: none; }
+html.tm-on [data-tm="rise"].tm-done { clip-path: none; }
+
+/* ⑦ スマホの下の固定ボタン（FVを過ぎたら出て、最後の段とフッターでは隠れる） */
+.tm-spbar { display: none; }
+@media (max-width: 700px) {
+  .tm-spbar { position: fixed; left: 12px; right: 12px; bottom: calc(10px + env(safe-area-inset-bottom)); z-index: 60; display: flex; align-items: center; justify-content: center; gap: 10px;
+    min-height: 54px; border-radius: 999px; background: var(--ds-coral, #e26b55); color: #fff; font-weight: 700; letter-spacing: .05em; text-decoration: none;
+    box-shadow: 0 10px 24px rgba(226, 107, 85, .3); transform: translateY(140%); opacity: 0; transition: transform .45s cubic-bezier(.22, .61, .36, 1), opacity .45s ease; }
+  .tm-spbar.is-shown { transform: none; opacity: 1; }
+  .tm-spbar * { color: #fff; }
+}
+@media (prefers-reduced-motion: reduce) { .tm-spbar { transition: none; } }

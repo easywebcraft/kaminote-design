@@ -4,7 +4,18 @@
 <link rel="stylesheet" href="admission-soft.css?v=20261012">
 <link rel="stylesheet" href="page-fv.css?v=20261012">
 <link rel="stylesheet" href="parks-soft.css?v=20261012">
-<link rel="stylesheet" href="design-system.css?v=20261012-hover"></head>
+<link rel="stylesheet" href="design-system.css?v=20261012-hover">
+<link rel="stylesheet" href="site-motion.css?v=20261012">
+<script>
+// スクロールの動き：ページを描く前に html.tm-on を付ける（後からだと、見出しが一瞬見えてから消える）。
+// 「視差効果を減らす」がオンなら付けない。site-motion.js が4秒たっても読めなければ外して、普通に表示する
+(function () {
+  try { if (matchMedia('(prefers-reduced-motion: reduce)').matches) return; } catch (e) { return; }
+  var r = document.documentElement; r.classList.add('tm-on');
+  setTimeout(function () { if (!window.__tmReady) r.classList.remove('tm-on'); }, 4000);
+})();
+</script>
+</head>
 <body class="v2 home-page policy-page parks-page parks-soft" id="top">
 <header class="head">
   <div class="head-in">
@@ -126,6 +137,7 @@
 </div>
 </section>
 </main>
+<a class="tm-spbar" href="contact.html"><i18n-t data-i18n="k091">見学・お問い合わせ</i18n-t><span aria-hidden="true">→</span></a>
 <p class="site-note" data-i18n="k614">写真はイメージです</p>
 <footer class="foot">
   <div class="wrap">
@@ -166,6 +178,8 @@
     <div class="copy"><span>© 2026 A and K Co., Ltd.</span><a href="#" data-i18n="k105">プライバシーポリシー</a></div>
   </div>
 </footer>
-<script>(function(){var h=document.querySelector('.head'),b=h&&h.querySelector('.burger'),n=h&&h.querySelector('.gnav');if(!h||!b||!n)return;function c(){h.classList.remove('open');b.setAttribute('aria-expanded','false')}b.addEventListener('click',function(e){e.stopPropagation();var o=!h.classList.contains('open');h.classList.toggle('open',o);b.setAttribute('aria-expanded',o?'true':'false');if(o&&!n.querySelector('.cta-in-menu')){var a=h.querySelector('.cta-pill').cloneNode(true);a.className='cta-in-menu';n.appendChild(a)}});document.addEventListener('click',function(e){if(h.classList.contains('open')&&!h.contains(e.target))c()});n.addEventListener('click',function(e){if(e.target.closest('a'))c()});document.addEventListener('keydown',function(e){if(e.key==='Escape')c()})})();</script><script src="i18n.js?v=20261012-byoji"></script>
+<script>(function(){var h=document.querySelector('.head'),b=h&&h.querySelector('.burger'),n=h&&h.querySelector('.gnav');if(!h||!b||!n)return;function c(){h.classList.remove('open');b.setAttribute('aria-expanded','false')}b.addEventListener('click',function(e){e.stopPropagation();var o=!h.classList.contains('open');h.classList.toggle('open',o);b.setAttribute('aria-expanded',o?'true':'false');if(o&&!n.querySelector('.cta-in-menu')){var a=h.querySelector('.cta-pill').cloneNode(true);a.className='cta-in-menu';n.appendChild(a)}});document.addEventListener('click',function(e){if(h.classList.contains('open')&&!h.contains(e.target))c()});n.addEventListener('click',function(e){if(e.target.closest('a'))c()});document.addEventListener('keydown',function(e){if(e.key==='Escape')c()})})();</script><script src="lenis.min.js?v=1.1.20"></script>
+<script src="site-motion.js?v=20261012"></script>
+<script src="i18n.js?v=20261012-byoji"></script>
 <script src="scroll-warm.js?v=parks-20261009"></script>
 

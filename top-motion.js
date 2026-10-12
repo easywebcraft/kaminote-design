@@ -106,9 +106,9 @@
       setTimeout(function () {
         root.classList.remove('tm-intro');
         if (lenis) lenis.start();
-      }, 1400);              // フェードアウト（0.15秒待って1.2秒）が終わってから消す
+      }, 1850);              // フェードアウト（0.2秒待って1.6秒）が終わってから消す
     };
-    var timer = setTimeout(open, 2100);
+    var timer = setTimeout(open, 3600);
     ['click', 'keydown', 'wheel', 'touchstart'].forEach(function (ev) {
       window.addEventListener(ev, function () { clearTimeout(timer); open(); }, { once: true, passive: true });
     });

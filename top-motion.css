@@ -93,3 +93,10 @@ html body .tm-loader .tm-loader-en { font-size: 11px !important; color: var(--ds
 html.tm-intro .tm-loader.is-out { animation: tm-l-fadeout 1.2s ease .15s forwards; clip-path: none; }
 .tm-loader.is-out .tm-loader-in { transition: opacity .7s ease, transform 1.2s ease; transform: scale(1.03); opacity: 0; }
 @keyframes tm-l-fadeout { from { opacity: 1; } to { opacity: 0; } }
+
+/* 冒頭の演出を長めに（2026-10-12）：ロゴ1.6秒・園名1.1秒後・英字1.5秒後・3.6秒後から1.6秒かけてフェードアウト */
+.tm-loader img { animation: tm-l-logo 1.6s cubic-bezier(.22, .61, .36, 1) .3s forwards; }
+html body .tm-loader .tm-loader-name { animation: tm-l-fade 1.3s ease 1.1s forwards; }
+html body .tm-loader .tm-loader-en { animation: tm-l-fade 1.3s ease 1.5s forwards; }
+html.tm-intro .tm-loader.is-out { animation: tm-l-fadeout 1.6s ease .2s forwards; }
+.tm-loader.is-out .tm-loader-in { transition: opacity 1s ease, transform 1.6s ease; }

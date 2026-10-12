@@ -106,7 +106,7 @@
       setTimeout(function () {
         root.classList.remove('tm-intro');
         if (lenis) lenis.start();
-      }, 1000);
+      }, 1400);              // フェードアウト（0.15秒待って1.2秒）が終わってから消す
     };
     var timer = setTimeout(open, 2100);
     ['click', 'keydown', 'wheel', 'touchstart'].forEach(function (ev) {

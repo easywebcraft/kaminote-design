@@ -88,3 +88,8 @@ html.tm-hold .classic-hero h1 .tm-ch, html.tm-hold .classic-hero .hero-eyebrow, 
 /* ロゴ演出の園名：ページの既存の指定（小さい紺の角ゴシック）に負けないよう強める */
 html body .tm-loader .tm-loader-name { font-family: var(--ds-mincho, serif) !important; font-size: clamp(24px, 3vw, 30px) !important; color: var(--ds-ink, #2f3430) !important; letter-spacing: .22em; }
 html body .tm-loader .tm-loader-en { font-size: 11px !important; color: var(--ds-mute, #6b7068) !important; }
+/* ロゴ演出からFVへは、幕が上がる動きではなく、ゆっくりフェードアウトで切り替える（2026-10-12）。
+   ロゴと園名が先に薄れ、少し遅れて画面全体が溶けるように消える */
+html.tm-intro .tm-loader.is-out { animation: tm-l-fadeout 1.2s ease .15s forwards; clip-path: none; }
+.tm-loader.is-out .tm-loader-in { transition: opacity .7s ease, transform 1.2s ease; transform: scale(1.03); opacity: 0; }
+@keyframes tm-l-fadeout { from { opacity: 1; } to { opacity: 0; } }

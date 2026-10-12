@@ -208,3 +208,15 @@
 .home-page .foot .copy { border-top-color: #f1e9dd; }
 .home-page .foot .brand .mark { width: 52px; height: auto; margin-right: 8px; vertical-align: middle; }
 .home-page .foot .brand { display: flex; align-items: center; }
+
+/* FVを画面いっぱいに（2026-10-12）。今までは「画面の82%・最大720px」で、下に次の段がのぞいていた。
+   ヘッダーの高さ（--head-h）とスマホの文字の高さ（--fv-copy-h）は、幅や言語で変わるので index.html の小さな処理で測って渡す。
+   文字が収まらない低い画面では、その分だけ伸びる */
+.home-page .classic-hero { min-height: calc(100vh - var(--head-h, 58px)); min-height: calc(100svh - var(--head-h, 58px)); }
+@media (max-width: 700px) {
+  /* スマホは「写真の下に文字」の並び。写真を「画面の高さ−ヘッダー−文字」まで伸ばす（最低は今までの高さ）。
+     ★FVの枠を flex / grid にすると写真が見えなくなるので、並べ方は変えない */
+  .home-page .classic-hero { --fv-bg-h: max(clamp(250px, 38vh, 320px), calc(100vh - var(--head-h, 58px) - var(--fv-copy-h, 420px))); }
+  @supports (height: 100svh) { .home-page .classic-hero { --fv-bg-h: max(clamp(250px, 38vh, 320px), calc(100svh - var(--head-h, 58px) - var(--fv-copy-h, 420px))); } }
+  .home-page .classic-hero .hero-bg { height: var(--fv-bg-h); }
+}

@@ -237,6 +237,22 @@
   });
 })();
 </script>
+<script>
+// FVを画面いっぱいにするため、ヘッダーとスマホの文字の高さを測ってCSSへ渡す（幅・言語で変わるため。2026-10-12）
+(function () {
+  var root = document.documentElement, head = document.querySelector('.head'), copy = document.querySelector('.classic-hero .hero-copy');
+  function set() {
+    if (head) { root.style.setProperty('--head-h', head.offsetHeight + 'px'); }
+    if (copy) { root.style.setProperty('--fv-copy-h', copy.offsetHeight + 'px'); }
+  }
+  set();
+  window.addEventListener('resize', set);
+  window.addEventListener('load', set);
+  if (document.fonts && document.fonts.ready) { document.fonts.ready.then(set); }
+  // 言語を切り替えると文字の高さが変わる
+  document.addEventListener('click', function (e) { if (e.target.closest('.lang-menu')) { setTimeout(set, 60); } });
+})();
+</script>
 <script src="i18n.js?v=20261012-sub"></script>
 <script src="scroll-warm.js?v=home-layout-20261008"></script>
 <script src="hero-menu-warm.js?v=20261008"></script>

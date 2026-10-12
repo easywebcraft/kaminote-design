@@ -1,0 +1,249 @@
+/* =====================================================================
+   デザインの決まり（2026-10-12）— 全ページで最後に読む。各ページの見た目より優先して、全体をそろえる
+   ・字体：見出し（h1・h2）と大きな数字は明朝、それ以外はすべて角ゴシック（丸ゴシック・英字の丸文字は使わない）
+   ・色：文字＝墨、メイン＝深い緑、アクセント＝さんご（申し込み・問い合わせのボタンだけ）、背景＝クリームと白
+         2園の区別には、緑とさんごのごく淡い色だけ。水色・オレンジは使わない
+   ・ボタン：2種類だけ。主＝さんごの丸ボタン、副＝白地に緑の枠の丸ボタン（写真の上では白枠）
+   ・本文：15px以上・濃いめの色
+   ・飾り：葉・枝・鳥・手書き風の文字は、最後の「見学のおさそい」の段に1つだけ
+   ・アイコン：Lucide（ISCライセンス）の線のアイコンに統一（.ds-ic）
+   ===================================================================== */
+:root {
+  --ds-ink: #2f3430;
+  --ds-sub: #4b5149;
+  --ds-mute: #6b7068;
+  --ds-green: #4f7f63;
+  --ds-green-d: #3d6a50;
+  --ds-green-bg: #eef3e8;
+  --ds-coral: #e26b55;
+  --ds-coral-d: #d05a45;
+  --ds-coral-bg: #fbefe9;
+  --ds-cream: #fbf8f1;
+  --ds-line: #e3e0d6;
+  --ds-gothic: "Zen Kaku Gothic New", "Hiragino Kaku Gothic ProN", "Noto Sans JP", sans-serif;
+  --ds-mincho: "Zen Old Mincho", "Hiragino Mincho ProN", serif;
+}
+
+/* ---------- 字体 ---------- */
+body.v2, body.v2 *:not(svg):not(svg *) { font-family: var(--ds-gothic) !important; }
+body.v2 h1, body.v2 h1 *, body.v2 h2, body.v2 h2 *,
+body.v2 :is(.pk-num, .pz-num, .yen, .bj-tel a, .soft-num, .life-timeline .t) { font-family: var(--ds-mincho) !important; }
+/* 小さな英字の見出し（ADMISSION など）は角ゴシックの字間広め */
+body.v2 :is(.pk-over, .ag-over-c, .nw-over, .pz-over, .ag-head small, .nw-head small, .pk-en, .page-fv-eyebrow small) { letter-spacing: .2em; }
+
+/* ---------- 文字の色と大きさ ---------- */
+body.v2 main :is(h2, h3):not(.page-fv *):not(.hero *),
+body.v2 > section :is(h2, h3):not(.page-fv *):not(.hero *) { color: var(--ds-ink) !important; }
+body.v2 :is(main, body > section) :is(p, li, dd, td, .ans, .d):not(.page-fv *):not(.hero *):not(.foot *) { color: var(--ds-sub); }
+/* 本文（説明の文章）は15px以上に。札・注記・小見出し・数字などは除く */
+body.v2 :is(main, body > section) :is(p, li, dd, .ans, .d, .faq-answer p):not(.page-fv *):not(.hero *):not(.foot *):not([class*="note"]):not([class*="fine"]):not([class*="crumb"]):not([class*="tag"]):not([class*="eyebrow"]):not([class*="kicker"]):not([class*="over"]):not([class*="type"]):not([class*="cap"]):not([class*="count"]):not(.site-note):not(.pk-stats li):not(.ag-fee-tiles li):not(.bj-summary li):not(.as-temp-list li):not(.nw-tabs *):not(.nw-card-meta):not(.pk-hand):not(.nw-hand) {
+  font-size: max(15px, 1em) !important; line-height: 1.95;
+}
+body.v2 .site-note { color: var(--ds-mute); }
+
+/* ---------- 色：水色・オレンジをやめる ---------- */
+.head .lang-btn { color: var(--ds-green-d) !important; }
+.head .gnav a[aria-current="page"] { color: var(--ds-green-d) !important; border-color: var(--ds-green) !important; }
+.page-fv { background: var(--ds-green-bg) !important; }
+.page-fv .page-fv-edge.b { }
+@media (max-width: 700px) {
+  .page-fv .page-fv-edge.b { fill: var(--ds-green-bg) !important; }
+  .page-fv .page-fv-copy h1, .page-fv .page-fv-lead, .page-fv .page-fv-sub { color: var(--ds-ink) !important; }
+  .home-page .classic-hero, .home-page .classic-hero .hero-copy { background: var(--ds-green-bg) !important; }
+  .home-page .classic-hero .hero-edge.b path { fill: var(--ds-green-bg) !important; }
+  .home-page .classic-hero h1, .home-page .classic-hero .hero-lead { color: var(--ds-ink) !important; }
+}
+.home-page .classic-hero { background: var(--ds-green-bg) !important; }
+.home-page .classic-hero .hero-edge.b path { fill: var(--ds-cream); }
+/* TOP の4つの入口：色ちがいの淡い色をやめ、白に緑の線 */
+.soft-gate { background: #fff !important; border: 1px solid var(--ds-line) !important; box-shadow: 0 6px 18px rgba(50, 60, 45, .05) !important; }
+/* 一時預かりなどの水色の帯 → 淡い緑 */
+.ag-temp { background: linear-gradient(180deg, var(--ds-cream), var(--ds-green-bg) 25%, var(--ds-green-bg) 75%, var(--ds-cream)) !important; }
+.life-soft .life-blue#day, .life-soft .life-family { background: linear-gradient(180deg, var(--ds-cream) 0%, var(--ds-green-bg) 14%, var(--ds-green-bg) 86%, var(--ds-cream) 100%) !important; }
+.life-soft .life-age-tabs button[aria-selected="true"] { background: var(--ds-green) !important; border-color: var(--ds-green) !important; color: #fff !important; }
+
+/* ---------- ボタン：2種類だけ ---------- */
+/* 主ボタン（さんご） */
+body.v2 :is(.cta-pill, .page-fv-btn.main, .classic-hero .btn-main, .pk-btn, .nw-btn, .pz-btn, .life-visit-button, .as-visit-btn, .home-button-solid, .soft-btn, .ag-temp .ag-solid, .btn-main, .cta-in-menu) {
+  background: var(--ds-coral) !important; background-image: none !important; color: #fff !important;
+  border: 1.5px solid var(--ds-coral) !important; border-radius: 999px !important;
+  box-shadow: 0 8px 18px rgba(226, 107, 85, .22) !important; font-weight: 700 !important; letter-spacing: .05em;
+}
+body.v2 :is(.cta-pill, .page-fv-btn.main, .classic-hero .btn-main, .pk-btn, .nw-btn, .pz-btn, .life-visit-button, .as-visit-btn, .home-button-solid, .soft-btn, .ag-temp .ag-solid, .btn-main):hover { background: var(--ds-coral-d) !important; border-color: var(--ds-coral-d) !important; filter: none !important; }
+body.v2 :is(.cta-pill, .page-fv-btn.main, .classic-hero .btn-main, .pk-btn, .nw-btn, .pz-btn, .life-visit-button, .home-button-solid, .soft-btn, .btn-main) * { color: #fff !important; }
+/* 副ボタン（白地に緑の枠） */
+body.v2 :is(.page-fv-btn.sub, .classic-hero .btn-sub, .pk-pill, .ag-outline, .ag-solid:not(.ag-temp .ag-solid), .home-button:not(.home-button-solid), .btn-sub) {
+  background: #fff !important; background-image: none !important; color: var(--ds-green-d) !important;
+  border: 1.5px solid var(--ds-green) !important; border-radius: 999px !important; box-shadow: none !important; font-weight: 700 !important;
+}
+body.v2 :is(.page-fv-btn.sub, .classic-hero .btn-sub, .pk-pill, .ag-outline, .ag-solid:not(.ag-temp .ag-solid), .home-button:not(.home-button-solid), .btn-sub) * { color: var(--ds-green-d) !important; }
+body.v2 :is(.page-fv-btn.sub, .classic-hero .btn-sub, .pk-pill, .ag-outline, .ag-solid:not(.ag-temp .ag-solid), .home-button:not(.home-button-solid), .btn-sub):hover { background: var(--ds-green-bg) !important; }
+/* 写真の上（パソコンのFV）の副ボタンは白枠 */
+@media (min-width: 701px) {
+  body.v2 :is(.page-fv-btn.sub, .classic-hero .btn-sub) { background: transparent !important; color: #fff !important; border-color: rgba(255, 255, 255, .85) !important; }
+  body.v2 :is(.page-fv-btn.sub, .classic-hero .btn-sub) * { color: #fff !important; }
+  body.v2 :is(.page-fv-btn.sub, .classic-hero .btn-sub):hover { background: rgba(255, 255, 255, .12) !important; }
+}
+/* 文字だけのリンクは緑 */
+body.v2 :is(.ag-more, .pk-link, .pz-link, .home-text-link, .link-a, .as-more a):not(.page-fv *) { color: var(--ds-green-d) !important; border-color: var(--ds-green) !important; }
+
+/* ---------- 飾りを減らす ---------- */
+body.v2 :is(.pk-branch, .nw-branch, .pz-branch, .ls-deco, .ag-bird, .nw-bird, .pk-hand, .nw-hand, .ls-hand-copy, .as-hand,
+  .hero-cluster, .hero-trees, .as-h-leaf, .soft-deco, .soft-points-deco, .soft-title .leaf, .life-icon, .life-cloud) { display: none !important; }
+body.v2 .pk-name::before { display: none !important; }
+/* 最後の「見学のおさそい」にだけ、枝を1本残す */
+body.v2 :is(.pk-visit, .nw-visit) > :is(.pk-branch, .nw-branch):first-of-type { display: block !important; }
+
+/* ---------- アイコン（Lucide の線のアイコン） ---------- */
+.ds-ic { display: inline-flex; align-items: center; justify-content: center; flex: none; color: var(--ds-green); }
+.ds-ic svg { width: 100%; height: 100%; stroke-width: 1.6; }
+.ds-ic--sm { width: 20px; height: 20px; }
+.ds-ic--st { width: 30px; height: 30px; }
+.ds-ic--md { width: 60px; height: 60px; padding: 15px; border-radius: 50%; background: var(--ds-green-bg); }
+.ds-ic--lg { width: 84px; height: 84px; padding: 21px; margin: 0 auto 14px; border-radius: 50%; background: var(--ds-green-bg); }
+/* 色の付いた地の上（緑の淡い色）では、丸を白に */
+:is(.pk-card.green, .bj-info.green, .ag-fee-box.green, .bj-flow-box, .pk-flow .as-flow-row) .ds-ic--md,
+:is(.pk-card.green, .bj-info.green) .ds-ic--lg { background: #fff; }
+:is(.pk-card.peach, .bj-info.peach, .ag-fee-box.peach) .ds-ic { color: var(--ds-coral); }
+:is(.pk-card.peach, .bj-info.peach, .ag-fee-box.peach) .ds-ic--md { background: #fff; }
+/* 並びの中での置き場所 */
+.as-steps li .ds-ic { margin: 4px auto 8px; }
+.pk-info .ds-ic { color: var(--ds-green); }
+.life-family-points .ds-ic--sm { width: 28px; height: 28px; margin-bottom: 8px; }
+.soft-point .ds-ic--lg, .soft-gate .ds-ic--lg { margin-bottom: 10px; }
+
+/* 写真の上（パソコンのFV）の副ボタンは白枠：上の :is() より強くするため、セレクタを長くしている */
+@media (min-width: 701px) {
+  html body.v2 .page-fv .page-fv-copy .page-fv-btn.sub,
+  html body.v2.home-page .classic-hero .hero-actions .btn-sub { background: transparent !important; color: #fff !important; border-color: rgba(255, 255, 255, .85) !important; }
+  html body.v2 .page-fv .page-fv-copy .page-fv-btn.sub *,
+  html body.v2.home-page .classic-hero .hero-actions .btn-sub * { color: #fff !important; }
+}
+/* 採用ページの入口カードと、ページ内の案内：色ちがいをやめて緑に */
+body.v2 .home-quick-card, body.v2 .home-quick-card * { color: var(--ds-green-d) !important; }
+body.v2 .home-quick-card :is(h3, strong, b) { color: var(--ds-ink) !important; }
+body.v2 .warm-scroll-pending, body.v2 :is(.graduate-subnav, .home-quick) a { color: var(--ds-ink) !important; }
+
+/* ---------- TOP（home-soft.css）の色をそろえる ---------- */
+body.v2 .soft-reason { background: #fff !important; border: 1px solid var(--ds-line); box-shadow: 0 6px 18px rgba(50, 60, 45, .05); }
+body.v2 .soft-reason .num { background: var(--ds-green) !important; }
+body.v2 .soft .soft-title::after { background: var(--ds-green) !important; opacity: .5; }
+body.v2 .soft-news { background: #fff !important; border: 1px solid var(--ds-line); }
+body.v2 .soft-news ul { background: transparent !important; }
+body.v2 .soft-news ul a::after, body.v2 .soft-faq-list summary::after { color: var(--ds-green) !important; }
+body.v2 .soft-news ul a:hover span { color: var(--ds-green-d) !important; }
+body.v2 .soft-day { background: var(--ds-green-bg) !important; }
+body.v2 .soft-day::before, body.v2 .soft-day::after { background: var(--ds-cream) !important; }
+body.v2 .soft-tl::before { background: #b9cdb9 !important; }
+body.v2 .soft-tl li::before { background: var(--ds-green) !important; box-shadow: 0 0 0 4px var(--ds-green-bg) !important; }
+body.v2 .soft-tl time { background: #fff !important; color: var(--ds-green-d) !important; }
+body.v2 .soft-tl span { font-size: 14.5px !important; color: var(--ds-sub) !important; }
+body.v2 .soft-day-photo figcaption { display: none !important; }
+body.v2 .soft-faq-head small { color: var(--ds-mute) !important; }
+
+/* =====================================================================
+   古い作りのページに残る水色・紺・オレンジを、決まりの色に（洗い出しの結果から）
+   ===================================================================== */
+/* 見出しの下の短い線・番号・矢印 */
+body.v2 main h2::after { background-color: var(--ds-green) !important; border-color: var(--ds-green) !important; }
+body.v2 .ds-svg { color: var(--ds-green) !important; }
+.ds-ic--xl { width: 220px; height: 220px; padding: 56px; border-radius: 50%; background: var(--ds-green-bg); }
+.ds-ic--xl svg { stroke-width: 1.2; }
+.policy-forest-ic { display: flex; justify-content: center; align-items: center; }
+body.v2 .as-steps li + li::before { border-color: #b4c8b6 !important; }
+
+/* 園での生活 */
+.life-soft .life-timeline { border-color: var(--ds-line) !important; }
+.life-soft .life-timeline li::before { background-color: var(--ds-green) !important; border-color: var(--ds-green-bg) !important; }
+.life-soft .ev .ev-m { border-color: var(--ds-line) !important; }
+.life-soft .ev-m .m, .life-soft .ev-m small { color: var(--ds-green-d) !important; }
+.life-soft .life-season { background: #fff !important; border: 1px solid var(--ds-line); }
+.life-soft .life-season h3 { background: var(--ds-green) !important; color: #fff !important; }
+.life-soft .life-promise { background: #fff !important; border: 1px solid var(--ds-line); }
+.life-soft .life-activity { border-color: var(--ds-line) !important; }
+.life-soft :is(.life-visit-links a, .life-more a) { color: var(--ds-green-d) !important; }
+.life-soft :is(.life-visit-links a, .life-more a)::after { color: var(--ds-green-d) !important; border-color: var(--ds-green) !important; }
+.life-soft .life-events-details summary { color: var(--ds-ink) !important; border-color: var(--ds-line) !important; }
+.life-soft .life-events-details summary::after { color: var(--ds-green) !important; border-color: var(--ds-green) !important; }
+
+/* よくあるご質問 */
+.faq-page .faq-group { background: #fff !important; background-image: none !important; border: 1px solid var(--ds-line); }
+.faq-page .faq-item { border-color: var(--ds-line) !important; }
+.faq-page .faq-item summary { color: var(--ds-ink) !important; }
+.faq-page .faq-item summary i { background: var(--ds-green) !important; color: #fff !important; }
+.faq-page .faq-item summary b::before, .faq-page .faq-item summary b::after { background: var(--ds-green) !important; }
+.faq-page .faq-answer { background: var(--ds-green-bg) !important; }
+.faq-page .faq-answer > i { background: var(--ds-coral) !important; color: #fff !important; }
+.faq-page .faq-answer a { color: var(--ds-green-d) !important; }
+.faq-page .faq-categories a { border-color: var(--ds-line) !important; }
+.faq-page .faq-categories a :is(b, span, strong) { color: var(--ds-ink) !important; }
+.faq-page .faq-categories a small { color: var(--ds-mute) !important; }
+.faq-page .faq-cat-icon { background: none !important; width: auto !important; height: auto !important; }
+.faq-page .faq-h-ic { background: none !important; margin-right: 10px; }
+.faq-page .faq-search { border-color: var(--ds-line) !important; }
+.faq-page .faq-search span, .faq-page .faq-search label { color: var(--ds-mute) !important; }
+.faq-page .faq-search button { background: #fff !important; background-image: none !important; color: var(--ds-green-d) !important; border: 1.5px solid var(--ds-green) !important; box-shadow: none !important; }
+.faq-page .faq-wrap > p:has(> b) { background: var(--ds-coral-bg) !important; }
+.faq-page .faq-wrap > p > b { background: var(--ds-coral) !important; }
+.faq-page .faq-wrap > p strong { color: var(--ds-ink) !important; }
+.faq-page .faq-contact-panel { background: var(--ds-green-bg) !important; background-image: none !important; }
+.faq-page .faq-contact-art { display: none !important; }
+.faq-page .faq-phone { border-color: var(--ds-line) !important; }
+.faq-page .faq-phone a { color: var(--ds-ink) !important; }
+
+/* お問い合わせ */
+body.v2 .contact.on { background: #fff !important; background-image: none !important; border: 1px solid var(--ds-line); }
+body.v2 .contact .tel, body.v2 .contact .tel * { color: var(--ds-ink) !important; }
+
+/* かみのての保育 */
+.policy-page .policy-number { color: var(--ds-green) !important; }
+.policy-page .policy-number::after { background: var(--ds-green) !important; border-color: var(--ds-green) !important; }
+.policy-page .policy-process-step small, .policy-page .policy-process b { color: var(--ds-ink) !important; }
+.policy-page .policy-process-step { background: #fff !important; }
+.policy-page .policy-process > p { background: var(--ds-green-bg) !important; color: var(--ds-sub) !important; }
+.policy-page .policy-detail-wait { background: var(--ds-cream) !important; background-image: none !important; }
+.policy-page .policy-detail-family { background: var(--ds-green-bg) !important; background-image: none !important; }
+.policy-page .policy-team span, .policy-page .policy-detail ul li > span { background: var(--ds-green-bg) !important; }
+.policy-page .policy-team .child span { background: #fff !important; }
+.policy-page .policy-team i { color: var(--ds-green) !important; }
+.policy-page .policy-principle { border-color: var(--ds-line) !important; }
+.policy-page .policy-visit-panel { background: var(--ds-green-bg) !important; background-image: none !important; }
+.policy-page .policy-door { display: none !important; }
+
+/* 採用（3ページ） */
+.recruit-page .recruit-number, .recruit-page span.recruit-number { background: var(--ds-green) !important; }
+.recruit-page .recruit-arrow { color: var(--ds-green) !important; }
+.recruit-page :is(.home-blue, .home-section.home-blue, .recruit-visit.home-blue) { background: var(--ds-green-bg) !important; }
+.recruit-page :is(.home-cream, .home-section.home-cream) { background: var(--ds-cream) !important; }
+.recruit-page .recruit-entry.home-blue { background: var(--ds-green-bg) !important; }
+.recruit-page .recruit-entry.home-cream { background: #fff !important; border: 1px solid var(--ds-line); }
+.recruit-page .graduate-table, .recruit-page .graduate-table td, .recruit-page .graduate-table th { border-color: var(--ds-line) !important; }
+.recruit-page .graduate-table th { background: var(--ds-green-bg) !important; color: var(--ds-ink) !important; }
+.recruit-page .graduate-growth-grid li { border-color: var(--ds-line) !important; }
+.recruit-page .graduate-growth-grid li::after { color: var(--ds-green) !important; border-color: var(--ds-green) !important; background-color: transparent; }
+.recruit-page .graduate-growth-note span { background: var(--ds-green-bg) !important; }
+.recruit-page .graduate-places article { border-color: var(--ds-line) !important; }
+.recruit-page details summary { color: var(--ds-ink) !important; }
+.recruit-page details summary::after { color: var(--ds-green) !important; border-color: var(--ds-green) !important; }
+.recruit-page .career-tabs button { color: var(--ds-ink) !important; border-color: var(--ds-line) !important; background: #fff !important; }
+.recruit-page .career-tabs button[aria-selected="true"] { background: var(--ds-green) !important; border-color: var(--ds-green) !important; color: #fff !important; }
+.recruit-page .career-consult { background: var(--ds-green-bg) !important; }
+.recruit-page span.warm-scroll-pending, .recruit-page .graduate-step-num, .recruit-page .home-section span[class*="num"] { background-color: var(--ds-green); }
+/* 線の絵の入った丸（色ちがいの淡い色）を、淡い緑にそろえる */
+.recruit-page :is(.home-quick-card, .recruit-job, .graduate-learning, .career-work) span:has(> .ds-svg),
+.recruit-page span:has(> svg.ds-svg) { background: var(--ds-green-bg) !important; color: var(--ds-green) !important; }
+/* 残り：ページごとの文字色の設定を、決まりの墨色に／番号・アイコンの丸 */
+body.v2 .soft { --s-ink: var(--ds-ink); --s-sub: var(--ds-sub); }
+.life-soft, .adm-soft { --ls-ink: var(--ds-ink); --ls-sub: var(--ds-sub); }
+.parks-soft { --pk-ink: var(--ds-ink); --pk-sub: var(--ds-sub); }
+.life-soft .life-full-day summary { color: var(--ds-ink) !important; }
+body.v2 .ag-faq-item, body.v2 .ag-faq-list { border-color: var(--ds-line) !important; }
+.recruit-page .graduate-steps li > span:first-child { background: var(--ds-green) !important; }
+.policy-page .policy-related-grid span { background: var(--ds-green-bg) !important; color: var(--ds-green) !important; }
+
+/* 絵を消したあとの並び・残りの飾り */
+.faq-page .faq-group h2 .ds-ic { color: var(--ds-green) !important; width: 30px; height: 30px; }
+.faq-page .faq-contact-panel { grid-template-columns: 1.3fr 1fr !important; }
+.policy-page .policy-visit-panel { grid-template-columns: 1fr !important; }
+.policy-page .policy-visit-panel::before, .policy-page .policy-visit-panel::after, .policy-page .policy-visit::before, .policy-page .policy-visit::after { display: none !important; }
+@media (max-width: 767px) { .faq-page .faq-contact-panel { grid-template-columns: 1fr !important; } }

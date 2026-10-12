@@ -100,3 +100,6 @@ html body .tm-loader .tm-loader-name { animation: tm-l-fade 1.3s ease 1.1s forwa
 html body .tm-loader .tm-loader-en { animation: tm-l-fade 1.3s ease 1.5s forwards; }
 html.tm-intro .tm-loader.is-out { animation: tm-l-fadeout 1.6s ease .2s forwards; }
 .tm-loader.is-out .tm-loader-in { transition: opacity 1s ease, transform 1.6s ease; }
+
+/* 現れ終わったら、順に遅らせる設定を外す（マウスを乗せた動きが遅れないように） */
+html.tm-on [data-tm].tm-done, html.tm-on [data-tm].is-in:hover { transition-delay: 0s !important; }

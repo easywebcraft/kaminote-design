@@ -82,7 +82,10 @@
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (e) {
         if (!e.isIntersecting) return;
-        (watch.get(e.target) || []).forEach(function (el) { el.classList.add('is-in'); });
+        (watch.get(e.target) || []).forEach(function (el) {
+          el.classList.add('is-in');
+          setTimeout(function () { el.classList.add('tm-done'); }, 2600);   // 現れ終わったら、順に遅らせる設定を外す（マウスを乗せた動きが遅れないように）
+        });
         io.unobserve(e.target);
       });
     }, { rootMargin: '0px 0px -12% 0px', threshold: 0 });

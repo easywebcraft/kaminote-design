@@ -263,3 +263,63 @@ body.v2 .ag-faq-item, body.v2 .ag-faq-list { border-color: var(--ds-line) !impor
 }
 /* 見出しは、どのページでも言葉の区切りで折り返す（「大 / 切に」のような折れ方を防ぐ） */
 body.v2 :is(h1, h2, h3) { word-break: auto-phrase; }
+
+/* =====================================================================
+   マウスを乗せたときの動き（2026-10-12）— クリックできるところだけ
+   ・マウスのある端末だけ（スマホ・タブレットでは付けない）
+   ・「視差効果を減らす」がオンなら、動きは付けず色の変化だけ
+   ===================================================================== */
+/* 色の変化（どの端末でも） */
+body.v2 .head .gnav > a:hover, body.v2 .head .gdrop-t:hover { color: var(--ds-green-d) !important; }
+
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  /* なめらかに戻るように */
+  body.v2 :is(a, button, summary, .soft-gate, .nw-card, .home-quick-card) { transition-property: transform, box-shadow, background-color, color, border-color, background-size, filter, opacity; transition-duration: .3s; transition-timing-function: cubic-bezier(.22, .61, .36, 1); }
+
+  /* メニュー：緑の下線が左から伸びる */
+  body.v2 .head .gnav > a, body.v2 .head .gdrop-t { background: linear-gradient(var(--ds-green), var(--ds-green)) left calc(100% - 2px) / 0 2px no-repeat; }
+  body.v2 .head .gnav > a:hover, body.v2 .head .gdrop-t:hover { background-size: 100% 2px; }
+  body.v2 .head .gdrop-m a:hover { color: var(--ds-green-d) !important; background-color: var(--ds-green-bg); }
+  body.v2 .head .lang-btn:hover { background-color: var(--ds-green-bg); }
+
+  /* ボタン（主・副）：少し浮き上がり、影が深くなる */
+  body.v2 :is(.cta-pill, .page-fv-btn, .classic-hero .btn, .pk-btn, .nw-btn, .pz-btn, .life-visit-button, .home-button, .soft-btn, .ag-solid, .ag-outline, .pk-pill, .tm-spbar):hover { transform: translateY(-3px); }
+  body.v2 :is(.cta-pill, .page-fv-btn.main, .classic-hero .btn-main, .pk-btn, .nw-btn, .pz-btn, .life-visit-button, .home-button-solid, .soft-btn, .ag-temp .ag-solid):hover { box-shadow: 0 14px 26px rgba(226, 107, 85, .3) !important; }
+  body.v2 :is(.pk-pill, .ag-outline, .ag-solid:not(.ag-temp .ag-solid), .home-button:not(.home-button-solid), .page-fv-btn.sub, .classic-hero .btn-sub):hover { box-shadow: 0 10px 20px rgba(61, 106, 80, .14) !important; }
+  /* ボタン・リンクの中の「→」が右へ進む */
+  body.v2 a span[aria-hidden="true"] { display: inline-block; transition: transform .3s cubic-bezier(.22, .61, .36, 1); }
+  body.v2 a:hover > span[aria-hidden="true"]:last-child { transform: translateX(5px); }
+
+  /* カード型のリンク：少し持ち上がって影が出る。アイコンが少し大きく、写真がゆっくり寄る */
+  body.v2 :is(.soft-gate, .nw-card, .home-quick-card, .faq-categories a, .policy-related-grid a, .recruit-entry a.home-photo):hover { transform: translateY(-6px); box-shadow: 0 16px 32px rgba(50, 60, 45, .1) !important; }
+  body.v2 :is(.soft-gate, .home-quick-card, .faq-categories a, .policy-related-grid a) .ds-ic { transition: transform .4s cubic-bezier(.22, .61, .36, 1); }
+  body.v2 :is(.soft-gate, .home-quick-card, .faq-categories a, .policy-related-grid a):hover :is(.ds-ic, span:has(> .ds-svg)) { transform: scale(1.08); }
+  body.v2 :is(.nw-card, .soft-gate) img { transition: transform .6s ease; }
+  body.v2 .nw-card:hover img { transform: scale(1.05); }
+
+  /* 一覧の行（お知らせなど）：うっすら色が付き、矢印が進む */
+  body.v2 :is(.nw-row, .soft-news ul a):hover { background-color: var(--ds-green-bg); }
+  body.v2 .nw-row:hover .nw-chev { transform: translateX(4px) rotate(45deg); }
+  body.v2 .nw-chev { transition: transform .3s ease; }
+  body.v2 .soft-news ul a::after { transition: transform .3s ease; display: inline-block; }
+  body.v2 .soft-news ul a:hover::after { transform: translateX(5px); }
+
+  /* 文字だけのリンク：下線が伸び、色が濃くなる */
+  body.v2 :is(.ag-more, .pk-link, .pz-link, .home-text-link, .link-a, .as-more a, .soft-more, .life-more a, .life-visit-links a):hover { color: var(--ds-green) !important; }
+  body.v2 :is(.ag-more, .pk-link, .pz-link, .home-text-link):hover { border-bottom-width: 2px !important; }
+
+  /* ページ内リンクの丸ボタン（FVの中） */
+  body.v2 .page-fv-jumps a:hover { transform: translateY(-2px); }
+
+  /* よくある質問の質問の行 */
+  body.v2 :is(.ag-faq-item, .faq-item, .soft-faq-list details) summary:hover { background-color: var(--ds-green-bg); }
+
+  /* フッターのリンク：緑になり、少し右へ */
+  body.v2 .foot a { display: inline-block; }
+  body.v2 .foot a:hover { color: var(--ds-green-d) !important; transform: translateX(3px); }
+}
+/* 視差効果を減らす設定の方：色の変化だけ */
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: reduce) {
+  body.v2 :is(.nw-row, .soft-news ul a, .ag-faq-item summary, .faq-item summary):hover { background-color: var(--ds-green-bg); }
+  body.v2 .foot a:hover { color: var(--ds-green-d) !important; }
+}

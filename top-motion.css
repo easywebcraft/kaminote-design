@@ -68,3 +68,23 @@ html.tm-on .soft-visit-art { transform-origin: 20% 90%; animation: tm-sway 6s ea
   .tm-spbar * { color: #fff; }
 }
 @media (prefers-reduced-motion: reduce) { .tm-spbar { transition: none; } }
+
+/* ⑧ 最初のロゴ演出（html.tm-intro のときだけ。同じ閲覧中は1回） */
+.tm-loader { display: none; }
+html.tm-intro .tm-loader { display: flex; position: fixed; inset: 0; z-index: 9999; align-items: center; justify-content: center; background: var(--ds-cream, #fbf8f1); cursor: pointer; clip-path: inset(0 0 0 0); }
+html.tm-intro body { overflow: hidden; }
+.tm-loader-in { text-align: center; }
+.tm-loader img { display: block; width: min(150px, 38vw); height: auto; margin: 0 auto; opacity: 0; transform: scale(.82); animation: tm-l-logo 1.1s cubic-bezier(.22, .61, .36, 1) .15s forwards; }
+.tm-loader-name { margin: 20px 0 6px; font-family: var(--ds-mincho, serif) !important; font-weight: 700; font-size: clamp(22px, 3vw, 28px); letter-spacing: .22em; color: var(--ds-ink, #2f3430); opacity: 0; animation: tm-l-fade 1s ease .7s forwards; }
+.tm-loader-en { margin: 0; font-size: 11px; letter-spacing: .32em; color: var(--ds-mute, #6b7068); opacity: 0; animation: tm-l-fade 1s ease .95s forwards; }
+@keyframes tm-l-logo { to { opacity: 1; transform: none; } }
+@keyframes tm-l-fade { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+/* 幕が上へ開く */
+html.tm-intro .tm-loader.is-out { animation: tm-l-out 1s cubic-bezier(.7, 0, .3, 1) forwards; }
+.tm-loader.is-out .tm-loader-in { transition: transform .8s cubic-bezier(.7, 0, .3, 1), opacity .5s ease; transform: translateY(-40px); opacity: 0; }
+@keyframes tm-l-out { to { clip-path: inset(0 0 100% 0); } }
+/* 幕が開くまで、FVの見出しなどの動きを止めておく */
+html.tm-hold .classic-hero h1 .tm-ch, html.tm-hold .classic-hero .hero-eyebrow, html.tm-hold .classic-hero .hero-lead, html.tm-hold .classic-hero .hero-actions { animation-play-state: paused !important; }
+/* ロゴ演出の園名：ページの既存の指定（小さい紺の角ゴシック）に負けないよう強める */
+html body .tm-loader .tm-loader-name { font-family: var(--ds-mincho, serif) !important; font-size: clamp(24px, 3vw, 30px) !important; color: var(--ds-ink, #2f3430) !important; letter-spacing: .22em; }
+html body .tm-loader .tm-loader-en { font-size: 11px !important; color: var(--ds-mute, #6b7068) !important; }

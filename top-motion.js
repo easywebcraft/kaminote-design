@@ -93,6 +93,27 @@
     });
   }
 
+  /* --- 最初のロゴ演出：約2秒見せてから幕を開ける。押す・キー・ホイールで飛ばせる --- */
+  var loader = document.querySelector('.tm-loader');
+  if (loader && root.classList.contains('tm-intro')) {
+    if (lenis) lenis.stop();
+    var opened = false;
+    var open = function () {
+      if (opened) return;
+      opened = true;
+      loader.classList.add('is-out');
+      root.classList.remove('tm-hold');             // 幕が開くのに合わせて、FVの見出しが動き出す
+      setTimeout(function () {
+        root.classList.remove('tm-intro');
+        if (lenis) lenis.start();
+      }, 1000);
+    };
+    var timer = setTimeout(open, 2100);
+    ['click', 'keydown', 'wheel', 'touchstart'].forEach(function (ev) {
+      window.addEventListener(ev, function () { clearTimeout(timer); open(); }, { once: true, passive: true });
+    });
+  }
+
   /* --- スクロールに合わせて動くもの --- */
   var tl = document.querySelector('.soft-tl');
   var tlItems = tl ? Array.from(tl.querySelectorAll('li')) : [];

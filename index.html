@@ -15,10 +15,26 @@
 <link rel="stylesheet" href="home-soft.css?v=20261012">
 <link rel="stylesheet" href="site-chrome.css?v=20261012">
 <link rel="stylesheet" href="design-system.css?v=20261012">
-<link rel="stylesheet" href="top-motion.css?v=20261012">
+<link rel="stylesheet" href="top-motion.css?v=20261012-intro">
+<script>
+// 最初のロゴ演出：出すかどうかを、ページを描く前に決める（後から決めると、ページが一瞬見えてしまう）
+// 同じ閲覧中は1回だけ／「視差効果を減らす」がオンなら出さない／万一止まっても6秒で消す
+(function () {
+  var r = document.documentElement;
+  try {
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches || sessionStorage.getItem('km_intro')) return;
+    sessionStorage.setItem('km_intro', '1');
+  } catch (e) { return; }
+  r.classList.add('tm-intro', 'tm-hold');
+  setTimeout(function () { r.classList.remove('tm-intro', 'tm-hold'); }, 6000);
+})();
+</script>
+
 
 </head>
 <body class="v2 home-page" id="top">
+<div class="tm-loader" aria-hidden="true"><div class="tm-loader-in"><img src="img/logo-mark.png" alt="" width="313" height="192" decoding="async"><p class="tm-loader-name" data-i18n="k002">かみのて保育園</p><p class="tm-loader-en">KAMINOTE NURSERY</p></div></div>
+
 <header class="head">
   <div class="head-in">
     <a class="brand" href="index.html">
@@ -258,7 +274,7 @@
 </script>
 <script src="i18n.js?v=20261012-byoji"></script>
 <script src="lenis.min.js?v=1.1.20"></script>
-<script src="top-motion.js?v=20261012"></script>
+<script src="top-motion.js?v=20261012-intro"></script>
 <script src="scroll-warm.js?v=home-layout-20261008"></script>
 <script src="hero-menu-warm.js?v=20261008"></script>
 <script src="hero-fv-wave.js?v=20261008-intro"></script>

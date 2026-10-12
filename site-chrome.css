@@ -1,0 +1,20 @@
+/* =====================================================================
+   全ページ共通：ヘッダーとフッターの見た目（2026-10-12）
+   どのページでも「園での生活」と同じ見え方になるように、ページごとの色に左右されないよう決めておく。
+   各ページの専用CSSのあとに読む。
+   ===================================================================== */
+.head { color: #2f2b26; }
+/* TOPの「.home-page a{color:inherit}」に負けて、見学ボタンの文字が白くならなかったため */
+.head .cta-pill { color: #fff; }
+
+/* フッター：明るい地にロゴのマーク */
+body .foot { background: #fff; color: #2f3c4f; border-top: 1px solid #efe4d3; }
+body .foot a, body .foot h4, body .foot .brand .name { color: #2f3c4f; }
+body .foot .foot-addr, body .foot .brand .en, body .foot .copy span { color: #5d6878; }
+body .foot .copy { border-top-color: #f1e9dd; }
+body .foot .brand { display: flex; align-items: center; }
+body .foot .brand .mark { width: 52px; height: auto; margin-right: 8px; vertical-align: middle; }
+
+/* フッターのすぐ上の小さな注記（写真はイメージです など） */
+.site-note { max-width: 1080px; margin: 0 auto; padding: 10px 24px; text-align: right; font-size: 12px; color: #5d6878; }
+.site-note a { color: inherit; }

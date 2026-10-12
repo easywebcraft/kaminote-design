@@ -247,3 +247,19 @@ body.v2 .ag-faq-item, body.v2 .ag-faq-list { border-color: var(--ds-line) !impor
 .policy-page .policy-visit-panel { grid-template-columns: 1fr !important; }
 .policy-page .policy-visit-panel::before, .policy-page .policy-visit-panel::after, .policy-page .policy-visit::before, .policy-page .policy-visit::after { display: none !important; }
 @media (max-width: 767px) { .faq-page .faq-contact-panel { grid-template-columns: 1fr !important; } }
+
+/* かみのての保育「01」：イラストを上に、3つのステップは下に小さなカードで（2026-10-12） */
+.policy-page .policy-visual { display: grid; gap: 16px; max-width: 680px; width: 100%; margin: auto; }
+.policy-page .policy-photo { margin: 0; border-radius: 22px; overflow: hidden; aspect-ratio: 3 / 2; box-shadow: 0 10px 26px rgba(60, 70, 50, .08); }
+.policy-page .policy-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.policy-page .policy-visual .policy-process { grid-template-columns: 1fr 18px 1fr 18px 1fr; gap: 6px; }
+.policy-page .policy-visual .policy-process-step { aspect-ratio: auto; flex-direction: row-reverse; justify-content: center; gap: 8px; padding: 10px 8px; border-radius: 14px; box-shadow: 0 3px 12px rgba(60, 70, 50, .06); }
+.policy-page .policy-visual .policy-process-step small { margin: 0; font-size: 13px; }
+.policy-page .policy-visual .policy-process-step .ds-ic--md { width: 36px; height: 36px; padding: 8px; }
+.policy-page .policy-process > b { color: var(--ds-green) !important; font-size: 18px; text-align: center; }
+@media (max-width: 700px) {
+  .policy-page .policy-visual .policy-process { grid-template-columns: 1fr; gap: 4px; }
+  .policy-page .policy-visual .policy-process > b { transform: rotate(90deg); }
+}
+/* 見出しは、どのページでも言葉の区切りで折り返す（「大 / 切に」のような折れ方を防ぐ） */
+body.v2 :is(h1, h2, h3) { word-break: auto-phrase; }

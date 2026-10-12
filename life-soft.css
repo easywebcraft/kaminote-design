@@ -1,0 +1,248 @@
+/* =====================================================================
+   園での生活（2026-10-12 参考デザインで見た目を作り直し）。life-page.css のあとに読む。
+   文言・翻訳の印（data-i18n）・年齢の切り替え（life-page.js）は今までのまま。
+   イラストは画像を使わず CSS で描く（.ls-art の中の <i> を組み合わせる。部品の名前は下の「イラストの部品」）。
+   ===================================================================== */
+.life-soft {
+  --ls-ink: #2f3c4f;
+  --ls-sub: #5d6878;
+  --ls-line: #3c4656;
+  --ls-coral: #ef6f5e;
+  --ls-coral-soft: #fde8e2;
+  --ls-sky: #eaf5fb;
+  --ls-cream: #fffaf2;
+  --ls-butter: #fdf5e2;
+  --ls-mint: #eff6e8;
+  --ls-peach: #fdf0ea;
+  --ls-leaf: #8fbf73;
+  --ls-leaf-d: #5f9450;
+  --ls-yellow: #f6c453;
+  --ls-blue: #8cc5e6;
+  --ls-round: "Zen Maru Gothic", "Zen Kaku Gothic New", sans-serif;
+  background: var(--ls-cream);
+}
+.life-soft main { color: var(--ls-ink); }
+.life-soft .life-heading h2,
+.life-soft .life-family-copy > h2,
+.life-soft .life-hero h1,
+.life-soft .life-promise h3, .life-soft .life-activity h3, .life-soft .life-family-points h3 { font-family: var(--ls-round); font-weight: 700; }
+.life-soft .life-heading h2 { font-size: clamp(21px, 2.1vw, 27px); letter-spacing: .1em; }
+.life-soft .life-section-intro { color: var(--ls-sub); }
+
+/* ---------- イラストの部品（共通） ---------- */
+.ls-art { position: relative; display: block; width: 140px; height: 92px; margin: 0 auto 12px; }
+.ls-art i, .ls-deco i { position: absolute; display: block; }
+/* 太陽：中の丸＋光（光は円すいのグラデーションを、輪の形に切り抜く） */
+.ls-sun { width: 46px; height: 46px; border-radius: 50%;
+  background: radial-gradient(circle, var(--ls-yellow) 0 30%, transparent 31%), repeating-conic-gradient(var(--ls-yellow) 0 7deg, transparent 7deg 30deg);
+  -webkit-mask: radial-gradient(circle, #000 0 31%, transparent 32% 44%, #000 45% 68%, transparent 69%);
+          mask: radial-gradient(circle, #000 0 31%, transparent 32% 44%, #000 45% 68%, transparent 69%); }
+/* 月：影で三日月を作る */
+.ls-moon { width: 30px; height: 30px; border-radius: 50%; box-shadow: inset 9px -3px 0 0 var(--ls-yellow); transform: rotate(-20deg); }
+/* 時計 */
+.ls-clock { width: 54px; height: 54px; border-radius: 50%; border: 3px solid var(--ls-line); background: #fff;
+  background-image: radial-gradient(circle, var(--ls-line) 0 3px, transparent 4px); }
+.ls-clock::before, .ls-clock::after { content: ""; position: absolute; left: 50%; bottom: 50%; width: 3px; border-radius: 2px; background: var(--ls-line); transform-origin: 50% 100%; }
+.ls-clock::before { height: 15px; margin-left: -1.5px; transform: rotate(-60deg); }
+.ls-clock::after { height: 20px; margin-left: -1.5px; transform: rotate(0deg); }
+/* おわん（中身は .ls-food） */
+.ls-bowl { width: 64px; height: 32px; background: #fff; border: 3px solid var(--ls-line); border-radius: 4px 4px 34px 34px / 4px 4px 30px 30px; }
+.ls-bowl::after { content: ""; position: absolute; left: 22px; right: 22px; bottom: -8px; height: 5px; border-radius: 0 0 6px 6px; background: var(--ls-line); }
+.ls-food { width: 56px; height: 24px; border-radius: 30px 30px 4px 4px;
+  background: radial-gradient(circle at 20% 60%, #e8b44c 0 4px, transparent 5px), radial-gradient(circle at 55% 40%, #f08a5b 0 4px, transparent 5px), radial-gradient(circle at 75% 65%, #7cb35f 0 4px, transparent 5px), #a8d37f; }
+.ls-food.rice { background: radial-gradient(circle at 30% 50%, #fff 0 3px, transparent 4px), radial-gradient(circle at 60% 35%, #fff 0 3px, transparent 4px), #f7e6a8; }
+/* スプーン */
+.ls-spoon { width: 16px; height: 22px; border-radius: 50%; background: #f2a64a; transform: rotate(28deg); }
+.ls-spoon::after { content: ""; position: absolute; left: 6px; top: 18px; width: 5px; height: 34px; border-radius: 3px; background: #f2a64a; }
+/* ハート */
+.ls-heart { width: 36px; height: 32px; }
+.ls-heart::before, .ls-heart::after { content: ""; position: absolute; top: 0; width: 19px; height: 30px; border-radius: 19px 19px 0 0; background: var(--ls-coral); }
+.ls-heart::before { left: 17px; transform: rotate(-45deg); transform-origin: 0 100%; }
+.ls-heart::after { left: 0; transform: rotate(45deg); transform-origin: 100% 100%; }
+/* 手（両手でつつむ） */
+.ls-hand { width: 38px; height: 26px; border: 3px solid var(--ls-line); border-top: 0; border-radius: 0 0 26px 26px; background: #fff7ef; }
+.ls-hand.l { transform: rotate(-24deg); }
+.ls-hand.r { transform: rotate(24deg); }
+/* ふきだし */
+.ls-bubble { width: 46px; height: 34px; border: 2.5px solid var(--ls-line); border-radius: 50%; background: #fff; }
+.ls-bubble::after { content: ""; position: absolute; left: 10px; bottom: -7px; width: 10px; height: 10px; background: inherit; border-right: 2.5px solid var(--ls-line); border-bottom: 2.5px solid var(--ls-line); transform: rotate(35deg) skew(10deg); }
+.ls-bubble.pink { background: #fbd5cf; } .ls-bubble.gray { background: #e7ebf0; } .ls-bubble.yellow { background: #fbe6a8; }
+/* 木 */
+.ls-tree { width: 44px; height: 44px; border-radius: 50%; border: 2.5px solid var(--ls-line); background: #a6d18a; }
+.ls-tree::after { content: ""; position: absolute; left: 50%; top: 38px; width: 7px; height: 26px; margin-left: -3.5px; background: #b07d4f; border: 2px solid var(--ls-line); border-radius: 2px; }
+/* 紙・えんぴつ・はさみ */
+.ls-paper { width: 44px; height: 44px; background: #fff; border: 2.5px solid var(--ls-line); transform: rotate(-8deg); }
+.ls-pencil { width: 9px; height: 46px; background: #8cc5e6; border: 2px solid var(--ls-line); border-radius: 2px; transform: rotate(18deg); }
+.ls-pencil::after { content: ""; position: absolute; left: -2px; bottom: -11px; width: 9px; height: 10px; background: #f5d3a5; clip-path: polygon(0 0, 100% 0, 50% 100%); }
+.ls-ring { width: 20px; height: 20px; border-radius: 50%; border: 4px solid var(--ls-coral); }
+.ls-blade { width: 4px; height: 44px; border-radius: 4px; background: #9aa3ad; transform-origin: 50% 100%; }
+/* 本 */
+.ls-book { width: 74px; height: 44px; }
+.ls-book::before, .ls-book::after { content: ""; position: absolute; top: 0; width: 34px; height: 40px; background: #fff; border: 2.5px solid var(--ls-line); }
+.ls-book::before { left: 0; transform: skewY(8deg); border-radius: 4px 0 0 4px; background-image: repeating-linear-gradient(transparent 0 8px, #c9d3dc 8px 9.5px); background-size: 70% 100%; background-position: 50% 6px; background-repeat: no-repeat; }
+.ls-book::after { right: 0; transform: skewY(-8deg); border-radius: 0 4px 4px 0; background-image: repeating-linear-gradient(transparent 0 8px, #c9d3dc 8px 9.5px); background-size: 70% 100%; background-position: 50% 6px; background-repeat: no-repeat; }
+/* 鳥 */
+.ls-bird { width: 30px; height: 20px; border-radius: 60% 45% 50% 55%; background: var(--ls-blue); }
+.ls-bird::before { content: ""; position: absolute; left: 6px; top: -6px; width: 16px; height: 12px; border-radius: 80% 20% 70% 30%; background: #6cb0da; transform: rotate(-20deg); }
+.ls-bird::after { content: ""; position: absolute; right: -6px; top: 6px; width: 8px; height: 6px; background: #f2a64a; clip-path: polygon(0 0, 100% 50%, 0 100%); }
+/* 服とくつ */
+.ls-shirt { width: 54px; height: 46px; background: #f6b9b1; clip-path: polygon(28% 0, 40% 9%, 60% 9%, 72% 0, 100% 22%, 88% 44%, 78% 38%, 78% 100%, 22% 100%, 22% 38%, 12% 44%, 0 22%); }
+.ls-shoe { width: 30px; height: 15px; background: #fff; border: 2.5px solid var(--ls-line); border-radius: 12px 16px 4px 4px; }
+/* 季節：さくら・波・もみじ・どんぐり・雪だるま */
+.ls-sakura { width: 32px; height: 32px;
+  background: radial-gradient(circle at 50% 50%, #fff2a8 0 12%, transparent 13%),
+    radial-gradient(circle at 50% 20%, #f7a9bb 0 21%, transparent 22%), radial-gradient(circle at 80% 42%, #f7a9bb 0 21%, transparent 22%),
+    radial-gradient(circle at 69% 79%, #f7a9bb 0 21%, transparent 22%), radial-gradient(circle at 31% 79%, #f7a9bb 0 21%, transparent 22%),
+    radial-gradient(circle at 20% 42%, #f7a9bb 0 21%, transparent 22%); }
+.ls-sakura.s { width: 18px; height: 18px; opacity: .85; }
+.ls-waves { width: 110px; height: 30px;
+  background: radial-gradient(circle at 10px 0, transparent 9px, #6db3d9 10px 12px, transparent 13px) 0 4px / 20px 12px repeat-x,
+    radial-gradient(circle at 10px 0, transparent 9px, #9ccbe6 10px 12px, transparent 13px) 10px 17px / 20px 12px repeat-x; }
+.ls-maple { width: 44px; height: 44px; background: #f08a4b; clip-path: polygon(50% 0, 60% 22%, 80% 12%, 74% 36%, 100% 38%, 78% 56%, 88% 76%, 58% 66%, 53% 100%, 47% 100%, 42% 66%, 12% 76%, 22% 56%, 0 38%, 26% 36%, 20% 12%, 40% 22%); }
+.ls-acorn { width: 18px; height: 22px; background: #c98b4a; border-radius: 50% 50% 50% 50% / 38% 38% 62% 62%; }
+.ls-acorn::before { content: ""; position: absolute; left: -2px; top: -4px; width: 22px; height: 10px; border-radius: 10px 10px 4px 4px; background: #8a5a2b; }
+.ls-star { width: 12px; height: 12px; background: var(--ls-yellow); clip-path: polygon(50% 0, 62% 38%, 100% 38%, 69% 60%, 80% 100%, 50% 76%, 20% 100%, 31% 60%, 0 38%, 38% 38%); }
+.ls-snow { width: 44px; height: 44px; border-radius: 50%; background: #fff; border: 2.5px solid var(--ls-line); }
+.ls-snow.head { width: 32px; height: 32px; background-image: radial-gradient(circle at 35% 45%, var(--ls-line) 0 2px, transparent 2.5px), radial-gradient(circle at 65% 45%, var(--ls-line) 0 2px, transparent 2.5px), radial-gradient(circle at 50% 62%, #f2a64a 0 2.5px, transparent 3px); }
+.ls-hat { width: 22px; height: 14px; background: var(--ls-blue); border: 2.5px solid var(--ls-line); border-radius: 3px 3px 0 0; }
+.ls-mitten { width: 14px; height: 12px; border-radius: 50%; background: #6cb0da; }
+/* ご家庭へ：小さなアイコン */
+.ls-talk { width: 30px; height: 24px; border: 2.5px solid var(--ls-line); border-radius: 50%; background: #fff; }
+.ls-talk::after { content: ""; position: absolute; left: 4px; bottom: -6px; width: 8px; height: 8px; background: #fff; border-right: 2.5px solid var(--ls-line); border-bottom: 2.5px solid var(--ls-line); transform: rotate(35deg); }
+.ls-doc { width: 24px; height: 30px; border: 2.5px solid var(--ls-line); border-radius: 3px; background: #fff repeating-linear-gradient(transparent 0 5px, #b9c3cd 5px 6.5px) 50% 6px / 60% 70% no-repeat; }
+.ls-people { width: 34px; height: 30px;
+  background: radial-gradient(circle at 30% 26%, transparent 0 5px, var(--ls-line) 5.5px 7.5px, transparent 8px), radial-gradient(circle at 70% 26%, transparent 0 5px, var(--ls-line) 5.5px 7.5px, transparent 8px),
+    radial-gradient(ellipse 34% 40% at 30% 100%, transparent 0 78%, var(--ls-line) 80% 96%, transparent 98%), radial-gradient(ellipse 34% 40% at 70% 100%, transparent 0 78%, var(--ls-line) 80% 96%, transparent 98%); }
+/* 草花の飾り（茎＋葉）・花 */
+.ls-sprig { width: 3px; height: 70px; background: var(--ls-leaf-d); border-radius: 3px; transform-origin: 50% 100%; }
+.ls-leaf { width: 16px; height: 26px; border: 2px solid var(--ls-leaf-d); background: #cfe6bd; border-radius: 0 100% 0 100%; }
+.ls-flower { width: 26px; height: 26px;
+  background: radial-gradient(circle at 50% 50%, #f6c453 0 14%, transparent 15%),
+    radial-gradient(circle at 50% 20%, #f39b8a 0 21%, transparent 22%), radial-gradient(circle at 80% 42%, #f39b8a 0 21%, transparent 22%),
+    radial-gradient(circle at 69% 79%, #f39b8a 0 21%, transparent 22%), radial-gradient(circle at 31% 79%, #f39b8a 0 21%, transparent 22%),
+    radial-gradient(circle at 20% 42%, #f39b8a 0 21%, transparent 22%); }
+.ls-flower.y { filter: hue-rotate(35deg) saturate(1.2); }
+/* 園舎 */
+.ls-school { width: 132px; height: 74px; background: #fff8ea; border: 3px solid var(--ls-line); border-radius: 3px;
+  background-image: linear-gradient(var(--ls-line), var(--ls-line)), repeating-linear-gradient(90deg, transparent 0 14px, #9ecfe8 14px 30px, transparent 30px 40px);
+  background-size: 24px 36px, 100% 18px; background-position: 50% 100%, 0 14px; background-repeat: no-repeat; }
+.ls-roof { width: 150px; height: 40px; background: #f07a6a; clip-path: polygon(50% 0, 100% 100%, 0 100%); }
+.ls-roof::after { content: ""; position: absolute; left: 50%; top: 14px; width: 16px; height: 16px; margin-left: -8px; border-radius: 50%; background: #fff; }
+
+/* ---------- 飾り（ページ全体） ---------- */
+.ls-deco { position: absolute; pointer-events: none; z-index: 1; }
+.ls-deco.sprig { width: 40px; height: 90px; }
+
+/* ---------- ① 冒頭 ---------- */
+.life-soft .life-hero { background: linear-gradient(180deg, #e8f4fb 0%, #f3f9fc 60%, var(--ls-cream) 100%); min-height: 470px; }
+.life-soft .life-hero::after { display: none; }
+.life-soft .life-hero::before { content: ""; position: absolute; left: 0; right: 0; bottom: -1px; height: 46px; background: var(--ls-cream); z-index: 2; clip-path: path("M0 46V26C220 6 420 36 640 22C900 4 1100 34 1360 18C1700 0 2100 30 3000 12V46Z"); }
+.life-soft .life-hero-photo { inset: 36px 3% 50px 50%; border-radius: 56% 44% 52% 48% / 46% 56% 44% 54%; overflow: hidden; z-index: 1; box-shadow: 0 18px 40px rgba(47, 60, 79, .08); }
+.life-soft .life-hero-photo img { width: 100%; height: 100%; object-fit: cover; }
+.life-soft .life-hero .life-icon { display: none; }
+.life-soft .life-hero h1 { font-size: clamp(28px, 3.1vw, 42px); letter-spacing: .06em; line-height: 1.55; }
+.life-soft .life-hero h1 .ls-hl { color: var(--ls-coral); font-style: normal; }
+.life-soft .life-eyebrow { color: var(--ls-sub); font-family: var(--ls-round); }
+.ls-hand-copy { position: absolute; z-index: 3; right: 6%; top: 46px; margin: 0; font-family: var(--ls-round); font-size: 15px; line-height: 1.9; letter-spacing: .1em; color: #4d5a6c; transform: rotate(-8deg); text-shadow: 0 0 10px #fff, 0 0 4px #fff; }
+.life-soft .life-jumps a { font-family: var(--ls-round); font-weight: 700; }
+
+/* ---------- ② 毎日を支える3つのこと ---------- */
+.life-soft .life-promises { background: var(--ls-cream); }
+.life-soft .life-promise { position: relative; text-align: center; padding: 26px 26px 26px; border-radius: 22px; }
+.life-soft .life-promise:nth-child(1) { background: linear-gradient(170deg, #f5f9ee, #eef5e6); }
+.life-soft .life-promise:nth-child(2) { background: linear-gradient(170deg, #fdf8e8, #fbf1d9); }
+.life-soft .life-promise:nth-child(3) { background: linear-gradient(170deg, #fdf3ef, #fbe9e3); }
+.life-soft .life-promise img, .life-soft .life-promise-copy > svg { display: none; }
+.life-soft .life-promise-copy { display: block; min-height: 0; margin: 0; }
+.life-soft .life-promise h3 { font-size: 18px; letter-spacing: .06em; }
+.life-soft .life-promise p { font-size: 13.5px; }
+
+/* ---------- ③ こどもたちの一日 ---------- */
+.life-soft .life-blue#day { background: linear-gradient(180deg, var(--ls-cream) 0%, #eef6fb 12%, #eef6fb 88%, var(--ls-cream) 100%); }
+.life-soft .life-age-tabs button[aria-selected="true"] { background: var(--ls-coral); color: #fff; border-color: var(--ls-coral); }
+.life-soft .life-day-photos { position: relative; display: block; min-height: 420px; }
+.life-soft .life-day-photos figure { position: absolute; border-radius: 26px; box-shadow: 0 14px 30px rgba(47, 60, 79, .1); border: 6px solid #fff; }
+.life-soft .life-day-photos figure:nth-child(1) { left: 0; top: 10px; width: 78%; transform: rotate(-3deg); }
+.life-soft .life-day-photos figure:nth-child(2) { right: 0; top: 214px; width: 64%; transform: rotate(3deg); }
+.life-soft .life-day-photos figure:nth-child(3) { display: none; }
+.life-soft .life-day-photos img, .life-soft .life-day-photos figure:last-child img { height: 200px; width: 100%; object-fit: cover; }
+
+/* ---------- ④ 毎日のあそびと育ち ---------- */
+.life-soft .life-cream#curriculum { background: linear-gradient(180deg, var(--ls-cream) 0%, #fdf6e6 14%, #fdf6e6 86%, var(--ls-cream) 100%); }
+.life-soft .life-activity { background: #fff; border-radius: 20px; border: 1px solid #f1e7d6; box-shadow: 0 4px 14px rgba(47, 60, 79, .04); padding-top: 20px; }
+.life-soft .life-activity > img { display: none; }
+.life-soft .life-activity .ls-art { margin-bottom: 4px; }
+.life-soft .life-activity h3 { font-size: 17px; letter-spacing: .06em; }
+
+/* ---------- ⑤ 季節のたのしみ ---------- */
+.life-soft .life-season { border-radius: 20px; padding: 18px 12px 16px; }
+.life-soft .life-season.spring { background: #fdeef0; }
+.life-soft .life-season.summer { background: #e9f4fb; }
+.life-soft .life-season.autumn { background: #fdf1e2; }
+.life-soft .life-season.winter { background: #edf3fa; }
+.life-soft .life-season > img { display: none; }
+.life-soft .life-season h3 { margin: 0 auto 10px; }
+.life-soft .life-events-details summary { border-radius: 999px; border: 1.5px solid #cdd5de; background: #fff; font-family: var(--ls-round); font-weight: 700; }
+
+/* ---------- ⑥ 園での様子をご家庭へ ---------- */
+.life-soft .life-family { background: linear-gradient(180deg, var(--ls-cream) 0%, #eef6fb 18%, #eef6fb 82%, var(--ls-cream) 100%); }
+.life-soft .life-family-photo img { border-radius: 26px; height: 300px; object-fit: cover; }
+.life-soft .life-family-points > div > svg { display: none; }
+.life-soft .life-family-points .ls-art { width: 40px; height: 32px; margin: 0 0 8px; }
+
+/* ---------- ⑦ 見学のご案内 ---------- */
+.life-soft .life-visit { position: relative; background: linear-gradient(180deg, var(--ls-cream) 0%, #fdf6e6 30%, #f4f6e6 100%); padding-bottom: 72px; }
+.life-soft .life-visit > svg { display: none; }
+.life-soft .life-visit-button { border-radius: 999px; background: linear-gradient(90deg, #f37a69, #ee6656); box-shadow: 0 8px 18px rgba(238, 102, 86, .26); }
+.ls-visit-flowers { left: 4%; bottom: 40px; width: 150px; height: 150px; }
+.ls-visit-school { right: 4%; bottom: 40px; width: 220px; height: 150px; }
+
+/* ---------- ⑧ フッター（明るい地に） ---------- */
+.life-soft .foot { background: #fff; color: var(--ls-ink); border-top: 1px solid #efe4d3; }
+.life-soft .foot a, .life-soft .foot h4, .life-soft .foot .name { color: var(--ls-ink); }
+.life-soft .foot .foot-addr, .life-soft .foot .en, .life-soft .foot .copy span { color: var(--ls-sub); }
+.life-soft .foot .copy { border-top-color: #f1e9dd; }
+.life-soft .foot .brand .mark { width: 52px; height: auto; margin-right: 8px; vertical-align: middle; }
+.life-soft .foot .brand { display: flex; align-items: center; }
+
+/* ---------- 狭い画面 ---------- */
+@media (max-width: 1023px) {
+  .ls-visit-school, .ls-visit-flowers { display: none; }
+  .ls-hand-copy { display: none; }
+  .life-soft .life-day-photos { min-height: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 20px; }
+  .life-soft .life-day-photos figure { position: static; width: auto !important; transform: none; border-width: 4px; }
+  .life-soft .life-day-photos img, .life-soft .life-day-photos figure:last-child img { height: 150px; }
+}
+@media (max-width: 767px) {
+  .life-soft .life-hero { min-height: 0; padding-top: 0; flex-direction: column; }
+  .life-soft .life-hero-photo { position: relative; inset: auto; width: calc(100% - 32px); margin: 16px auto 0; height: 230px; }
+  .life-soft .life-hero-inner { padding-top: 22px; }
+  .ls-art { transform: scale(.85); margin-bottom: 4px; }
+  .life-soft .life-promise { padding: 22px 18px; }
+  .life-soft .life-family-photo img { height: 220px; }
+}
+
+/* 今までの線のアイコン（life-page.css の ::before）は、CSSで描いたイラストに置き換えたので出さない */
+.life-soft .life-activity::before, .life-soft .life-season::before { display: none; }
+/* 手：指の線を足して、両手でつつむ形に／くつ：つま先とかかとの形に */
+.ls-hand { background-image: repeating-linear-gradient(90deg, transparent 0 7px, rgba(60, 70, 86, .35) 7px 8.5px); background-size: 70% 9px; background-position: 50% 0; background-repeat: no-repeat; }
+.ls-shoe { height: 16px; border-radius: 6px 18px 5px 5px / 6px 14px 5px 5px; box-shadow: inset 0 -4px 0 #e6edf3; }
+.ls-shoe::after { content: ""; position: absolute; left: 6px; top: 3px; width: 8px; height: 2px; background: var(--ls-line); border-radius: 2px; box-shadow: 0 4px 0 var(--ls-line); }
+
+
+/* 冒頭の文字は、写真にかからない幅に（英語・ポルトガル語は長いので折り返す） */
+@media (min-width: 768px) {
+  .life-soft .life-hero-inner > h1, .life-soft .life-hero-inner > p { max-width: min(560px, 44vw); }
+}
+
+/* スマホ：冒頭の草花と鳥は出さない（文字に重なるため）・見出しを1行に収まる大きさに・段の外の飾りは出さない（横にはみ出さないように） */
+@media (max-width: 767px) {
+  .life-soft .life-hero .ls-deco.sprig, .life-soft .life-hero .ls-deco:not([style*="right"]) { display: none; }
+  .life-soft .life-hero h1 { font-size: clamp(21px, 6.2vw, 26px); letter-spacing: .03em; }
+}
+@media (max-width: 1023px) {
+  .life-soft .life-section .ls-deco.sprig { display: none; }
+}
+.life-soft .life-section, .life-soft .life-hero { overflow: hidden; }
+@media (max-width: 1023px) { .life-soft .life-visit { padding-bottom: 44px; } }
+.life-soft .life-visit .life-fine { max-width: 700px; margin-inline: auto; }

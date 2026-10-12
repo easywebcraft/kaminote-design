@@ -522,7 +522,9 @@
   "k512": "ことばに合わせたご案内",
   "k513": "やさしい日本語とポルトガル語・英語でお伝えします。",
   "k514": "実際の園の様子を見に来ませんか",
-  "k515": "気になることも、見学の際にお聞かせください。"
+  "k515": "気になることも、見学の際にお聞かせください。",
+  "k516": "のびのび、<br>いっしょに、<br>これからも。",
+  "k517": "あそんで 食べて 休んで<br><em class=\"ls-hl\">その子のペース</em>で育つ毎日"
  },
  "en": {
   "k000": "This is <b>Design A</b>. The photos are stand-ins to convey the mood, and the nursery details are quoted from the current website. Text and photos will be replaced.",
@@ -1040,7 +1042,9 @@
   "k512": "Information in your language",
   "k513": "We communicate in easy Japanese, Portuguese and English.",
   "k514": "Come and see our nursery",
-  "k515": "Please tell us your questions when you visit."
+  "k515": "Please tell us your questions when you visit.",
+  "k516": "Freely,<br>together,<br>always.",
+  "k517": "Play, eat, rest<br>Growing each day <em class=\"ls-hl\">at their own pace</em>"
  },
  "pt": {
   "k000": "Este é o <b>Plano A</b>. As fotos são apenas de referência, para dar a ideia, e as informações da creche foram citadas do site atual. Textos e fotos serão substituídos.",
@@ -1558,7 +1562,9 @@
   "k512": "Informações no seu idioma",
   "k513": "Comunicamos em japonês simples, português e inglês.",
   "k514": "Venha conhecer a nossa creche",
-  "k515": "Conte-nos suas dúvidas durante a visita."
+  "k515": "Conte-nos suas dúvidas durante a visita.",
+  "k516": "Livres,<br>juntos,<br>sempre.",
+  "k517": "Brincar, comer, descansar<br>Crescer todos os dias <em class=\"ls-hl\">no seu próprio ritmo</em>"
  }
 };
 

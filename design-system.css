@@ -323,3 +323,8 @@ body.v2 .head .gnav > a:hover, body.v2 .head .gdrop-t:hover { color: var(--ds-gr
   body.v2 :is(.nw-row, .soft-news ul a, .ag-faq-item summary, .faq-item summary):hover { background-color: var(--ds-green-bg); }
   body.v2 .foot a:hover { color: var(--ds-green-d) !important; }
 }
+
+/* お問い合わせ：FVの下の段の淡い水色をやめ、クリーム色に（2026-10-13） */
+body.v2 section#contact.sec { background: var(--ds-cream) !important; background-image: none !important; }
+/* ページ全体の地の色（基本CSSでは淡い水色）を、決まりのクリーム色に。段のすき間から水色が見えないように */
+body.v2 { background-color: var(--ds-cream); }

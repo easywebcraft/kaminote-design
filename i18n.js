@@ -1002,7 +1002,12 @@
   "k992": "応募資格・必要書類について",
   "k993": "職種ごとの応募資格や必要書類は、確認後にご案内します。最新の募集状況はお問い合わせください。",
   "k994": "次の一歩を<br>話すところから",
-  "k995": "こどもの<br><em>「やってみたい」</em>を<br>まんなかに"
+  "k995": "こどもの<br><em>「やってみたい」</em>を<br>まんなかに",
+  "k996": "園の詳細を見る",
+  "k997": "施設情報を比較する",
+  "k998": "園へのアクセス",
+  "k999": "地図を見る",
+  "k1000": "お待ちしています"
  },
  "en": {
   "k000": "This is <b>Design A</b>. The photos are stand-ins to convey the mood, and the nursery details are quoted from the current website. Text and photos will be replaced.",
@@ -2000,7 +2005,12 @@
   "k992": "Eligibility and documents",
   "k993": "Eligibility and documents for each role will be explained once confirmed. Please contact us for the latest openings.",
   "k994": "Your next step<br>starts with a conversation",
-  "k995": "Every child’s<br><em>“I want to try”</em><br>at the heart of every day"
+  "k995": "Every child’s<br><em>“I want to try”</em><br>at the heart of every day",
+  "k996": "More about this nursery",
+  "k997": "Compare the nurseries",
+  "k998": "Getting here",
+  "k999": "View map",
+  "k1000": "We look forward to seeing you"
  },
  "pt": {
   "k000": "Este é o <b>Plano A</b>. As fotos são apenas de referência, para dar a ideia, e as informações da creche foram citadas do site atual. Textos e fotos serão substituídos.",
@@ -2998,7 +3008,12 @@
   "k992": "Requisitos e documentos",
   "k993": "Os requisitos e documentos de cada função serão explicados após confirmação. Consulte-nos sobre as vagas atuais.",
   "k994": "O próximo passo<br>começa com uma conversa",
-  "k995": "O <em>“quero tentar”</em><br>de cada criança<br>no centro de tudo"
+  "k995": "O <em>“quero tentar”</em><br>de cada criança<br>no centro de tudo",
+  "k996": "Mais sobre esta creche",
+  "k997": "Comparar as creches",
+  "k998": "Como chegar",
+  "k999": "Ver mapa",
+  "k1000": "Esperamos por você"
  }
 };
 

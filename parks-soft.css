@@ -1,0 +1,199 @@
+/* =====================================================================
+   園のご紹介（2026-10-12 参考デザインで作り直し）。各ページのCSSのあとに読む。ページの印は <body> の parks-soft
+   冒頭は共通のFV（page-fv.css）。文言・翻訳の印は今までのもの。イラストは CSS で描く（.pk-ic の中の <i> と、枝 .pk-branch）
+   入園までの流れは、入園案内と同じ部品（admission-soft.css の .as-flow-row / .as-steps と、そのアイコン）を使う
+   ===================================================================== */
+.parks-soft {
+  --pk-ink: #3a3b37;
+  --pk-sub: #686b64;
+  --pk-green: #5d8b67;
+  --pk-green-d: #4b7656;
+  --pk-green-bg: #eef3e8;
+  --pk-peach: #e9896c;
+  --pk-peach-bg: #fbeee6;
+  --pk-cream: #fbf8f1;
+  --pk-mincho: "Zen Old Mincho", serif;
+  /* 入園案内のアイコン（admission-soft.css）が使う色 */
+  --ls-line: #3c4656; --ls-coral: #ef6f5e; --ls-yellow: #f6c453; --ls-blue: #8cc5e6; --as-blue-d: #3f8fbf; --ls-leaf-d: #5f9450;
+  background: var(--pk-cream);
+}
+.parks-soft main { color: var(--pk-ink); }
+.pk-wrap { position: relative; z-index: 2; max-width: 1080px; margin: 0 auto; padding: 0 32px; }
+.pk-sec { position: relative; padding: 72px 0; overflow: hidden; }
+.parks-soft .pk-sec h2 { margin: 0 0 30px; font-family: var(--pk-mincho); font-weight: 700; font-size: clamp(22px, 2.3vw, 30px); line-height: 1.5; letter-spacing: .08em; color: var(--pk-ink); text-align: left; word-break: auto-phrase; }
+.parks-soft .pk-sec h2::before, .parks-soft .pk-sec h2::after { display: none; }
+.parks-soft .pk-sec .pk-center { text-align: center; }
+.pk-over { display: flex; align-items: center; gap: 14px; margin: 0 0 10px; font-size: 11.5px; letter-spacing: .22em; color: var(--pk-sub); }
+.pk-over::after { content: ""; width: 34px; height: 1px; background: #b9bcb3; }
+.parks-soft .pk-sec p { color: var(--pk-sub); }
+
+/* 園の名前の前の小さな芽 */
+.pk-name { display: inline-flex; align-items: center; gap: 10px; }
+.pk-name::before { content: ""; width: 16px; height: 18px; flex: none;
+  background: radial-gradient(ellipse 45% 30% at 25% 40%, #8bb57c 0 98%, transparent 100%), radial-gradient(ellipse 45% 30% at 75% 30%, #f0a079 0 98%, transparent 100%), linear-gradient(#6c9a62, #6c9a62) 50% 100% / 2px 55% no-repeat; }
+
+/* ---------- 2つの園をひと目で：カード ---------- */
+.pk-overview { background: var(--pk-cream); }
+.pk-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 26px; }
+.pk-card { position: relative; padding: 32px 30px 30px; border-radius: 24px; text-align: center; overflow: hidden; }
+.pk-card.green { background: var(--pk-green-bg); }
+.pk-card.peach { background: var(--pk-peach-bg); }
+.parks-soft .pk-card h3 { margin: 0; font-family: var(--pk-mincho); font-size: 22px; font-weight: 700; letter-spacing: .08em; color: var(--pk-ink); }
+.parks-soft .pk-card .pk-type { margin: 6px 0 22px; font-size: 13px; color: var(--pk-sub); }
+.pk-stats { display: grid; grid-template-columns: repeat(3, 1fr); margin: 0 0 24px; padding: 0; list-style: none; }
+.pk-stats li { padding: 4px 8px; display: flex; flex-direction: column; align-items: center; gap: 8px; }
+.pk-stats li + li { border-left: 1px solid rgba(80, 90, 70, .18); }
+.pk-stats b { font-size: 14.5px; line-height: 1.5; color: var(--pk-ink); }
+.pk-stats small { font-size: 12px; color: var(--pk-sub); }
+.parks-soft .pk-pill { display: inline-flex; align-items: center; gap: 10px; padding: 10px 32px; border-radius: 999px; background: #fff; border: 1.5px solid var(--pk-green); color: var(--pk-green-d); font-size: 13.5px; font-weight: 700; text-decoration: none; }
+.pk-card.peach .pk-pill { border-color: var(--pk-peach); color: #c9644a; }
+
+/* ---------- 各園のくわしい紹介 ---------- */
+.pk-detail { background: linear-gradient(180deg, var(--pk-cream), #fffdf8); }
+.pk-detail-in { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
+.pk-detail.rev .pk-detail-copy { order: 2; }
+.pk-head { display: grid; grid-template-columns: auto 1fr; gap: 0 22px; align-items: end; margin-bottom: 18px; }
+.pk-num { grid-row: span 3; font-family: var(--pk-mincho); font-size: 44px; line-height: 1; color: var(--pk-green); align-self: start; padding-top: 18px; }
+.pk-detail.rev .pk-num { color: var(--pk-peach); }
+.pk-en { font-size: 10.5px; letter-spacing: .24em; color: var(--pk-sub); }
+.parks-soft .pk-detail h2 { margin: 2px 0 0; font-size: clamp(22px, 2.2vw, 28px); }
+.parks-soft .pk-head .pk-type { margin: 4px 0 0; font-size: 13px; }
+.parks-soft .pk-detail .pk-desc { margin: 0 0 20px; font-size: 14px; line-height: 2; }
+.pk-info { margin: 0; border-top: 1px solid #e3e0d6; }
+.pk-info div { display: grid; grid-template-columns: 26px 92px 1fr; align-items: center; gap: 8px; padding: 10px 2px; border-bottom: 1px solid #e3e0d6; font-size: 14px; }
+.pk-info dt { font-weight: 700; color: var(--pk-ink); }
+.pk-info dd { margin: 0; color: var(--pk-ink); line-height: 1.6; }
+.pk-photo { position: relative; height: 360px; border-radius: 46% 54% 42% 58% / 40% 46% 54% 60%; overflow: hidden; box-shadow: 0 18px 36px rgba(60, 70, 50, .08); }
+.pk-detail.rev .pk-photo { border-radius: 54% 46% 58% 42% / 46% 40% 60% 54%; }
+.pk-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.pk-photo small { position: absolute; right: 12%; bottom: 12px; padding: 2px 10px; border-radius: 999px; background: rgba(255, 255, 255, .85); font-size: 11px; color: var(--pk-sub); }
+
+/* ---------- 比較表 ---------- */
+.pk-compare { background: #fffdf8; }
+.pk-table-wrap { overflow-x: auto; border-radius: 18px; box-shadow: 0 6px 20px rgba(60, 70, 50, .05); }
+.pk-table { width: 100%; min-width: 620px; border-collapse: collapse; background: #fff; font-size: 14px; }
+.pk-table th, .pk-table td { padding: 13px 18px; border-bottom: 1px solid #ece8de; text-align: center; color: var(--pk-ink); line-height: 1.6; }
+.pk-table tbody th { width: 22%; text-align: left; background: #f6f4ee; font-weight: 700; }
+.pk-table thead th { font-family: var(--pk-mincho); font-size: 16px; font-weight: 700; }
+.pk-table thead th small { display: block; font-family: "Zen Kaku Gothic New", sans-serif; font-size: 11.5px; font-weight: 400; opacity: .9; }
+.pk-table thead th:nth-child(1) { background: #f6f4ee; }
+.pk-table thead th:nth-child(2) { background: var(--pk-green); color: #fff; }
+.pk-table thead th:nth-child(3) { background: #f6d6c6; }
+
+/* ---------- 入園までの流れ（入園案内の部品を、このページの色に） ---------- */
+.pk-flow { background: linear-gradient(180deg, #fffdf8, var(--pk-cream)); }
+.pk-flow .pk-flow-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+.pk-flow .as-flow-row { margin: 0; padding: 22px 20px 24px; border-radius: 22px; }
+.pk-flow .as-flow-row:first-child { background: var(--pk-green-bg); }
+.pk-flow .as-flow-row:last-child { background: var(--pk-peach-bg); }
+.parks-soft .pk-flow .as-flow-name { justify-content: center; font-family: var(--pk-mincho); font-size: 17px; }
+.parks-soft .pk-flow .as-flow-name::before { display: none; }
+.pk-flow .as-steps { grid-template-columns: repeat(3, 1fr); gap: 22px; }
+.pk-flow .as-steps li { padding: 34px 8px 16px; border-radius: 16px; }
+.pk-flow .as-steps li + li::before { left: -17px; width: 9px; height: 9px; margin-top: -4px; }
+.pk-flow .as-num { left: 50%; top: 10px; width: 24px; height: 24px; margin-left: -12px; font-size: 12px; }
+.pk-flow .as-flow-row:first-child .as-num { background: var(--pk-green); }
+.pk-flow .as-flow-row:last-child .as-num { background: var(--pk-peach); }
+.pk-flow .as-step-art { transform: scale(.72); margin: -10px auto -6px; }
+.pk-flow .as-step-t { font-size: 13.5px; }
+.pk-actions { margin-top: 26px; text-align: center; }
+.pk-flow .pk-pill { border-color: var(--pk-peach); color: #c9644a; }
+
+/* ---------- アクセス ---------- */
+.pk-access { background: var(--pk-cream); }
+.pk-access-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+.pk-access-card { position: relative; display: grid; grid-template-columns: 1fr auto; gap: 8px 16px; align-items: center; padding: 24px 26px; border-radius: 22px; }
+.pk-access-card.green { background: var(--pk-green-bg); }
+.pk-access-card.peach { background: var(--pk-peach-bg); }
+.parks-soft .pk-access-card h3 { margin: 0; font-family: var(--pk-mincho); font-size: 19px; font-weight: 700; color: var(--pk-ink); }
+.parks-soft .pk-access-card .pk-addr { margin: 0; font-size: 13.5px; color: var(--pk-ink); }
+.pk-access-card .pk-ic { grid-row: span 2; }
+.pk-access-btns { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: 12px; margin-top: 10px; }
+.pk-access-card.peach .pk-pill { border-color: var(--pk-peach); color: #c9644a; }
+
+/* ---------- 見学のおさそい ---------- */
+.pk-visit { text-align: center; padding: 84px 0 92px; background:
+  radial-gradient(ellipse 70% 70% at 50% 100%, #dfe9d6 0, rgba(223, 233, 214, 0) 75%), var(--pk-cream); }
+.parks-soft .pk-visit h2 { margin-bottom: 12px; text-align: center; }
+.parks-soft .pk-visit p { margin: 0 0 26px; font-size: 14px; }
+.parks-soft .pk-btn { display: inline-flex; align-items: center; gap: 12px; padding: 15px 42px; border-radius: 999px; background: linear-gradient(90deg, #ec7f69, #e2654f); color: #fff; font-weight: 700; letter-spacing: .06em; text-decoration: none; box-shadow: 0 10px 22px rgba(226, 101, 79, .25); }
+.pk-hand { position: absolute; right: 14%; top: 70px; margin: 0; font-family: "Zen Maru Gothic", "Zen Kaku Gothic New", sans-serif; font-size: 15px; letter-spacing: .14em; color: #6b7062; transform: rotate(-10deg); }
+
+/* ---------- 線のアイコン（CSSで描く） ---------- */
+.pk-ic { position: relative; display: block; flex: none; width: 40px; height: 40px; }
+.pk-ic i { position: absolute; display: block; }
+.pk-ic.s { width: 22px; height: 22px; }
+.pk-clock { width: 30px; height: 30px; border: 2px solid var(--pk-ink); border-radius: 50%; }
+.pk-clock::before, .pk-clock::after { content: ""; position: absolute; left: 50%; bottom: 50%; width: 2px; margin-left: -1px; background: var(--pk-ink); transform-origin: 50% 100%; border-radius: 2px; }
+.pk-clock::before { height: 10px; }
+.pk-clock::after { height: 8px; transform: rotate(-120deg); }
+.pk-person { width: 12px; height: 20px; }
+.pk-person::before { content: ""; position: absolute; left: 1px; top: 0; width: 8px; height: 8px; border: 2px solid var(--pk-ink); border-radius: 50%; }
+.pk-person::after { content: ""; position: absolute; left: -2px; top: 12px; width: 14px; height: 8px; border: 2px solid var(--pk-ink); border-bottom: 0; border-radius: 10px 10px 0 0; }
+.pk-doc { width: 22px; height: 28px; border: 2px solid var(--pk-ink); border-radius: 2px; background: repeating-linear-gradient(transparent 0 5px, #8b8f87 5px 6.5px) 50% 7px / 60% 60% no-repeat; }
+.pk-baby { width: 28px; height: 26px; border: 2px solid var(--pk-ink); border-radius: 50%;
+  background: radial-gradient(circle at 35% 50%, var(--pk-ink) 0 1.5px, transparent 2px), radial-gradient(circle at 65% 50%, var(--pk-ink) 0 1.5px, transparent 2px); }
+.pk-baby::before { content: ""; position: absolute; left: 50%; top: -6px; width: 7px; height: 7px; margin-left: -2px; border: 2px solid var(--pk-ink); border-color: var(--pk-ink) transparent transparent var(--pk-ink); border-radius: 50%; transform: rotate(20deg); }
+.pk-baby::after { content: ""; position: absolute; left: 50%; bottom: 4px; width: 8px; height: 4px; margin-left: -4px; border-bottom: 2px solid var(--pk-ink); border-radius: 0 0 6px 6px; }
+.pk-pin { width: 16px; height: 16px; border: 2px solid var(--pk-ink); border-radius: 50% 50% 50% 0; transform: rotate(-45deg); }
+.pk-pin::after { content: ""; position: absolute; left: 3px; top: 3px; width: 6px; height: 6px; border-radius: 50%; background: var(--pk-ink); }
+.pk-phone { width: 16px; height: 16px; border: 2px solid var(--pk-ink); border-radius: 4px 4px 9px 4px; border-top-color: transparent; border-right-color: transparent; transform: rotate(-10deg); }
+.pk-phone::before, .pk-phone::after { content: ""; position: absolute; width: 6px; height: 4px; background: var(--pk-ink); border-radius: 2px; }
+.pk-phone::before { left: -3px; top: -3px; transform: rotate(-45deg); }
+.pk-phone::after { right: -3px; bottom: -3px; transform: rotate(-45deg); }
+/* 地図（折りたたんだ紙とピン） */
+.pk-map { width: 46px; height: 34px; transform: skewY(-8deg); background:
+  linear-gradient(90deg, transparent 32%, rgba(60, 70, 50, .25) 32% 34%, transparent 34% 66%, rgba(60, 70, 50, .25) 66% 68%, transparent 68%), #f3efe4;
+  border: 2px solid #8a9180; border-radius: 3px; }
+.pk-map-pin { width: 16px; height: 16px; background: var(--pk-peach); border-radius: 50% 50% 50% 0; transform: rotate(-45deg); }
+.pk-map-pin::after { content: ""; position: absolute; left: 5px; top: 5px; width: 6px; height: 6px; border-radius: 50%; background: #fff; }
+
+/* ---------- 枝（水彩風の葉） ---------- */
+.pk-branch { position: absolute; pointer-events: none; z-index: 1; }
+.pk-branch i { position: absolute; display: block; }
+.pk-twig { height: 2px; background: #9db78f; border-radius: 2px; transform-origin: 0 50%; }
+.pk-leaf { width: 26px; height: 12px; border-radius: 0 100% 0 100%; background: linear-gradient(135deg, rgba(126, 168, 112, .75), rgba(169, 199, 154, .55)); transform-origin: 0 50%; }
+
+/* ---------- 画面のせまいとき ---------- */
+@media (max-width: 900px) {
+  .pk-cards, .pk-detail-in, .pk-flow .pk-flow-cards, .pk-access-cards { grid-template-columns: 1fr; }
+  .pk-detail.rev .pk-detail-copy { order: 0; }
+  .pk-photo { height: 260px; }
+  .pk-hand { display: none; }
+}
+@media (max-width: 767px) {
+  .pk-wrap { padding: 0 18px; }
+  .pk-sec { padding: 54px 0; }
+  .pk-card { padding: 26px 16px 24px; }
+  .pk-stats b { font-size: 13px; }
+  .pk-info div { grid-template-columns: 22px 78px 1fr; font-size: 13.5px; }
+  .pk-flow .as-steps { gap: 14px; }
+  .pk-flow .as-steps li { display: block; padding: 32px 4px 12px; text-align: center; }
+  .pk-flow .as-steps li + li::before { left: -11px; top: 50%; margin: -4px 0 0; transform: rotate(45deg); }
+  .pk-flow .as-steps li .as-step-art { transform: scale(.6); margin: -16px auto -10px; }
+  .pk-flow .as-num { top: 8px; margin-top: 0; }
+  .pk-flow .as-step-t { font-size: 12px; }
+  .pk-sec > .pk-branch { display: none; }
+}
+/* 開所時間（2行になる今渡）の列を広く、文字は言葉の区切りで折り返す */
+.pk-stats { grid-template-columns: 1.35fr 1fr 1fr; }
+.pk-stats b, .pk-flow .as-step-t, .pk-info dd { word-break: auto-phrase; }
+/* 電話はスマートフォンの形に */
+.pk-phone { width: 12px; height: 19px; border: 2px solid var(--pk-ink); border-radius: 3px; transform: none; }
+.pk-phone::before { left: 50%; top: auto; bottom: 1px; width: 3px; height: 3px; margin-left: -1.5px; border-radius: 50%; transform: none; }
+.pk-phone::after { display: none; }
+/* カードのボタンを下にそろえる */
+.pk-card { display: flex; flex-direction: column; align-items: center; }
+.pk-card .pk-stats { width: 100%; }
+.pk-card .pk-pill { margin-top: auto; }
+/* 「イメージ写真」の札は、丸い切り抜きで欠けないよう下の中央に */
+.pk-photo small { right: auto; left: 50%; bottom: 16px; transform: translateX(-50%); }
+/* スマホの入園までの流れ：3つを横に並べると切れるので、入園案内と同じ縦並びに */
+@media (max-width: 767px) {
+  .pk-flow .as-steps { grid-template-columns: 1fr; gap: 16px; }
+  .pk-flow .as-steps li { display: flex; align-items: center; gap: 6px; padding: 10px 14px 10px 46px; text-align: left; }
+  .pk-flow .as-steps li .as-step-art { transform: scale(.55); margin: -20px -30px; flex: none; }
+  .pk-flow .as-num { left: 12px; top: 50%; margin: -12px 0 0; }
+  .pk-flow .as-steps li + li::before { left: 50%; top: -12px; margin: 0 0 0 -4px; transform: rotate(135deg); }
+  .pk-flow .as-step-t { font-size: 14px; }
+}

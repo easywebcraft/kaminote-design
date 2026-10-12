@@ -1,0 +1,67 @@
+/* =====================================================================
+   下層ページの冒頭（2026-10-12）：TOPのFVと同じ見せ方にそろえる
+   ・写真を全面に敷き、上下を波の形に切る。左側を暗くして、白い文字を乗せる（TOPの .classic-hero と同じ値）
+   ・写真の切り替えはしない。高さは画面の約7割（本文まで遠くならないように）
+   ・スマホ（700px以下）は TOP と同じく「波で切った写真の下に、薄い水色の地で文字」
+   ・下の波の色は、次の段の地の色に合わせて <section> の --pfv-next で渡す
+   ===================================================================== */
+.page-fv { position: relative; display: flex; align-items: center; overflow: hidden; background: #eef7fd;
+  min-height: max(480px, 70vh); min-height: max(480px, 70svh); color: #fff; font-family: "Zen Kaku Gothic New", sans-serif; }
+.page-fv .page-fv-bg { position: absolute; inset: 0; z-index: 0; }
+.page-fv .page-fv-bg img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.page-fv .page-fv-bg::after { content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(90deg, rgba(14, 30, 34, .7) 0%, rgba(14, 30, 34, .48) 34%, rgba(14, 30, 34, .1) 66%, rgba(14, 30, 34, .02) 100%); }
+.page-fv .page-fv-edge { position: absolute; left: 0; width: 100%; z-index: 3; pointer-events: none; }
+.page-fv .page-fv-edge.t { top: -1px; height: clamp(30px, 4.4vw, 62px); fill: #fff; }
+.page-fv .page-fv-edge.b { bottom: -1px; height: clamp(30px, 4.6vw, 64px); fill: var(--pfv-next, #fffefa); }
+
+.page-fv .page-fv-copy { position: relative; z-index: 2; width: 760px; max-width: 68%; margin-left: max(48px, calc((100vw - 1160px) / 2)); padding: 96px 0 88px; text-align: left; }
+.page-fv .page-fv-crumb { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin: 0 0 18px; font-size: 12.5px; color: rgba(255, 255, 255, .86); text-shadow: 0 2px 10px #071719aa; }
+.page-fv .page-fv-crumb a { color: inherit; text-decoration: none; }
+.page-fv .page-fv-crumb a:hover { text-decoration: underline; }
+.page-fv .page-fv-eyebrow { margin: 0 0 20px; color: #fff; font-size: 14px; letter-spacing: .09em; text-shadow: 0 2px 12px #071719aa; }
+.page-fv .page-fv-eyebrow small, .page-fv .page-fv-eyebrow span:not([data-i18n]) { margin-left: 8px; font-size: 11px; letter-spacing: .16em; opacity: .85; }
+.page-fv .page-fv-copy h1 { margin: 0; font-family: "Zen Old Mincho", serif; font-weight: 700; font-size: clamp(30px, 3vw, 42px); line-height: 1.55; letter-spacing: .035em; color: #fff; text-shadow: 0 2px 14px #07171999; }
+.page-fv .page-fv-copy h1 em { font-style: normal; color: #ffd9a8; }
+.page-fv .page-fv-sub { margin: 16px 0 0; font-size: 19px; font-weight: 700; letter-spacing: .06em; color: #fff; text-shadow: 0 2px 12px #071719aa; }
+.page-fv .page-fv-sub em { font-style: normal; color: #ffd9a8; }
+.page-fv .page-fv-lead { margin: 20px 0 0; font-size: 17px; font-weight: 500; line-height: 1.9; color: #fff; text-shadow: 0 2px 12px #071719aa; }
+.page-fv .page-fv-lead b { font-weight: 700; }
+.page-fv .page-fv-actions { display: flex; flex-wrap: wrap; gap: 18px; margin-top: 30px; }
+.page-fv .page-fv-btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-width: 236px; min-height: 58px; padding: 0 30px; border-radius: 3px;
+  font-size: 16px; font-weight: 700; text-decoration: none; letter-spacing: .04em; }
+.page-fv .page-fv-btn.main { background: #c9eafa; color: #214a67; }
+.page-fv .page-fv-btn.sub { border: 1px solid #ffffffc7; background: transparent; color: #fff; }
+.page-fv .page-fv-btn:hover { filter: brightness(1.05); }
+.page-fv .page-fv-jumps { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+.page-fv .page-fv-jumps a { display: inline-block; padding: 8px 18px; border: 1px solid #ffffffb3; border-radius: 999px; color: #fff; font-size: 13.5px; font-weight: 700; text-decoration: none; background: rgba(255, 255, 255, .08); }
+.page-fv .page-fv-jumps a:hover { background: rgba(255, 255, 255, .2); }
+.page-fv .page-fv-text-link { display: inline-flex; gap: 10px; margin-top: 22px; color: #fff; font-weight: 700; font-size: 14.5px; text-decoration: none; border-bottom: 1px solid #ffffffa0; padding-bottom: 4px; text-shadow: 0 2px 10px #071719aa; }
+
+@media (max-width: 900px) {
+  .page-fv .page-fv-copy { max-width: 80%; padding: 72px 0 72px; }
+}
+/* スマホ：TOP と同じく、波で切った写真の下に文字 */
+@media (max-width: 700px) {
+  .page-fv { display: block; min-height: 0; color: #234b6a; }
+  .page-fv .page-fv-bg { position: relative; height: clamp(220px, 34vh, 290px); }
+  .page-fv .page-fv-bg::after { background: linear-gradient(180deg, rgba(255, 255, 255, .18), rgba(255, 255, 255, 0) 55%); }
+  .page-fv .page-fv-edge.t { height: 30px; }
+  .page-fv .page-fv-edge.b { bottom: auto; top: calc(clamp(220px, 34vh, 290px) - 29px); height: 30px; fill: #eef7fd; }
+  .page-fv .page-fv-copy { width: auto; max-width: none; margin: 0; padding: 26px 20px 40px; text-align: center; }
+  .page-fv .page-fv-crumb { justify-content: center; color: #5d6878; text-shadow: none; margin-bottom: 14px; }
+  .page-fv .page-fv-eyebrow { display: inline-block; margin: 0 0 16px; padding: 6px 14px; border-radius: 999px; background: rgba(255, 255, 255, .88); color: #26231f; font-size: 12px; letter-spacing: .06em; text-shadow: none; }
+  .page-fv .page-fv-copy h1 { font-size: clamp(23px, 6.6vw, 28px); line-height: 1.45; color: #234b6a; text-shadow: none; }
+  .page-fv .page-fv-copy h1 em, .page-fv .page-fv-sub em { color: #ef6f5e; }
+  .page-fv .page-fv-sub { font-size: 16px; color: #234b6a; text-shadow: none; }
+  .page-fv .page-fv-lead { margin-top: 14px; font-size: 15px; line-height: 1.9; color: #234b6a; text-shadow: none; }
+  .page-fv .page-fv-actions { flex-direction: column; align-items: center; gap: 10px; margin-top: 24px; }
+  .page-fv .page-fv-btn { width: 100%; max-width: 340px; min-width: 0; border-radius: 30px; }
+  .page-fv .page-fv-btn.main { min-height: 58px; background: #ffa45b; color: #234b6a; box-shadow: 0 10px 24px rgba(255, 164, 91, .35); }
+  .page-fv .page-fv-btn.sub { min-height: 50px; background: rgba(255, 255, 255, .96); border: 1px solid rgba(38, 35, 31, .22); color: #234b6a; }
+  .page-fv .page-fv-jumps { justify-content: center; gap: 8px; margin-top: 20px; }
+  .page-fv .page-fv-jumps a { border-color: #cfe0ea; background: #fff; color: #234b6a; font-size: 13px; padding: 7px 14px; }
+  .page-fv .page-fv-text-link { color: #234b6a; border-bottom-color: #9fb9c9; text-shadow: none; }
+}
+/* 見出しの行の長さをそろえる（「…の選 / 択肢」のような半端な折り返しを防ぐ） */
+.page-fv .page-fv-copy h1, .page-fv .page-fv-lead { text-wrap: balance; }

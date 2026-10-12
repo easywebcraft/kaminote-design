@@ -11,6 +11,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@400;500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Baloo+2:wght@500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css?v=02afff2f">
 <link rel="stylesheet" href="site-chrome.css?v=20261012">
+<link rel="stylesheet" href="page-fv.css?v=20261012">
 <script>
   // 最初の描画より前に付ける（あとから付けると、見えていたものが消えてから動く）。
   // ★a/ をルートへ昇格したときに落ちていて、スクロールの動きが効いていなかった（2026-09-19 復旧）
@@ -73,17 +74,24 @@
 <!-- ============ 左の縦レール ============ -->
 
 
-<nav class="crumb"><a href="index.html" data-i18n="k118">トップ</a><span aria-hidden="true">›</span><span data-i18n="k111">お問い合わせ</span></nav>
+<section class="page-fv" style="--pfv-next:#eef7fd">
+<div class="page-fv-bg"><img src="img/hero-field.jpg" alt="イメージ写真（外で過ごすこどもたち）" fetchpriority="high" decoding="async"></div>
+<svg class="page-fv-edge t" viewBox="0 0 1440 100" preserveAspectRatio="none" aria-hidden="true"><path d="M0 0H1440V34q-70 40-150 6-70 34-170 4-80 44-190 2-90 40-200 6-80 36-180 2-90 42-200 4-80 38-180 6-70 34-170 4Z"/></svg>
+<svg class="page-fv-edge b" viewBox="0 0 1440 100" preserveAspectRatio="none" aria-hidden="true"><path d="M0 100H1440V66q-70-40-150-6-70-34-170-4-80-44-190-2-90-40-200-6-80-36-180-2-90-42-200-4-80-38-180-6-70-34-170-4Z"/></svg>
+<div class="page-fv-copy">
+<nav class="page-fv-crumb" aria-label="パンくず"><a href="index.html" data-i18n="k118">トップ</a><span aria-hidden="true">›</span><span data-i18n="k111">お問い合わせ</span></nav>
+<p class="page-fv-eyebrow"><span data-i18n="k091">見学・お問い合わせ</span></p>
+<h1 data-i18n="k460">まずは園を見にきてください</h1>
+<p class="page-fv-lead" data-i18n="k093">こどもたちの過ごし方や、先生とのやりとり。実際に見ていただくのがいちばんです。<br>入園のご予定がなくても、ご相談だけでもかまいません。</p>
+<div class="page-fv-actions">
+        <a class="page-fv-btn main" href="contact.html" data-i18n="k094">見学を申し込む</a>
+        <a class="page-fv-btn sub" href="contact.html" data-i18n="k095">メールで問い合わせる</a>
+      </div>
+</div>
+</section>
 <section class="sec" id="contact">
   <div class="wrap">
     <div class="contact">
-      <span class="eyebrow"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8" fill="#f5b301"/></svg><span data-i18n="k091">見学・お問い合わせ</span></span>
-      <h2 class="mincho" data-i18n="k460">まずは園を見にきてください</h2>
-      <p data-i18n="k093">こどもたちの過ごし方や、先生とのやりとり。実際に見ていただくのがいちばんです。<br>入園のご予定がなくても、ご相談だけでもかまいません。</p>
-      <div class="hero-actions" style="margin-top:26px">
-        <a class="btn btn-main" href="contact.html" data-i18n="k094">見学を申し込む</a>
-        <a class="btn btn-sub" href="contact.html" data-i18n="k095">メールで問い合わせる</a>
-      </div>
       <div class="tel" data-i18n="k096">0574-50-1211<small>お電話でのお問い合わせ／かみのて保育園・病児保育</small></div>
     </div>
   </div>

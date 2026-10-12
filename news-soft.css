@@ -1,0 +1,108 @@
+/* =====================================================================
+   お知らせ・園の日記（2026-10-12 参考デザインで作り直し）。各ページのCSSのあとに読む。ページの印は <body> の news-soft
+   冒頭は共通のFV（page-fv.css）。記事は今までの仮掲載の3件のみ（架空の記事は足さない）
+   イラスト（葉の枝・鳥）は CSS で描く
+   ===================================================================== */
+.news-soft {
+  --nw-ink: #3a3b37;
+  --nw-sub: #6a6d66;
+  --nw-green: #4f7f63;
+  --nw-coral: #e5735e;
+  --nw-cream: #fbf8f1;
+  --nw-mincho: "Zen Old Mincho", serif;
+  background: var(--nw-cream);
+}
+.news-soft main { color: var(--nw-ink); }
+.nw-wrap { position: relative; z-index: 2; max-width: 1080px; margin: 0 auto; padding: 0 32px; }
+.nw-sec { position: relative; padding: 52px 0; }
+
+/* タブ */
+.nw-tabs { display: flex; justify-content: center; gap: 0; margin: 0 auto; padding: 34px 16px 0; }
+.nw-tabs button { display: inline-flex; align-items: center; gap: 10px; padding: 12px 34px; border: 0; border-bottom: 2px solid #dedbd1; background: none; font: inherit; font-size: 14.5px; font-weight: 700; letter-spacing: .08em; color: var(--nw-ink); cursor: pointer; }
+.nw-tabs button span { display: inline-grid; place-items: center; min-width: 26px; height: 22px; padding: 0 7px; border-radius: 999px; background: #ecebe4; font-size: 12px; color: var(--nw-sub); }
+.nw-tabs button[aria-selected="true"] { color: var(--nw-green); border-bottom-color: var(--nw-green); }
+.nw-tabs button[aria-selected="true"] span { background: #e1ebdc; color: var(--nw-green); }
+
+/* 段の見出し（日本語＋小さな英字） */
+.nw-head { display: flex; align-items: baseline; gap: 18px; margin: 0 0 18px; padding-bottom: 14px; border-bottom: 1px solid #e3e0d6; }
+.news-soft .nw-head h2 { margin: 0; font-family: var(--nw-mincho); font-weight: 700; font-size: clamp(24px, 2.4vw, 30px); letter-spacing: .08em; color: var(--nw-ink); text-align: left; }
+.news-soft .nw-head h2::before, .news-soft .nw-head h2::after { display: none; }
+.nw-head small { font-size: 11px; letter-spacing: .24em; color: var(--nw-sub); }
+
+/* お知らせの一覧 */
+.nw-list { margin: 0; padding: 0; list-style: none; }
+.nw-list li { border-bottom: 1px solid #e3e0d6; }
+.nw-row { display: grid; grid-template-columns: 120px auto 1fr 20px; gap: 20px; align-items: center; padding: 20px 4px; color: var(--nw-ink); text-decoration: none; }
+.nw-row:hover .nw-title { color: var(--nw-green); }
+.nw-row time { font-size: 14px; letter-spacing: .06em; color: var(--nw-sub); }
+.nw-tag { display: inline-block; padding: 3px 14px; border-radius: 6px; border: 1.5px solid var(--nw-coral); font-size: 12px; font-weight: 700; color: var(--nw-coral); background: #fff; font-style: normal; white-space: nowrap; }
+.nw-tag.diary { border-color: #e9a28f; color: #d0705a; }
+.nw-title { margin: 0; font-size: 16px; font-weight: 500; letter-spacing: .04em; line-height: 1.6; color: var(--nw-ink); }
+.nw-title small, .nw-card h3 small { margin-left: 8px; font-size: 11px; font-weight: 400; color: var(--nw-sub); }
+.nw-chev { width: 9px; height: 9px; border: solid var(--nw-ink); border-width: 2px 2px 0 0; transform: rotate(45deg); justify-self: center; }
+
+/* 園の日記のカード */
+.nw-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+.nw-card { display: flex; flex-direction: column; overflow: hidden; border-radius: 16px; background: #fff; box-shadow: 0 6px 20px rgba(60, 70, 50, .06); color: var(--nw-ink); text-decoration: none; }
+.nw-card-photo { position: relative; aspect-ratio: 16 / 9; overflow: hidden; }
+.nw-card-photo img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .4s; }
+.nw-card:hover .nw-card-photo img { transform: scale(1.04); }
+.nw-card-photo small { position: absolute; right: 10px; bottom: 8px; padding: 2px 8px; border-radius: 999px; background: rgba(255, 255, 255, .85); font-size: 10.5px; color: var(--nw-sub); }
+.nw-card-body { position: relative; padding: 16px 18px 20px; }
+.nw-card-meta { display: flex; align-items: center; gap: 10px; margin: 0 0 10px; font-size: 12.5px; color: var(--nw-sub); }
+.news-soft .nw-card h3 { margin: 0; font-size: 16.5px; font-weight: 700; line-height: 1.6; letter-spacing: .04em; color: var(--nw-ink); }
+.nw-card-body::after { content: "→"; position: absolute; right: 18px; bottom: 14px; font-size: 14px; color: var(--nw-green); }
+.news-soft .nw-note { margin: 22px 0 0; font-size: 12.5px; color: var(--nw-sub); }
+
+/* 見学のおさそい */
+.nw-visit { position: relative; overflow: hidden; margin-top: 30px; padding: 84px 0 96px; text-align: center; background:
+  radial-gradient(ellipse 70% 70% at 50% 100%, #dfe9d6 0, rgba(223, 233, 214, 0) 75%),
+  radial-gradient(ellipse 40% 50% at 0% 40%, #e6eedd 0, rgba(230, 238, 221, 0) 70%), var(--nw-cream); }
+.nw-over { display: inline-flex; align-items: center; gap: 16px; margin: 0 0 14px; font-size: 11.5px; letter-spacing: .24em; color: var(--nw-sub); }
+.nw-over::before, .nw-over::after { content: ""; width: 34px; height: 1px; background: #b9bcb3; }
+.news-soft .nw-visit h2 { margin: 0 0 12px; font-family: var(--nw-mincho); font-weight: 700; font-size: clamp(22px, 2.4vw, 30px); letter-spacing: .08em; color: var(--nw-ink); }
+.news-soft .nw-visit h2::before, .news-soft .nw-visit h2::after { display: none; }
+.news-soft .nw-visit p { margin: 0 0 28px; font-size: 14px; color: var(--nw-sub); }
+.news-soft .nw-btn { display: inline-flex; align-items: center; gap: 12px; padding: 16px 46px; border-radius: 999px; background: linear-gradient(90deg, #ec7f69, #e2654f); color: #fff; font-weight: 700; letter-spacing: .06em; text-decoration: none; box-shadow: 0 10px 22px rgba(226, 101, 79, .25); }
+.nw-hand { position: absolute; right: 13%; bottom: 120px; margin: 0; font-family: "Zen Maru Gothic", "Zen Kaku Gothic New", sans-serif; font-size: 15px; letter-spacing: .14em; color: #6b7062; transform: rotate(-12deg); }
+
+/* 鳥 */
+.nw-bird { position: absolute; z-index: 2; width: 44px; height: 28px; pointer-events: none; }
+.nw-bird i { position: absolute; display: block; }
+.nw-bird .body { left: 6px; top: 8px; width: 30px; height: 18px; border-radius: 60% 45% 50% 55%; background: #e7d27e; }
+.nw-bird .wing { left: 12px; top: 0; width: 18px; height: 14px; border-radius: 80% 20% 70% 30%; background: #a9c79a; transform: rotate(-24deg); }
+.nw-bird .beak { left: 35px; top: 13px; width: 7px; height: 6px; background: #e59b56; clip-path: polygon(0 0, 100% 50%, 0 100%); }
+.nw-bird .eye { left: 28px; top: 12px; width: 3px; height: 3px; border-radius: 50%; background: #3a3b37; }
+
+/* 枝（水彩風の葉） */
+.nw-branch { position: absolute; pointer-events: none; z-index: 1; }
+.nw-branch i { position: absolute; display: block; }
+.nw-twig { height: 2px; background: #9db78f; border-radius: 2px; transform-origin: 0 50%; }
+.nw-leaf { width: 26px; height: 12px; border-radius: 0 100% 0 100%; background: linear-gradient(135deg, rgba(126, 168, 112, .75), rgba(169, 199, 154, .55)); transform-origin: 0 50%; }
+
+/* 絞り込みで隠す */
+.nw-sec[hidden] { display: none; }
+
+@media (max-width: 900px) {
+  .nw-cards { grid-template-columns: 1fr 1fr; }
+  .nw-hand { display: none; }
+}
+@media (max-width: 767px) {
+  .nw-wrap { padding: 0 18px; }
+  .nw-tabs { padding-top: 24px; }
+  .nw-tabs button { padding: 10px 12px; font-size: 13px; gap: 6px; }
+  .nw-row { grid-template-columns: 1fr 14px; gap: 6px 10px; padding: 16px 2px; }
+  .nw-row time, .nw-row .nw-tag { grid-column: 1; }
+  .nw-row .nw-meta { display: flex; align-items: center; gap: 10px; }
+  .nw-row .nw-title { grid-column: 1; }
+  .nw-chev { grid-column: 2; grid-row: 1 / span 2; }
+  .nw-cards { grid-template-columns: 1fr; }
+  .nw-visit > .nw-branch, .nw-visit > .nw-bird { display: none; }
+}
+/* 日付と札の入れ物：パソコンでは並びに溶け込ませ、スマホでは1行目にまとめる */
+.nw-meta { display: contents; }
+@media (max-width: 767px) { .nw-row .nw-meta { display: flex; } }
+/* 見出しの色（既存のページ用CSSの紺色を打ち消す）と、言葉の区切りでの折り返し */
+.news-soft .nw-row .nw-title, .news-soft .nw-card .nw-card-body h3 { color: var(--nw-ink); }
+.news-soft .nw-row:hover .nw-title { color: var(--nw-green); }
+.news-soft .nw-visit h2, .news-soft .nw-title, .news-soft .nw-card h3 { word-break: auto-phrase; }

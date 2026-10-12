@@ -1009,7 +1009,9 @@
   "k999": "地図を見る",
   "k1000": "お待ちしています",
   "k1001": "それぞれのご家庭に<br>それぞれの安心を",
-  "k1002": "かみのて保育園には、企業主導型保育園と<br>認可保育園の2つの園があります。<br>どちらも見学を受け付けています。"
+  "k1002": "かみのて保育園には、企業主導型保育園と<br>認可保育園の2つの園があります。<br>どちらも見学を受け付けています。",
+  "k1003": "園のいまを<br>おとどけします",
+  "k1004": "行事のご案内や大切なお知らせ、<br>こどもたちの毎日の様子など、<br>かみのて保育園の“いま”をお伝えします。"
  },
  "en": {
   "k000": "This is <b>Design A</b>. The photos are stand-ins to convey the mood, and the nursery details are quoted from the current website. Text and photos will be replaced.",
@@ -2014,7 +2016,9 @@
   "k999": "View map",
   "k1000": "We look forward to seeing you",
   "k1001": "For every family<br>its own peace of mind",
-  "k1002": "Kaminote has two nurseries: a company-led nursery<br>and a licensed nursery.<br>Both welcome visits."
+  "k1002": "Kaminote has two nurseries: a company-led nursery<br>and a licensed nursery.<br>Both welcome visits.",
+  "k1003": "What’s happening<br>at the nursery",
+  "k1004": "Event information, important notices<br>and the children’s everyday life —<br>news from Kaminote Nursery, as it happens."
  },
  "pt": {
   "k000": "Este é o <b>Plano A</b>. As fotos são apenas de referência, para dar a ideia, e as informações da creche foram citadas do site atual. Textos e fotos serão substituídos.",
@@ -3019,7 +3023,9 @@
   "k999": "Ver mapa",
   "k1000": "Esperamos por você",
   "k1001": "Para cada família<br>a sua tranquilidade",
-  "k1002": "A Kaminote tem duas creches: uma de iniciativa empresarial<br>e uma creche licenciada.<br>As duas recebem visitas."
+  "k1002": "A Kaminote tem duas creches: uma de iniciativa empresarial<br>e uma creche licenciada.<br>As duas recebem visitas.",
+  "k1003": "O que acontece<br>na creche",
+  "k1004": "Avisos de eventos, comunicados importantes<br>e o dia a dia das crianças:<br>o “agora” da Creche Kaminote."
  }
 };
 

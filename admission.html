@@ -8,8 +8,10 @@
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='24' fill='%232c6f92'/><text x='50' y='71' font-size='58' font-weight='bold' text-anchor='middle' font-family='sans-serif' fill='%23fff'>か</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@400;500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Baloo+2:wght@500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@400;500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Zen+Maru+Gothic:wght@500;700&family=Baloo+2:wght@500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css?v=02afff2f">
+<link rel="stylesheet" href="life-soft.css?v=20261012">
+<link rel="stylesheet" href="admission-soft.css?v=20261012">
 <script>
   // 最初の描画より前に付ける（あとから付けると、見えていたものが消えてから動く）。
   // ★a/ をルートへ昇格したときに落ちていて、スクロールの動きが効いていなかった（2026-09-19 復旧）
@@ -20,7 +22,7 @@
   }, 4000);
 </script>
 </head>
-<body class="v2">
+<body class="v2 adm-soft">
 
 
 <!-- ============ ヘッダー ============ -->
@@ -47,8 +49,8 @@
       <button type="button" data-lang="pt">Português</button>
     </div>
   </div>
-    <nav class="gnav"><div class="gdrop"><button class="gdrop-t" type="button" aria-expanded="false">園について<svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="gdrop-m"><a href="policy.html" data-i18n="k004">かみのての保育</a><a href="philosophy.html" data-i18n="k116">保育理念</a><a href="parks.html" data-i18n="k005">園のご紹介</a><a href="news.html" data-i18n="k012">お知らせ</a><a href="faq.html" data-i18n="k117">よくあるご質問</a><a href="recruit.html" data-i18n="k008">採用情報</a></div></div><a href="life.html" data-i18n="k100">園での生活</a><a href="admission.html" aria-current="page" data-i18n="k007">入園案内</a><a href="byoji.html" data-i18n="k006">病児保育</a><a href="contact.html" data-i18n="k111">お問い合わせ</a></nav>
-    <a class="cta-pill" href="contact.html">見学・お問い合わせ</a>
+    <nav class="gnav"><div class="gdrop"><button class="gdrop-t" type="button" aria-expanded="false"><span data-i18n="k098">園について</span><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="gdrop-m"><a href="policy.html" data-i18n="k004">かみのての保育</a><a href="philosophy.html" data-i18n="k116">保育理念</a><a href="parks.html" data-i18n="k005">園のご紹介</a><a href="news.html" data-i18n="k012">お知らせ</a><a href="faq.html" data-i18n="k117">よくあるご質問</a><a href="recruit.html" data-i18n="k008">採用情報</a></div></div><a href="life.html" data-i18n="k100">園での生活</a><a href="admission.html" aria-current="page" data-i18n="k007">入園案内</a><a href="byoji.html" data-i18n="k006">病児保育</a><a href="contact.html" data-i18n="k111">お問い合わせ</a></nav>
+    <a class="cta-pill" href="contact.html" data-i18n="k091">見学・お問い合わせ</a>
     <button class="burger" type="button" aria-label="メニュー">☰</button>
   </div>
 </header>
@@ -73,29 +75,79 @@
 
 
 <nav class="crumb"><a href="index.html" data-i18n="k118">トップ</a><span aria-hidden="true">›</span><span data-i18n="k061">入園案内・保育料</span></nav>
-<section class="sec" id="admission">
-  <div class="wrap">
-    <div class="sec-head">
-      <span class="eyebrow"><svg viewBox="0 0 24 24"><path d="M12 3c4 6 6 8 6 11a6 6 0 1 1-12 0c0-3 2-5 6-11Z" fill="#8b7bc8"/></svg><span data-i18n="k007">入園案内</span></span>
-      <h2><span data-i18n="k061">入園案内・保育料</span><span class="en">ADMISSION</span></h2>
-      <p data-i18n="k062">2つの園は制度が異なり、申し込み先も違います。ご希望の園からお進みください。</p>
-    </div>
-    <div class="adm">
-      <div class="adm-card">
-        <h3 data-i18n="k063">かみのて保育園（企業主導型）</h3>
-        <p data-i18n="k064">自治体を通さず、<b>園に直接</b>お申し込みいただけます。お住まいの地域や勤務先を問わない地域枠のほか、提携企業にお勤めの方の企業枠、自社枠があり、保育料が異なります。入園料はいただきません。</p>
-        <ul class="steps"><li data-i18n="k065">1. お問い合わせ・お電話</li><li data-i18n="k066">2. 来園・書類の記入</li><li data-i18n="k067">3. 入園</li></ul>
-        <a class="link-a" href="admission.html" data-i18n="k068">保育料と入園の流れを見る →</a>
-      </div>
-      <div class="adm-card">
-        <h3 data-i18n="k069">かみのて今渡保育園（認可）</h3>
-        <p data-i18n="k070">可児市の認可保育園です。お申し込みは<b>可児市役所 保育課</b>で受け付けています。市役所から園の案内を受け取ったあと、来園のご予約をお願いします。保育料は市役所でご確認ください。</p>
-        <ul class="steps"><li data-i18n="k071">1. 可児市役所 保育課へ</li><li data-i18n="k072">2. 来園予約</li><li data-i18n="k073">3. 見学・面談・申し込み</li></ul>
-        <a class="link-a" href="admission.html" data-i18n="k074">入園の流れを見る →</a>
-      </div>
-    </div>
-    <div class="notice" data-i18n="k075"><b>一時預かりもあります。</b>かみのて今渡保育園では、0歳（6か月〜）〜2歳のお子さまを1日2,500円でお預かりしています（9:00〜16:00、月〜土・祝）。事前登録が必要です。</div>
-  </div>
+<section class="as-hero">
+<span class="ls-deco sprig" aria-hidden="true" style="left:2%;top:30px;"><i class="ls-sprig" style="left:18px;top:14px;transform:rotate(8deg)"></i><i class="ls-leaf" style="left:2px;top:24px;transform:rotate(-30deg)"></i><i class="ls-leaf" style="left:20px;top:36px;transform:rotate(60deg)"></i><i class="ls-leaf" style="left:3px;top:54px;transform:rotate(-24deg)"></i><i class="ls-flower" style="left:8px;top:0px;"></i></span><span class="ls-deco" aria-hidden="true" style="right:3%;top:18px;width:46px;height:46px"><i class="ls-sun" style="left:0px;top:0px;"></i></span><span class="ls-deco as-hero-bird" aria-hidden="true" style="left:45%;top:70px;width:40px;height:30px"><i class="ls-bird" style="left:0px;top:0px;"></i></span>
+<div class="as-wrap as-hero-in">
+<div class="as-hero-copy">
+<p class="as-eyebrow">ADMISSION</p>
+<h1 data-i18n="k061">入園案内・保育料</h1>
+<p class="as-hero-sub" data-i18n="k518">はじめての園選びを<em>安心</em>して</p>
+<p class="as-lead" data-i18n="k062">2つの園は制度が異なり、申し込み先も違います。ご希望の園からお進みください。</p>
+<nav class="as-jumps" aria-label="ページ内の案内"><a href="#choose" data-i18n="k519">2つの園</a><a href="#flow" data-i18n="k520">入園までの流れ</a><a href="#temporary" data-i18n="k521">一時預かり</a><a href="#faq" data-i18n="k117">よくあるご質問</a></nav>
+</div>
+<div class="as-hero-photo"><img src="img/hero-toys-c.jpg" alt="イメージ写真（保育室のおもちゃ）" fetchpriority="high" decoding="async"></div>
+<p class="ls-hand-copy as-hand" aria-hidden="true" data-i18n="k522">ゆっくり、<br>いっしょに、<br>えらびましょう。</p>
+</div>
+</section>
+<section class="as-sec as-choose" id="choose">
+<span class="ls-deco sprig" aria-hidden="true" style="left:-6px;top:110px;"><i class="ls-sprig" style="left:18px;top:14px;transform:rotate(8deg)"></i><i class="ls-leaf" style="left:2px;top:24px;transform:rotate(-30deg)"></i><i class="ls-leaf" style="left:20px;top:36px;transform:rotate(60deg)"></i><i class="ls-leaf" style="left:3px;top:54px;transform:rotate(-24deg)"></i><i class="ls-flower" style="left:8px;top:0px;"></i></span>
+<div class="as-wrap">
+<div class="as-heading"><span class="as-h-leaf" aria-hidden="true"><i class="ls-leaf" style="left:4px;top:4px;transform:rotate(-40deg)"></i></span><h2 data-i18n="k523">2つの園からお選びください</h2><span class="as-h-leaf" aria-hidden="true"><i class="ls-leaf" style="left:4px;top:4px;transform:rotate(40deg) scaleX(-1)"></i></span></div>
+<div class="as-cards">
+<article class="as-card coral">
+<span class="ls-art as-card-art" aria-hidden="true"><i class="ls-roof" style="left:-7px;top:-4px;transform:scale(.62);transform-origin:50% 100%"></i><i class="ls-school" style="left:22px;top:36px;transform:scale(.7);transform-origin:0 0"></i><i class="ls-tree" style="left:-18px;top:44px;transform:scale(.6)"></i><i class="ls-flower" style="left:112px;top:66px;"></i></span>
+<span class="as-tag" data-i18n="k524">企業主導型保育園</span>
+<h3 data-i18n="k002">かみのて保育園</h3>
+<ul class="as-checks"><li><span class="as-check" aria-hidden="true"></span><span data-i18n="k525">園へ直接お申し込み</span></li><li><span class="as-check" aria-hidden="true"></span><span data-i18n="k526">地域枠・企業枠・自社枠があります</span></li><li><span class="as-check" aria-hidden="true"></span><span data-i18n="k527">入園料はかかりません</span></li></ul>
+<div class="as-fee"><p class="as-fee-t" data-i18n="k528">保育料（月額の目安）</p><dl><div><dt data-i18n="k529">自社枠</dt><dd data-i18n="k530">10,000円</dd></div><div><dt data-i18n="k531">提携企業枠</dt><dd data-i18n="k532">25,000円</dd></div><div><dt data-i18n="k533">地域枠</dt><dd data-i18n="k534">30,000円</dd></div></dl></div>
+<a class="as-btn" href="#flow" data-i18n="k068">保育料と入園の流れを見る →</a>
+</article>
+<article class="as-card blue">
+<span class="ls-art as-card-art" aria-hidden="true"><i class="as-hall" style="left:22px;top:14px;"></i><i class="as-flag" style="left:64px;top:-4px;"></i><i class="ls-tree" style="left:112px;top:40px;transform:scale(.6)"></i></span>
+<span class="as-tag" data-i18n="k535">認可保育園</span>
+<h3 data-i18n="k051">かみのて今渡保育園</h3>
+<ul class="as-checks"><li><span class="as-check" aria-hidden="true"></span><span data-i18n="k536">可児市役所 保育課でお申し込み</span></li><li><span class="as-check" aria-hidden="true"></span><span data-i18n="k537">市役所の案内のあとに来園のご予約</span></li><li><span class="as-check" aria-hidden="true"></span><span data-i18n="k538">保育料は市役所でご確認ください</span></li></ul>
+<div class="as-fee"><p class="as-fee-t" data-i18n="k539">保育料について</p><p class="as-fee-note" data-i18n="k540">可児市が世帯の状況などに応じて決めます。</p></div>
+<a class="as-btn outline" href="#flow" data-i18n="k074">入園の流れを見る →</a>
+</article>
+</div>
+</div>
+</section>
+<section class="as-sec as-flow" id="flow">
+<span class="ls-deco sprig" aria-hidden="true" style="right:-4px;top:80px;transform:scaleX(-1);"><i class="ls-sprig" style="left:18px;top:14px;transform:rotate(8deg)"></i><i class="ls-leaf" style="left:2px;top:24px;transform:rotate(-30deg)"></i><i class="ls-leaf" style="left:20px;top:36px;transform:rotate(60deg)"></i><i class="ls-leaf" style="left:3px;top:54px;transform:rotate(-24deg)"></i><i class="ls-flower" style="left:8px;top:0px;"></i></span>
+<div class="as-wrap">
+<div class="as-heading"><span class="as-h-leaf" aria-hidden="true"><i class="ls-leaf" style="left:4px;top:4px;transform:rotate(-40deg)"></i></span><h2 data-i18n="k520">入園までの流れ</h2><span class="as-h-leaf" aria-hidden="true"><i class="ls-leaf" style="left:4px;top:4px;transform:rotate(40deg) scaleX(-1)"></i></span></div>
+<div class="as-flow-row"><p class="as-flow-name coral" data-i18n="k002">かみのて保育園</p><ol class="as-steps"><li><span class="as-num">1</span><span class="ls-art as-step-art" aria-hidden="true"><i class="as-phone" style="left:50px;top:16px;"></i></span><span class="as-step-t" data-i18n="k541">お問い合わせ・お電話</span></li><li><span class="as-num">2</span><span class="ls-art as-step-art" aria-hidden="true"><i class="ls-paper" style="left:40px;top:18px;"></i><i class="ls-pencil" style="left:86px;top:22px;"></i></span><span class="as-step-t" data-i18n="k542">来園・書類の記入</span></li><li><span class="as-num">3</span><span class="ls-art as-step-art" aria-hidden="true"><i class="ls-roof" style="left:-5px;top:-2px;transform:scale(.5);transform-origin:50% 100%"></i><i class="ls-school" style="left:37px;top:38px;transform:scale(.5);transform-origin:0 0"></i><i class="ls-heart" style="left:92px;top:4px;transform:scale(.6)"></i></span><span class="as-step-t" data-i18n="k543">入園</span></li></ol></div>
+<div class="as-flow-row"><p class="as-flow-name blue" data-i18n="k051">かみのて今渡保育園</p><ol class="as-steps"><li><span class="as-num">1</span><span class="ls-art as-step-art" aria-hidden="true"><i class="as-hall" style="left:34px;top:18px;transform:scale(.8);transform-origin:0 0"></i><i class="as-flag" style="left:68px;top:2px;transform:scale(.8)"></i></span><span class="as-step-t" data-i18n="k544">可児市役所 保育課へ</span></li><li><span class="as-num">2</span><span class="ls-art as-step-art" aria-hidden="true"><i class="as-cal" style="left:46px;top:16px;"></i></span><span class="as-step-t" data-i18n="k545">来園予約</span></li><li><span class="as-num">3</span><span class="ls-art as-step-art" aria-hidden="true"><i class="ls-people" style="left:30px;top:40px;transform:scale(1.3)"></i><i class="ls-talk" style="left:80px;top:12px;"></i></span><span class="as-step-t" data-i18n="k546">見学・面談・申し込み</span></li></ol></div>
+</div>
+</section>
+<section class="as-sec as-temp" id="temporary">
+<div class="as-wrap">
+<div class="as-temp-box">
+<span class="ls-art as-temp-art" aria-hidden="true"><i class="as-baby" style="left:34px;top:8px;transform:scale(1.5)"></i><i class="ls-sun" style="left:96px;top:-2px;transform:scale(.6)"></i><i class="ls-star" style="left:18px;top:4px;"></i><i class="ls-star" style="left:112px;top:58px;"></i></span>
+<div class="as-temp-main">
+<span class="as-tag blue" data-i18n="k069">かみのて今渡保育園（認可）</span>
+<h2 class="as-temp-h" data-i18n="k547">一時預かりのご案内</h2>
+<ul class="as-temp-list"><li><span class="as-mini" aria-hidden="true"><i class="as-baby" style="left:6px;top:4px;"></i></span><span class="as-t-label" data-i18n="k548">対象</span><span class="as-t-val" data-i18n="k549">0歳（6か月〜）<br>〜2歳</span></li><li><span class="as-mini" aria-hidden="true"><i class="ls-clock" style="left:-7px;top:-8px;transform:scale(.7)"></i></span><span class="as-t-label" data-i18n="k550">利用時間</span><span class="as-t-val" data-i18n="k551">9:00〜16:00<br>月〜土・祝</span></li><li><span class="as-mini" aria-hidden="true"><i class="as-coin" style="left:4px;top:14px;"></i><i class="as-coin" style="left:20px;top:6px;"></i></span><span class="as-t-label" data-i18n="k552">料金</span><span class="as-t-val" data-i18n="k553">1日 2,500円</span></li><li><span class="as-mini" aria-hidden="true"><i class="ls-doc" style="left:14px;top:6px;"></i></span><span class="as-t-label" data-i18n="k554">ご利用について</span><span class="as-t-val" data-i18n="k555">事前登録が必要です</span></li></ul>
+</div>
+</div>
+</div>
+</section>
+<section class="as-sec as-faq" id="faq">
+<div class="as-wrap">
+<div class="as-heading"><span class="as-h-leaf" aria-hidden="true"><i class="ls-leaf" style="left:4px;top:4px;transform:rotate(-40deg)"></i></span><h2 data-i18n="k117">よくあるご質問</h2><span class="as-h-leaf" aria-hidden="true"><i class="ls-leaf" style="left:4px;top:4px;transform:rotate(40deg) scaleX(-1)"></i></span></div>
+<div class="as-faq-list"><details class="as-faq-item"><summary><i class="as-q" aria-hidden="true">Q</i><span data-i18n="k126">2つの園は、何がちがうのですか。</span><b aria-hidden="true"></b></summary><div class="as-faq-a"><i class="as-a" aria-hidden="true">A</i><p data-i18n="k556">かみのて保育園は企業主導型保育園で、企業枠・地域枠があり、園へ直接お申し込みいただきます。かみのて今渡保育園は可児市の認可保育園で、市役所へのお申し込みが必要です。</p></div></details><details class="as-faq-item"><summary><i class="as-q" aria-hidden="true">Q</i><span data-i18n="k129">見学はできますか。予約は必要ですか。</span><b aria-hidden="true"></b></summary><div class="as-faq-a"><i class="as-a" aria-hidden="true">A</i><p data-i18n="k557">見学を受け付けています。こどもたちの生活時間に合わせてご案内するため、事前に電話またはお問い合わせフォームからご予約ください。入園時期が未定の方もご相談いただけます。</p></div></details><details class="as-faq-item"><summary><i class="as-q" aria-hidden="true">Q</i><span data-i18n="k149">保育料はいくらですか。</span><b aria-hidden="true"></b></summary><div class="as-faq-a"><i class="as-a" aria-hidden="true">A</i><p data-i18n="k558">かみのて保育園は、自社枠10,000円、提携企業枠25,000円、地域枠30,000円が月額の目安で、入園料はありません。かみのて今渡保育園は可児市が世帯状況などに応じて決定します。</p></div></details></div>
+<p class="as-more"><a href="faq.html" data-i18n="k559">よくあるご質問をすべて見る →</a></p>
+</div>
+</section>
+<section class="as-sec as-visit">
+<span class="ls-deco ls-visit-flowers" aria-hidden="true"><span class="ls-deco sprig" aria-hidden="true" style="left:0;bottom:0;transform:scale(1.15);transform-origin:bottom"><i class="ls-sprig" style="left:18px;top:14px;transform:rotate(8deg)"></i><i class="ls-leaf" style="left:2px;top:24px;transform:rotate(-30deg)"></i><i class="ls-leaf" style="left:20px;top:36px;transform:rotate(60deg)"></i><i class="ls-leaf" style="left:3px;top:54px;transform:rotate(-24deg)"></i><i class="ls-flower" style="left:8px;top:0px;"></i></span><span class="ls-deco sprig" aria-hidden="true" style="left:44px;bottom:0;transform:scale(1.4);transform-origin:bottom"><i class="ls-sprig" style="left:18px;top:14px;transform:rotate(8deg)"></i><i class="ls-leaf" style="left:2px;top:24px;transform:rotate(-30deg)"></i><i class="ls-leaf" style="left:20px;top:36px;transform:rotate(60deg)"></i><i class="ls-leaf" style="left:3px;top:54px;transform:rotate(-24deg)"></i><i class="ls-flower" style="left:8px;top:0px;"></i></span><span class="ls-deco sprig" aria-hidden="true" style="left:92px;bottom:0;transform:scaleX(-1);"><i class="ls-sprig" style="left:18px;top:14px;transform:rotate(8deg)"></i><i class="ls-leaf" style="left:2px;top:24px;transform:rotate(-30deg)"></i><i class="ls-leaf" style="left:20px;top:36px;transform:rotate(60deg)"></i><i class="ls-leaf" style="left:3px;top:54px;transform:rotate(-24deg)"></i><i class="ls-flower" style="left:8px;top:0px;"></i></span></span><span class="ls-deco ls-visit-school" aria-hidden="true"><i class="ls-roof" style="left:35px;top:20px;"></i><i class="ls-school" style="left:44px;top:58px;"></i><i class="ls-tree" style="left:0px;top:66px;transform:scale(.8)"></i><i class="ls-tree" style="left:180px;top:70px;transform:scale(.7)"></i></span><span class="ls-deco as-visit-sun" aria-hidden="true" style="width:46px;height:46px"><i class="ls-sun" style="left:0px;top:0px;"></i></span>
+<div class="as-wrap">
+<div class="as-heading"><span class="as-h-leaf" aria-hidden="true"><i class="ls-leaf" style="left:4px;top:4px;transform:rotate(-40deg)"></i></span><h2 data-i18n="k514">実際の園の様子を見に来ませんか</h2><span class="as-h-leaf" aria-hidden="true"><i class="ls-leaf" style="left:4px;top:4px;transform:rotate(40deg) scaleX(-1)"></i></span></div>
+<p class="as-visit-p" data-i18n="k515">気になることも、見学の際にお聞かせください。</p>
+<a class="as-visit-btn" href="contact.html"><span data-i18n="k010">見学・ご相談</span><span aria-hidden="true">→</span></a>
+<p class="as-tel"><a href="tel:0574663511">TEL 0574-66-3511</a></p>
+</div>
 </section>
 
 <!-- ============ 採用 ============ -->
@@ -108,6 +160,7 @@
         <!-- フッターは地色が濃いので実ロゴを置けない（白抜きのハートと顔に地色が透ける）。
              仮マークだけ残すとヘッダーと食い違うので、マークは置かず名前だけにする。 -->
         <div class="brand">
+          <img class="mark" src="img/logo-mark.png" width="313" height="192" alt="">
           <span class="tx"><span class="name" data-i18n="k002">かみのて保育園</span><span class="en">KAMINOTE NURSERY</span></span>
         </div>
         <div class="foot-addr" data-i18n="k097">運営：株式会社 A and K<br>〒509-0207 岐阜県可児市今渡3-11<br>TEL 0574-66-3511</div>
@@ -247,6 +300,6 @@
 </script>
 
 
-<script src="i18n.js"></script>
+<script src="i18n.js?v=adm-20261012"></script>
 
 

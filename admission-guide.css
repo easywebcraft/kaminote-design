@@ -1,0 +1,91 @@
+/* =====================================================================
+   入園案内・保育料（2026-10-12 参考デザインで作り直し・2回目）。parks-soft.css のあとに読む
+   カード・アイコン・枝・入園までの流れは、園のご紹介と同じ部品（parks-soft.css の pk-）を使う。このページだけの形は ag-
+   ===================================================================== */
+.ag-head { display: flex; align-items: baseline; flex-wrap: wrap; gap: 6px 18px; margin: 0 0 22px; }
+.parks-soft .ag-head h2 { margin: 0; }
+.ag-head small { font-size: 11px; letter-spacing: .24em; color: var(--pk-sub); }
+.ag-head .ag-more { margin-left: auto; font-size: 13px; font-weight: 700; color: var(--pk-green-d); text-decoration: none; border-bottom: 1px solid var(--pk-green); padding-bottom: 2px; }
+
+/* 2つの園のカード（写真と一覧つき） */
+.ag-choose .pk-card { text-align: center; }
+.ag-card-photo { width: 100%; height: 180px; margin: 4px 0 18px; border-radius: 16px; overflow: hidden; }
+.ag-card-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.ag-choose .pk-info { width: 100%; margin-bottom: 24px; text-align: left; border-top-color: rgba(80, 90, 70, .15); }
+.ag-choose .pk-info div { border-bottom-color: rgba(80, 90, 70, .15); }
+.parks-soft .ag-solid { display: inline-flex; align-items: center; gap: 10px; margin-top: auto; padding: 14px 40px; border-radius: 999px; color: #fff; font-weight: 700; font-size: 14.5px; text-decoration: none; letter-spacing: .04em; }
+.ag-solid.green { background: var(--pk-green); box-shadow: 0 8px 18px rgba(75, 118, 86, .22); }
+.ag-solid.coral { background: linear-gradient(90deg, #ec7f69, #e2654f); box-shadow: 0 8px 18px rgba(226, 101, 79, .24); }
+
+/* 保育料 */
+.ag-fees-grid { display: grid; grid-template-columns: 1.7fr 1fr; gap: 22px; }
+.ag-fee-box { padding: 24px 22px 22px; border-radius: 22px; }
+.ag-fee-box.green { background: var(--pk-green-bg); }
+.ag-fee-box.peach { background: var(--pk-peach-bg); display: flex; flex-direction: column; }
+.parks-soft .ag-fee-box h3 { margin: 0 0 16px; text-align: center; font-family: var(--pk-mincho); font-size: 17px; font-weight: 700; color: var(--pk-ink); }
+.ag-fee-cap { margin: -8px 0 14px; text-align: center; font-size: 12.5px; color: var(--pk-sub); }
+.ag-fee-tiles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 0; padding: 0; list-style: none; }
+.ag-fee-tiles li { padding: 18px 8px 16px; border-radius: 14px; background: #fff; text-align: center; }
+.ag-fee-tiles .lbl { display: block; font-weight: 700; font-size: 14.5px; color: var(--pk-green-d); }
+.ag-fee-tiles .yen { display: block; margin-top: 8px; font-family: var(--pk-mincho); font-weight: 700; font-size: clamp(22px, 2.4vw, 28px); color: var(--pk-ink); letter-spacing: .02em; }
+.ag-fee-notes { margin: 16px 0 0; padding: 0 0 0 4px; list-style: none; font-size: 13px; color: var(--pk-sub); }
+.ag-fee-notes li { position: relative; padding-left: 16px; line-height: 1.8; }
+.ag-fee-notes li::before { content: ""; position: absolute; left: 2px; top: .75em; width: 6px; height: 6px; border-radius: 50%; background: var(--pk-green); }
+.ag-city { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; padding: 22px 18px; border-radius: 14px; background: #fff; text-align: center; }
+.parks-soft .ag-city p { margin: 0; font-size: 14px; line-height: 1.9; color: var(--pk-ink); }
+.parks-soft .ag-city p + p { font-size: 13px; color: var(--pk-sub); }
+/* 硬貨（重ねた円） */
+.ag-coins { position: relative; width: 52px; height: 44px; }
+.ag-coins i { position: absolute; left: 6px; width: 34px; height: 12px; border-radius: 50%; border: 2px solid var(--pk-peach); background: #fff; }
+.ag-coins i:nth-child(1) { top: 26px; } .ag-coins i:nth-child(2) { top: 18px; } .ag-coins i:nth-child(3) { top: 10px; }
+.ag-coins b { position: absolute; right: 0; top: 0; width: 22px; height: 22px; border-radius: 50%; border: 2px solid var(--pk-peach); background: #fff; }
+
+/* 一時預かり */
+.ag-temp { background: linear-gradient(180deg, var(--pk-cream), #e8f2f6 25%, #e8f2f6 75%, var(--pk-cream)); }
+.ag-temp-in { display: grid; grid-template-columns: 300px 1fr; gap: 30px; align-items: center; }
+.ag-temp-box { position: relative; padding: 30px 20px 20px; border-radius: 20px; background: #fff; box-shadow: 0 6px 20px rgba(60, 80, 90, .06); }
+.ag-temp-tag { position: absolute; left: 50%; top: -14px; transform: translateX(-50%); padding: 4px 18px; border-radius: 999px; background: #fff; border: 1.5px solid #f3c2b2; color: #d0705a; font-size: 12.5px; font-weight: 700; white-space: nowrap; }
+.ag-temp .as-temp-list { grid-template-columns: repeat(4, 1fr); gap: 0; }
+.ag-temp .as-temp-list li { padding: 8px 10px; background: none; border-radius: 0; }
+.ag-temp .as-temp-list li + li { border-left: 1px solid #e3e6e0; }
+.ag-temp .ag-temp-act { margin-top: 18px; text-align: center; }
+
+/* よくあるご質問 */
+.ag-faq-list { border-top: 1px solid #e3e0d6; }
+.ag-faq-item { border-bottom: 1px solid #e3e0d6; }
+.ag-faq-item summary { display: flex; align-items: center; gap: 12px; padding: 16px 6px; cursor: pointer; list-style: none; font-size: 15px; font-weight: 500; color: var(--pk-ink); }
+.ag-faq-item summary::-webkit-details-marker { display: none; }
+.ag-faq-item summary i { font-style: normal; font-family: var(--pk-mincho); font-weight: 700; color: var(--pk-peach); }
+.ag-faq-item summary b { position: relative; margin-left: auto; width: 14px; height: 14px; flex: none; }
+.ag-faq-item summary b::before, .ag-faq-item summary b::after { content: ""; position: absolute; left: 0; top: 6px; width: 14px; height: 2px; background: var(--pk-ink); }
+.ag-faq-item summary b::after { transform: rotate(90deg); transition: transform .2s; }
+.ag-faq-item[open] summary b::after { transform: rotate(0); }
+.ag-faq-item .faq-answer { display: flex; gap: 12px; padding: 0 6px 18px; }
+.ag-faq-item .faq-answer i { font-style: normal; font-family: var(--pk-mincho); font-weight: 700; color: var(--pk-green); }
+.parks-soft .ag-faq-item .faq-answer p { margin: 0; font-size: 14px; line-height: 1.9; }
+
+/* 見学のおさそい：ボタン2つ */
+.ag-visit-actions { display: flex; justify-content: center; flex-wrap: wrap; gap: 16px; }
+.parks-soft .ag-outline { display: inline-flex; align-items: center; gap: 12px; padding: 14px 40px; border-radius: 999px; background: #fff; border: 1.5px solid var(--pk-green); color: var(--pk-green-d); font-weight: 700; text-decoration: none; }
+.ag-over-c { display: inline-flex; align-items: center; gap: 16px; margin: 0 0 12px; font-size: 11.5px; letter-spacing: .24em; color: var(--pk-sub); }
+.ag-over-c::before, .ag-over-c::after { content: ""; width: 34px; height: 1px; background: #b9bcb3; }
+.ag-bird { position: absolute; z-index: 2; width: 44px; height: 28px; pointer-events: none; }
+.ag-bird i { position: absolute; display: block; }
+.ag-bird .body { left: 6px; top: 8px; width: 30px; height: 18px; border-radius: 60% 45% 50% 55%; background: #e7d27e; }
+.ag-bird .wing { left: 12px; top: 0; width: 18px; height: 14px; border-radius: 80% 20% 70% 30%; background: #a9c79a; transform: rotate(-24deg); }
+.ag-bird .beak { left: 35px; top: 13px; width: 7px; height: 6px; background: #e59b56; clip-path: polygon(0 0, 100% 50%, 0 100%); }
+.ag-bird .eye { left: 28px; top: 12px; width: 3px; height: 3px; border-radius: 50%; background: #3a3b37; }
+
+@media (max-width: 900px) {
+  .ag-fees-grid, .ag-temp-in { grid-template-columns: 1fr; }
+  .ag-temp .as-temp-list { grid-template-columns: repeat(2, 1fr); }
+  .ag-temp .as-temp-list li:nth-child(3) { border-left: 0; }
+}
+@media (max-width: 767px) {
+  .ag-fee-tiles { grid-template-columns: 1fr; }
+  .ag-card-photo { height: 150px; }
+  .ag-head .ag-more { margin-left: 0; }
+  .pk-sec > .ag-bird { display: none; }
+}
+/* 言葉の区切りで折り返す（「必要で / す」のような折れ方を防ぐ） */
+.ag-temp .as-t-val, .ag-temp .as-t-label, .ag-city p, .pk-info dd, .ag-faq-item summary { word-break: auto-phrase; }

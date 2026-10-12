@@ -1011,7 +1011,12 @@
   "k1001": "それぞれのご家庭に<br>それぞれの安心を",
   "k1002": "かみのて保育園には、企業主導型保育園と<br>認可保育園の2つの園があります。<br>どちらも見学を受け付けています。",
   "k1003": "園のいまを<br>おとどけします",
-  "k1004": "行事のご案内や大切なお知らせ、<br>こどもたちの毎日の様子など、<br>かみのて保育園の“いま”をお伝えします。"
+  "k1004": "行事のご案内や大切なお知らせ、<br>こどもたちの毎日の様子など、<br>かみのて保育園の“いま”をお伝えします。",
+  "k1005": "はじめての園選びに<br>安心を",
+  "k1006": "お子さまとご家庭に合った保育園選びを。<br>かみのて保育園には、企業主導型保育園と<br>認可保育園の2つの園があります。<br>それぞれの入園方法や保育料について、<br>わかりやすくご案内します。",
+  "k1007": "入園料",
+  "k1008": "なし",
+  "k1009": "保育料"
  },
  "en": {
   "k000": "This is <b>Design A</b>. The photos are stand-ins to convey the mood, and the nursery details are quoted from the current website. Text and photos will be replaced.",
@@ -2018,7 +2023,12 @@
   "k1001": "For every family<br>its own peace of mind",
   "k1002": "Kaminote has two nurseries: a company-led nursery<br>and a licensed nursery.<br>Both welcome visits.",
   "k1003": "What’s happening<br>at the nursery",
-  "k1004": "Event information, important notices<br>and the children’s everyday life —<br>news from Kaminote Nursery, as it happens."
+  "k1004": "Event information, important notices<br>and the children’s everyday life —<br>news from Kaminote Nursery, as it happens.",
+  "k1005": "Peace of mind<br>for your first nursery choice",
+  "k1006": "A nursery that suits your child and family.<br>Kaminote has two nurseries:<br>a company-led nursery and a licensed nursery.<br>We explain how to apply and the fees<br>for each, simply and clearly.",
+  "k1007": "Enrolment fee",
+  "k1008": "None",
+  "k1009": "Fees"
  },
  "pt": {
   "k000": "Este é o <b>Plano A</b>. As fotos são apenas de referência, para dar a ideia, e as informações da creche foram citadas do site atual. Textos e fotos serão substituídos.",
@@ -3025,7 +3035,12 @@
   "k1001": "Para cada família<br>a sua tranquilidade",
   "k1002": "A Kaminote tem duas creches: uma de iniciativa empresarial<br>e uma creche licenciada.<br>As duas recebem visitas.",
   "k1003": "O que acontece<br>na creche",
-  "k1004": "Avisos de eventos, comunicados importantes<br>e o dia a dia das crianças:<br>o “agora” da Creche Kaminote."
+  "k1004": "Avisos de eventos, comunicados importantes<br>e o dia a dia das crianças:<br>o “agora” da Creche Kaminote.",
+  "k1005": "Tranquilidade<br>na primeira escolha da creche",
+  "k1006": "Uma creche que combine com a criança e a família.<br>A Kaminote tem duas creches:<br>uma de iniciativa empresarial e uma licenciada.<br>Explicamos de forma simples<br>a inscrição e as mensalidades de cada uma.",
+  "k1007": "Taxa de matrícula",
+  "k1008": "Nenhuma",
+  "k1009": "Mensalidade"
  }
 };
 

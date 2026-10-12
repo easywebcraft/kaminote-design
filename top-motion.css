@@ -1,0 +1,70 @@
+/* =====================================================================
+   TOPページのスクロールの動き（2026-10-12・おすすめセット）。top-motion.js とセット
+   ・動きは html.tm-on のときだけ（端末の「視差効果を減らす」がオンなら付かない＝最初から普通に表示）
+   ・やわらかく、ゆっくり、品よく。LFグループの動きを、保育園向けに置き換えたもの
+   ===================================================================== */
+
+/* なめらかなスクロール（Lenis）の決まりごと */
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+.lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+.lenis.lenis-stopped { overflow: hidden; }
+
+/* ① FVの見出し：1文字ずつ浮かび上がる */
+.tm-w { display: inline-block; white-space: nowrap; }
+html.tm-on .classic-hero h1 .tm-ch { display: inline-block; opacity: 0; transform: translateY(.45em); filter: blur(4px);
+  animation: tm-ch .8s cubic-bezier(.22, .61, .36, 1) forwards; animation-delay: calc(var(--i) * 55ms + 250ms); }
+@keyframes tm-ch { to { opacity: 1; transform: none; filter: none; } }
+html.tm-on .classic-hero .hero-eyebrow, html.tm-on .classic-hero .hero-lead, html.tm-on .classic-hero .hero-actions {
+  opacity: 0; animation: tm-fade 1s ease forwards; }
+html.tm-on .classic-hero .hero-eyebrow { animation-delay: .1s; }
+html.tm-on .classic-hero .hero-lead { animation-delay: 1.1s; }
+html.tm-on .classic-hero .hero-actions { animation-delay: 1.35s; }
+@keyframes tm-fade { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+
+/* ② 見出し：下からせり上がり、下の緑の線が左から伸びる */
+html.tm-on [data-tm="rise"] { clip-path: inset(0 0 100% 0); transform: translateY(26px);
+  transition: clip-path 1s cubic-bezier(.22, .61, .36, 1), transform 1s cubic-bezier(.22, .61, .36, 1); }
+html.tm-on [data-tm="rise"].is-in { clip-path: inset(0 0 -40% 0); transform: none; }
+html.tm-on .soft .soft-title[data-tm="rise"]::after { transform: scaleX(0); transition: transform .8s ease .55s; }
+html.tm-on .soft .soft-title[data-tm="rise"].is-in::after { transform: scaleX(1); }
+
+/* ③ アイコンの線が描かれていく（3つの特徴・4つの入口） */
+html.tm-on [data-tm="draw"] { opacity: 0; transform: translateY(22px); transition: opacity .9s ease, transform .9s cubic-bezier(.22, .61, .36, 1); transition-delay: calc(var(--d, 0) * 140ms); }
+html.tm-on [data-tm="draw"].is-in { opacity: 1; transform: none; }
+html.tm-on [data-tm="draw"] .ds-ic svg * { stroke-dasharray: 1; stroke-dashoffset: 1; transition: stroke-dashoffset 1.6s cubic-bezier(.45, .05, .35, 1); transition-delay: calc(var(--d, 0) * 140ms + .35s); }
+html.tm-on [data-tm="draw"].is-in .ds-ic svg * { stroke-dashoffset: 0; }
+/* 入口のカード：マウスを乗せると少し持ち上がる */
+.soft-gate { transition: transform .35s ease, box-shadow .35s ease; }
+.soft-gate:hover { transform: translateY(-6px); box-shadow: 0 14px 30px rgba(50, 60, 45, .1) !important; }
+
+/* ④ 3つの理由：カードがふわっと広がる／中のイラストがゆっくりずれる */
+html.tm-on [data-tm="card"] { opacity: 0; transform: scale(.9) translateY(24px);
+  transition: opacity 1s ease, transform 1.1s cubic-bezier(.22, .61, .36, 1); transition-delay: calc(var(--d, 0) * 170ms); }
+html.tm-on [data-tm="card"].is-in { opacity: 1; transform: none; }
+html.tm-on .soft-reason-photo img { transform: translateY(var(--py, 0px)) scale(1.1); will-change: transform; }
+
+/* ⑤ いつもの一日：時刻の線が伸び、点が順に灯る／写真が丸く開く */
+html.tm-on .soft-tl::before { transform-origin: top; transform: scaleY(var(--tl, 0)); }
+html.tm-on body.v2 .soft-tl li::before { transition: background-color .4s ease, transform .4s ease; }
+html.tm-on body.v2 .soft-tl li:not(.is-lit)::before { background: #d3dbd0 !important; transform: scale(.8); }
+html.tm-on body.v2 .soft-tl li { transition: opacity .5s ease; }
+html.tm-on body.v2 .soft-tl li:not(.is-lit) { opacity: .45; }
+html.tm-on [data-tm="circle"] img { clip-path: circle(0% at 50% 50%); transition: clip-path 1.6s cubic-bezier(.22, .61, .36, 1); }
+html.tm-on [data-tm="circle"].is-in img { clip-path: circle(80% at 50% 50%); }
+
+/* ⑥ 見学のおさそい：角丸のカードから画面いっぱいへ広がる／枝がゆっくり揺れる */
+html.tm-on .soft-visit { clip-path: inset(0 calc((1 - var(--vp, 0)) * 6vw) round calc((1 - var(--vp, 0)) * 44px)); }
+html.tm-on .soft-visit-art { transform-origin: 20% 90%; animation: tm-sway 6s ease-in-out infinite; }
+@keyframes tm-sway { 0%, 100% { transform: rotate(-2deg); } 50% { transform: rotate(2.5deg); } }
+
+/* ⑦ スマホの下の固定ボタン（FVを過ぎたら出て、最後の段とフッターでは隠れる） */
+.tm-spbar { display: none; }
+@media (max-width: 700px) {
+  .tm-spbar { position: fixed; left: 12px; right: 12px; bottom: calc(10px + env(safe-area-inset-bottom)); z-index: 60; display: flex; align-items: center; justify-content: center; gap: 10px;
+    min-height: 54px; border-radius: 999px; background: var(--ds-coral, #e26b55); color: #fff; font-weight: 700; letter-spacing: .05em; text-decoration: none;
+    box-shadow: 0 10px 24px rgba(226, 107, 85, .3); transform: translateY(140%); opacity: 0; transition: transform .45s cubic-bezier(.22, .61, .36, 1), opacity .45s ease; }
+  .tm-spbar.is-shown { transform: none; opacity: 1; }
+  .tm-spbar * { color: #fff; }
+}
+@media (prefers-reduced-motion: reduce) { .tm-spbar { transition: none; } }

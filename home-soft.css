@@ -220,3 +220,9 @@
   @supports (height: 100svh) { .home-page .classic-hero { --fv-bg-h: max(clamp(250px, 38vh, 320px), calc(100svh - var(--head-h, 58px) - var(--fv-copy-h, 420px))); } }
   .home-page .classic-hero .hero-bg { height: var(--fv-bg-h); }
 }
+
+/* 3つの理由：カードの上に写真（2026-10-12）。カードの幅いっぱいに、横3:縦2で */
+.soft-reason { padding-top: 0; }
+.soft-reason-photo { margin: 0 -26px 20px; aspect-ratio: 3 / 2; overflow: hidden; }
+.soft-reason-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+@media (max-width: 700px) { .soft-reason-photo { margin: 0 -20px 18px; } }

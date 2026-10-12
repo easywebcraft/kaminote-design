@@ -1007,7 +1007,9 @@
   "k997": "施設情報を比較する",
   "k998": "園へのアクセス",
   "k999": "地図を見る",
-  "k1000": "お待ちしています"
+  "k1000": "お待ちしています",
+  "k1001": "それぞれのご家庭に<br>それぞれの安心を",
+  "k1002": "かみのて保育園には、企業主導型保育園と<br>認可保育園の2つの園があります。<br>どちらも見学を受け付けています。"
  },
  "en": {
   "k000": "This is <b>Design A</b>. The photos are stand-ins to convey the mood, and the nursery details are quoted from the current website. Text and photos will be replaced.",
@@ -2010,7 +2012,9 @@
   "k997": "Compare the nurseries",
   "k998": "Getting here",
   "k999": "View map",
-  "k1000": "We look forward to seeing you"
+  "k1000": "We look forward to seeing you",
+  "k1001": "For every family<br>its own peace of mind",
+  "k1002": "Kaminote has two nurseries: a company-led nursery<br>and a licensed nursery.<br>Both welcome visits."
  },
  "pt": {
   "k000": "Este é o <b>Plano A</b>. As fotos são apenas de referência, para dar a ideia, e as informações da creche foram citadas do site atual. Textos e fotos serão substituídos.",
@@ -3013,7 +3017,9 @@
   "k997": "Comparar as creches",
   "k998": "Como chegar",
   "k999": "Ver mapa",
-  "k1000": "Esperamos por você"
+  "k1000": "Esperamos por você",
+  "k1001": "Para cada família<br>a sua tranquilidade",
+  "k1002": "A Kaminote tem duas creches: uma de iniciativa empresarial<br>e uma creche licenciada.<br>As duas recebem visitas."
  }
 };
 

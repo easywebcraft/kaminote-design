@@ -1,0 +1,201 @@
+/* =====================================================================
+   トップのFVより下（2026-10-12 参考デザインで作り直し）。FV・ヘッダーは今までのまま（style.css・hero-fv.css・home-reference.css）。
+   クラスは soft-。色は参考デザインのクリーム地・珊瑚色・淡い色面。見出しは丸ゴシック（Zen Maru Gothic）。
+   見出しには「、」「。」を入れない。見出しのすぐ下に説明文を置かない（EasyWebCraft 共通）
+   ===================================================================== */
+.soft {
+  --s-ink: #2f3c4f;
+  --s-sub: #5d6878;
+  --s-coral: #f0705f;
+  --s-coral-d: #e45b4a;
+  --s-coral-soft: #fde9e4;
+  --s-cream: #fffaf2;
+  --s-cream-2: #fbf2e2;
+  --s-peach: #fdf1ea;
+  --s-sky: #eaf4fb;
+  --s-mint: #eef6ea;
+  --s-butter: #fdf6e3;
+  --s-line: #efe4d3;
+  --s-green: #8db27a;
+  --s-blue: #5fa7d6;
+  --s-round: "Zen Maru Gothic", "Zen Kaku Gothic New", sans-serif;
+  background: var(--s-cream);
+  color: var(--s-ink);
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  overflow: hidden;
+  word-break: auto-phrase;  /* 日本語を言葉の切れ目で折り返す */
+}
+.soft-wrap { width: min(1200px, calc(100% - 48px)); margin-inline: auto; position: relative; }
+.soft-sec { padding-block: 44px; position: relative; }
+.soft .soft-title { text-align: center; font-family: var(--s-round); font-weight: 700; font-size: clamp(21px, 2.1vw, 27px); letter-spacing: .08em; line-height: 1.5; margin: 0; }
+.soft .soft-title::after { content: ""; display: block; width: 28px; height: 3px; margin: 12px auto 0; border-radius: 2px; background: #e9cbb8; }
+.soft-title .leaf { display: inline-block; width: 22px; height: 22px; vertical-align: -3px; margin: 0 10px; background: url(img/soft/leaf-small.webp) center / contain no-repeat; }
+.soft-deco { position: absolute; pointer-events: none; background: center / contain no-repeat; }
+.soft-arrow { display: inline-grid; place-items: center; width: 28px; height: 28px; border-radius: 50%; background: #fff; color: var(--s-coral); font-size: 14px; box-shadow: 0 2px 6px rgba(47, 60, 79, .08); transition: transform .3s; }
+.soft-link { color: var(--s-coral-d); font-weight: 700; font-size: 14px; text-decoration: none; border-bottom: 1px solid currentColor; padding-bottom: 2px; }
+.soft-link:hover { opacity: .75; }
+.soft-btn { display: inline-flex; align-items: center; gap: 14px; padding: 16px 40px; border-radius: 999px; background: linear-gradient(90deg, #f37a69, #ee6656); color: #fff; font-weight: 700; letter-spacing: .08em; text-decoration: none; box-shadow: 0 8px 18px rgba(238, 102, 86, .28); transition: transform .3s, box-shadow .3s; }
+.soft-btn:hover { transform: translateY(-2px); box-shadow: 0 12px 22px rgba(238, 102, 86, .34); }
+
+/* ① 特徴（3点） */
+.soft-points { display: grid; grid-template-columns: repeat(3, 1fr); padding-top: 52px; }
+.soft-point { text-align: center; padding: 6px 24px; }
+.soft-point + .soft-point { border-left: 1px solid var(--s-line); }
+.soft-point img { height: 74px; width: auto; display: block; margin: 0 auto 14px; }
+.soft-point b { display: block; font-family: var(--s-round); font-size: 21px; letter-spacing: .04em; }
+.soft-point strong { display: block; font-family: var(--s-round); font-size: 17px; letter-spacing: .06em; margin-top: 2px; }
+.soft-point p { margin: 10px 0 0; font-size: 13.5px; line-height: 1.8; color: var(--s-sub); }
+.soft-points-deco { left: -70px; top: 70px; width: 64px; height: 120px; background-image: url(img/soft/flower-tall.webp); }
+
+/* ② お知らせ */
+.soft-news { display: grid; grid-template-columns: 170px 1fr auto; align-items: center; gap: 28px; margin-top: 36px; padding: 18px 28px; border-radius: 18px; background: var(--s-butter); }
+.soft-news-head { display: flex; align-items: center; gap: 12px; }
+.soft-news-head h2 { margin: 0; font-family: var(--s-round); font-size: 18px; letter-spacing: .08em; line-height: 1.3; }
+.soft-news-head h2 small { display: block; font-size: 11px; letter-spacing: .16em; color: var(--s-sub); font-family: "Baloo 2", sans-serif; }
+.soft-news-head img { width: 38px; height: auto; }
+.soft-news ul { list-style: none; margin: 0; padding: 6px 20px; background: #fff; border-radius: 12px; }
+.soft-news li + li { border-top: 1px solid #f3ece0; }
+.soft-news ul a { display: grid; grid-template-columns: 100px 1fr 16px; gap: 16px; align-items: center; padding: 9px 0; color: var(--s-ink); text-decoration: none; font-size: 13.5px; }
+.soft-news ul a time { color: var(--s-sub); font-size: 12.5px; letter-spacing: .04em; }
+.soft-news ul a::after { content: "→"; color: var(--s-coral); }
+.soft-news ul a:hover span { color: var(--s-coral-d); }
+.soft-news-note { margin: 8px 0 0; text-align: right; font-size: 11.5px; color: #8a93a0; }
+
+/* ③ 3つの理由 */
+.soft-reasons { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 30px; }
+.soft-reason { position: relative; min-height: 196px; padding: 26px 26px 28px; border-radius: 22px; overflow: hidden; }
+.soft-reason:nth-child(1) { background: linear-gradient(160deg, #fdf3ec, #fbece4); }
+.soft-reason:nth-child(2) { background: linear-gradient(160deg, #eef6fc, #e6f1fa); }
+.soft-reason:nth-child(3) { background: linear-gradient(160deg, #f2f8ec, #ecf4e5); }
+.soft-reason .num { display: inline-grid; place-items: center; width: 32px; height: 32px; border-radius: 50%; font-family: "Baloo 2", sans-serif; font-size: 14px; font-weight: 600; color: #fff; }
+.soft-reason:nth-child(1) .num { background: #f1a28f; }
+.soft-reason:nth-child(2) .num { background: #8cc0e3; }
+.soft-reason:nth-child(3) .num { background: #a4c98f; }
+.soft-reason h3 { margin: 16px 0 0; font-family: var(--s-round); font-size: 19px; line-height: 1.55; letter-spacing: .06em; }
+.soft-reason p { margin: 12px 0 0; font-size: 13.5px; line-height: 1.9; color: var(--s-sub); max-width: 15em; }
+.soft-reason .soft-deco { right: 14px; top: 14px; width: 92px; height: 92px; opacity: .95; }
+
+/* ④ いつもの一日（クリーム色の波の帯） */
+.soft-day { background: var(--s-cream-2); margin-top: 28px; padding-block: 64px 70px; }
+.soft-day::before, .soft-day::after { content: ""; position: absolute; left: 0; right: 0; height: 40px; background: var(--s-cream); }
+.soft-day::before { top: -1px; clip-path: path("M0 0H3000V8C2700 40 2400 2 2100 22C1800 42 1500 6 1200 24C900 42 600 8 300 26C150 34 60 30 0 22Z"); }
+.soft-day::after { bottom: -1px; clip-path: path("M0 40H3000V30C2700 4 2400 34 2100 16C1800 0 1500 32 1200 14C900 -2 600 30 300 14C150 6 60 10 0 18Z"); }
+.soft-day-grid { display: grid; grid-template-columns: 1.15fr 1fr; gap: 40px; align-items: center; margin-top: 30px; }
+.soft-tl { list-style: none; margin: 0; padding: 0 0 0 4px; position: relative; }
+.soft-tl::before { content: ""; position: absolute; left: 9px; top: 12px; bottom: 12px; width: 2px; background: #f4b3a6; }
+.soft-tl li { display: grid; grid-template-columns: 22px 66px 104px 1fr; align-items: center; gap: 10px; padding: 7px 0; font-size: 14px; }
+.soft-tl li::before { content: ""; width: 12px; height: 12px; border-radius: 50%; background: var(--s-coral); box-shadow: 0 0 0 4px var(--s-cream-2); position: relative; left: 0; }
+.soft-tl time { justify-self: start; padding: 3px 10px; border-radius: 999px; background: var(--s-coral-soft); color: var(--s-coral-d); font-family: "Baloo 2", sans-serif; font-weight: 600; font-size: 14px; }
+.soft-tl b { font-family: var(--s-round); letter-spacing: .04em; }
+.soft-tl span { color: var(--s-sub); font-size: 13.5px; }
+.soft-tl-note { margin: 12px 0 0 36px; font-size: 11.5px; color: #8a93a0; }
+.soft-day-photo { position: relative; margin: 0; }
+.soft-day-photo img { display: block; width: 100%; aspect-ratio: 5 / 4; object-fit: cover; border-radius: 46% 54% 42% 58% / 52% 44% 56% 48%; }
+.soft-day-photo figcaption { position: absolute; right: -6px; top: -14px; padding: 20px 26px; border-radius: 50% 50% 46% 54% / 56% 50% 50% 44%; background: rgba(255, 255, 255, .92); font-family: var(--s-round); font-size: 14px; line-height: 1.8; letter-spacing: .06em; text-align: center; transform: rotate(-6deg); box-shadow: 0 6px 16px rgba(47, 60, 79, .06); }
+.soft-day .soft-deco.d1 { left: 46%; bottom: -18px; width: 60px; height: 110px; background-image: url(img/soft/flower-tall.webp); }
+.soft-day .soft-deco.d2 { right: -40px; top: 16px; width: 70px; height: 70px; background-image: url(img/soft/sun.webp); }
+
+/* ⑤ 知りたいことから */
+.soft-gates { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; margin-top: 30px; }
+.soft-gate { position: relative; display: flex; flex-direction: column; align-items: center; text-align: center; padding: 22px 18px 44px; border-radius: 20px; text-decoration: none; color: var(--s-ink); border: 1px solid rgba(47, 60, 79, .05); box-shadow: 0 4px 14px rgba(47, 60, 79, .05); transition: transform .3s, box-shadow .3s; }
+.soft-gate:nth-child(1) { background: var(--s-peach); }
+.soft-gate:nth-child(2) { background: var(--s-sky); }
+.soft-gate:nth-child(3) { background: var(--s-butter); }
+.soft-gate:nth-child(4) { background: var(--s-mint); }
+.soft-gate img { height: 78px; width: auto; }
+.soft-gate h3 { margin: 12px 0 0; font-family: var(--s-round); font-size: 17px; letter-spacing: .06em; }
+.soft-gate p { margin: 8px 0 0; font-size: 12.5px; line-height: 1.8; color: var(--s-sub); }
+.soft-gate .soft-arrow { position: absolute; right: 14px; bottom: 12px; }
+.soft-gate:hover { transform: translateY(-4px); box-shadow: 0 10px 22px rgba(47, 60, 79, .1); }
+.soft-gate:hover .soft-arrow { transform: translateX(3px); }
+
+/* ⑥ よくあるご質問 */
+.soft-faq { display: grid; grid-template-columns: 300px 1fr; gap: 40px; align-items: start; }
+.soft-faq-head { position: relative; text-align: center; padding-top: 14px; }
+.soft-faq-head h2 { margin: 0; font-family: var(--s-round); font-size: clamp(21px, 2.1vw, 27px); letter-spacing: .1em; }
+.soft-faq-head small { display: block; margin-top: 6px; color: var(--s-coral); font-family: "Baloo 2", sans-serif; font-size: 13px; letter-spacing: .16em; }
+.soft-faq-head .soft-deco { left: 6px; top: 0; width: 46px; height: 84px; background-image: url(img/soft/leaf-small.webp); }
+.soft-faq-list { border: 1px solid var(--s-line); border-radius: 14px; background: #fff; }
+.soft-faq-list details + details { border-top: 1px solid var(--s-line); }
+.soft-faq-list summary { list-style: none; display: flex; justify-content: space-between; gap: 16px; padding: 15px 22px; cursor: pointer; font-size: 14.5px; }
+.soft-faq-list summary::-webkit-details-marker { display: none; }
+.soft-faq-list summary::after { content: "+"; color: var(--s-coral); font-size: 20px; line-height: 1; transition: transform .25s; }
+.soft-faq-list details[open] summary::after { transform: rotate(45deg); }
+.soft-faq-list .ans { padding: 0 22px 16px; font-size: 13.5px; line-height: 1.9; color: var(--s-sub); }
+.soft-faq-more { margin-top: 14px; text-align: right; }
+
+/* ⑦ 見学のご案内（波の帯・写真・枝） */
+.soft-visit { margin-top: 0; padding-block: 60px 60px; background: linear-gradient(180deg, var(--s-cream) 0%, #f6f3e2 30%, #eef3e1 100%); }
+.soft-visit::before { content: ""; position: absolute; left: 0; right: 0; top: -1px; height: 46px; background: var(--s-cream); clip-path: path("M0 0H3000V10C2600 46 2200 4 1800 26C1400 48 1000 8 600 30C300 44 120 34 0 24Z"); }
+.soft-visit-grid { display: grid; grid-template-columns: 1fr 1.4fr .6fr; gap: 30px; align-items: center; }
+.soft-visit-photo img { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 58% 42% 50% 50% / 60% 48% 52% 40%; }
+.soft-visit-tx { text-align: center; }
+.soft-visit-tx h2 span { display: inline-block; }
+.soft-visit-tx h2 { margin: 0; font-family: var(--s-round); font-size: clamp(20px, 2vw, 25px); letter-spacing: .08em; line-height: 1.6; }
+.soft-visit-tx p { margin: 14px 0 26px; font-size: 14px; line-height: 1.9; color: var(--s-sub); }
+.soft-visit-art { height: 220px; background: url(img/soft/branch.webp) center / contain no-repeat; }
+
+/* ⑧ フッター */
+.soft-footer { background: #fff; border-top: 1px solid var(--s-line); color: var(--s-ink); font-family: "Zen Kaku Gothic New", sans-serif; }
+.soft-footer-in { display: grid; grid-template-columns: auto 1fr; gap: 20px 40px; align-items: center; padding-block: 26px 22px; }
+.soft-footer .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--s-ink); }
+.soft-footer .brand img { width: 52px; height: auto; }
+.soft-footer .brand span { font-family: var(--s-round); font-weight: 700; font-size: 19px; letter-spacing: .06em; }
+.soft-footer nav { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 6px 26px; font-size: 13px; }
+.soft-footer nav a { color: var(--s-ink); text-decoration: none; }
+.soft-footer nav a:hover { color: var(--s-coral-d); }
+.soft-footer-sub { grid-column: 1 / -1; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; padding-top: 14px; border-top: 1px solid #f3ece0; font-size: 12px; color: var(--s-sub); }
+.soft-footer-sub a { color: var(--s-sub); }
+
+/* スマホ・タブレット */
+@media (max-width: 1023px) {
+  .soft-reasons { grid-template-columns: 1fr; }
+  .soft-reason { min-height: 0; }
+  .soft-gates { grid-template-columns: repeat(2, 1fr); }
+  .soft-day-grid { grid-template-columns: 1fr; }
+  .soft-day-photo { max-width: 560px; margin-inline: auto; }
+  .soft-faq { grid-template-columns: 1fr; gap: 18px; }
+  .soft-visit-grid { grid-template-columns: 1fr; text-align: center; }
+  .soft-visit-photo { max-width: 460px; margin-inline: auto; }
+  .soft-visit-art { display: none; }
+  .soft-points-deco { display: none; }
+}
+@media (max-width: 767px) {
+  .soft-wrap { width: calc(100% - 32px); }
+  .soft-sec { padding-block: 32px; }
+  .soft-points { grid-template-columns: 1fr; gap: 6px; padding-top: 34px; }
+  .soft-point { display: grid; grid-template-columns: 76px 1fr; gap: 0 14px; align-items: center; text-align: left; padding: 12px 4px; }
+  .soft-point + .soft-point { border-left: 0; border-top: 1px solid var(--s-line); }
+  .soft-point img { grid-row: span 3; height: 58px; max-width: 76px; object-fit: contain; margin: 0; }
+  .soft-point b { font-size: 18px; }
+  .soft-point strong { font-size: 15px; }
+  .soft-point p { margin-top: 4px; font-size: 12.5px; }
+  .soft-news { grid-template-columns: 1fr; gap: 12px; padding: 16px; }
+  .soft-news ul { padding: 4px 14px; }
+  .soft-news ul a { grid-template-columns: 1fr 14px; gap: 2px 10px; }
+  .soft-news ul a time { grid-column: 1; }
+  .soft-news ul a span { grid-column: 1; }
+  .soft-news ul a::after { grid-column: 2; grid-row: 1 / span 2; }
+  .soft-news-more { text-align: right; }
+  .soft-reason { padding: 22px 20px 24px; }
+  .soft-reason .soft-deco { width: 72px; height: 72px; }
+  .soft-day { padding-block: 48px 52px; }
+  .soft-tl li { grid-template-columns: 22px 58px 1fr; gap: 2px 8px; }
+  .soft-tl li span { grid-column: 3; }
+  .soft-tl time { font-size: 13px; padding: 2px 8px; }
+  .soft-tl-note { margin-left: 30px; }
+  .soft-day-photo figcaption { right: 4px; top: -18px; padding: 14px 18px; font-size: 12.5px; }
+  .soft-gates { gap: 12px; }
+  .soft-gate { padding: 18px 12px 40px; }
+  .soft-gate img { height: 60px; }
+  .soft-gate h3 { font-size: 15px; }
+  .soft-gate p { font-size: 12px; }
+  .soft-faq-list summary { padding: 14px 16px; font-size: 14px; }
+  .soft-faq-list .ans { padding: 0 16px 14px; }
+  .soft-visit { padding-block: 56px 48px; }
+  .soft-footer-in { grid-template-columns: 1fr; }
+  .soft-footer nav { justify-content: flex-start; gap: 8px 18px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .soft-gate, .soft-btn, .soft-arrow { transition: none; }
+}

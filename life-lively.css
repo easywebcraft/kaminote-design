@@ -1,0 +1,65 @@
+/* =====================================================================
+   園での生活をにぎやかに（2026-10-13）。TOPと同じ足し方：色・写真・動き・形（手描き風の飾りは増やさない）
+   ・「園の様子」（流れる英字の帯＋流れる写真）は TOP と同じ部品（home-editorial.css・home-lively.css の ed-gallery）
+   ・ここでは、カードとアイコンの色を緑・さんご・黄色の3色で回し、段ごとの地の色と写真の形を変える
+   ===================================================================== */
+.life-soft { --lv-sun: #d99a2b; --lv-sun-bg: #fcf3dc; }
+
+/* ---------- 段ごとの地の色 ---------- */
+html body.v2.life-soft #curriculum { background: linear-gradient(180deg, var(--ds-cream) 0, var(--lv-sun-bg) 120px, var(--lv-sun-bg) calc(100% - 120px), var(--ds-cream) 100%) !important; }
+html body.v2.life-soft .life-family { background: linear-gradient(180deg, var(--ds-cream) 0, var(--ds-coral-bg) 120px, var(--ds-coral-bg) calc(100% - 120px), var(--ds-cream) 100%) !important; }
+
+/* ---------- カード：角を大きく丸め、アイコンと見出しの下線を3色で回す ---------- */
+.life-soft :is(.life-promise, .life-activity, .life-season) { --c: var(--ds-green); --cb: var(--ds-green-bg); border-radius: 26px !important; transition: transform .4s cubic-bezier(.22, .61, .36, 1), box-shadow .4s ease; }
+.life-soft :is(.life-promise, .life-activity, .life-season):nth-child(3n+2) { --c: var(--ds-coral-d); --cb: var(--ds-coral-bg); }
+.life-soft :is(.life-promise, .life-activity, .life-season):nth-child(3n) { --c: var(--lv-sun); --cb: var(--lv-sun-bg); }
+html body.v2.life-soft :is(.life-promise, .life-activity, .life-season) .ds-ic--lg { background: var(--cb) !important; color: var(--c) !important; }
+.life-soft :is(.life-promise, .life-activity) h3::after { content: ""; display: block; width: 26px; height: 3px; margin: 10px auto 0; border-radius: 2px; background: var(--c); }
+.life-soft .life-activity h3::after { margin-left: 0; }
+/* 季節は、春＝さんご・夏＝緑・秋＝黄色・冬＝緑 */
+.life-soft .life-season.spring { --c: var(--ds-coral-d); --cb: var(--ds-coral-bg); }
+.life-soft .life-season.summer { --c: var(--ds-green); --cb: var(--ds-green-bg); }
+.life-soft .life-season.autumn { --c: var(--lv-sun); --cb: var(--lv-sun-bg); }
+.life-soft .life-season.winter { --c: #5c8a8a; --cb: #e6f0ee; }
+html body.v2.life-soft main .life-season h3 { background: var(--c) !important; color: #fff !important; }
+@media (hover: hover) and (pointer: fine) {
+  .life-soft :is(.life-promise, .life-activity, .life-season):hover { transform: translateY(-6px) rotate(-.6deg); box-shadow: 0 18px 34px rgba(60, 80, 55, .1) !important; }
+}
+
+/* ---------- こどもたちの一日：写真の形（葉っぱ・アーチ・丸）と、後ろでふわふわ揺れる色の丸 ---------- */
+.life-soft .life-day-photos { position: relative; }
+.life-soft .life-day-photos::before, .life-soft .life-day-photos::after { content: ""; position: absolute; z-index: 0; border-radius: 50%; animation: lv-float 8s ease-in-out infinite alternate; }
+.life-soft .life-day-photos::before { width: 46%; aspect-ratio: 1; left: -10%; top: 4%; background: #f6e3ae; }
+.life-soft .life-day-photos::after { width: 26%; aspect-ratio: 1; right: -4%; top: 50%; background: #f7d9cf; animation-delay: -4s; }  /* 2枚目の写真の右上に重ねる */
+.life-soft .life-day-photos figure { position: relative; z-index: 1; }
+/* 白い縁ごと、葉っぱ・アーチ・角丸の形に（中の写真は縁より少し小さい同じ形） */
+html body.v2.life-soft .life-day-photos figure { border-radius: 46% 8% 46% 8% / 46% 8% 46% 8% !important; overflow: hidden; }
+html body.v2.life-soft .life-day-photos figure img { border-radius: 44% 6% 44% 6% / 44% 6% 44% 6% !important; }
+html body.v2.life-soft .life-day-photos figure:nth-child(2) { border-radius: 50% 50% 26px 26px / 44% 44% 26px 26px !important; }
+html body.v2.life-soft .life-day-photos figure:nth-child(2) img { border-radius: 50% 50% 20px 20px / 44% 44% 20px 20px !important; }
+html body.v2.life-soft .life-day-photos figure:nth-child(3), html body.v2.life-soft .life-day-photos figure:nth-child(3) img { border-radius: 28px !important; }
+
+/* ---------- 園での様子をご家庭へ：写真を葉っぱの形に、後ろに色の丸。小さなアイコンも3色で ---------- */
+.life-soft .life-family-photo { position: relative; }
+.life-soft .life-family-photo::before { content: ""; position: absolute; z-index: 0; width: 44%; aspect-ratio: 1; right: -8%; top: -10%; border-radius: 50%; background: #f6e3ae; animation: lv-float 7s ease-in-out infinite alternate; }
+html body.v2.life-soft .life-family-photo img { position: relative; z-index: 1; border-radius: 46% 8% 46% 8% / 46% 8% 46% 8% !important; }
+html body.v2.life-soft .life-family-points > div:nth-child(1) .ds-ic { color: var(--ds-green) !important; }
+html body.v2.life-soft .life-family-points > div:nth-child(2) .ds-ic { color: var(--ds-coral-d) !important; }
+html body.v2.life-soft .life-family-points > div:nth-child(3) .ds-ic { color: var(--lv-sun) !important; }
+
+/* ---------- 年齢のタブ：選んだタブをさんご色に ---------- */
+html body.v2.life-soft .life-age-tabs button[aria-selected="true"] { background: var(--ds-coral) !important; border-color: var(--ds-coral) !important; }
+
+/* ---------- 園の様子（TOPと同じ部品）を、このページの幅と色に合わせる ---------- */
+.life-soft .ed-life-gallery { background: transparent; }
+.life-soft .ed-life-gallery .ed-gallery { background: var(--ds-cream); }
+
+@keyframes lv-float { from { transform: translate(0, 0) scale(1); } to { transform: translate(12px, -14px) scale(1.06); } }
+@media (prefers-reduced-motion: reduce) {
+  .life-soft .life-day-photos::before, .life-soft .life-day-photos::after, .life-soft .life-family-photo::before { animation: none; }
+  .life-soft :is(.life-promise, .life-activity, .life-season) { transition: none; }
+}
+/* スマホでは一日の写真が横に並ぶので、後ろの丸は出さない */
+@media (max-width: 760px) {
+  .life-soft .life-day-photos::before, .life-soft .life-day-photos::after { display: none; }
+}

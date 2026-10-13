@@ -46,10 +46,11 @@
 
   // 奥行き：スクロールとマウス
   var sy = 0, mx = 0, my = 0, ticking = false;
+  // 値はFV全体に渡す（TOPは波で写真を切り替えるので、どの写真にも同じ値が効くように）
   function apply() {
     ticking = false;
-    mover.style.setProperty('--hc-x', mx.toFixed(1) + 'px');
-    mover.style.setProperty('--hc-y', (sy + my).toFixed(1) + 'px');
+    hero.style.setProperty('--hc-x', mx.toFixed(1) + 'px');
+    hero.style.setProperty('--hc-y', (sy + my).toFixed(1) + 'px');
   }
   function queue() { if (!ticking) { ticking = true; requestAnimationFrame(apply); } }
   function onScroll() {
@@ -68,6 +69,8 @@
     hero.addEventListener('mouseleave', function () { mx = 0; my = 0; queue(); });
   }
   // タブが裏にあるときは止める
-  document.addEventListener('visibilitychange', function () { hero.classList.toggle('is-paused', document.hidden); });
+  document.addEventListener('visibilitychange', function () {
+    hero.classList.toggle('is-paused', document.hidden);
+  });
   onScroll();
 })();

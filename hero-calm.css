@@ -11,6 +11,44 @@
 /* TOPの写真の動きは、以前のカメラワーク（hero-fv.css の nursery-camera：写真ごとに寄る・引く・横に流れる）のまま。ここでは上書きしない（2026-10-13）
    写真そのものが十分に大きく写っているので、奥行きの分だけの拡大（scale）はしない */
 
+@keyframes hc-breathe {
+  from { transform: scale(1.04) translate(-1%, 1%); }
+  to { transform: scale(1.16) translate(1.5%, -1.5%); }
+}
+
+/* 光の筋：右上から斜めに差す、白くやわらかい帯。左の文字のあたりには届かないようにする */
+.hc-light { position: absolute; inset: 0; z-index: 3; pointer-events: none; overflow: hidden; mix-blend-mode: screen; }
+.hc-light i { position: absolute; top: -30%; width: 20%; height: 160%; border-radius: 50%;
+  background: linear-gradient(90deg, rgba(255, 248, 225, 0), rgba(255, 249, 228, .78) 50%, rgba(255, 248, 225, 0));
+  filter: blur(14px); transform: rotate(24deg); transform-origin: 50% 0; animation: hc-beam 11s ease-in-out infinite alternate; }
+.hc-light i:nth-child(1) { left: 56%; animation-delay: 0s; }
+.hc-light i:nth-child(2) { left: 70%; width: 14%; animation-delay: -4s; animation-duration: 13s; }
+.hc-light i:nth-child(3) { left: 84%; width: 24%; animation-delay: -8s; animation-duration: 15s; }
+@keyframes hc-beam {
+  0% { opacity: .6; transform: rotate(22deg) translateX(0); }
+  50% { opacity: .95; }
+  100% { opacity: .75; transform: rotate(27deg) translateX(-30px); }
+}
+
+/* 光の粒：白〜淡い黄色の小さな丸が、ゆっくり上へ浮かんで消える */
+.hc-dust { position: absolute; inset: 0; z-index: 3; pointer-events: none; overflow: hidden; }
+.hc-dust i { position: absolute; bottom: -20px; left: var(--l); width: var(--s); height: var(--s); border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 252, 238, .95) 0%, rgba(255, 240, 200, .55) 45%, rgba(255, 240, 200, 0) 72%); box-shadow: 0 0 calc(var(--s) * 1.1) rgba(255, 246, 215, .8);
+  opacity: 0; animation: hc-float var(--d) linear var(--w) infinite; }
+@keyframes hc-float {
+  0% { opacity: 0; transform: translate(0, 0) scale(.6); }
+  15% { opacity: 1; }
+  70% { opacity: .85; }
+  100% { opacity: 0; transform: translate(var(--dx), calc(var(--rise) * -1)) scale(1.1); }
+}
+
+
+/* 光だまり：写真の右上に、窓から差し込むようなやわらかい光（ゆっくり明るくなったり落ち着いたりする）。光の筋と同じ層に描く */
+.hc-light::before { content: ""; position: absolute; inset: 0;
+  background: radial-gradient(ellipse 46% 52% at 86% 8%, rgba(255, 246, 214, .85) 0%, rgba(255, 240, 200, .38) 42%, rgba(255, 240, 200, 0) 72%);
+  animation: hc-sun 9s ease-in-out infinite alternate; }
+@keyframes hc-sun { from { opacity: .55; } to { opacity: 1; } }
+
 /* ---------- 下層ページのFV（.page-fv）にも同じ演出（2026-10-13） ----------
    写真は hero-calm.js が .hc-move で包む。前の「開いたときに少し寄る」（site-motion.css の tm-zoom）の代わりに、ずっとゆっくり寄る */
 .page-fv .page-fv-bg { overflow: hidden; }
@@ -26,6 +64,7 @@ html body .page-fv .page-fv-bg .hc-move img { width: 100%; height: 100%; object-
 @media (prefers-reduced-motion: reduce) {
   .hero-motion .hero-slide { transform: none; transition: none; }
   .hero-motion .hero-slide.is-current img { animation: none !important; transform: scale(1.04); }
-  .hc-light i { animation: none; opacity: .6; }
+  .hc-light i { animation: none; opacity: .7; }
+  .hc-light::before { animation: none; opacity: .8; }
   .hc-dust { display: none; }
 }

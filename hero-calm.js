@@ -33,10 +33,10 @@
   var dust = document.createElement('div');
   dust.className = 'hc-dust';
   dust.setAttribute('aria-hidden', 'true');
-  var n = innerWidth < 700 ? 9 : 16;
+  var n = innerWidth < 700 ? 14 : 24;
   for (var i = 0; i < n; i++) {
     var p = document.createElement('i');
-    var s = 10 + Math.random() * 20;
+    var s = 14 + Math.random() * 22;
     p.style.cssText = '--l:' + (30 + Math.random() * 70).toFixed(1) + '%;--s:' + s.toFixed(1) + 'px;' +
       '--d:' + (9 + Math.random() * 9).toFixed(1) + 's;--w:' + (-Math.random() * 16).toFixed(1) + 's;' +
       '--dx:' + (Math.random() * 80 - 40).toFixed(0) + 'px;--rise:' + (260 + Math.random() * 380).toFixed(0) + 'px';

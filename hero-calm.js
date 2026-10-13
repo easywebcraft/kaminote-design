@@ -46,10 +46,11 @@
 
   // 奥行き：スクロールとマウス
   var sy = 0, mx = 0, my = 0, ticking = false;
+  // 値はFV全体に渡す（TOPは写真を切り替えるので、どの写真にも同じ値が効くように）
   function apply() {
     ticking = false;
-    mover.style.setProperty('--hc-x', mx.toFixed(1) + 'px');
-    mover.style.setProperty('--hc-y', (sy + my).toFixed(1) + 'px');
+    hero.style.setProperty('--hc-x', mx.toFixed(1) + 'px');
+    hero.style.setProperty('--hc-y', (sy + my).toFixed(1) + 'px');
   }
   function queue() { if (!ticking) { ticking = true; requestAnimationFrame(apply); } }
   function onScroll() {
@@ -67,7 +68,60 @@
     });
     hero.addEventListener('mouseleave', function () { mx = 0; my = 0; queue(); });
   }
+  // TOPだけ：光でふわっと写真を切り替える（写真が2枚以上あるとき）。見た目は hero-calm.css の .hc-glow / .is-entering
+  var slides = Array.prototype.slice.call(hero.querySelectorAll('.hero-slide'));
+  var glow = hero.querySelector('.hc-glow');
+  var timer = 0;
+  if (slides.length > 1 && glow) {
+    var hold = 5000;          // 1枚を見せる時間
+    var current = 0, changing = false;
+    var ready = slides.map(function (sl) {
+      var im = sl.querySelector('img');
+      return im.decode ? im.decode().then(function () { return true; }, function () { return false; }) : Promise.resolve(true);
+    });
+    var schedule = function (wait) {
+      clearTimeout(timer);
+      if (!document.hidden) timer = setTimeout(next, wait || hold);
+    };
+    var next = function () {
+      if (document.hidden || changing) return;
+      var nxt = (current + 1) % slides.length;
+      ready[nxt].then(function (ok) {
+        if (!ok || document.hidden) { schedule(); return; }
+        changing = true;
+        var prev = slides[current], inc = slides[nxt];
+        // ① 光が明るくなり、今の写真も少し明るく
+        glow.classList.remove('is-off');
+        glow.classList.add('is-on');
+        prev.classList.add('is-leaving');
+        prev.classList.remove('is-current');
+        setTimeout(function () {
+          // ② 光の中で、次の写真がぼけた明るい状態からふわっと現れる
+          inc.classList.add('is-entering');
+          void inc.offsetWidth;
+          inc.classList.add('is-current');
+          setTimeout(function () {
+            // ③ 光が引いていく
+            glow.classList.add('is-off');
+            glow.classList.remove('is-on');
+            setTimeout(function () {
+              prev.classList.remove('is-leaving');
+              inc.classList.remove('is-entering');
+              current = nxt; changing = false; schedule();
+            }, 1300);
+          }, 700);
+        }, 650);
+      });
+    };
+    // 最初のロゴの演出があるときは、幕が開いてから数えはじめる
+    schedule(document.documentElement.classList.contains('tm-intro') ? hold + 4000 : hold);
+  }
+
   // タブが裏にあるときは止める
-  document.addEventListener('visibilitychange', function () { hero.classList.toggle('is-paused', document.hidden); });
+  document.addEventListener('visibilitychange', function () {
+    hero.classList.toggle('is-paused', document.hidden);
+    // 写真を切り替えるFVでは、裏にある間は切り替えを止め、戻ったら5秒後に再開
+    if (typeof schedule === 'function') { clearTimeout(timer); if (!document.hidden) schedule(); }
+  });
   onScroll();
 })();

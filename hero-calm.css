@@ -6,8 +6,22 @@
    ・奥行き：スクロールすると写真が少し遅れて動く。PCではマウスの位置に合わせて写真がわずかに動く（hero-calm.js が --hc-x / --hc-y を渡す）
    ・「動きを減らす」設定では、どれも動かさない
    ===================================================================== */
-.hero-motion .hero-slide.is-current { opacity: 1; transform: translate3d(var(--hc-x, 0px), var(--hc-y, 0px), 0) scale(1.06); transition: transform .9s cubic-bezier(.22, .61, .36, 1); will-change: transform; }
-.hero-motion .hero-slide.is-current img { animation: hc-breathe 22s ease-in-out infinite alternate both !important; transform-origin: 62% 48%; }
+.hero-motion .hero-slide { transform: translate3d(var(--hc-x, 0px), var(--hc-y, 0px), 0) scale(1.06); transition: transform .9s cubic-bezier(.22, .61, .36, 1), opacity 1.1s ease, filter 1.4s ease; will-change: transform, opacity; }
+.hero-motion .hero-slide.is-current { opacity: 1; }
+.hero-motion .hero-slide:is(.is-current, .is-leaving) img { animation: hc-breathe 22s ease-in-out infinite alternate both !important; transform-origin: 62% 48%; }
+
+/* ---------- TOPだけ：光でふわっと写真を切り替える（2026-10-13） ----------
+   ① 光のベール（.hc-glow）がやわらかく明るくなり、今の写真も少し明るくなる
+   ② その光の中で、次の写真が少しぼけた明るい状態から、ふわっと現れてピントが合う
+   ③ 光のベールが引いていく。順番の制御は hero-calm.js */
+.hero-motion .hc-glow { position: absolute; inset: 0; z-index: 1; pointer-events: none; opacity: 0;
+  background: radial-gradient(ellipse 70% 80% at 64% 42%, rgba(255, 252, 242, .96) 0%, rgba(255, 248, 232, .82) 55%, rgba(255, 246, 228, .62) 100%);
+  transition: opacity .8s cubic-bezier(.4, 0, .2, 1); }
+.hero-motion .hc-glow.is-on { opacity: .88; }
+.hero-motion .hc-glow.is-off { transition-duration: 1.3s; }
+.hero-motion .hero-slide.is-leaving { opacity: 1; z-index: 0; filter: brightness(1.15) saturate(.9); }
+.hero-motion .hero-slide.is-entering { z-index: 1; filter: blur(8px) brightness(1.25); }
+.hero-motion .hero-slide.is-entering.is-current { filter: none; }
 @keyframes hc-breathe {
   from { transform: scale(1.04) translate(-1%, 1%); }
   to { transform: scale(1.16) translate(1.5%, -1.5%); }
@@ -52,7 +66,8 @@ html body .page-fv .page-fv-bg .hc-move img { width: 100%; height: 100%; object-
   .hc-light i { filter: blur(12px); }
 }
 @media (prefers-reduced-motion: reduce) {
-  .hero-motion .hero-slide.is-current { transform: none; transition: none; }
+  .hero-motion .hero-slide { transform: none; transition: none; }
+  .hc-glow { display: none; }
   .hero-motion .hero-slide.is-current img { animation: none !important; transform: scale(1.04); }
   .hc-light i { animation: none; opacity: .6; }
   .hc-dust { display: none; }

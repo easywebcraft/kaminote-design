@@ -1,0 +1,53 @@
+/* =====================================================================
+   TOPのFV：写真を切り替えず、1枚をやさしく動かし続ける（2026-10-13）。前の「波で写真を切り替える」（hero-fv-wave.js）の代わり
+   ・ゆっくり寄る：写真がとてもゆっくり寄ったり引いたりする（22秒で片道）
+   ・光がさす：窓から差すような、やわらかい光の筋がゆっくり揺れる
+   ・光の粒：小さな丸い光の粒が、ふわふわ浮かんで消える（粒は hero-calm.js が作る）
+   ・奥行き：スクロールすると写真が少し遅れて動く。PCではマウスの位置に合わせて写真がわずかに動く（hero-calm.js が --hc-x / --hc-y を渡す）
+   ・「動きを減らす」設定では、どれも動かさない
+   ===================================================================== */
+.hero-motion .hero-slide.is-current { opacity: 1; transform: translate3d(var(--hc-x, 0px), var(--hc-y, 0px), 0) scale(1.06); transition: transform .9s cubic-bezier(.22, .61, .36, 1); will-change: transform; }
+.hero-motion .hero-slide.is-current img { animation: hc-breathe 22s ease-in-out infinite alternate both !important; transform-origin: 62% 48%; }
+@keyframes hc-breathe {
+  from { transform: scale(1.04) translate(-1%, 1%); }
+  to { transform: scale(1.16) translate(1.5%, -1.5%); }
+}
+
+/* 光の筋：右上から斜めに差す、白くやわらかい帯。左の文字のあたりには届かないようにする */
+.hc-light { position: absolute; inset: 0; z-index: 3; pointer-events: none; overflow: hidden; mix-blend-mode: screen; }
+.hc-light i { position: absolute; top: -30%; width: 16%; height: 160%; border-radius: 50%;
+  background: linear-gradient(90deg, rgba(255, 248, 225, 0), rgba(255, 248, 225, .55) 50%, rgba(255, 248, 225, 0));
+  filter: blur(18px); transform: rotate(24deg); transform-origin: 50% 0; animation: hc-beam 11s ease-in-out infinite alternate; }
+.hc-light i:nth-child(1) { left: 56%; animation-delay: 0s; }
+.hc-light i:nth-child(2) { left: 70%; width: 10%; animation-delay: -4s; animation-duration: 13s; }
+.hc-light i:nth-child(3) { left: 84%; width: 20%; animation-delay: -8s; animation-duration: 15s; }
+@keyframes hc-beam {
+  0% { opacity: .35; transform: rotate(22deg) translateX(0); }
+  50% { opacity: .95; }
+  100% { opacity: .5; transform: rotate(27deg) translateX(-30px); }
+}
+
+/* 光の粒：白〜淡い黄色の小さな丸が、ゆっくり上へ浮かんで消える */
+.hc-dust { position: absolute; inset: 0; z-index: 3; pointer-events: none; overflow: hidden; }
+.hc-dust i { position: absolute; bottom: -20px; left: var(--l); width: var(--s); height: var(--s); border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 252, 238, .95) 0%, rgba(255, 240, 200, .55) 45%, rgba(255, 240, 200, 0) 72%); box-shadow: 0 0 calc(var(--s) * .8) rgba(255, 246, 215, .55);
+  opacity: 0; animation: hc-float var(--d) linear var(--w) infinite; }
+@keyframes hc-float {
+  0% { opacity: 0; transform: translate(0, 0) scale(.6); }
+  15% { opacity: .9; }
+  70% { opacity: .7; }
+  100% { opacity: 0; transform: translate(var(--dx), calc(var(--rise) * -1)) scale(1.1); }
+}
+
+/* 画面のタブが裏にあるときは止める */
+.hero-motion.is-paused :is(.hero-slide img, .hc-light i, .hc-dust i) { animation-play-state: paused !important; }
+
+@media (max-width: 700px) {
+  .hc-light i { filter: blur(12px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-motion .hero-slide.is-current { transform: none; transition: none; }
+  .hero-motion .hero-slide.is-current img { animation: none !important; transform: scale(1.04); }
+  .hc-light i { animation: none; opacity: .6; }
+  .hc-dust { display: none; }
+}

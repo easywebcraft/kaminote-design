@@ -65,3 +65,19 @@
 }
 /* 見出しの行の長さをそろえる（「…の選 / 択肢」のような半端な折り返しを防ぐ） */
 .page-fv .page-fv-copy h1, .page-fv .page-fv-lead { text-wrap: balance; }
+
+/* =====================================================================
+   FVを画面いっぱいに（2026-10-13）。TOPと同じやり方
+   ・PC：画面の高さ − ヘッダーの高さ（--head-h）。文字が収まらない低い画面では、その分だけ伸びる
+   ・スマホ：写真の下に文字の並びのまま、写真を「画面の高さ − ヘッダー − 文字の高さ（--pfv-copy-h）」まで伸ばす（最低は今までの高さ）
+   ・--head-h と --pfv-copy-h は、幅や言語で変わるので site-motion.js で測って渡す
+   ===================================================================== */
+.page-fv { min-height: calc(100vh - var(--head-h, 72px)); min-height: calc(100svh - var(--head-h, 72px)); }
+@media (max-width: 700px) {
+  .page-fv { min-height: 0; --pfv-bg-h: max(clamp(220px, 34vh, 290px), calc(100vh - var(--head-h, 58px) - var(--pfv-copy-h, 380px))); }
+  @supports (height: 100svh) { .page-fv { --pfv-bg-h: max(clamp(220px, 34vh, 290px), calc(100svh - var(--head-h, 58px) - var(--pfv-copy-h, 380px))); } }
+  .page-fv .page-fv-bg { height: var(--pfv-bg-h); }
+  .page-fv .page-fv-edge.b { top: calc(var(--pfv-bg-h) - 29px); }
+}
+/* 病児保育の概要カードは、前はFVに34px重ねていた。FVを画面いっぱいにしたので、重ねずにFVの下へ */
+.bj-summary { margin-top: 28px !important; }

@@ -1,0 +1,95 @@
+/* =====================================================================
+   HANDS OF GOD（ハンズオブガッド保育園）を加えて3つの園にした（2026-10-13）
+   色：緑＝かみのて保育園、さんご＝かみのて今渡保育園、やさしい黄色＝HANDS OF GOD（クラスは .sun / .hog）
+   写真の代わりに園のロゴ（img/hog-logo.jpg）を白地に置く（.hog-logo-box）。園児の写真は使わない
+   使うページ：園のご紹介・TOP・入園案内
+   ===================================================================== */
+:root { --hog: #c98a1f; --hog-d: #a8711a; --hog-bg: #fcf3dc; --hog-line: #ecd29b; }
+
+/* ---------- ロゴの枠（写真の代わり） ---------- */
+html body.v2 .hog-logo-box { display: flex; align-items: center; justify-content: center; background: #fff !important; }
+html body.v2 .hog-logo-box img { width: 78% !important; height: auto !important; max-height: 82%; object-fit: contain !important; border-radius: 0 !important; animation: none !important; transform: none !important; }
+
+/* ---------- 3つ並び（PCは3列、狭い画面は1列） ---------- */
+@media (min-width: 1000px) {
+  html body.v2 :is(.pk-overview, .ag-choose) .pk-cards { grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  html body.v2 .pk-access-cards { grid-template-columns: repeat(3, 1fr); }
+  html body.v2 .pk-flow .pk-flow-cards { grid-template-columns: repeat(3, 1fr); }
+  html body.v2 .ag-fees-grid { grid-template-columns: 1.5fr 1fr 1fr; }
+}
+@media (min-width: 761px) and (max-width: 999px) {
+  html body.v2 :is(.pk-overview, .ag-choose) .pk-cards, html body.v2 .pk-access-cards, html body.v2 .pk-flow .pk-flow-cards { grid-template-columns: 1fr 1fr; }
+  html body.v2 .ag-fees-grid { grid-template-columns: 1fr 1fr; }
+}
+
+/* ---------- 比較カード・選び方のカード ---------- */
+html body.v2 .pk-card.sun { background: var(--hog-bg); }
+html body.v2 .pk-card.sun .ds-ic { color: var(--hog) !important; }
+html body.v2 .pk-card.sun .ds-ic--md, html body.v2 .pk-card.sun .ds-ic--lg { background: #fff !important; }
+html body.v2 .pk-card.sun .pk-pill, html body.v2 .pk-access-card.sun .pk-pill { border-color: var(--hog) !important; color: var(--hog-d) !important; }
+html body.v2 .pk-card.sun .pk-pill *, html body.v2 .pk-access-card.sun .pk-pill * { color: var(--hog-d) !important; }
+html body.v2 .ag-solid.sun { border-color: var(--hog) !important; color: var(--hog-d) !important; }
+html body.v2 .ag-solid.sun * { color: var(--hog-d) !important; }
+html body.v2 .ag-choose .ag-card-photo.hog-logo-box { aspect-ratio: 16 / 10; border-radius: 22px; }
+
+/* ---------- 03 詳しい紹介 ---------- */
+html body.v2 .pk-detail.hog .pk-num { color: var(--hog); }
+html body.v2 .pk-detail.hog .pk-info .ds-ic { color: var(--hog) !important; }
+html body.v2 .pk-detail.hog .pk-desc + .pk-desc { margin-top: 12px; }
+html body.v2 .pk-detail.hog .pk-photo.hog-logo-box { box-shadow: 0 18px 36px rgba(120, 90, 30, .08); }
+html body.v2 .pk-detail.hog .pk-photo::before { background: var(--hog-bg) !important; }
+
+/* ---------- 比較表 ---------- */
+html body.v2 .pk-table { min-width: 820px; }
+html body.v2 .pk-table thead th:nth-child(4) { background: var(--hog-bg); }
+
+/* ---------- 入園までの流れ（3つ目の園が増えたので、2つ目・3つ目の色を決め直す） ---------- */
+html body.v2 .pk-flow .as-flow-row:nth-child(2) { background: var(--pk-peach-bg, #fbeee6); }
+html body.v2 .pk-flow .as-flow-row:nth-child(2) .as-num { background: var(--pk-peach, #e9896c); }
+html body.v2 .pk-flow .as-flow-row:nth-child(3) { background: var(--hog-bg); }
+html body.v2 .pk-flow .as-flow-row:nth-child(3) .as-num { background: var(--hog); }
+html body.v2 .pk-flow .as-flow-row:nth-child(3) .ds-ic { color: var(--hog) !important; }
+
+/* ---------- アクセス ---------- */
+html body.v2 .pk-access-card.sun { background: var(--hog-bg); }
+html body.v2 .pk-access-card.sun .ds-ic { color: var(--hog) !important; }
+
+/* ---------- 入園案内の保育料 ---------- */
+html body.v2 .ag-fee-box.sun { background: var(--hog-bg); display: flex; flex-direction: column; }
+html body.v2 .ag-fee-box.sun .ag-fee-tiles { grid-template-columns: 1fr; }
+html body.v2 .ag-fee-box.sun .ag-fee-tiles .lbl { color: var(--hog-d) !important; }
+html body.v2 .ag-fee-box.sun .ag-fee-tiles small { display: block; margin-top: 2px; font-size: 12px; color: var(--ds-mute, #6b7068); }
+
+/* ---------- TOP：3つの園を3列に（写真・ロゴを上、文字を下） ---------- */
+@media (min-width: 961px) {
+  .ed .ed-parks { grid-template-columns: repeat(3, 1fr); }
+  .ed .ed-park, .ed .ed-park:first-child, .ed .ed-park:last-child { grid-template-columns: 1fr; gap: 22px; padding-inline: clamp(16px, 2vw, 30px); }
+  .ed .ed-park:first-child { padding-left: 0; }
+  .ed .ed-park:last-child { padding-right: 0; }
+  .ed .ed-park-photo img { aspect-ratio: 4 / 3; }
+}
+.ed .ed-park--hog .ed-park-photo { aspect-ratio: 4 / 3; border-radius: 28px; box-shadow: 0 10px 26px rgba(120, 90, 30, .08); }
+.ed .ed-park--hog .ed-park-photo::before { background: var(--hog-bg) !important; left: auto; right: -12%; top: -10%; }
+.ed .ed-park--hog .ed-park-type { color: var(--hog-d) !important; }
+.ed .ed-park--hog .ds-ic--md { color: var(--hog); }
+@media (max-width: 960px) {
+  .ed .ed-park--hog { border-top: 1px solid var(--ds-line); padding-top: 48px; }
+}
+
+/* 直し：03のロゴの枠は、丸い形だとロゴの白地の角がはみ出すので、大きな角丸の四角に */
+html body.v2 .pk-detail.hog .pk-photo.hog-logo-box { border-radius: 36px !important; overflow: hidden !important; height: 320px; }
+html body.v2 .pk-detail.hog .pk-photo.hog-logo-box::before { display: none; }
+/* 直し：入園までの流れの段は地が黄色なので、HANDS OF GOD の枠は少し濃い黄色に */
+html body.v2 #flow.pk-flow .as-flow-row:nth-child(3) { background: #f7e6bb; }
+/* 直し：TOPのロゴの枠は白地なので、後ろの色の丸が白地の上に重なって見える。ロゴの枠では丸を出さない */
+.ed .ed-park--hog .ed-park-photo::before { display: none !important; }
+/* 直し：入園案内の保育料。かみのて保育園は金額が3つ並ぶので上の段に横長で、今渡と HANDS OF GOD を下の段に並べる */
+@media (min-width: 761px) {
+  html body.v2 .ag-fees-grid { grid-template-columns: 1fr 1fr !important; }
+  html body.v2 .ag-fees-grid .ag-fee-box.green { grid-column: 1 / -1; }
+  html body.v2 .ag-fee-box.sun .ag-fee-tiles { grid-template-columns: 1fr 1fr; }
+}
+/* 直し：保育料の段は地が黄色なので、HANDS OF GOD の枠は少し濃い黄色に */
+html body.v2 #fees .ag-fee-box.sun { background: #f7e6bb; }
+/* 直し：ロゴの枠（白地）の上に、後ろの色の丸が重ならないように */
+html body.v2 .hog-logo-box::before { display: none !important; }

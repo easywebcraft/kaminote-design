@@ -30,9 +30,9 @@ html.tm-on .soft .soft-title[data-tm="rise"]::after { transform: scaleX(0); tran
 html.tm-on .soft .soft-title[data-tm="rise"].is-in::after { transform: scaleX(1); }
 
 /* ③ アイコンの線が描かれていく（3つの特徴・4つの入口） */
-html.tm-on [data-tm="draw"] { opacity: 0; transform: translateY(22px); transition: opacity .9s ease, transform .9s cubic-bezier(.22, .61, .36, 1); transition-delay: calc(var(--d, 0) * 140ms); }
+html.tm-on [data-tm="draw"] { opacity: 0; transform: translateY(22px); transition: opacity .6s ease, transform .6s cubic-bezier(.22, .61, .36, 1); transition-delay: calc(var(--d, 0) * 90ms); }  /* 2026-10-13 速めた（前は .9s・140ms） */
 html.tm-on [data-tm="draw"].is-in { opacity: 1; transform: none; }
-html.tm-on [data-tm="draw"] .ds-ic svg * { stroke-dasharray: 1; stroke-dashoffset: 1; transition: stroke-dashoffset 1.6s cubic-bezier(.45, .05, .35, 1); transition-delay: calc(var(--d, 0) * 140ms + .35s); }
+html.tm-on [data-tm="draw"] .ds-ic svg * { stroke-dasharray: 1; stroke-dashoffset: 1; transition: stroke-dashoffset .8s cubic-bezier(.45, .05, .35, 1); transition-delay: calc(var(--d, 0) * 90ms + .15s); }  /* 2026-10-13 線を描く速さを約2倍に（前は 1.6s） */
 html.tm-on [data-tm="draw"].is-in .ds-ic svg * { stroke-dashoffset: 0; }
 /* 入口のカード：マウスを乗せると少し持ち上がる */
 .soft-gate { transition: transform .35s ease, box-shadow .35s ease; }

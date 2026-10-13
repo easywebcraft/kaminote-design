@@ -43,7 +43,7 @@ html.tm-on [data-tm="photo"] img { transform: scale(1.12); transition: transform
 html.tm-on [data-tm="photo"].is-in img { transform: none; }
 
 /* ⑤ アイコンの線が描かれていく */
-html.tm-on [data-tm="draw"] svg * { stroke-dasharray: 1; stroke-dashoffset: 1; transition: stroke-dashoffset 1.6s cubic-bezier(.45, .05, .35, 1) .2s; }
+html.tm-on [data-tm="draw"] svg * { stroke-dasharray: 1; stroke-dashoffset: 1; transition: stroke-dashoffset .8s cubic-bezier(.45, .05, .35, 1) .1s; }  /* 2026-10-13 速めた（前は 1.6s） */
 html.tm-on [data-tm="draw"].is-in svg * { stroke-dashoffset: 0; }
 
 /* ⑥ 最後の「見学のおさそい」：角丸のカードから画面いっぱいへ広がる */

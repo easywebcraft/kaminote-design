@@ -1,13 +1,33 @@
-/* TOPのFV：写真1枚をやさしく動かし続ける（2026-10-13）。見た目は hero-calm.css
-   ・光の粒を作る
+/* FV：写真1枚をやさしく動かし続ける（2026-10-13）。見た目は hero-calm.css
+   TOP（.hero-motion）と下層ページ（.page-fv）の両方で使う
+   ・光の筋と光の粒を作る
    ・スクロールで写真を少し遅らせて動かす（奥行き）／PCではマウスの位置で写真をわずかに動かす
    ・「動きを減らす」設定では何もしない */
 (function () {
-  var hero = document.querySelector('.hero-motion');
+  var hero = document.querySelector('.hero-motion') || document.querySelector('.page-fv');
   if (!hero) return;
-  var bg = hero.querySelector('.hero-bg');
-  var slide = hero.querySelector('.hero-slide.is-current');
-  if (!bg || !slide || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var bg = hero.querySelector('.hero-bg, .page-fv-bg');
+  if (!bg || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  // 動かす部品：TOPは写真の枠（.hero-slide）。下層ページは写真を枠（.hc-move）で包んで、それを動かす
+  var mover = hero.querySelector('.hero-slide.is-current');
+  if (!mover) {
+    var img = bg.querySelector('img');
+    if (!img) return;
+    mover = document.createElement('div');
+    mover.className = 'hc-move';
+    bg.insertBefore(mover, img);
+    mover.appendChild(img);
+  }
+
+  // 光の筋（TOPは HTML に書いてある。下層ページはここで作る）
+  if (!bg.querySelector('.hc-light')) {
+    var light = document.createElement('div');
+    light.className = 'hc-light';
+    light.setAttribute('aria-hidden', 'true');
+    light.innerHTML = '<i></i><i></i><i></i>';
+    bg.appendChild(light);
+  }
 
   // 光の粒（スマホは少なめ）
   var dust = document.createElement('div');
@@ -28,8 +48,8 @@
   var sy = 0, mx = 0, my = 0, ticking = false;
   function apply() {
     ticking = false;
-    slide.style.setProperty('--hc-x', mx.toFixed(1) + 'px');
-    slide.style.setProperty('--hc-y', (sy + my).toFixed(1) + 'px');
+    mover.style.setProperty('--hc-x', mx.toFixed(1) + 'px');
+    mover.style.setProperty('--hc-y', (sy + my).toFixed(1) + 'px');
   }
   function queue() { if (!ticking) { ticking = true; requestAnimationFrame(apply); } }
   function onScroll() {

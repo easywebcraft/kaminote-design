@@ -39,8 +39,14 @@
   100% { opacity: 0; transform: translate(var(--dx), calc(var(--rise) * -1)) scale(1.1); }
 }
 
+/* ---------- 下層ページのFV（.page-fv）にも同じ演出（2026-10-13） ----------
+   写真は hero-calm.js が .hc-move で包む。前の「開いたときに少し寄る」（site-motion.css の tm-zoom）の代わりに、ずっとゆっくり寄る */
+.page-fv .page-fv-bg { overflow: hidden; }
+.page-fv .hc-move { position: absolute; inset: 0; z-index: 0; transform: translate3d(var(--hc-x, 0px), var(--hc-y, 0px), 0) scale(1.06); transition: transform .9s cubic-bezier(.22, .61, .36, 1); will-change: transform; }
+html body .page-fv .page-fv-bg .hc-move img { width: 100%; height: 100%; object-fit: cover; display: block; animation: hc-breathe 22s ease-in-out infinite alternate both !important; transform-origin: 62% 48%; }
+
 /* 画面のタブが裏にあるときは止める */
-.hero-motion.is-paused :is(.hero-slide img, .hc-light i, .hc-dust i) { animation-play-state: paused !important; }
+:is(.hero-motion, .page-fv).is-paused :is(.hero-slide img, .hc-move img, .hc-light i, .hc-dust i) { animation-play-state: paused !important; }
 
 @media (max-width: 700px) {
   .hc-light i { filter: blur(12px); }

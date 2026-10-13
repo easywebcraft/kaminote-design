@@ -1083,7 +1083,19 @@
   "k1073": "月額",
   "k1074": "学童",
   "k1075": "2,500円",
-  "k1076": "1日"
+  "k1076": "1日",
+  "k1077": "3つの園の一覧",
+  "k1078": "かみのて保育園 →",
+  "k1079": "かみのて今渡保育園 →",
+  "k1080": "ハンズオブガッド保育園 →",
+  "k1081": "どの園も見学を受け付けています。",
+  "k1082": "企業主導型保育園です。<br>7:00〜20:00まで、園に直接お申し込みいただけます。",
+  "k1083": "園の紹介 ↓",
+  "k1084": "ほかの園も見る",
+  "k1085": "3つの園を比較する",
+  "k1086": "見学を受け付けています。お気軽にお問い合わせください。",
+  "k1087": "可児市の認可保育園です。<br>0歳〜5歳のお子さまをお預かりしています。",
+  "k1088": "3歳児〜5歳児の、可児市の認可外保育園です。<br>国際色豊かな環境で過ごせます。"
  },
  "en": {
   "k000": "This is <b>Design A</b>. The photos are stand-ins to convey the mood, and the nursery details are quoted from the current website. Text and photos will be replaced.",
@@ -2162,7 +2174,19 @@
   "k1073": "per month",
   "k1074": "After-school care",
   "k1075": "¥2,500",
-  "k1076": "per day"
+  "k1076": "per day",
+  "k1077": "All 3 nurseries",
+  "k1078": "Kaminote Nursery →",
+  "k1079": "Kaminote Imawatari Nursery →",
+  "k1080": "Hands of God Kindergarten →",
+  "k1081": "All of our nurseries welcome visits.",
+  "k1082": "A company-led nursery.<br>Open 7:00–20:00. Apply directly to the nursery.",
+  "k1083": "About ↓",
+  "k1084": "See our other nurseries",
+  "k1085": "Compare the 3 nurseries",
+  "k1086": "We welcome visits. Please feel free to contact us.",
+  "k1087": "A licensed nursery in Kani City.<br>We care for children aged 0 to 5.",
+  "k1088": "An unlicensed nursery in Kani City for ages 3 to 5.<br>Children spend their days in a truly international setting."
  },
  "pt": {
   "k000": "Este é o <b>Plano A</b>. As fotos são apenas de referência, para dar a ideia, e as informações da creche foram citadas do site atual. Textos e fotos serão substituídos.",
@@ -3241,7 +3265,19 @@
   "k1073": "por mês",
   "k1074": "Pós-escola",
   "k1075": "¥2.500",
-  "k1076": "por dia"
+  "k1076": "por dia",
+  "k1077": "As 3 creches",
+  "k1078": "Creche Kaminote →",
+  "k1079": "Creche Kaminote Imawatari →",
+  "k1080": "Creche Hands of God →",
+  "k1081": "Todas as creches aceitam visitas.",
+  "k1082": "Creche de iniciativa empresarial.<br>Funciona das 7h às 20h. Inscrição direto na creche.",
+  "k1083": "Sobre ↓",
+  "k1084": "Conheça as outras creches",
+  "k1085": "Comparar as 3 creches",
+  "k1086": "Aceitamos visitas. Fale conosco à vontade.",
+  "k1087": "Creche licenciada da cidade de Kani.<br>Cuidamos de crianças de 0 a 5 anos.",
+  "k1088": "Creche não licenciada da cidade de Kani para 3 a 5 anos.<br>Um ambiente multicultural para o dia a dia."
  }
 };
 

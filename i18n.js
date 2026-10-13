@@ -1043,7 +1043,21 @@
   "k1033": "ご利用については、お電話またはお問い合わせフォームからご相談ください。",
   "k1034": "お子さまの体調が心配なとき<br>まずはご相談ください",
   "k1035": "病児保育について問い合わせる",
-  "k1036": "病児保育のご相談"
+  "k1036": "病児保育のご相談",
+  "k1037": "こどもがやってみたいと思った気持ちを大切に、自分でためせる環境を整え、そばで見守ります。",
+  "k1038": "うまくいったときは一緒に喜び、うまくいかなくてもまたやってみたくなる気持ちを支えます。",
+  "k1039": "保育理念を見る",
+  "k1040": "かみのて保育園は7:00〜20:00。18時からは延長保育で、補食もご用意しています。朝から夕方まで、はたらくご家庭の生活を支えます。",
+  "k1041": "熱が出たなどで、いつもの園や学校に行けない日に、専属の看護師と保育士がお預かりします。",
+  "k1042": "4か国語に対応しています。ことばや文化のちがうご家庭も、こどもたちの育ちをサポートします。",
+  "k1043": "2つの園について",
+  "k1044": "定員30名",
+  "k1045": "園に直接お申し込み",
+  "k1046": "7:30〜19:30（土・祝は16:30まで）",
+  "k1047": "可児市役所 保育課へお申し込み",
+  "k1048": "園での生活を見る",
+  "k1049": "お知らせ一覧を見る",
+  "k1050": "園の雰囲気を 実際に見てみませんか？"
  },
  "en": {
   "k000": "This is <b>Design A</b>. The photos are stand-ins to convey the mood, and the nursery details are quoted from the current website. Text and photos will be replaced.",
@@ -2082,7 +2096,21 @@
   "k1033": "Please contact us by phone or through the enquiry form.",
   "k1034": "When you’re worried about your child’s health<br>please talk to us first",
   "k1035": "Contact us about sick-child care",
-  "k1036": "Sick-child care enquiries"
+  "k1036": "Sick-child care enquiries",
+  "k1037": "We value each child’s wish to try, prepare a place where they can try things for themselves, and watch over them close by.",
+  "k1038": "When it works, we celebrate together; when it doesn’t, we support the wish to try again.",
+  "k1039": "Our philosophy",
+  "k1040": "Kaminote Nursery is open 7:00–20:00. From 18:00 is extended care, with a light snack. From morning to evening, we support working families.",
+  "k1041": "On days your child can’t go to their usual nursery or school, for example because of a fever, our dedicated nurse and childcare staff look after them.",
+  "k1042": "We support 4 languages, and help children grow in families of every language and culture.",
+  "k1043": "Our two nurseries",
+  "k1044": "Capacity: 30 children",
+  "k1045": "Apply directly to the nursery",
+  "k1046": "7:30–19:30 (Sat. & holidays until 16:30)",
+  "k1047": "Apply to the Childcare Division, Kani City Hall",
+  "k1048": "Life at the nursery",
+  "k1049": "All news",
+  "k1050": "Why not come and see our nursery for yourself?"
  },
  "pt": {
   "k000": "Este é o <b>Plano A</b>. As fotos são apenas de referência, para dar a ideia, e as informações da creche foram citadas do site atual. Textos e fotos serão substituídos.",
@@ -3121,7 +3149,21 @@
   "k1033": "Fale conosco por telefone ou pelo formulário de contato.",
   "k1034": "Quando a saúde da criança preocupar<br>fale conosco primeiro",
   "k1035": "Contato sobre o cuidado para crianças doentes",
-  "k1036": "Contato do cuidado para crianças doentes"
+  "k1036": "Contato do cuidado para crianças doentes",
+  "k1037": "Valorizamos a vontade de tentar de cada criança, preparamos um ambiente para ela experimentar sozinha e acompanhamos de perto.",
+  "k1038": "Quando dá certo, comemoramos juntos; quando não dá, apoiamos a vontade de tentar de novo.",
+  "k1039": "Nossa filosofia",
+  "k1040": "A Creche Kaminote funciona das 7h às 20h. A partir das 18h é horário estendido, com lanche leve. Da manhã à noite, apoiamos as famílias que trabalham.",
+  "k1041": "Nos dias em que a criança não pode ir à creche ou à escola, por exemplo por febre, uma enfermeira e educadoras dedicadas cuidam dela.",
+  "k1042": "Atendemos em 4 idiomas e apoiamos o crescimento das crianças de famílias de diferentes idiomas e culturas.",
+  "k1043": "Nossas duas creches",
+  "k1044": "Capacidade: 30 crianças",
+  "k1045": "Inscrição direto na creche",
+  "k1046": "7h30–19h30 (sábados e feriados até 16h30)",
+  "k1047": "Inscrição na Divisão de Creches da Prefeitura de Kani",
+  "k1048": "A vida na creche",
+  "k1049": "Todas as notícias",
+  "k1050": "Que tal vir conhecer o clima da nossa creche?"
  }
 };
 

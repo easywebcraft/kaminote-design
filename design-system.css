@@ -26,7 +26,8 @@
 
 /* ---------- 字体 ---------- */
 body.v2, body.v2 *:not(svg):not(svg *) { font-family: var(--ds-gothic) !important; }
-body.v2 h1, body.v2 h1 *, body.v2 h2, body.v2 h2 *,
+/* ★ html を前に付けて、上の「すべて角ゴシック」より強くする（:not(svg *) の分だけ上の方が強く、見出しも角ゴシックになっていた。2026-10-13 に直した） */
+html body.v2 h1, html body.v2 h1 *, html body.v2 h2, html body.v2 h2 *,
 body.v2 :is(.pk-num, .pz-num, .yen, .bj-tel a, .soft-num, .life-timeline .t) { font-family: var(--ds-mincho) !important; }
 /* 小さな英字の見出し（ADMISSION など）は角ゴシックの字間広め */
 body.v2 :is(.pk-over, .ag-over-c, .nw-over, .pz-over, .ag-head small, .nw-head small, .pk-en, .page-fv-eyebrow small) { letter-spacing: .2em; }
@@ -328,3 +329,15 @@ body.v2 .head .gnav > a:hover, body.v2 .head .gdrop-t:hover { color: var(--ds-gr
 body.v2 section#contact.sec { background: var(--ds-cream) !important; background-image: none !important; }
 /* ページ全体の地の色（基本CSSでは淡い水色）を、決まりのクリーム色に。段のすき間から水色が見えないように */
 body.v2 { background-color: var(--ds-cream); }
+
+/* ---------- 見出しの中の小さな英字（NEWS など）は角ゴシックのまま（2026-10-13） ---------- */
+html body.v2 :is(h1, h2) small { font-family: var(--ds-gothic) !important; }
+
+/* ---------- 段の上下の余白を広く（2026-10-13）---------- */
+/* 前は上下 44〜76px で窮屈に見えていた。PC は 104px、スマホは 64px を目安に */
+@media (min-width: 761px) {
+  body.v2 :is(.pk-sec, .nw-sec, .pz-sec, .life-section, .home-section, .policy-intro, .policy-detail, .policy-related) { padding-top: 104px !important; padding-bottom: 104px !important; }
+}
+@media (max-width: 760px) {
+  body.v2 :is(.pk-sec, .nw-sec, .pz-sec, .life-section, .home-section, .policy-intro, .policy-detail, .policy-related) { padding-top: 64px !important; padding-bottom: 64px !important; }
+}

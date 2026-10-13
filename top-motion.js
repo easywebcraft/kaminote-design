@@ -8,7 +8,7 @@
   var head = document.querySelector('.head');
   var hero = document.querySelector('.classic-hero');
   var spbar = document.querySelector('.tm-spbar');
-  var visit = document.querySelector('.soft-visit');
+  var visit = document.querySelector('.ed-visit, .soft-visit');
   var foot = document.querySelector('.foot');
   var lenis = null;
 
@@ -65,10 +65,14 @@
         if (stagger) el.style.setProperty('--d', n);
       });
     }
-    mark('.soft h2.soft-title, #soft-news-t, #soft-faq-t, #soft-visit-t', 'rise');
+    mark('.soft h2.soft-title, .ed h2.ed-h, #soft-faq-t', 'rise');
     mark('.soft-point', 'draw', true);
     mark('.soft-gate', 'draw', true);
     mark('.soft-reason', 'card', true);
+    // TOPの作り直し（2026-10-13）：理念の3段階と3つの理由は線が描かれ、2つの園は順に浮かび上がる
+    mark('.ed-step', 'draw', true);
+    mark('.ed-reason', 'draw', true);
+    mark('.ed-park', 'card', true);
     mark('.soft-day-photo', 'circle');
     // 線の長さを 1 として扱う（線が描かれていく動きのため）
     document.querySelectorAll('[data-tm="draw"] .ds-ic svg *').forEach(function (p) {

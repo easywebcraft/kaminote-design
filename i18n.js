@@ -1057,7 +1057,8 @@
   "k1047": "可児市役所 保育課へお申し込み",
   "k1048": "園での生活を見る",
   "k1049": "お知らせ一覧を見る",
-  "k1050": "園の雰囲気を 実際に見てみませんか？"
+  "k1050": "園の雰囲気を 実際に見てみませんか？",
+  "k1051": "園の様子"
  },
  "en": {
   "k000": "This is <b>Design A</b>. The photos are stand-ins to convey the mood, and the nursery details are quoted from the current website. Text and photos will be replaced.",
@@ -2110,7 +2111,8 @@
   "k1047": "Apply to the Childcare Division, Kani City Hall",
   "k1048": "Life at the nursery",
   "k1049": "All news",
-  "k1050": "Why not come and see our nursery for yourself?"
+  "k1050": "Why not come and see our nursery for yourself?",
+  "k1051": "Around the nursery"
  },
  "pt": {
   "k000": "Este é o <b>Plano A</b>. As fotos são apenas de referência, para dar a ideia, e as informações da creche foram citadas do site atual. Textos e fotos serão substituídos.",
@@ -3163,7 +3165,8 @@
   "k1047": "Inscrição na Divisão de Creches da Prefeitura de Kani",
   "k1048": "A vida na creche",
   "k1049": "Todas as notícias",
-  "k1050": "Que tal vir conhecer o clima da nossa creche?"
+  "k1050": "Que tal vir conhecer o clima da nossa creche?",
+  "k1051": "Um pouco da creche"
  }
 };
 

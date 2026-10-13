@@ -1,0 +1,92 @@
+/* =====================================================================
+   TOPをにぎやかに（2026-10-13）。home-editorial.css のあとに読む
+   色・写真・動き・形を足す。手描き風の飾りは増やさない
+   ・色：緑・さんごに、やさしい黄色（--ed-sun）を足して3色で回す。段ごとに地の色を切り替える
+   ・写真：「園の様子」の段で、人の写っていない写真が横に流れる（マウスを乗せると止まる）
+   ・動き：英字の帯がゆっくり流れる。写真の後ろの丸い色の形がふわふわ揺れる
+   ・形：写真を大きな角丸・葉っぱの形・アーチの形で切り抜く
+   ===================================================================== */
+.ed { --ed-sun: #d99a2b; --ed-sun-bg: #fcf3dc; }
+
+/* 段ごとの地の色 */
+.ed-reasons-sec { background: var(--ds-green-bg); }
+.ed-day { background: var(--ed-sun-bg); }
+.ed-visit { background: var(--ds-coral-bg); }
+
+/* 番号とアイコンを1つずつ色ちがいに */
+.ed .c1 { --c: var(--ds-green); --cb: var(--ds-green-bg); }
+.ed .c2 { --c: var(--ds-coral-d); --cb: var(--ds-coral-bg); }
+.ed .c3 { --c: var(--ed-sun); --cb: var(--ed-sun-bg); }
+.ed :is(.ed-step, .ed-reason) .ed-num { color: var(--c); font-style: normal; }
+.ed .ed-step .ds-ic--xl { width: 92px; height: 92px; padding: 22px !important; border-radius: 50% !important; background: var(--cb) !important; color: var(--c); }
+.ed .ed-reason .ds-ic--xl { width: 76px; height: 76px; padding: 18px !important; border-radius: 50% !important; background: #fff !important; color: var(--c); box-shadow: 0 8px 20px rgba(60, 80, 55, .07); }
+.ed .ed-reason h3::after { content: ""; display: block; width: 28px; height: 3px; margin-top: 12px; border-radius: 2px; background: var(--c); }
+.ed .ed-reason + .ed-reason { border-left-color: rgba(79, 127, 99, .18); }
+
+/* 2つの園：写真を大きな角丸にし、後ろに色の丸 */
+.ed-park-photo { overflow: visible; border-radius: 0; }
+.ed-park-photo img { position: relative; z-index: 1; border-radius: 28px; }
+.ed-park-photo::before { content: ""; position: absolute; z-index: 0; width: 62%; aspect-ratio: 1; left: -14%; top: -10%; border-radius: 50%; background: var(--ds-green-bg); animation: ed-float 7s ease-in-out infinite alternate; }
+.ed-park-tx { position: relative; z-index: 1; }  /* 写真の後ろの丸が文字にかからないように */
+.ed-park:nth-child(2) .ed-park-photo::before { left: -12%; right: auto; top: auto; bottom: -10%; background: var(--ds-coral-bg); animation-delay: -3s; }
+.ed-park-photo figcaption { z-index: 2; left: 14px; bottom: 14px; }
+.ed-park:nth-child(2) .ed-park-type { color: var(--ds-coral-d) !important; }
+.ed-park:nth-child(2) .ds-ic--md { color: var(--ds-coral-d); }
+
+/* いつもの一日：写真を葉っぱの形に。後ろに黄色と緑の丸。時間の点を3色で回す */
+.ed .ed-day-photo { position: relative; }
+.ed .ed-day-photo img { position: relative; z-index: 1; border-radius: 46% 8% 46% 8% / 46% 8% 46% 8%; }
+.ed .ed-day-photo::before, .ed .ed-day-photo::after { content: ""; position: absolute; border-radius: 50%; z-index: 0; animation: ed-float 8s ease-in-out infinite alternate; }
+.ed .ed-day-photo::before { width: 34%; aspect-ratio: 1; left: -6%; bottom: -12%; background: #f6e3ae; }
+.ed .ed-day-photo::after { width: 20%; aspect-ratio: 1; right: -4%; top: -8%; background: var(--ds-green-bg); animation-delay: -4s; }
+html body.v2 .ed .ed-day-photo figcaption { z-index: 2; }
+html body.v2 .ed .ed-tl li:nth-child(3n+2)::before { background: var(--ds-coral) !important; }
+html body.v2 .ed .ed-tl li:nth-child(3n)::before { background: var(--ed-sun) !important; }
+.ed .ed-tl li::before { box-shadow: 0 0 0 5px var(--ed-sun-bg); }
+
+/* 見学のおさそい：さんご色の地に、白い丸がふわふわ */
+.ed-visit::before, .ed-visit::after { content: ""; position: absolute; border-radius: 50%; background: rgba(255, 255, 255, .55); animation: ed-float 9s ease-in-out infinite alternate; }
+.ed-visit::before { width: 220px; height: 220px; left: -60px; top: -90px; }
+.ed-visit::after { width: 120px; height: 120px; left: 38%; bottom: -70px; animation-delay: -4s; }
+
+/* ---------- 園の様子（流れる英字の帯＋流れる写真） ---------- */
+.ed-gallery { position: relative; overflow: hidden; padding-block: clamp(64px, 7vw, 100px) clamp(56px, 6vw, 84px); background: var(--ds-cream); }
+.ed-marquee { overflow: hidden; margin-bottom: clamp(28px, 3vw, 44px); white-space: nowrap; }
+.ed-marquee-track { display: inline-flex; align-items: center; gap: 36px; padding-right: 36px; animation: ed-marquee 48s linear infinite; }
+html body.v2 .ed-marquee span { font-family: var(--ds-mincho) !important; font-size: clamp(44px, 7vw, 104px); line-height: 1.1; letter-spacing: .02em; color: transparent; -webkit-text-stroke: 1.2px rgba(79, 127, 99, .5); }
+html body.v2 .ed-marquee span:nth-of-type(3n+2) { -webkit-text-stroke-color: rgba(226, 107, 85, .55); }
+html body.v2 .ed-marquee span:nth-of-type(3n) { -webkit-text-stroke-color: rgba(217, 154, 43, .6); }
+.ed-marquee i { font-style: normal; font-size: clamp(22px, 2.6vw, 36px); color: var(--ds-coral); }
+.ed-photos { overflow: hidden; margin-top: clamp(36px, 4vw, 56px); padding-block: 10px; }
+.ed-photos-track { display: flex; align-items: flex-start; width: max-content; animation: ed-marquee 70s linear infinite; }
+.ed-photos-copy { display: contents; }
+.ed-ph { flex: none; margin: 0 14px; }
+.ed-ph img { display: block; width: clamp(200px, 22vw, 300px); aspect-ratio: 4 / 3; object-fit: cover; }
+.ed-ph--a img { border-radius: 28px; }
+.ed-ph--b img { aspect-ratio: 1; width: clamp(180px, 18vw, 250px); border-radius: 50% 50% 18px 18px; margin-top: 26px; }
+.ed-ph--c img { border-radius: 46% 8% 46% 8% / 46% 8% 46% 8%; }
+.ed-center-note { text-align: center; margin-top: 22px; }
+@media (hover: hover) and (pointer: fine) {
+  .ed-photos:hover .ed-photos-track { animation-play-state: paused; }
+  .ed-ph img { transition: transform .5s cubic-bezier(.22, .61, .36, 1); }
+  .ed-ph:hover img { transform: translateY(-6px) rotate(-1.5deg); }
+}
+
+@keyframes ed-marquee { to { transform: translateX(-50%); } }
+@keyframes ed-float { from { transform: translate(0, 0) scale(1); } to { transform: translate(12px, -14px) scale(1.06); } }
+
+@media (max-width: 760px) {
+  .ed .ed-step .ds-ic--xl { width: 80px; height: 80px; padding: 19px !important; }
+  .ed-park-photo::before { width: 46%; }
+  .ed-marquee-track { animation-duration: 30s; }
+  .ed-photos-track { animation-duration: 50s; }
+  .ed-ph { margin: 0 8px; }
+  .ed-ph img { width: 200px; }
+  .ed-ph--b img { width: 170px; }
+  .ed-visit::after { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ed-marquee-track, .ed-photos-track, .ed-park-photo::before, .ed .ed-day-photo::before, .ed .ed-day-photo::after, .ed-visit::before, .ed-visit::after { animation: none; }
+  .ed-photos { overflow-x: auto; }
+  .ed-photos-copy { display: none; }
+}

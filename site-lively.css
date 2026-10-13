@@ -1,0 +1,80 @@
+/* =====================================================================
+   下層ページをにぎやかに（2026-10-13）。TOP・園での生活と同じ足し方：色・写真・動き・形（手描き風の飾りは増やさない）
+   対象：入園案内・病児保育・お問い合わせ・よくあるご質問・お知らせ・園のご紹介・かみのての保育（採用と保育理念はそのまま）
+   ・色：アイコンを緑・さんご・やさしい黄色の3色で回す。ただし2つの園を色で分けているところ（緑＝かみのて／さんご＝今渡）は変えない
+   ・写真：写真の後ろに色の丸を重ね、ふわふわ揺らす。園のご紹介・かみのての保育には「園の様子」（流れる写真）を入れる
+   ・動き：英字の帯（home-lively.css の ed-marquee）。カードはマウスを乗せると少し浮いて傾く
+   ・形：カードの角を大きく丸める。段の地の色を一部やさしい黄色に
+   ===================================================================== */
+:root { --lv-sun: #d99a2b; --lv-sun-bg: #fcf3dc; }
+.lv-c1 { --c: var(--ds-green); --cb: var(--ds-green-bg); }
+
+/* ---------- アイコンを3色で回す ---------- */
+html body.v2 :is(.bj-summary li, .bj-three > article, .bj-steps > li, .as-temp-list > li, .faq-categories > a, .policy-principle, .policy-process-step) { --c: var(--ds-green); --cb: var(--ds-green-bg); }
+html body.v2 :is(.bj-summary li, .bj-three > article, .bj-steps > li, .as-temp-list > li, .faq-categories > a, .policy-principle, .policy-process-step):nth-child(3n+2) { --c: var(--ds-coral-d); --cb: var(--ds-coral-bg); }
+html body.v2 :is(.bj-summary li, .bj-three > article, .bj-steps > li, .as-temp-list > li, .faq-categories > a, .policy-principle, .policy-process-step):nth-child(3n) { --c: var(--lv-sun); --cb: var(--lv-sun-bg); }
+/* 病児保育の流れ・かみのての保育の流れは、矢印をはさんで並ぶので、番号順に色を決める */
+html body.v2 .bj-steps > li:nth-of-type(1) { --c: var(--ds-green); --cb: var(--ds-green-bg); }
+html body.v2 .bj-steps > li:nth-of-type(2) { --c: var(--ds-coral-d); --cb: var(--ds-coral-bg); }
+html body.v2 .bj-steps > li:nth-of-type(3) { --c: var(--lv-sun); --cb: var(--lv-sun-bg); }
+html body.v2 .bj-steps > li:nth-of-type(4) { --c: var(--ds-green); --cb: var(--ds-green-bg); }
+html body.v2 .policy-process-step:nth-of-type(1) { --c: var(--ds-green); --cb: var(--ds-green-bg); }
+html body.v2 .policy-process-step:nth-of-type(2) { --c: var(--ds-coral-d); --cb: var(--ds-coral-bg); }
+html body.v2 .policy-process-step:nth-of-type(3) { --c: var(--lv-sun); --cb: var(--lv-sun-bg); }
+html body.v2 :is(.bj-summary li, .bj-three > article, .bj-steps > li, .as-temp-list > li, .faq-categories > a, .policy-principle, .policy-process-step) .ds-ic { color: var(--c) !important; }
+html body.v2 :is(.bj-three > article, .bj-steps > li, .as-temp-list > li, .faq-categories > a, .policy-principle, .policy-process-step) :is(.ds-ic--md, .ds-ic--lg) { background: var(--cb) !important; }
+/* よくあるご質問：分類ごとに見出しのアイコンの色を変える */
+html body.v2 #faq-admission .faq-h-ic .ds-ic, html body.v2 #faq-health .faq-h-ic .ds-ic { color: var(--ds-green) !important; }
+html body.v2 #faq-life .faq-h-ic .ds-ic, html body.v2 #faq-language .faq-h-ic .ds-ic { color: var(--ds-coral-d) !important; }
+html body.v2 #faq-fees .faq-h-ic .ds-ic { color: var(--lv-sun) !important; }
+/* かみのての保育：大きな木のアイコンを黄色の丸に */
+html body.v2 .policy-forest-ic .ds-ic { background: var(--lv-sun-bg) !important; color: var(--lv-sun) !important; }
+
+/* ---------- カード：角を大きく丸め、マウスを乗せると少し浮いて傾く ---------- */
+html body.v2 :is(.bj-three > article, .faq-categories > a, .policy-principle, .policy-related a, .ag-card, .pk-card, .nw-card) { border-radius: 24px !important; }
+html body.v2 :is(.bj-three > article, .faq-categories > a, .policy-principle, .policy-related a, .nw-card) { transition: transform .4s cubic-bezier(.22, .61, .36, 1), box-shadow .4s ease; }
+@media (hover: hover) and (pointer: fine) {
+  html body.v2 :is(.bj-three > article, .faq-categories > a, .policy-principle, .policy-related a, .nw-card):hover { transform: translateY(-6px) rotate(-.6deg); box-shadow: 0 18px 34px rgba(60, 80, 55, .1) !important; }
+}
+
+/* ---------- 段の地の色を一部やさしい黄色に（上下はなじむようにぼかす） ---------- */
+html body.v2 :is(#fees.ag-fees, #policy.bj-policy, #flow.pk-flow, #difference, #diary) {
+  background: linear-gradient(180deg, var(--ds-cream) 0, var(--lv-sun-bg) 110px, var(--lv-sun-bg) calc(100% - 110px), var(--ds-cream) 100%) !important;
+}
+
+/* ---------- 写真：後ろに色の丸を重ね、ふわふわ揺らす ---------- */
+html body.v2 :is(.ag-card-photo, .pk-photo, .policy-photo, .nw-card-photo) { position: relative; overflow: visible !important; isolation: isolate; }
+html body.v2 :is(.ag-card-photo, .pk-photo, .policy-photo, .nw-card-photo)::before { content: ""; position: absolute; z-index: -1; width: 40%; aspect-ratio: 1; left: -8%; top: -12%; border-radius: 50%; background: #f6e3ae; animation: lv-float 7s ease-in-out infinite alternate; pointer-events: none; }
+html body.v2 #imawatari .pk-photo::before, html body.v2 .ag-card.peach .ag-card-photo::before { left: auto; right: -8%; top: auto; bottom: -12%; background: var(--ds-coral-bg); animation-delay: -3s; }
+html body.v2 .ag-card.green .ag-card-photo::before { background: #fff; opacity: .7; }
+html body.v2 .ag-card.peach .ag-card-photo::before { background: #fff; opacity: .7; }
+html body.v2 .nw-card-photo::before { width: 30%; left: auto; right: -6%; top: -10%; }
+html body.v2 :is(.ag-card-photo, .policy-photo, .nw-card-photo) img { border-radius: 22px !important; }
+
+/* ---------- 英字の帯だけを入れるページ（入園案内・病児保育・お知らせ・よくあるご質問・お問い合わせ） ---------- */
+.lv-band.ed { background: transparent; padding-block: clamp(28px, 4vw, 56px) 0; overflow: hidden; }
+.lv-band .ed-marquee { margin-bottom: 0; }
+/* 園の様子を入れるページ（園のご紹介・かみのての保育）は、地をクリームに */
+.lv-gallery.ed { background: var(--ds-cream); }
+
+/* ---------- お問い合わせ：電話のカードのまわりに色の丸 ---------- */
+html body.v2 section#contact { position: relative; overflow: hidden; isolation: isolate; }
+html body.v2 section#contact::before, html body.v2 section#contact::after { content: ""; position: absolute; z-index: -1; border-radius: 50%; animation: lv-float 8s ease-in-out infinite alternate; pointer-events: none; }
+html body.v2 section#contact::before { width: 240px; height: 240px; left: 4%; top: 12%; background: var(--lv-sun-bg); }
+html body.v2 section#contact::after { width: 160px; height: 160px; right: 6%; bottom: 10%; background: var(--ds-coral-bg); animation-delay: -4s; }
+
+@keyframes lv-float { from { transform: translate(0, 0) scale(1); } to { transform: translate(12px, -14px) scale(1.06); } }
+@media (max-width: 760px) {
+  html body.v2 :is(.ag-card-photo, .pk-photo, .policy-photo, .nw-card-photo)::before { width: 30%; }
+  html body.v2 section#contact::before { width: 150px; height: 150px; }
+  html body.v2 section#contact::after { width: 100px; height: 100px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html body.v2 :is(.ag-card-photo, .pk-photo, .policy-photo, .nw-card-photo)::before, html body.v2 section#contact::before, html body.v2 section#contact::after { animation: none; }
+  html body.v2 :is(.bj-three > article, .faq-categories > a, .policy-principle, .policy-related a, .nw-card) { transition: none; }
+}
+
+/* 直し：園のご紹介の写真はもともと楕円形。後ろの丸を見せるために枠の切り抜きを外したので、写真そのものを同じ形で切る */
+html body.v2 .pk-photo img { border-radius: inherit !important; }
+/* 直し：かみのての保育の大きな木のアイコンは、段の地を黄色にしたので丸を白に */
+html body.v2 .policy-forest-ic .ds-ic { background: #fff !important; }

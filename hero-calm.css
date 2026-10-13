@@ -1,14 +1,15 @@
 /* =====================================================================
    FVの写真をやさしく動かし続ける（2026-10-13）。TOPは波で写真を切り替える（hero-fv-wave.js）のと一緒に使う
-   ・ゆっくり寄る：写真がとてもゆっくり寄ったり引いたりする（22秒で片道）
+   ・ゆっくり寄る：写真がとてもゆっくり寄ったり引いたりする（22秒で片道）。下層ページだけ。TOPは以前のカメラワーク
    ・光がさす：窓から差すような、やわらかい光の筋がゆっくり揺れる
    ・光の粒：小さな丸い光の粒が、ふわふわ浮かんで消える（粒は hero-calm.js が作る）
    ・奥行き：スクロールすると写真が少し遅れて動く。PCではマウスの位置に合わせて写真がわずかに動く（hero-calm.js が --hc-x / --hc-y を渡す）
    ・「動きを減らす」設定では、どれも動かさない
    ===================================================================== */
-.hero-motion .hero-slide { transform: translate3d(var(--hc-x, 0px), var(--hc-y, 0px), 0) scale(1.06); transition: transform .9s cubic-bezier(.22, .61, .36, 1); will-change: transform; }
+.hero-motion .hero-slide { transform: translate3d(var(--hc-x, 0px), var(--hc-y, 0px), 0); transition: transform .9s cubic-bezier(.22, .61, .36, 1); will-change: transform; }
 .hero-motion .hero-slide.is-current { opacity: 1; }
-.hero-motion .hero-slide:is(.is-current, .is-leaving) img { animation: hc-breathe 22s ease-in-out infinite alternate both !important; transform-origin: 62% 48%; }
+/* TOPの写真の動きは、以前のカメラワーク（hero-fv.css の nursery-camera：写真ごとに寄る・引く・横に流れる）のまま。ここでは上書きしない（2026-10-13）
+   写真そのものが十分に大きく写っているので、奥行きの分だけの拡大（scale）はしない */
 
 /* ---------- 下層ページのFV（.page-fv）にも同じ演出（2026-10-13） ----------
    写真は hero-calm.js が .hc-move で包む。前の「開いたときに少し寄る」（site-motion.css の tm-zoom）の代わりに、ずっとゆっくり寄る */

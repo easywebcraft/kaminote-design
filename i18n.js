@@ -1150,7 +1150,9 @@
   "k1140": "パートナー企業の社員の方は、優先的に入園することもできます。",
   "k1141": "企業の負担なし",
   "k1142": "契約に関する企業の負担はありません。",
-  "k1143": "提携について問い合わせる"
+  "k1143": "提携について問い合わせる",
+  "k1144": "見学（来園）のご予約もこちら",
+  "k1145": "学童保育・今渡保育園の一時預かりもこちら"
  },
  "en": {
   "k000": "This is <b>Design A</b>. The photos are stand-ins to convey the mood, and the nursery details are quoted from the current website. Text and photos will be replaced.",
@@ -2296,7 +2298,9 @@
   "k1140": "Employees of partner companies can also receive priority enrolment.",
   "k1141": "No cost to companies",
   "k1142": "There is no cost to the company for the partnership agreement.",
-  "k1143": "Ask about partnership"
+  "k1143": "Ask about partnership",
+  "k1144": "Also for booking a visit",
+  "k1145": "Also for after-school care and temporary care at Imawatari"
  },
  "pt": {
   "k000": "Este é o <b>Plano A</b>. As fotos são apenas de referência, para dar a ideia, e as informações da creche foram citadas do site atual. Textos e fotos serão substituídos.",
@@ -3442,7 +3446,9 @@
   "k1140": "Funcionários de empresas parceiras também podem ter prioridade na matrícula.",
   "k1141": "Sem custo para a empresa",
   "k1142": "Não há custo para a empresa no contrato de parceria.",
-  "k1143": "Perguntar sobre parceria"
+  "k1143": "Perguntar sobre parceria",
+  "k1144": "Também para agendar visita",
+  "k1145": "Também para pós-escola e cuidado temporário em Imawatari"
  }
 };
 

@@ -96,3 +96,18 @@ html body.v2 .policy-forest-ic .ds-ic { background: #fff !important; }
 @media (max-width: 760px) {
   .pg-notice-box { grid-template-columns: 1fr; padding: 20px; }
 }
+
+/* ---------- 2026-10-14 打ち合わせ：かみのての保育に「多文化に対応した 保育方針」（会社資料 p7） ---------- */
+.pg-practice { padding-block: clamp(64px, 8vw, 104px); }
+.pg-practice h2 { text-align: center; }
+.pg-four { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; margin-top: 34px; }
+.pg-card { padding: 26px 22px 24px; border-radius: 24px; background: #fff; box-shadow: 0 8px 24px rgba(60, 70, 50, .05); }
+.pg-card .ds-ic { margin-bottom: 14px; }
+.pg-card h3 { margin: 0 0 10px; font-size: 17px; letter-spacing: .05em; }
+.pg-card p { margin: 0; }
+html body.v2 .pg-card:nth-child(1) .ds-ic { color: var(--ds-green) !important; background: var(--ds-green-bg) !important; }
+html body.v2 .pg-card:nth-child(2) .ds-ic { color: var(--ds-coral-d) !important; background: var(--ds-coral-bg) !important; }
+html body.v2 .pg-card:nth-child(3) .ds-ic { color: var(--lv-sun) !important; background: var(--lv-sun-bg) !important; }
+html body.v2 .pg-card:nth-child(4) .ds-ic { color: var(--ds-green) !important; background: var(--ds-green-bg) !important; }
+@media (max-width: 1000px) { .pg-four { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 600px) { .pg-four { grid-template-columns: 1fr; } }

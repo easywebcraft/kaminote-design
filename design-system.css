@@ -345,3 +345,16 @@ html body.v2 :is(h1, h2) small { font-family: var(--ds-gothic) !important; }
 /* 採用：園の応募フォームへの案内（2026-10-14） */
 .recruit-apply-note { margin: 14px 0 0 !important; text-align: center; font-size: 13.5px !important; color: var(--ds-mute) !important; }
 .recruit-task-bottom .home-button + .home-button { margin-left: 12px; }
+
+/* ---------- 2026-10-14 打ち合わせ：保育理念の保育方針を4つに ---------- */
+.philo-soft .pz-three.pz-four { grid-template-columns: repeat(4, 1fr); }
+.philo-soft .pz-three.pz-four article { padding-inline: 22px; }
+@media (min-width: 901px) and (max-width: 1100px) {
+  .philo-soft .pz-three.pz-four { grid-template-columns: 1fr 1fr; row-gap: 30px; }
+  .philo-soft .pz-three.pz-four article:nth-child(odd) { border-left: 0; }
+}
+@media (max-width: 900px) {
+  .philo-soft .pz-three.pz-four { grid-template-columns: 1fr; }
+}
+/* 採用：新卒の枠をなくしたので、入口のカードは1枚 */
+.recruit-page .recruit-entry-grid { grid-template-columns: 1fr; max-width: 640px; margin-inline: auto; }

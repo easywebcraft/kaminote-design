@@ -1,0 +1,71 @@
+/* =====================================================================
+   お問い合わせ：電話の案内（3つの園）とお問い合わせフォーム（2026-10-14）
+   項目は園の今のホームページ（kaminotehoikuen.com/contact/）のフォームを元にした。性別は問い合わせに要らないので省いた
+   送り先（data-endpoint）が空のあいだは送信せず、「サンプルのため送信されません」と表示する（contact-form.js）
+   ===================================================================== */
+.cf-sec { padding-block: clamp(64px, 8vw, 104px); background: var(--ds-cream); }
+.cf-sec + .cf-sec { padding-top: 0; }
+.cf-wrap { width: min(980px, calc(100% - 40px)); margin-inline: auto; }
+.cf-sec h2 { margin: 0 0 12px; text-align: center; font-size: clamp(22px, 2.4vw, 30px); letter-spacing: .08em; }
+.cf-sec h2::after { content: ""; display: block; width: 36px; height: 2px; margin: 16px auto 0; background: var(--ds-green); }
+.cf-lead { margin: 22px auto 34px !important; max-width: 640px; text-align: center; }
+
+/* ---------- 電話 ---------- */
+.cf-tels { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 34px; }
+.cf-tel { display: flex; flex-direction: column; align-items: center; gap: 6px; padding: 26px 18px 24px; border-radius: 24px; text-align: center; text-decoration: none; color: var(--ds-ink); transition: transform .4s cubic-bezier(.22, .61, .36, 1), box-shadow .4s ease; }
+.cf-tel.green { background: var(--ds-green-bg); }
+.cf-tel.peach { background: var(--ds-coral-bg); }
+.cf-tel.sun { background: #fcf3dc; }
+.cf-tel b { font-size: 16px; letter-spacing: .04em; }
+.cf-tel small { font-size: 12.5px; color: var(--ds-mute); }
+.cf-tel .num { font-family: var(--ds-mincho) !important; font-size: clamp(22px, 2.2vw, 27px); letter-spacing: .04em; margin-top: 6px; }
+.cf-tel.green .num { color: var(--ds-green-d); }
+.cf-tel.peach .num { color: var(--ds-coral-d); }
+.cf-tel.sun .num { color: #a8711a; }
+@media (hover: hover) and (pointer: fine) {
+  .cf-tel:hover { transform: translateY(-4px); box-shadow: 0 14px 28px rgba(60, 80, 55, .1); }
+}
+
+/* ---------- フォーム ---------- */
+.cf-form { margin-top: 30px; padding: clamp(24px, 4vw, 48px); border-radius: 28px; background: #fff; box-shadow: 0 10px 34px rgba(60, 70, 50, .06); }
+.cf-row { display: grid; grid-template-columns: 220px 1fr; gap: 10px 28px; align-items: start; padding: 20px 0; border-bottom: 1px solid var(--ds-line); }
+.cf-row:first-child { padding-top: 0; }
+.cf-label { padding-top: 12px; font-weight: 700; font-size: 15px; color: var(--ds-ink); }
+.cf-label em { display: inline-block; margin-left: 8px; padding: 1px 8px; border-radius: 4px; font-style: normal; font-size: 11.5px; font-weight: 700; vertical-align: 2px; }
+.cf-label em.req { background: var(--ds-coral); color: #fff; }
+.cf-label em.opt { background: #eceae3; color: var(--ds-mute); }
+.cf-field input[type="text"], .cf-field input[type="tel"], .cf-field input[type="email"], .cf-field input[type="date"], .cf-field select, .cf-field textarea {
+  width: 100%; padding: 13px 15px; border: 1.5px solid #dcd8cc; border-radius: 12px; background: #fdfcf8; font: inherit; font-size: 16px; color: var(--ds-ink); transition: border-color .2s, box-shadow .2s, background-color .2s; }
+.cf-field textarea { min-height: 160px; resize: vertical; line-height: 1.8; }
+.cf-field :is(input, select, textarea):focus { outline: none; border-color: var(--ds-green); background: #fff; box-shadow: 0 0 0 4px rgba(79, 127, 99, .14); }
+.cf-field .cf-hint { margin: 8px 0 0 !important; font-size: 13px !important; color: var(--ds-mute) !important; }
+.cf-choices { display: flex; flex-wrap: wrap; gap: 10px; }
+.cf-choices label { display: inline-flex; align-items: center; gap: 8px; padding: 10px 16px; border: 1.5px solid #dcd8cc; border-radius: 999px; background: #fdfcf8; cursor: pointer; font-size: 15px; transition: border-color .2s, background-color .2s; }
+.cf-choices input { accent-color: var(--ds-green); width: 17px; height: 17px; margin: 0; }
+.cf-choices label:has(input:checked) { border-color: var(--ds-green); background: var(--ds-green-bg); }
+.cf-err { display: none; margin: 8px 0 0 !important; font-size: 13.5px !important; font-weight: 700; color: #c4483a !important; }
+.cf-row.is-bad .cf-err { display: block; }
+.cf-row.is-bad :is(input[type="text"], input[type="tel"], input[type="email"], select, textarea) { border-color: #e08a7d; background: #fff8f6; }
+.cf-agree { display: flex; justify-content: center; padding: 28px 0 8px; }
+.cf-agree label { display: inline-flex; align-items: center; gap: 10px; font-size: 15px; cursor: pointer; }
+.cf-agree input { accent-color: var(--ds-green); width: 19px; height: 19px; }
+.cf-agree-row.is-bad .cf-err { display: block; text-align: center; }
+.cf-submit { display: flex; justify-content: center; margin-top: 18px; }
+.cf-submit button { min-width: 280px; min-height: 58px; padding: 0 36px; border: 0; border-radius: 999px; background: var(--ds-coral); color: #fff; font: inherit; font-size: 16px; font-weight: 700; letter-spacing: .06em; cursor: pointer; box-shadow: 0 8px 18px rgba(226, 107, 85, .25); transition: background-color .2s, transform .2s; }
+.cf-submit button:hover { background: var(--ds-coral-d); transform: translateY(-2px); }
+.cf-result { display: none; margin-top: 26px; padding: 22px 24px; border-radius: 18px; text-align: center; }
+.cf-result.is-shown { display: block; }
+.cf-result.sample { background: #fcf3dc; }
+.cf-result.done { background: var(--ds-green-bg); }
+.cf-result p { margin: 0 0 6px !important; }
+.cf-result b { font-size: 17px; }
+
+@media (max-width: 760px) {
+  .cf-tels { grid-template-columns: 1fr; }
+  .cf-row { grid-template-columns: 1fr; gap: 8px; }
+  .cf-label { padding-top: 0; }
+  .cf-submit button { width: 100%; min-width: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cf-tel, .cf-submit button { transition: none; }
+}

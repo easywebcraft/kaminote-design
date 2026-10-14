@@ -1,0 +1,29 @@
+/* =====================================================================
+   入園案内：「企業主導型保育園とは」「提携企業について」（2026-10-14）
+   出典は園の今のホームページ（kaminotehoikuen.com）の「企業主導型保育所」「企業の方へ」
+   ===================================================================== */
+.am-intro { max-width: 820px; margin: 6px 0 30px; }
+.am-intro p { margin: 0; }
+.am-intro--partner { display: flex; gap: 20px; align-items: flex-start; }
+.am-intro--partner .ds-ic { flex: none; background: #fff !important; }
+.am-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.am-card { padding: 26px 24px 24px; border-radius: 24px; background: #fff; box-shadow: 0 8px 24px rgba(60, 70, 50, .05); transition: transform .4s cubic-bezier(.22, .61, .36, 1), box-shadow .4s ease; }
+.am-card .ds-ic { margin-bottom: 14px; }
+.am-card h3 { margin: 0 0 10px; font-size: 17px; letter-spacing: .05em; }
+.am-card p { margin: 0; }
+/* 3つのカードのアイコンを緑・さんご・黄色で回す */
+html body.v2 .am-card:nth-child(1) .ds-ic { color: var(--ds-green) !important; background: var(--ds-green-bg) !important; }
+html body.v2 .am-card:nth-child(2) .ds-ic { color: var(--ds-coral-d) !important; background: var(--ds-coral-bg) !important; }
+html body.v2 .am-card:nth-child(3) .ds-ic { color: #c98a1f !important; background: #fcf3dc !important; }
+.am-partner { background: linear-gradient(180deg, var(--ds-cream) 0, var(--ds-green-bg) 110px, var(--ds-green-bg) calc(100% - 110px), var(--ds-cream) 100%); }
+.am-actions { margin: 30px 0 0; text-align: center; }
+/* かみのて保育園のページの、説明へのリンク */
+.pg-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 26px; }
+@media (hover: hover) and (pointer: fine) {
+  .am-card:hover { transform: translateY(-5px); box-shadow: 0 16px 30px rgba(60, 80, 55, .1); }
+}
+@media (max-width: 760px) {
+  .am-grid { grid-template-columns: 1fr; }
+  .am-intro--partner { flex-direction: column; gap: 14px; }
+}
+@media (prefers-reduced-motion: reduce) { .am-card { transition: none; } }

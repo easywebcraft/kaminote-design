@@ -341,3 +341,7 @@ html body.v2 :is(h1, h2) small { font-family: var(--ds-gothic) !important; }
 @media (max-width: 760px) {
   body.v2 :is(.pk-sec, .nw-sec, .pz-sec, .life-section, .home-section, .policy-intro, .policy-detail, .policy-related) { padding-top: 64px !important; padding-bottom: 64px !important; }
 }
+
+/* 採用：園の応募フォームへの案内（2026-10-14） */
+.recruit-apply-note { margin: 14px 0 0 !important; text-align: center; font-size: 13.5px !important; color: var(--ds-mute) !important; }
+.recruit-task-bottom .home-button + .home-button { margin-left: 12px; }

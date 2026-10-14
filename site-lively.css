@@ -79,3 +79,20 @@ html body.v2 section#contact::after { width: 160px; height: 160px; right: 6%; bo
 html body.v2 .pk-photo img { border-radius: inherit !important; }
 /* 直し：かみのての保育の大きな木のアイコンは、段の地を黄色にしたので丸を白に */
 html body.v2 .policy-forest-ic .ds-ic { background: #fff !important; }
+
+/* ---------- 園の今のホームページに合わせて足した注記（2026-10-14） ---------- */
+/* 可児市役所の連絡先（入園までの流れの今渡の枠の下） */
+.pg-note { margin: 14px 0 0 !important; font-size: 13.5px !important; line-height: 1.7; color: var(--ds-sub) !important; text-align: center; }
+/* 一時預かりの注記 */
+.pg-notes { list-style: none; margin: 18px 0 0; padding: 16px 18px; border-radius: 16px; background: var(--ds-cream); }
+.pg-notes li { position: relative; padding-left: 16px; font-size: 14px !important; line-height: 1.8; }
+.pg-notes li::before { content: ""; position: absolute; left: 2px; top: .8em; width: 6px; height: 6px; border-radius: 50%; background: var(--ds-green); }
+/* かみのて保育園の入園の受付状況 */
+.pg-notice { padding-bottom: 0 !important; }
+.pg-notice-box { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 14px 28px; padding: 22px 28px; border-radius: 22px; background: var(--ds-coral-bg); }
+.pg-notice-t { margin: 0 !important; font-weight: 700; color: var(--ds-coral-d) !important; letter-spacing: .06em; }
+.pg-notice-box ul { margin: 0; padding-left: 1.2em; }
+.pg-notice-box li { font-size: 15px; line-height: 1.8; }
+@media (max-width: 760px) {
+  .pg-notice-box { grid-template-columns: 1fr; padding: 20px; }
+}

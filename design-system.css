@@ -12,9 +12,10 @@
   --ds-ink: #2f3430;
   --ds-sub: #4b5149;
   --ds-mute: #6b7068;
-  --ds-green: #4f7f63;
-  --ds-green-d: #3d6a50;
-  --ds-green-bg: #eef3e8;
+  /* 2026-10-18 基調を緑から淡いオレンジに（名前は green のまま）。前は #4f7f63 / #3d6a50 / #eef3e8 */
+  --ds-green: #e2894f;
+  --ds-green-d: #a85a24;
+  --ds-green-bg: #fdf1e6;
   --ds-coral: #e26b55;
   --ds-coral-d: #d05a45;
   --ds-coral-bg: #fbefe9;

@@ -18,7 +18,7 @@ html body.v2.park-handsofgod .pk-flow .as-flow-row .ds-ic { color: var(--hog, #c
   html body.v2.park-one .pg-others .pk-cards { grid-template-columns: 1fr 1fr !important; max-width: 860px; margin-inline: auto; }
 }
 html body.v2.park-one .pg-others .pk-actions { text-align: center; margin-top: 28px; }
-html body.v2.park-kaminote .pk-flow .as-flow-row { background: var(--pk-green-bg, #eef3e8); }
+html body.v2.park-kaminote .pk-flow .as-flow-row { background: var(--pk-green-bg, #fdf1e6); }
 html body.v2.park-kaminote .pk-flow .as-flow-row .as-num { background: var(--pk-green, #5d8b67); }
 /* 専用ページでは、一覧の順番を表す「01」「02」「03」は出さない */
 html body.v2.park-one .pk-detail .pk-num { display: none; }

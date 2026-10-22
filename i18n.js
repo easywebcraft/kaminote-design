@@ -1273,7 +1273,31 @@
   "k1263": "勤務時間、日数、入職の時期など、ご事情をうかがったうえでご相談します。詳しい条件は募集要項をご確認ください。",
   "k1264": "応募は、園の応募フォームから受け付けています。見学やご相談からでもかまいません。まずはお問い合わせください。",
   "k1265": "›募集要項",
-  "k1266": "0歳〜2歳のお子さまの、企業主導型保育園です。<br>7:00〜20:00まで、園に直接お申し込みいただけます。"
+  "k1266": "0歳〜2歳のお子さまの、企業主導型保育園です。<br>7:00〜20:00まで、園に直接お申し込みいただけます。",
+  "k1267": "岐阜県可児市｜企業主導型・認可保育園",
+  "k1268": "入園時期がまだ決まっていない方も<br class=\"br-sp\">ご相談いただけます",
+  "k1269": "2園＋病児保育",
+  "k1270": "もしもの日も安心",
+  "k1271": "かみのて保育園について",
+  "k1272": "遊んで、食べて、眠って。<br>毎日の小さな経験が、<br>子どもたちの成長につながっています。",
+  "k1273": "活動",
+  "k1274": "延長保育",
+  "k1275": "※3・4・5歳の例です。時間はおおよその目安です。",
+  "k1276": "園での生活をくわしく見る",
+  "k1277": "病児保育という、もうひとつの選択肢。",
+  "k1278": "<b>対象</b>生後6か月〜小学校6年生",
+  "k1279": "<b>時間</b>9:00〜17:00（月〜金）",
+  "k1280": "<b>料金</b>1回 2,000円",
+  "k1281": "病児保育について詳しく見る",
+  "k1282": "入園を検討している方",
+  "k1283": "園について知りたい方",
+  "k1284": "病児保育を利用したい方",
+  "k1285": "一緒に働きたい方",
+  "k1286": "写真や文章だけでは分からない<br>子どもたちの表情や園の空気を、<br>ぜひ実際にご覧ください。",
+  "k1287": "園を見学する",
+  "k1288": "見学予約",
+  "k1289": "木漏れ日・飾り：ON",
+  "k1290": "ホームページをリニューアルしました"
  },
  "en": {
   "k000": "This is <b>Design A</b>. The photos are stand-ins to convey the mood, and the nursery details are quoted from the current website. Text and photos will be replaced.",
@@ -2542,7 +2566,8 @@
   "k1263": "We will discuss working hours, days and start date based on your situation. Please see the job listing for details.",
   "k1264": "We accept applications through the nursery's application form. You are also welcome to start with a visit or a consultation. Please contact us first.",
   "k1265": "›Job listing",
-  "k1266": "A company-led nursery for children aged 0 to 2.<br>Open 7:00–20:00. Apply directly to the nursery."
+  "k1266": "A company-led nursery for children aged 0 to 2.<br>Open 7:00–20:00. Apply directly to the nursery.",
+  "k1290": "Our website has been renewed"
  },
  "pt": {
   "k000": "Este é o <b>Plano A</b>. As fotos são apenas de referência, para dar a ideia, e as informações da creche foram citadas do site atual. Textos e fotos serão substituídos.",
@@ -3811,7 +3836,8 @@
   "k1263": "Conversamos sobre horários, dias e data de início conforme a sua situação. Veja o anúncio de vaga para os detalhes.",
   "k1264": "Aceitamos candidaturas pelo formulário da creche. Também pode começar com uma visita ou conversa. Fale conosco primeiro.",
   "k1265": "›Anúncio de vaga",
-  "k1266": "Creche de iniciativa empresarial para crianças de 0 a 2 anos.<br>Funciona das 7h às 20h. Inscrição direto na creche."
+  "k1266": "Creche de iniciativa empresarial para crianças de 0 a 2 anos.<br>Funciona das 7h às 20h. Inscrição direto na creche.",
+  "k1290": "Nosso site foi renovado"
  }
 };
 

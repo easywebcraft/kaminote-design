@@ -390,3 +390,9 @@ html body .pk-photo img[src$="kaminote-hiyoko.jpg"], html body .pk-photo img[src
 html body.life-soft :is(.life-activity, .life-season).has-photo > img { height: auto !important; aspect-ratio: 4 / 3; }
 html body.life-soft .life-family-photo img { height: auto !important; aspect-ratio: 4 / 3; }
 html body.life-soft .life-day-photos img { height: auto !important; aspect-ratio: 4 / 3; }
+
+/* ---------- 一番上の写真の文字の読みやすさ（2026-10-26） ----------
+   子どもの写真に替えて、左の見出しの下にも人が写るようになった。左側の影を、光の筋（.hc-light）より上に重ねて少し濃くする（PCのみ） */
+@media (min-width: 701px) {
+  html body .page-fv .page-fv-bg::after { z-index: 4; background: linear-gradient(90deg, rgba(14, 30, 34, .78) 0%, rgba(14, 30, 34, .62) 32%, rgba(14, 30, 34, .22) 58%, rgba(14, 30, 34, 0) 78%) !important; }
+}

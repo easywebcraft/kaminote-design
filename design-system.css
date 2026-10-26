@@ -402,7 +402,8 @@ html body.life-soft .life-day-photos img { height: auto !important; aspect-ratio
    枠は写真より横長なので、横にずらすには拡大が要る。寄りすぎないよう 1.08〜1.15 倍にとどめる */
 @media (min-width: 701px) {
   html body :is(.page-fv-bg .hc-move, .page-fv-bg, .hero-slide) img:is([src$="kids-sandbox.jpg"], [src$="kids-bousai.jpg"], [src$="kids-sandwater.jpg"], [src$="kids-parents.jpg"], [src$="kids-hog-xmas.jpg"]) { max-width: none !important; }
-  html body :is(.page-fv-bg .hc-move, .page-fv-bg, .hero-slide) img[src$="kids-sandbox.jpg"] { width: 112% !important; margin-left: -12%; }
+  /* 砂場（トップの1枚目・お問い合わせ）：横にずらすと上の子の頭が切れたので、ずらさずに上寄せで見せる（2026-10-26） */
+  html body :is(.page-fv-bg .hc-move, .page-fv-bg, .hero-slide) img[src$="kids-sandbox.jpg"] { object-position: 50% 12% !important; }
   html body :is(.page-fv-bg .hc-move, .page-fv-bg, .hero-slide) img[src$="kids-bousai.jpg"] { width: 108% !important; margin-left: -8%; }
   html body :is(.page-fv-bg .hc-move, .page-fv-bg, .hero-slide) img[src$="kids-sandwater.jpg"] { width: 110% !important; margin-left: -10%; }
   html body :is(.page-fv-bg .hc-move, .page-fv-bg, .hero-slide) img[src$="kids-parents.jpg"] { width: 110% !important; margin-left: -10%; }

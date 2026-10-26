@@ -246,3 +246,13 @@
 .life-soft .life-section, .life-soft .life-hero { overflow: hidden; }
 @media (max-width: 1023px) { .life-soft .life-visit { padding-bottom: 44px; } }
 .life-soft .life-visit .life-fine { max-width: 700px; margin-inline: auto; }
+
+/* ---------- 子どもの写真（2026-10-26） ----------
+   掲載の同意をもらった園の写真が届いたので、写真のあるカードは絵の代わりに写真を出す（.has-photo）。写真のないカードは今までどおり絵 */
+.life-soft :is(.life-activity, .life-season).has-photo { padding-top: 12px; }
+.life-soft :is(.life-activity, .life-season).has-photo::before { display: none !important; }
+.life-soft :is(.life-activity, .life-season).has-photo > img { display: block !important; width: calc(100% - 24px); height: 170px; margin: 0 12px 14px; object-fit: cover; border-radius: 16px; }
+.life-soft :is(.life-activity, .life-season).has-photo > .ds-ic, .life-soft .life-activity.has-photo > div > .ds-ic, .life-soft .life-activity.has-photo .ls-art { display: none !important; }
+@media (max-width: 700px) {
+  .life-soft :is(.life-activity, .life-season).has-photo > img { height: 150px; }
+}

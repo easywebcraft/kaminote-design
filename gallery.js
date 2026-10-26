@@ -17,7 +17,7 @@
     items.forEach(function (li) {
       var c = li.cloneNode(true);
       c.setAttribute('aria-hidden', 'true');
-      c.setAttribute('inert', '');
+      c.classList.add('kg-clone');
       c.querySelectorAll('button').forEach(function (b) { b.tabIndex = -1; });
       c.querySelectorAll('img').forEach(function (im) { im.alt = ''; });
       track.appendChild(c);
@@ -66,12 +66,11 @@
     vp.addEventListener('pointerdown', function (e) {
       if (e.pointerType !== 'mouse' || e.button !== 0) return;
       dragging = true; moved = false; startX = e.clientX; startPos = pos;
-      vp.setPointerCapture(e.pointerId);
     });
     vp.addEventListener('pointermove', function (e) {
       if (!dragging) return;
       var dx = e.clientX - startX;
-      if (!moved && Math.abs(dx) > 5) { moved = true; vp.classList.add('is-dragging'); }
+      if (!moved && Math.abs(dx) > 5) { moved = true; vp.classList.add('is-dragging'); vp.setPointerCapture(e.pointerId); }
       if (moved) { pos = startPos - dx; wrap(); apply(); }
     });
     function endDrag(e) {
@@ -129,7 +128,7 @@
       holdFor(800);
       if (opener) {
         // 複製を押していた場合は、元の写真にフォーカスを戻す
-        var target = opener.closest('[inert]') ? items[cur].querySelector('.kg-open') : opener;
+        var target = opener.closest('.kg-clone') ? items[cur].querySelector('.kg-open') : opener;
         target.focus({ preventScroll: true });
       }
     });
@@ -151,8 +150,11 @@
       if (Math.abs(dx) > 50) show(cur + (dx < 0 ? 1 : -1));
     });
 
-    Array.prototype.forEach.call(track.querySelectorAll('.kg-open'), function (btn, i) {
-      btn.addEventListener('click', function () { open(i % items.length, btn); });
+    var buttons = Array.prototype.slice.call(track.querySelectorAll('.kg-open'));
+    track.addEventListener('click', function (e) {
+      var btn = e.target.closest('.kg-open');
+      if (!btn) return;
+      open(buttons.indexOf(btn) % items.length, btn);
     });
 
     // 開始

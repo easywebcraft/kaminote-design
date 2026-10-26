@@ -1,0 +1,68 @@
+/* =====================================================================
+   「園の様子」ギャラリー（2026-10-26）
+   使うページ：TOP（index.html）・園での生活（life.html）。中身は ~/kmtools/km_gallery.py が書き出す
+   ・写真は 4:3 の角丸。切り抜きの位置は写真ごとに style="--pos: 50% 40%" で変えられる
+   ・ゆっくり左へ流れる（gallery.js）。ホバー・フォーカス・操作中は止まり、離すと再開
+   ・写真を押すと拡大（<dialog>）
+   ・前の「流れる英字の帯」と不規則な切り抜き（home-lively.css の .ed-marquee / .ed-ph）はこのセクションでは使わない
+   ===================================================================== */
+.kg { --kg-w: clamp(300px, 26vw, 360px); --kg-gap: 24px; --kg-r: 18px; padding-block: clamp(64px, 7vw, 104px) clamp(56px, 6vw, 88px); background: var(--ds-cream, #fbf8f1); }
+
+/* 見出し */
+.kg-head { text-align: center; margin-bottom: clamp(32px, 3.6vw, 48px); }
+html body.v2 .kg-en { margin: 0 0 10px; font-family: var(--ds-gothic, sans-serif) !important; font-size: 13px; font-weight: 600; letter-spacing: .28em; color: var(--ds-green-d, #a85a24); }
+html body.v2 .kg-title { margin: 0; font-family: var(--ds-mincho, serif) !important; font-weight: 500; font-size: clamp(28px, 2.7vw, 36px); line-height: 1.5; letter-spacing: .1em; color: var(--ds-ink, #2f3430); }
+.kg-title::after { content: ""; display: block; width: 36px; height: 2px; margin: 16px auto 0; border-radius: 2px; background: var(--ds-green, #e2894f); }
+html body.v2 .kg-lead { margin: 18px 0 0; font-size: 15px; line-height: 1.9; letter-spacing: .06em; color: #5b5f58; }
+
+/* 流れる帯：横スクロールできる箱。スクロールバーは見せない */
+.kg-viewport { position: relative; overflow-x: auto; overflow-y: hidden; overscroll-behavior-x: contain; scrollbar-width: none; cursor: grab; outline: none; -webkit-user-select: none; user-select: none; }
+.kg-viewport::-webkit-scrollbar { display: none; }
+.kg-viewport.is-dragging { cursor: grabbing; }
+.kg-viewport:focus-visible { box-shadow: inset 0 0 0 3px rgba(226, 137, 79, .55); border-radius: 12px; }
+.kg-track { display: flex; gap: var(--kg-gap); width: max-content; margin: 0; padding: 4px var(--kg-gap) 8px 0; list-style: none; }
+.kg-item { flex: none; width: var(--kg-w); margin: 0; }
+.kg-open { display: block; width: 100%; padding: 0; border: 0; border-radius: var(--kg-r); background: #efe9dd; cursor: zoom-in; overflow: hidden; }
+.kg-viewport.is-dragging .kg-open { cursor: grabbing; }
+.kg-open:focus-visible { outline: 3px solid var(--ds-green, #e2894f); outline-offset: 3px; }
+.kg-open img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; object-position: var(--pos, 50% 50%); -webkit-user-drag: none; pointer-events: none; transition: transform .6s cubic-bezier(.22, .61, .36, 1); }
+@media (hover: hover) and (pointer: fine) { .kg-open:hover img { transform: scale(1.03); } }
+
+/* キャプション（無い写真は出さない） */
+.kg-cap { margin: 14px 2px 0; }
+.kg-cap:empty { display: none; }
+html body.v2 .kg-cap b { display: block; font-family: var(--ds-mincho, serif) !important; font-weight: 600; font-size: 16px; letter-spacing: .06em; color: var(--ds-ink, #2f3430); }
+html body.v2 .kg-cap span { display: block; margin-top: 4px; font-size: 12.5px; letter-spacing: .06em; color: #7a7d75; }
+
+.kg-hint { margin: 18px 0 0; text-align: center; font-size: 12px; letter-spacing: .08em; color: #8b8d86; }
+
+/* タブレット */
+@media (max-width: 1000px) { .kg { --kg-w: clamp(280px, 38vw, 340px); --kg-gap: 20px; } }
+/* スマホ：1枚＋次の写真が少し見える */
+@media (max-width: 700px) {
+  .kg { --kg-w: 80vw; --kg-gap: 14px; --kg-r: 16px; }
+  .kg-track { padding-left: 0; }
+  html body.v2 .kg-lead { font-size: 14px; padding-inline: 20px; }
+}
+
+/* ---------- 拡大表示 ---------- */
+.kg-lightbox { width: 100vw; height: 100vh; max-width: none; max-height: none; margin: 0; padding: 0; border: 0; background: transparent; color: #fff; }
+.kg-lightbox::backdrop { background: rgba(10, 12, 12, .86); }
+.kg-lb-in { position: relative; display: grid; place-items: center; width: 100%; height: 100%; padding: 64px 72px; box-sizing: border-box; }
+.kg-lb-fig { margin: 0; display: grid; justify-items: center; gap: 14px; max-width: 100%; max-height: 100%; }
+.kg-lb-fig img { display: block; max-width: 100%; max-height: calc(100vh - 180px); width: auto; height: auto; border-radius: 12px; }
+html body.v2 .kg-lb-fig figcaption { font-size: 14px; letter-spacing: .06em; color: rgba(255, 255, 255, .9); text-align: center; }
+.kg-lb-btn { position: absolute; display: grid; place-items: center; width: 48px; height: 48px; padding: 0; border: 1px solid rgba(255, 255, 255, .5); border-radius: 50%; background: rgba(0, 0, 0, .35); color: #fff; font-size: 22px; line-height: 1; cursor: pointer; }
+.kg-lb-btn:hover { background: rgba(255, 255, 255, .16); }
+.kg-lb-btn:focus-visible { outline: 3px solid #ffc89a; outline-offset: 2px; }
+.kg-lb-close { top: 16px; right: 16px; }
+.kg-lb-prev { left: 16px; top: 50%; transform: translateY(-50%); }
+.kg-lb-next { right: 16px; top: 50%; transform: translateY(-50%); }
+html body.v2 .kg-lb-count { margin: 0; position: absolute; top: 28px; left: 24px; font-size: 13px; letter-spacing: .1em; color: rgba(255, 255, 255, .75); }
+html.kg-lock, html.kg-lock body { overflow: hidden; }
+@media (max-width: 700px) {
+  .kg-lb-in { padding: 64px 12px 84px; }
+  .kg-lb-prev, .kg-lb-next { top: auto; bottom: 18px; transform: none; }
+  .kg-lb-prev { left: calc(50% - 60px); }
+  .kg-lb-next { right: calc(50% - 60px); }
+}

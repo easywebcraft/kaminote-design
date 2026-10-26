@@ -379,10 +379,6 @@ img[src$="imawatari-shelf.jpg"] { object-position: 50% 60% !important; }
   html body .page-fv, html body .page-fv[style] { --pfv-bg-h: 75vw !important; }
   html body.home-page .classic-hero, html body .home-page .classic-hero { --fv-bg-h: 75vw !important; }
 }
-/* 園の様子（流れる写真の列）：高さをそろえ、幅は写真の形のまま（縦長の写真は縦長で見せる） */
-html body .ed-ph img, html body .ed-ph--b img { aspect-ratio: auto !important; width: auto !important; height: clamp(150px, 16.5vw, 225px); margin-top: 0; }
-html body .ed-ph--b img { border-radius: 999px 999px 18px 18px; }
-@media (max-width: 700px) { html body .ed-ph img, html body .ed-ph--b img { height: 150px; } }
 /* 園のカード・入園案内のカード・園のページの紹介写真：外観は縦長なので、縦長の枠で見せる */
 html body .ed-park-photo img { aspect-ratio: 4 / 5 !important; height: auto !important; }
 html body .pk-photo img[src$="kaminote-hiyoko.jpg"], html body .pk-photo img[src$="imawatari-exterior.jpg"], html body .pk-photo img[src$="hog-gate.jpg"] { aspect-ratio: 4 / 5 !important; height: auto !important; }

@@ -12,8 +12,9 @@
    写真そのものが十分に大きく写っているので、奥行きの分だけの拡大（scale）はしない */
 
 @keyframes hc-breathe {
-  from { transform: scale(1) translate(-1%, 1%); }
-  to { transform: scale(1.06) translate(1%, -1%); }
+  /* 2026-10-26 さらに弱めた：写真の端が切れるとの声で、ほぼ寄らない（最大 1.03 倍） */
+  from { transform: scale(1); }
+  to { transform: scale(1.03); }
 }
 
 /* 光の筋：右上から斜めに差す、白くやわらかい帯。左の文字のあたりには届かないようにする */
@@ -52,7 +53,7 @@
 /* ---------- 下層ページのFV（.page-fv）にも同じ演出（2026-10-13） ----------
    写真は hero-calm.js が .hc-move で包む。前の「開いたときに少し寄る」（site-motion.css の tm-zoom）の代わりに、ずっとゆっくり寄る */
 .page-fv .page-fv-bg { overflow: hidden; }
-.page-fv .hc-move { position: absolute; inset: 0; z-index: 0; transform: translate3d(var(--hc-x, 0px), var(--hc-y, 0px), 0) scale(1.06); transition: transform .9s cubic-bezier(.22, .61, .36, 1); will-change: transform; }
+.page-fv .hc-move { position: absolute; inset: 0; z-index: 0; transform: translate3d(var(--hc-x, 0px), var(--hc-y, 0px), 0) scale(1.02); transition: transform .9s cubic-bezier(.22, .61, .36, 1); will-change: transform; }
 html body .page-fv .page-fv-bg .hc-move img { width: 100%; height: 100%; object-fit: cover; display: block; animation: hc-breathe 22s ease-in-out infinite alternate both !important; transform-origin: 62% 48%; }
 
 /* 画面のタブが裏にあるときは止める */

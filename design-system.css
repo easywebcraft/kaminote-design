@@ -371,3 +371,22 @@ img[src$="kaminote-garden.jpg"], img[src$="top-garden.jpg"] { object-position: 5
 img[src$="kaminote-hiyoko.jpg"] { object-position: 50% 25% !important; }
 img[src$="imawatari-entrance.jpg"] { object-position: 50% 55% !important; }
 img[src$="imawatari-shelf.jpg"] { object-position: 50% 60% !important; }
+
+/* ---------- 写真を引きで見せる（2026-10-26） ----------
+   「切れている・寄りすぎ」との声で、枠の形を写真の形（横 4:3／縦 3:4）に近づける */
+/* スマホの一番上の写真：画面の高さいっぱいの縦長の枠をやめ、写真と同じ 4:3 の高さにする（波や文字の位置はこの値に付いてくる） */
+@media (max-width: 700px) {
+  html body .page-fv, html body .page-fv[style] { --pfv-bg-h: 75vw !important; }
+  html body.home-page .classic-hero, html body .home-page .classic-hero { --fv-bg-h: 75vw !important; }
+}
+/* 園の様子（流れる写真の列）：高さをそろえ、幅は写真の形のまま（縦長の写真は縦長で見せる） */
+html body .ed-ph img, html body .ed-ph--b img { aspect-ratio: auto !important; width: auto !important; height: clamp(150px, 16.5vw, 225px); margin-top: 0; }
+html body .ed-ph--b img { border-radius: 999px 999px 18px 18px; }
+@media (max-width: 700px) { html body .ed-ph img, html body .ed-ph--b img { height: 150px; } }
+/* 園のカード・入園案内のカード・園のページの紹介写真：外観は縦長なので、縦長の枠で見せる */
+html body .ed-park-photo img { aspect-ratio: 4 / 5 !important; height: auto !important; }
+html body .pk-photo img[src$="kaminote-hiyoko.jpg"], html body .pk-photo img[src$="imawatari-exterior.jpg"], html body .pk-photo img[src$="hog-gate.jpg"] { aspect-ratio: 4 / 5 !important; height: auto !important; }
+/* 園での生活：写真の入ったカード・ご家庭への写真は 4:3 */
+html body.life-soft :is(.life-activity, .life-season).has-photo > img { height: auto !important; aspect-ratio: 4 / 3; }
+html body.life-soft .life-family-photo img { height: auto !important; aspect-ratio: 4 / 3; }
+html body.life-soft .life-day-photos img { height: auto !important; aspect-ratio: 4 / 3; }

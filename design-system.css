@@ -359,3 +359,15 @@ html body.v2 :is(h1, h2) small { font-family: var(--ds-gothic) !important; }
 }
 /* 採用：新卒の枠をなくしたので、入口のカードは1枚 */
 .recruit-page .recruit-entry-grid { grid-template-columns: 1fr; max-width: 640px; margin-inline: auto; }
+
+/* ---------- 施設の写真の見せる位置（2026-10-26） ----------
+   いただいた施設写真は縦長（1086×1448）のまま置いている。前は横長に切り抜いてから枠でさらに切り取っていたので、寄りすぎて全体が見えなかった。
+   枠の形はページごとに違う（横長・正方形・縦長）ので、どの枠でも看板や建物が真ん中に来るよう、写真ごとに縦の位置だけ決める */
+img[src$="kaminote-exterior.jpg"], img[src$="top-exterior.jpg"] { object-position: 50% 80% !important; }
+img[src$="imawatari-exterior.jpg"] { object-position: 50% 75% !important; }
+img[src$="hog-gate.jpg"] { object-position: 50% 85% !important; }
+img[src$="hog-sign.jpg"] { object-position: 50% 60% !important; }
+img[src$="kaminote-garden.jpg"], img[src$="top-garden.jpg"] { object-position: 50% 40% !important; }
+img[src$="kaminote-hiyoko.jpg"] { object-position: 50% 25% !important; }
+img[src$="imawatari-entrance.jpg"] { object-position: 50% 55% !important; }
+img[src$="imawatari-shelf.jpg"] { object-position: 50% 60% !important; }

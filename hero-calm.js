@@ -20,6 +20,24 @@
     mover.appendChild(img);
   }
 
+  // 縦長の写真（施設でいただいた写真）は、PC の横長の枠に広げると半分しか見えず寄りすぎる（2026-10-26）。
+  // 写真をまるごと見せ、空いたところは同じ写真をぼかして埋める。見た目は hero-calm.css の .is-tall。スマホは今までどおり枠いっぱい
+  Array.prototype.forEach.call(bg.querySelectorAll('.hero-slide img, .hc-move img'), function (photo) {
+    function check() {
+      if (!photo.naturalWidth || photo.naturalHeight < photo.naturalWidth * 1.05) return;
+      var box = photo.closest('.hero-slide') || bg;
+      if (box.querySelector('.hc-fill')) return;
+      var fill = document.createElement('img');
+      fill.className = 'hc-fill';
+      fill.src = photo.currentSrc || photo.src;
+      fill.alt = '';
+      fill.setAttribute('aria-hidden', 'true');
+      box.insertBefore(fill, box.firstChild);
+      box.classList.add('is-tall');
+    }
+    if (photo.complete) check(); else photo.addEventListener('load', check);
+  });
+
   // 光の筋（TOPは HTML に書いてある。下層ページはここで作る）
   if (!bg.querySelector('.hc-light')) {
     var light = document.createElement('div');

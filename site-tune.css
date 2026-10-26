@@ -56,3 +56,16 @@ html body .hero-motion .hero-slide img[src$="kids-hog-class.jpg"] { object-posit
 
 /* ---------- お問い合わせフォーム：「採用について」のときに隠す項目 ---------- */
 .cf-form [hidden] { display: none !important; }
+
+/* ---------- 段の上下の余白を詰める（2026-10-26） ----------
+   「余白が多い」との声で、design-system.css の 104px（スマホ 64px）を PC 68px・スマホ 44px に。トップの段・園の様子・見学の案内もそろえる */
+@media (min-width: 761px) {
+  html body.v2 :is(.pk-sec, .nw-sec, .pz-sec, .life-section, .home-section, .policy-intro, .policy-detail, .policy-related, .pg-practice) { padding-top: 68px !important; padding-bottom: 68px !important; }
+  html body.v2 .ed-sec { padding-block: 72px !important; }
+  html body.v2 :is(.ed-visit, .kg) { padding-block: 64px !important; }
+}
+@media (max-width: 760px) {
+  html body.v2 :is(.pk-sec, .nw-sec, .pz-sec, .life-section, .home-section, .policy-intro, .policy-detail, .policy-related, .pg-practice) { padding-top: 44px !important; padding-bottom: 44px !important; }
+  html body.v2 .ed-sec { padding-block: 48px !important; }
+  html body.v2 :is(.ed-visit, .kg) { padding-block: 44px !important; }
+}

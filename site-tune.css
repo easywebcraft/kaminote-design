@@ -87,3 +87,6 @@ html body .page-fv .page-fv-bg .hc-move img { animation: tn-cam 16s ease-in-out 
 @media (prefers-reduced-motion: reduce) {
   html body .hero-motion .hero-slide img, html body .page-fv .page-fv-bg .hc-move img { animation: none !important; transform: none !important; }
 }
+
+/* 採用：「保育の仕事を具体的に」の右の写真を外したので、4つのカードを横幅いっぱいに（2026-10-26） */
+html body .recruit-task-layout { grid-template-columns: 1fr !important; }

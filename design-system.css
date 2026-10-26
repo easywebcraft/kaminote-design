@@ -394,5 +394,9 @@ html body.life-soft .life-day-photos img { height: auto !important; aspect-ratio
 /* ---------- 一番上の写真の文字の読みやすさ（2026-10-26） ----------
    子どもの写真に替えて、左の見出しの下にも人が写るようになった。左側の影を、光の筋（.hc-light）より上に重ねて少し濃くする（PCのみ） */
 @media (min-width: 701px) {
-  html body .page-fv .page-fv-bg::after { z-index: 4; background: linear-gradient(90deg, rgba(14, 30, 34, .78) 0%, rgba(14, 30, 34, .62) 32%, rgba(14, 30, 34, .22) 58%, rgba(14, 30, 34, 0) 78%) !important; }
+  /* 影は文字のある左 4 割ほどにとどめ、右側は写真の明るさのまま（右が暗く見えるとの声で、2026-10-26 に影の範囲を狭め、写真自体も少し明るくした） */
+  html body .page-fv .page-fv-bg::after { z-index: 4; background: linear-gradient(90deg, rgba(14, 30, 34, .78) 0%, rgba(14, 30, 34, .6) 28%, rgba(14, 30, 34, .18) 46%, rgba(14, 30, 34, 0) 60%) !important; }
+  html body .hero-motion .hero-bg::after { background: linear-gradient(90deg, rgba(14, 30, 34, .72) 0%, rgba(14, 30, 34, .5) 28%, rgba(14, 30, 34, .12) 48%, rgba(14, 30, 34, 0) 62%) !important; }
+  html body .page-fv .page-fv-bg img { filter: brightness(1.07) saturate(1.05); }
+  html body .hero-motion .hero-slide img { filter: brightness(1.07) saturate(1.02) contrast(1.03) !important; }
 }

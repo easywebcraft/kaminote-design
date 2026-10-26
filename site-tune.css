@@ -1,0 +1,58 @@
+/* =====================================================================
+   使いやすさの見直し（2026-10-26）。全ページで最後に読み込む
+   ・トップ：3園の紹介を上へ移し、受付状況と病児保育・一時預かりの入口を置いた（tn-*）
+   ・言語メニューに職員の対応言語を添える（.lang-note）
+   ・実用ページ（お問い合わせ・入園案内・FAQ・病児保育・募集要項）は一番上をコンパクトに（.page-fv.is-compact）
+   ・ページを開いた直後の文字の出る演出を短く（待たずに読めるように）
+   ===================================================================== */
+
+/* ---------- トップ：3園 ---------- */
+html body.v2 .tn-parks-lead { margin: 14px 0 0; text-align: center; font-size: 15px; letter-spacing: .05em; color: #5b5f58; }
+.tn-notice { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 10px 22px; max-width: 980px; margin: 28px auto 40px; padding: 16px 24px; border: 1px solid #f0d9c2; border-radius: 16px; background: #fffaf3; }
+html body.v2 .tn-notice-t { margin: 0; padding: 4px 12px; border-radius: 999px; background: var(--ds-green, #e2894f); color: #fff; font-size: 12.5px; font-weight: 700; letter-spacing: .08em; white-space: nowrap; }
+html body.v2 .tn-notice-b { margin: 0; font-size: 14px; line-height: 1.8; color: var(--ds-ink, #2f3430); }
+.tn-notice-b b { margin-right: 4px; }
+html body.v2 .tn-notice-a { font-size: 13.5px; font-weight: 700; color: var(--ds-green-d, #a85a24); white-space: nowrap; text-decoration: none; border-bottom: 1px solid currentColor; }
+.tn-more { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 40px; }
+.tn-more a { display: block; padding: 16px 20px 16px 22px; border: 1px solid #ece4d6; border-radius: 14px; background: #fff; color: inherit; text-decoration: none; transition: border-color .2s, transform .2s; }
+.tn-more a:hover { border-color: var(--ds-green, #e2894f); transform: translateY(-2px); }
+html body.v2 .tn-more b { display: block; font-size: 15px; letter-spacing: .06em; color: var(--ds-ink, #2f3430); }
+.tn-more b::after { content: " →"; color: var(--ds-green, #e2894f); }
+html body.v2 .tn-more span { display: block; margin-top: 4px; font-size: 12.5px; color: #7a7d75; }
+@media (max-width: 760px) {
+  .tn-notice { grid-template-columns: 1fr; justify-items: start; margin: 22px 0 28px; padding: 16px 18px; }
+  .tn-more { grid-template-columns: 1fr; gap: 10px; margin-top: 28px; }
+}
+
+/* ---------- トップ：理念は要約だけ（1段組） ---------- */
+.ed-intro-grid.tn-intro-one { grid-template-columns: minmax(0, 760px); justify-content: center; text-align: center; }
+.tn-intro-one .ed-link { justify-content: center; }
+
+/* ---------- 言語メニュー ---------- */
+.lang-menu .lang-note { margin: 6px 0 0; padding: 10px 14px 8px; border-top: 1px solid rgba(0, 0, 0, .08); font-size: 11.5px; line-height: 1.7; color: #6b6e67; white-space: nowrap; }
+.lang-menu { min-width: 220px; }
+
+/* ---------- 実用ページの一番上をコンパクトに ---------- */
+@media (min-width: 701px) {
+  html body .page-fv.is-compact { min-height: clamp(360px, 46vh, 460px) !important; }
+  html body .page-fv.is-compact .page-fv-copy { padding: 64px 0 60px; }
+}
+@media (max-width: 700px) {
+  html body .page-fv.is-compact, html body .page-fv.is-compact[style] { --pfv-bg-h: 52vw !important; }
+}
+
+/* ---------- 開いた直後の文字の演出を短く ---------- */
+html.tm-on .page-fv h1 .tm-ch { animation-duration: .5s !important; animation-delay: calc(var(--i) * 18ms) !important; }
+html.tm-on .page-fv :is(.page-fv-crumb, .page-fv-eyebrow, .page-fv-sub, .page-fv-lead, .page-fv-actions, .page-fv-jumps, .page-fv-text-link) { animation-duration: .5s !important; animation-delay: .1s !important; }
+html.tm-on .page-fv .page-fv-bg img { animation-duration: 1.2s !important; }
+
+/* ---------- トップの一番上の写真を引きで ---------- */
+/* 寄る動きをほぼなくし（1.00〜1.03 倍）、写真ごとに人の頭が切れない高さで見せる */
+html body .hero-motion .hero-slide:nth-child(n) { --s0: 1.03 !important; --s1: 1 !important; --x0: 0% !important; --x1: 0% !important; --y0: 0% !important; --y1: 0% !important; }
+html body .hero-motion .hero-slide img[src$="kids-sandbox.jpg"] { object-position: 50% 10% !important; }
+html body .hero-motion .hero-slide img[src$="kids-colorplay.jpg"] { object-position: 50% 20% !important; }
+html body .hero-motion .hero-slide img[src$="kids-farm-listen.jpg"] { object-position: 50% 45% !important; }
+html body .hero-motion .hero-slide img[src$="kids-hog-class.jpg"] { object-position: 50% 30% !important; }
+
+/* ---------- お問い合わせフォーム：「採用について」のときに隠す項目 ---------- */
+.cf-form [hidden] { display: none !important; }

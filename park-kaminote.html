@@ -12,6 +12,7 @@
 <link rel="stylesheet" href="hog.css?v=20261013">
 <link rel="stylesheet" href="park-page.css?v=20261018-orange">
 <link rel="stylesheet" href="admission-more.css?v=20261014">
+<link rel="stylesheet" href="site-tune.css?v=2">
 <script>
 // スクロールの動き：ページを描く前に html.tm-on を付ける（後からだと、見出しが一瞬見えてから消える）。
 // 「視差効果を減らす」がオンなら付けない。site-motion.js が4秒たっても読めなければ外して、普通に表示する
@@ -36,15 +37,16 @@
     <div class="lang">
     <button class="lang-btn" type="button" aria-expanded="false" aria-haspopup="true">
       <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M3 12h18M12 3c2.5 2.6 2.5 15.4 0 18M12 3c-2.5 2.6-2.5 15.4 0 18" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>
-      <span data-i18n="k115">言語</span>
+      <span>言語 / Language</span>
     </button>
     <div class="lang-menu" hidden>
       <button type="button" data-lang="ja">日本語</button>
       <button type="button" data-lang="en">English</button>
       <button type="button" data-lang="pt">Português</button>
+      <p class="lang-note">職員の対応言語<br>英語・タガログ語・ビサヤ語・ポルトガル語</p>
     </div>
   </div>
-    <nav class="gnav"><div class="gdrop"><button class="gdrop-t" type="button" aria-expanded="false"><span data-i18n="k098">園について</span><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="gdrop-m"><a href="policy.html" data-i18n="k004">かみのての保育</a><a href="philosophy.html" data-i18n="k116">保育理念</a><a href="news.html" data-i18n="k012">お知らせ</a><a href="faq.html" data-i18n="k117">よくあるご質問</a></div></div><div class="gdrop gdrop-parks"><button class="gdrop-t" type="button" aria-expanded="false"><span data-i18n="k005">園のご紹介</span><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="gdrop-m"><a href="parks.html" data-i18n="k1077">3つの園の一覧</a><a href="park-kaminote.html" aria-current="page" data-i18n="k002">かみのて保育園</a><a href="park-imawatari.html" data-i18n="k051">かみのて今渡保育園</a><a href="park-handsofgod.html" data-i18n="k1055">ハンズオブガッド保育園</a><a href="byoji.html" data-i18n="k006">病児保育</a></div></div><a href="life.html" data-i18n="k100">園での生活</a><a href="admission.html" data-i18n="k007">入園案内</a><a href="recruit.html" data-i18n="k008">採用情報</a><a href="contact.html" data-i18n="k111">お問い合わせ</a></nav>
+    <nav class="gnav"><div class="gdrop"><button class="gdrop-t" type="button" aria-expanded="false"><span>保育理念・方針</span><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="gdrop-m"><a href="policy.html" data-i18n="k004">かみのての保育</a><a href="philosophy.html" data-i18n="k116">保育理念</a><a href="news.html" data-i18n="k012">お知らせ</a><a href="faq.html" data-i18n="k117">よくあるご質問</a></div></div><div class="gdrop gdrop-parks"><button class="gdrop-t" type="button" aria-expanded="false"><span>3つの園・アクセス</span><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="gdrop-m"><a href="parks.html" data-i18n="k1077">3つの園の一覧</a><a href="park-kaminote.html" aria-current="page" data-i18n="k002">かみのて保育園</a><a href="park-imawatari.html" data-i18n="k051">かみのて今渡保育園</a><a href="park-handsofgod.html" data-i18n="k1055">ハンズオブガッド保育園</a><a href="byoji.html" data-i18n="k006">病児保育</a><a href="park-imawatari.html#temporary">一時預かり</a></div></div><a href="life.html" data-i18n="k100">園での生活</a><a href="admission.html">入園案内・保育料</a><a href="recruit.html" data-i18n="k008">採用情報</a><a href="contact.html" data-i18n="k111">お問い合わせ</a></nav>
     <a class="cta-pill" href="contact.html" data-i18n="k091">見学・お問い合わせ</a>
     <button class="burger" type="button" aria-label="メニュー">☰</button>
   </div>

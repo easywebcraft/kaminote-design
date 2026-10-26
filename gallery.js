@@ -112,10 +112,10 @@
     function show(i) {
       cur = (i + items.length) % items.length;
       var im = items[cur].querySelector('img');
-      var b = items[cur].querySelector('.kg-cap b'), s = items[cur].querySelector('.kg-cap span');
+      var b = items[cur].querySelector('.kg-cap b'), s = items[cur].querySelector('.kg-cap span'), pk = items[cur].querySelector('.kg-cap .kg-park');
       lbImg.src = im.currentSrc || im.src;
       lbImg.alt = im.alt;
-      lbCap.textContent = [b && b.textContent, s && s.textContent].filter(Boolean).join('｜') || im.alt;
+      lbCap.textContent = [pk && pk.textContent, b && b.textContent, s && s.textContent].filter(Boolean).join('｜') || im.alt;
       lbCount.textContent = (cur + 1) + ' / ' + items.length;
     }
     function open(i, btn) {

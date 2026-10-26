@@ -58,6 +58,8 @@
 .ed-park-photo img { display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; transition: transform 1.2s cubic-bezier(.22, .61, .36, 1); }
 /* 今渡の外観は園名の看板が横に長いので、縦長に切り抜いても看板が全部入る位置にする */
 .ed-park-photo img[src$="imawatari-exterior.jpg"] { object-position: 15% 50%; }
+/* ハンズオブガッドの門は看板が左にあるので、縦長に切り抜くときは左に寄せる */
+.ed-park-photo img[src$="hog-gate.jpg"] { object-position: 0% 50%; }
 .ed-park-photo figcaption { position: absolute; left: 10px; bottom: 10px; padding: 3px 9px; border-radius: 3px; background: rgba(255, 255, 255, .88); font-size: 11px; color: var(--ds-mute); }
 .ed-park h3 { margin: 0; font-family: var(--ds-mincho) !important; font-size: clamp(20px, 1.9vw, 24px); font-weight: 500; letter-spacing: .06em; }
 .ed-park-type { margin: 8px 0 22px !important; color: var(--ds-green-d) !important; font-weight: 700; font-size: 14.5px !important; }

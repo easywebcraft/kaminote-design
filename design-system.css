@@ -400,3 +400,15 @@ html body.life-soft .life-day-photos img { height: auto !important; aspect-ratio
   html body .page-fv .page-fv-bg img { filter: brightness(1.07) saturate(1.05); }
   html body .hero-motion .hero-slide img { filter: brightness(1.07) saturate(1.02) contrast(1.03) !important; }
 }
+
+/* ---------- 人を明るい右側へ寄せる（2026-10-26・PCのみ） ----------
+   左に人が多い写真は、写真を少しだけ大きくして左端を見出しの影の下へ逃がし、人を右の明るい側へずらす。
+   枠は写真より横長なので、横にずらすには拡大が要る。寄りすぎないよう 1.08〜1.15 倍にとどめる */
+@media (min-width: 701px) {
+  html body :is(.page-fv-bg .hc-move, .page-fv-bg, .hero-slide) img:is([src$="kids-sandbox.jpg"], [src$="kids-bousai.jpg"], [src$="kids-sandwater.jpg"], [src$="kids-parents.jpg"], [src$="kids-hog-xmas.jpg"]) { max-width: none !important; }
+  html body :is(.page-fv-bg .hc-move, .page-fv-bg, .hero-slide) img[src$="kids-sandbox.jpg"] { width: 112% !important; margin-left: -12%; }
+  html body :is(.page-fv-bg .hc-move, .page-fv-bg, .hero-slide) img[src$="kids-bousai.jpg"] { width: 108% !important; margin-left: -8%; }
+  html body :is(.page-fv-bg .hc-move, .page-fv-bg, .hero-slide) img[src$="kids-sandwater.jpg"] { width: 110% !important; margin-left: -10%; }
+  html body :is(.page-fv-bg .hc-move, .page-fv-bg, .hero-slide) img[src$="kids-parents.jpg"] { width: 110% !important; margin-left: -10%; }
+  html body :is(.page-fv-bg .hc-move, .page-fv-bg, .hero-slide) img[src$="kids-hog-xmas.jpg"] { width: 108% !important; margin-left: -8%; }
+}

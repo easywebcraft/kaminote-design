@@ -48,7 +48,6 @@ html.tm-on .page-fv .page-fv-bg img { animation-duration: 1.2s !important; }
 
 /* ---------- トップの一番上の写真を引きで ---------- */
 /* 寄る動きをほぼなくし（1.00〜1.03 倍）、写真ごとに人の頭が切れない高さで見せる */
-html body .hero-motion .hero-slide:nth-child(n) { --s0: 1.03 !important; --s1: 1 !important; --x0: 0% !important; --x1: 0% !important; --y0: 0% !important; --y1: 0% !important; }
 html body .hero-motion .hero-slide img[src$="kids-sandbox.jpg"] { object-position: 50% 10% !important; }
 html body .hero-motion .hero-slide img[src$="kids-colorplay.jpg"] { object-position: 50% 20% !important; }
 html body .hero-motion .hero-slide img[src$="kids-farm-listen.jpg"] { object-position: 50% 45% !important; }
@@ -68,4 +67,23 @@ html body .hero-motion .hero-slide img[src$="kids-hog-class.jpg"] { object-posit
   html body.v2 :is(.pk-sec, .nw-sec, .pz-sec, .life-section, .home-section, .policy-intro, .policy-detail, .policy-related, .pg-practice) { padding-top: 44px !important; padding-bottom: 44px !important; }
   html body.v2 .ed-sec { padding-block: 48px !important; }
   html body.v2 :is(.ed-visit, .kg) { padding-block: 44px !important; }
+}
+
+/* ---------- 一番上の写真のカメラワーク（2026-10-26） ----------
+   止まって見えて退屈との声で、ゆっくり寄りながら横・上下に流す。頭が切れないよう拡大は 1.02〜1.08 倍、寄る中心は写真の上寄り（25〜30%）
+   横・上下に流す量（%）の2倍より拡大を大きくしておくと、端の地色が見えない */
+html body .hero-motion .hero-slide img { transform-origin: 50% 25%; }
+html body .hero-motion.is-playing .hero-slide:is(.is-current, .is-leaving) img { animation: nursery-camera 8s ease-in-out infinite alternate both !important; }
+html body .hero-motion .hero-slide:nth-child(1) { --s0: 1.02 !important; --s1: 1.08 !important; --x0: -1.5% !important; --x1: 1.5% !important; --y0: 0% !important; --y1: 0% !important; }
+html body .hero-motion .hero-slide:nth-child(2) { --s0: 1.08 !important; --s1: 1.03 !important; --x0: 1.5% !important; --x1: -1% !important; --y0: 0% !important; --y1: 0% !important; }
+html body .hero-motion .hero-slide:nth-child(3) { --s0: 1.03 !important; --s1: 1.08 !important; --x0: 0% !important; --x1: 0% !important; --y0: 1% !important; --y1: -1.5% !important; }
+html body .hero-motion .hero-slide:nth-child(4) { --s0: 1.08 !important; --s1: 1.02 !important; --x0: -1% !important; --x1: 1.5% !important; --y0: -.5% !important; --y1: .5% !important; }
+/* 下層ページ：ひとつの写真をゆっくり寄せながら斜めに流す（16秒で片道） */
+@keyframes tn-cam {
+  0% { transform: scale(1.02) translate(-1.5%, .5%); }
+  100% { transform: scale(1.08) translate(1.5%, -1%); }
+}
+html body .page-fv .page-fv-bg .hc-move img { animation: tn-cam 16s ease-in-out infinite alternate both !important; transform-origin: 50% 30% !important; }
+@media (prefers-reduced-motion: reduce) {
+  html body .hero-motion .hero-slide img, html body .page-fv .page-fv-bg .hc-move img { animation: none !important; transform: none !important; }
 }

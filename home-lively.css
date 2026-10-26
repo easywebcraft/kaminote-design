@@ -67,7 +67,7 @@ html body.v2 .ed-marquee span:nth-of-type(3n) { -webkit-text-stroke-color: rgba(
 .ed-ph--c img { border-radius: 46% 8% 46% 8% / 46% 8% 46% 8%; }
 .ed-center-note { text-align: center; margin-top: 22px; }
 @media (hover: hover) and (pointer: fine) {
-  .ed-photos:hover .ed-photos-track { animation-play-state: paused; }
+  /* カーソルを合わせても止めない（2026-10-26）。写真ごとに少し浮く動きだけ残す */
   .ed-ph img { transition: transform .5s cubic-bezier(.22, .61, .36, 1); }
   .ed-ph:hover img { transform: translateY(-6px) rotate(-1.5deg); }
 }

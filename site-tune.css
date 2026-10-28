@@ -95,3 +95,10 @@ html body .recruit-task-layout { grid-template-columns: 1fr !important; }
 .gdrop-m a.gdrop-sub{padding-left:40px; font-size:12.5px}
 .gdrop-m a.gdrop-sub::before{content:"└"; position:absolute; left:24px; color:#b9b4aa}
 .head.open .gnav .gdrop-m a.gdrop-sub{padding-left:40px}
+
+/* ---------- 園での生活：年間行事を季節ごとの4つに（2026-10-28） ---------- */
+html body .life-calendar .ev.ev-season { grid-template-columns:repeat(4,minmax(0,1fr)); }
+.ev-season .ev-m .m small { margin-left:6px; font-size:13px; }
+.life-calendar .ev-note { margin:16px 0 0; text-align:center; font-size:12.5px; color:#6b6e67; }
+@media (max-width:1000px) { html body .life-calendar .ev.ev-season { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+@media (max-width:420px) { html body .life-calendar .ev.ev-season { grid-template-columns:1fr; } }

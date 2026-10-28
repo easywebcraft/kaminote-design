@@ -90,3 +90,8 @@ html body .page-fv .page-fv-bg .hc-move img { animation: tn-cam 16s ease-in-out 
 
 /* 採用：「保育の仕事を具体的に」の右の写真を外したので、4つのカードを横幅いっぱいに（2026-10-26） */
 html body .recruit-task-layout { grid-template-columns: 1fr !important; }
+
+/* ---------- メニュー：病児保育は、かみのて保育園の中の事業として1段下げて見せる（2026-10-28） ---------- */
+.gdrop-m a.gdrop-sub{padding-left:40px; font-size:12.5px}
+.gdrop-m a.gdrop-sub::before{content:"└"; position:absolute; left:24px; color:#b9b4aa}
+.head.open .gnav .gdrop-m a.gdrop-sub{padding-left:40px}

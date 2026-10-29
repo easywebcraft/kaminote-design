@@ -1,0 +1,326 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>ハンズオブガッド学童｜かみのて保育園</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='24' fill='%232c6f92'/><text x='50' y='71' font-size='58' font-weight='bold' text-anchor='middle' font-family='sans-serif' fill='%23fff'>か</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@400;500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Baloo+2:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=02afff2f">
+<link rel="stylesheet" href="site-chrome.css?v=20261012">
+<link rel="stylesheet" href="page-fv.css?v=20261013-full">
+<link rel="stylesheet" href="parks-soft.css?v=20261018-orange">
+<link rel="stylesheet" href="admission-guide.css?v=20261012">
+<link rel="stylesheet" href="byoji-soft.css?v=20261012">
+<link rel="stylesheet" href="design-system.css?v=20261026-sand">
+<link rel="stylesheet" href="site-motion.css?v=20261013-fast">
+<link rel="stylesheet" href="site-lively.css?v=20261015">
+<link rel="stylesheet" href="hero-calm.css?v=20261026-wide">
+<link rel="stylesheet" href="site-tune.css?v=9">
+<script>
+// スクロールの動き：ページを描く前に html.tm-on を付ける（後からだと、見出しが一瞬見えてから消える）。
+// 「視差効果を減らす」がオンなら付けない。site-motion.js が4秒たっても読めなければ外して、普通に表示する
+(function () {
+  try { if (matchMedia('(prefers-reduced-motion: reduce)').matches) return; } catch (e) { return; }
+  var r = document.documentElement; r.classList.add('tm-on');
+  setTimeout(function () { if (!window.__tmReady) r.classList.remove('tm-on'); }, 4000);
+})();
+</script>
+
+<script>
+  // 最初の描画より前に付ける（あとから付けると、見えていたものが消えてから動く）。
+  // ★a/ をルートへ昇格したときに落ちていて、スクロールの動きが効いていなかった（2026-09-19 復旧）
+  document.documentElement.classList.add('anim');
+  // 保険: 下のJSが動かなかったときは、隠したままにしない
+  setTimeout(function () {
+    if (!window.__animReady) { document.documentElement.classList.remove('anim'); }
+  }, 4000);
+</script>
+</head>
+<body class="v2 parks-soft">
+
+
+<!-- ============ ヘッダー ============ -->
+
+
+<header class="head">
+  <div class="head-in">
+    <a class="brand" href="index.html">
+      <img class="mark" src="img/logo-mark.png" alt="" width="313" height="192" decoding="async">
+      <span class="tx">
+        <span class="corp" data-i18n="k001">株式会社 A and K　企業主導型・認可保育園</span>
+        <span class="name" data-i18n="k002">かみのて保育園</span>
+        <span class="en">KAMINOTE NURSERY</span>
+      </span>
+    </a>
+    <div class="lang">
+    <button class="lang-btn" type="button" aria-expanded="false" aria-haspopup="true">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M3 12h18M12 3c2.5 2.6 2.5 15.4 0 18M12 3c-2.5 2.6-2.5 15.4 0 18" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>
+      <span data-i18n="k1291">言語 / Language</span>
+    </button>
+    <div class="lang-menu" hidden>
+      <button type="button" data-lang="ja">日本語</button>
+      <button type="button" data-lang="en">English</button>
+      <button type="button" data-lang="pt">Português</button>
+      <p class="lang-note" data-i18n="k1292">職員の対応言語<br>英語・タガログ語・ビサヤ語・ポルトガル語</p>
+    </div>
+  </div>
+    <nav class="gnav"><div class="gdrop"><button class="gdrop-t" type="button" aria-expanded="false"><span data-i18n="k1293">保育理念・方針</span><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="gdrop-m"><a href="policy.html" data-i18n="k004">かみのての保育</a><a href="philosophy.html" data-i18n="k116">保育理念</a><a href="news.html" data-i18n="k012">お知らせ</a><a href="faq.html" data-i18n="k117">よくあるご質問</a></div></div><div class="gdrop gdrop-parks"><button class="gdrop-t" type="button" aria-expanded="false"><span data-i18n="k1294">3つの園・アクセス</span><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="gdrop-m"><a href="parks.html" data-i18n="k1077">3つの園の一覧</a><a href="park-kaminote.html" data-i18n="k002">かみのて保育園</a><a class="gdrop-sub" href="byoji.html" data-i18n="k006">病児保育</a><a href="park-imawatari.html" data-i18n="k051">かみのて今渡保育園</a><a class="gdrop-sub" href="park-imawatari.html#temporary" data-i18n="k521">一時預かり</a><a href="park-handsofgod.html" data-i18n="k1055">ハンズオブガッド保育園</a><a class="gdrop-sub" href="hog-gakudo.html" aria-current="page" data-i18n="k1421">ハンズオブガッド学童</a></div></div><a href="life.html" data-i18n="k100">園での生活</a><a href="admission.html" data-i18n="k061">入園案内・保育料</a><a href="recruit.html" data-i18n="k008">採用情報</a><a href="contact.html" data-i18n="k111">お問い合わせ</a></nav>
+    <a class="cta-pill" href="contact.html" data-i18n="k091">見学・お問い合わせ</a>
+    <button class="burger" type="button" aria-label="メニュー">☰</button>
+  </div>
+</header>
+
+<!-- 右端に貼りつく縦のボタン（参考イメージの「園見学予約」「病児・病後児保育」）
+     ★文言は既にある鍵を使い回している（k019 / k006）。新しい鍵を足すと
+       i18n_mark.py を掛け直したときに番号がずれるため。 -->
+
+
+<div class="side-cta">
+  <a class="s1" href="contact.html">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5h14v15H5z" fill="none" stroke="#fff" stroke-width="2" stroke-linejoin="round"/><path d="M9 3v4M15 3v4M5 10h14" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg>
+    <span data-i18n="k011">見学のお申し込み</span>
+  </a>
+  <a class="s2" href="byoji.html">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7-4.6-7-9.4A4 4 0 0 1 12 8a4 4 0 0 1 7 2.6c0 4.8-7 9.4-7 9.4Z" fill="none" stroke="#fff" stroke-width="2" stroke-linejoin="round"/></svg>
+    <span data-i18n="k006">病児保育</span>
+  </a>
+</div>
+
+<!-- ============ 左の縦レール ============ -->
+
+
+
+<section class="page-fv is-compact" style="--pfv-next:#fbf8f1">
+<div class="page-fv-bg"><img src="img/hog-gate.jpg" alt="ハンズオブガッドの門" fetchpriority="high" decoding="async"></div>
+<svg class="page-fv-edge t" viewBox="0 0 1440 100" preserveAspectRatio="none" aria-hidden="true"><path d="M0 0H1440V34q-70 40-150 6-70 34-170 4-80 44-190 2-90 40-200 6-80 36-180 2-90 42-200 4-80 38-180 6-70 34-170 4Z"/></svg>
+<svg class="page-fv-edge b" viewBox="0 0 1440 100" preserveAspectRatio="none" aria-hidden="true"><path d="M0 100H1440V66q-70-40-150-6-70-34-170-4-80-44-190-2-90-40-200-6-80-36-180-2-90-42-200-4-80-38-180-6-70-34-170-4Z"/></svg>
+<div class="page-fv-copy">
+<nav class="page-fv-crumb" aria-label="パンくず"><a href="index.html" data-i18n="k118">トップ</a><span aria-hidden="true">›</span><a href="park-handsofgod.html" data-i18n="k1055">ハンズオブガッド保育園</a><span aria-hidden="true">›</span><span data-i18n="k1421">ハンズオブガッド学童</span></nav>
+<p class="page-fv-eyebrow"><span data-i18n="k1421">ハンズオブガッド学童</span> <small>AFTER SCHOOL CARE</small></p>
+<h1 data-i18n="k1422">学校が終わったあとも<br>安心して過ごせる場所を</h1>
+<p class="page-fv-lead" data-i18n="k1423">小学1〜3年生のお子さまを、<br>学校が終わってから19:30までお預かりします。</p>
+<div class="page-fv-actions"><a class="page-fv-btn main" href="contact.html"><i18n-t data-i18n="k1424">学童について相談する</i18n-t> <span aria-hidden="true">→</span></a></div>
+</div>
+</section>
+<!-- 2026-10-30 園からいただいた保育施設パンフレット（エクセル）の「HOG学童」のシートから -->
+<div class="bj-summary"><ul>
+<li><span class="ds-ic ds-ic--st" aria-hidden="true"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M9 12h.01" /><path d="M15 12h.01" /><path d="M10 16c.5.3 1.2.5 2 .5s1.5-.2 2-.5" /><path d="M19 6.3a9 9 0 0 1 1.8 3.9 2 2 0 0 1 0 3.6 9 9 0 0 1-17.6 0 2 2 0 0 1 0-3.6A9 9 0 0 1 12 3c2 0 3.5 1.1 3.5 2.5s-.9 2.5-2 2.5c-.8 0-1.5-.4-1.5-1" /></svg></span><span class="lbl" data-i18n="k054">対象年齢</span><span class="val" data-i18n="k1425">小学1〜3年生</span></li>
+<li><span class="ds-ic ds-ic--st" aria-hidden="true"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><circle cx="12" cy="12" r="10" /><polyline points="12 6 12 12 16 14" /></svg></span><span class="lbl" data-i18n="k550">利用時間</span><span class="val" data-i18n="k1426">学校終了後〜19:30</span><small class="sub" data-i18n="k1427">夏休み・春休みは8:00から</small></li>
+<li><span class="ds-ic ds-ic--st" aria-hidden="true"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M12 9.5V21m0-11.5L6 3m6 6.5L18 3" /><path d="M6 15h12" /><path d="M6 11h12" /></svg></span><span class="lbl" data-i18n="k1428">学童料</span><span class="val" data-i18n="k1429">月 12,000円</span><small class="sub" data-i18n="k1430">兄弟姉妹は1人 10,000円</small></li>
+<li><span class="ds-ic ds-ic--st" aria-hidden="true"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M8 2v4" /><path d="M16 2v4" /><rect width="18" height="18" x="3" y="4" rx="2" /><path d="M3 10h18" /></svg></span><span class="lbl" data-i18n="k1431">開所日</span><span class="val" data-i18n="k1432">月〜金</span><small class="sub" data-i18n="k1433">土日・祝日はお休み</small></li>
+</ul></div>
+<section class="pk-sec bj-about" id="about">
+<div class="pk-wrap bj-about-in">
+<div><p class="pk-over">ABOUT</p><p class="pk-type" data-i18n="k1434">学童のご案内</p><h2 data-i18n="k1435">放課後の毎日の居場所に</h2></div>
+<div><p data-i18n="k1436">ハンズオブガッド学童は、<b>小学1年生から3年生まで</b>のお子さまのための学童です。学校が終わってから19:30まで、夏休み・春休みは朝8:00からお預かりします。</p><p data-i18n="k1437">学校からハンズオブガッドへの送迎や、ご自宅までの送迎もご利用いただけます。</p></div>
+</div>
+</section>
+<section class="pk-sec bj-items" id="hours">
+<div class="pk-wrap">
+<div class="ag-head"><h2 data-i18n="k1438">開所日と時間</h2><small>OPEN HOURS</small></div>
+<table class="bj-items-t"><tbody>
+<tr><th scope="row" data-i18n="k1431">開所日</th><td data-i18n="k1439">月曜日〜金曜日</td></tr>
+<tr><th scope="row" data-i18n="k1440">お休み</th><td data-i18n="k1441">土曜日・日曜日・祝日・GW・お盆休み・年末年始など</td></tr>
+<tr><th scope="row" data-i18n="k1442">ふだんの日</th><td data-i18n="k1443">学校が終わってから19:30まで</td></tr>
+<tr><th scope="row" data-i18n="k1444">夏休み・春休み</th><td>8:00〜19:30</td></tr>
+<tr><th scope="row" data-i18n="k1445">延長</th><td data-i18n="k1446">18:30を過ぎた場合／夏休み・春休みで7:30より前の場合</td></tr>
+</tbody></table>
+</div>
+</section>
+<section class="pk-sec bj-items" id="fee">
+<div class="pk-wrap">
+<div class="ag-head"><h2 data-i18n="k552">料金</h2><small>FEES</small></div>
+<table class="bj-items-t"><thead><tr><th scope="col" data-i18n="k686">項目</th><th scope="col" data-i18n="k552">料金</th></tr></thead><tbody>
+<tr><td data-i18n="k1447">学童料（月額）</td><td data-i18n="k1448">12,000円</td></tr>
+<tr><td data-i18n="k1449">兄弟姉妹で利用する場合（1人あたり・月額）</td><td data-i18n="k530">10,000円</td></tr>
+<tr><td data-i18n="k1450">月10日以下の利用</td><td data-i18n="k1451">1日 1,000円</td></tr>
+<tr><td data-i18n="k1452">夏休み・春休みの1日預かり</td><td data-i18n="k1453">1人 3,000円<br>兄弟姉妹の2人目 2,500円</td></tr>
+<tr><td data-i18n="k1454">延長料金・夕食代（1回）</td><td data-i18n="k1455">200円（朝・夕それぞれ）</td></tr>
+</tbody></table>
+<div class="ag-head" style="margin-top:40px"><h2 data-i18n="k1456">送迎料（月額）</h2><small>PICK-UP</small></div>
+<table class="bj-items-t"><thead><tr><th scope="col" data-i18n="k1457">送迎</th><th scope="col" data-i18n="k552">料金</th></tr></thead><tbody>
+<tr><td data-i18n="k1458">学校 → ハンズオブガッド</td><td data-i18n="k1459">3,000円</td></tr>
+<tr><td data-i18n="k1460">学校 → ハンズオブガッド → ご自宅（可児市）</td><td data-i18n="k1461">5,000円<br>2人目 2,500円</td></tr>
+<tr><td data-i18n="k1462">学校 → ハンズオブガッド → ご自宅（美濃加茂市）</td><td data-i18n="k1463">6,000円<br>2人目 3,000円</td></tr>
+</tbody></table>
+<p class="bj-fine" data-i18n="k1464">※送迎は、月に1回でも利用すると月額の料金がかかります。</p>
+<p class="bj-fine" data-i18n="k1465">※延長になる場合は、原則として夕食代がかかります。</p>
+</div>
+</section>
+<section class="pk-sec bj-info-sec" id="info">
+<div class="pk-wrap">
+<div class="ag-head"><h2 data-i18n="k1029">ご利用前にご確認ください</h2><small>INFORMATION</small></div>
+<div class="bj-info-grid">
+<div class="bj-info green"><span class="ds-ic ds-ic--md" aria-hidden="true"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z" /><path d="M14 2v4a2 2 0 0 0 2 2h4" /><path d="M10 9H8" /><path d="M16 13H8" /><path d="M16 17H8" /></svg></span><div><h3 data-i18n="k1466">注意事項</h3><ul class="bj-checks"><li data-i18n="k1467">学校がお休みの日は、学童は利用できません</li><li data-i18n="k1468">給食がなく下校する日は、お弁当を持たせてください</li><li data-i18n="k1469">送迎だけの利用はできません</li><li data-i18n="k1470">夏休み・春休みは、アンケートでお答えいただいた日だけ利用できます</li></ul></div></div>
+<div class="bj-info peach"><span class="ds-ic ds-ic--md" aria-hidden="true"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M14 22v-4a2 2 0 1 0-4 0v4" /><path d="m18 10 3.447 1.724a1 1 0 0 1 .553.894V20a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-7.382a1 1 0 0 1 .553-.894L6 10" /><path d="M18 5v17" /><path d="m4 6 7.106-3.553a2 2 0 0 1 1.788 0L20 6" /><path d="M6 5v17" /><circle cx="12" cy="9" r="2" /></svg></span><div><h3 data-i18n="k1471">利用できる学区</h3><ul class="bj-checks"><li data-i18n="k1472">今渡北小学校</li><li data-i18n="k1473">今渡南小学校</li><li data-i18n="k1474">土田小学校</li><li data-i18n="k1475">広見小学校</li><li data-i18n="k1476">山手小学校</li><li data-i18n="k1477">古井小学校</li><li data-i18n="k1478">太田小学校</li></ul></div></div>
+</div>
+</div>
+</section>
+<section class="pk-sec pk-visit">
+<div class="pk-wrap bj-visit-in">
+<div><h2 data-i18n="k1479">放課後の過ごし方について<br>お気軽にご相談ください</h2><a class="pk-btn" href="contact.html"><i18n-t data-i18n="k1480">学童について問い合わせる</i18n-t> <span aria-hidden="true">→</span></a></div>
+<div class="bj-tel"><small data-i18n="k1421">ハンズオブガッド学童</small><a href="tel:0574505048">TEL 0574-50-5048</a><small data-i18n="k1481">岐阜県可児市今渡1660-1</small></div>
+</div>
+</section>
+
+
+<!-- ============ 入園案内 ============ -->
+
+
+<a class="tm-spbar" href="contact.html"><i18n-t data-i18n="k091">見学・お問い合わせ</i18n-t><span aria-hidden="true">→</span></a>
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <!-- フッターは地色が濃いので実ロゴを置けない（白抜きのハートと顔に地色が透ける）。
+             仮マークだけ残すとヘッダーと食い違うので、マークは置かず名前だけにする。 -->
+        <div class="brand">
+          <img class="mark" src="img/logo-mark.png" width="313" height="192" alt="">
+          <span class="tx"><span class="name" data-i18n="k002">かみのて保育園</span><span class="en">KAMINOTE NURSERY</span></span>
+        </div>
+        <div class="foot-addr" data-i18n="k097">運営：株式会社 A and K<br>〒509-0207 岐阜県可児市今渡3-11<br>TEL 0574-66-3511</div>
+      </div>
+      <div>
+        <h4 data-i18n="k098">園について</h4>
+        <ul>
+          <li><a href="policy.html" data-i18n="k004">かみのての保育</a></li>
+          <li><a href="philosophy.html" data-i18n="k116">保育理念</a></li>
+          <li><a href="parks.html" data-i18n="k005">園のご紹介</a></li>
+          <li><a href="byoji.html" data-i18n="k099">病児保育のご案内</a></li>
+          <li><a href="life.html" data-i18n="k100">園での生活</a></li>
+          <li><a href="admission.html" data-i18n="k061">入園案内・保育料</a></li>
+          <li><a href="news.html" data-i18n="k012">お知らせ</a></li>
+          <li><a href="faq.html" data-i18n="k117">よくあるご質問</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 data-i18n="k101">グループの事業</h4>
+        <ul>
+          <li><a href="https://easywebcraft.github.io/kaminote-day-design/" data-i18n="k102">児童発達支援・放課後等デイサービス</a><br><span style="font-size:12px;color:#8d857c" data-i18n="k103">かみのてKIDS・かみのてSMILE</span></li>
+          <li><a href="recruit.html" data-i18n="k008">採用情報</a></li>
+          <li><a href="recruit-mid.html" data-i18n="k357">募集要項</a></li>
+          <li><a href="https://www.aandkcorp.com/" data-i18n="k104">会社案内</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="copy"><span>© 2026 A and K Co., Ltd.</span><a href="#" data-i18n="k105">プライバシーポリシー</a></div>
+  </div>
+</footer>
+
+
+
+<!-- ============ 開いたときの動き（後半：順に出す） ============
+     隠す指定と対象の並びは <head> 側にある。ここでは出す順番だけを決める。 -->
+
+
+<script>
+(function () {
+  // ★ここの並びは <head> の隠す指定と必ず同じにすること
+  var ANIM_SEL = '.stats > .wrap > *,'
+               + '.sec > .wrap > *:not(.reasons):not(.parks):not(.adm):not(.news),'
+               + '.reasons > *,'
+               + '.parks > *,'
+               + '.adm > *,'
+               + '.news > *';
+
+  var units = [].slice.call(document.querySelectorAll(ANIM_SEL));
+
+  function sweep() {
+    var vh = window.innerHeight || document.documentElement.clientHeight;
+    var shown = [];
+    for (var i = units.length - 1; i >= 0; i--) {
+      var r = units[i].getBoundingClientRect();
+      if (r.top < vh * 0.92 && r.bottom > 0) {
+        shown.push(units[i]);
+        units.splice(i, 1);                            // 一度出したら見張らない
+      }
+    }
+    if (!shown.length) { return; }
+    shown.sort(function (a, b) {
+      return a.getBoundingClientRect().top - b.getBoundingClientRect().top;
+    }).forEach(function (el, i) {
+      el.style.animationDelay = (i * 0.06) + 's';      // 並んでいるものは少しずつずらす
+      el.classList.add('on');
+    });
+    if (!units.length) {
+      window.removeEventListener('scroll', onScroll);
+      window.removeEventListener('resize', onScroll);
+    }
+  }
+
+  var waiting = false;
+  function onScroll() {
+    if (waiting) { return; }
+    waiting = true;
+    requestAnimationFrame(function () { waiting = false; sweep(); });
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll);
+  sweep();                                             // 最初から見えている分
+  window.addEventListener('load', sweep);              // 画像が入って位置が確定したあと
+
+  window.__animReady = true;                           // <head> の保険に「動いた」と伝える
+
+  // 保険: スクロールを拾えない環境でも、文字が消えたままにはしない
+  setTimeout(function () {
+    units.forEach(function (el) { el.classList.add('on'); });
+    units.length = 0;
+  }, 5000);
+})();
+</script>
+
+
+<script>
+// スマホのメニュー開閉。★ボタンは前からあったが処理が無く、押しても反応しなかった。
+(function () {
+  var head = document.querySelector('.head');
+  var btn = head && head.querySelector('.burger');
+  var nav = head && head.querySelector('.gnav');
+  if (!head || !btn || !nav) { return; }
+  btn.setAttribute('aria-expanded', 'false');
+
+  function close() {
+    head.classList.remove('open');
+    btn.setAttribute('aria-expanded', 'false');
+  }
+  btn.addEventListener('click', function (e) {
+    e.stopPropagation();
+    var open = !head.classList.contains('open');
+    head.classList.toggle('open', open);
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    // 見学のボタンはスマホでは隠れているので、開いたメニューの中に入れておく。
+    // 入れないと、メニューからお問い合わせへ行けない。
+    if (open && !nav.querySelector('.cta-in-menu')) {
+      var cta = head.querySelector('.cta, .cta-pill, .pill-recruit');
+      if (cta) {
+        var c = cta.cloneNode(true);
+        c.className = 'cta-in-menu';
+        c.style.cssText = 'font-weight:700';
+        nav.appendChild(c);
+      }
+    }
+  });
+  // メニューの外を押したら閉じる／項目を押したら閉じる
+  document.addEventListener('click', function (e) {
+    if (head.classList.contains('open') && !head.contains(e.target)) { close(); }
+  });
+  nav.addEventListener('click', function (e) { if (e.target.closest('a')) { close(); } });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') { close(); } });
+  // 幅を広げてボタンが消えたら、開いた状態を持ち越さない
+  window.addEventListener('resize', function () {
+    if (getComputedStyle(btn).display === 'none') { close(); }
+  });
+})();
+</script>
+
+
+<script src="lenis.min.js?v=1.1.20"></script>
+<script src="site-motion.js?v=20261013-full"></script>
+<script src="hero-calm.js?v=20261027-dust2"></script>
+<script src="i18n.js?v=20261015-meeting"></script>
+
+

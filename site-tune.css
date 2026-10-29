@@ -127,3 +127,8 @@ html body .life-calendar .ev.ev-season { grid-template-columns:repeat(4,minmax(0
   .bj-ill dd { margin-bottom:8px; }
   .bj-items-t th, .bj-items-t td { padding:10px 12px; font-size:13.5px; }
 }
+
+/* ハンズオブガッド学童：行の見出しがある表（開所日と時間）と、電話の下の住所 */
+.bj-items-t tbody th { width:30%; background:#fdf1e6; white-space:nowrap; }
+.bj-tel a + small { margin:8px 0 0; }
+@media (max-width: 640px) { .bj-items-t tbody th { white-space:normal; width:34%; } }

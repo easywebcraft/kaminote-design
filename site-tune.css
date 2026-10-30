@@ -132,3 +132,12 @@ html body .life-calendar .ev.ev-season { grid-template-columns:repeat(4,minmax(0
 .bj-items-t tbody th { width:30%; background:#fdf1e6; white-space:nowrap; }
 .bj-tel a + small { margin:8px 0 0; }
 @media (max-width: 640px) { .bj-items-t tbody th { white-space:normal; width:34%; } }
+
+/* お問い合わせの同意欄の下のプライバシーポリシーへのリンク */
+.cf-pp { margin: 0 0 4px !important; text-align: center; font-size: 13.5px !important; }
+.cf-pp a { color: var(--ds-green-d, #3d6a50); text-decoration: underline; text-underline-offset: 3px; }
+
+/* ハンズオブガッド保育園のページから学童のページへの入口 */
+.pk-gakudo { margin: 4px 0 22px !important; }
+html body.v2 .pk-gakudo .pk-pill { display: inline-flex; align-items: center; gap: 10px; padding: 10px 28px; border-radius: 999px; background: #fff; border: 1.5px solid var(--hog, #e08a3c) !important; text-decoration: none; font-weight: 700; }
+html body.v2 .pk-gakudo .pk-pill, html body.v2 .pk-gakudo .pk-pill * { color: var(--hog-d, #b4642a) !important; }
